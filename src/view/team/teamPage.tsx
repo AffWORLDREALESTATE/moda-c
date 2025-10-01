@@ -1,0 +1,484 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { getAllAgents, Agent } from "@/src/api/agents";
+
+export default function TeamPage() {
+  const [agents, setAgents] = useState<Agent[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
+  const [activeFilter, setActiveFilter] = useState<'management' | 'broker'>('management');
+
+  // Utility function to parse nationality
+  const parseNationality = (nationality: string) => {
+    try {
+      if (typeof nationality === 'string' && nationality.startsWith('{')) {
+        const parsed = JSON.parse(nationality);
+        return parsed.label || nationality;
+      }
+      return nationality;
+    } catch (error) {
+      return nationality;
+    }
+  };
+
+  useEffect(() => {
+    async function fetchAgents() {
+      try {
+        const response = await getAllAgents();
+        setAgents(response || []);
+      } catch (error) {
+        console.error('Error fetching agents:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchAgents();
+  }, []);
+
+  // Filter agents based on active filter
+  const filteredAgents = agents.filter(agent => {
+    const agentType = agent.agent_type?.toLowerCase();
+    return agentType === activeFilter;
+  });
+
+
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#DC2626] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600 font-light">Loading our luxury team...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen luxury-bg">
+      <section className="relative pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/3 via-transparent to-black/3"></div>
+        
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#DC2626]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#DC2626]/8 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-center mb-6 md:mb-8"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-4 md:mb-6 leading-[0.9] tracking-tight font-serif"
+            >
+              Meet Our <span className="text-[#DC2626] font-normal relative">
+              Experts
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] rounded-full"
+                />
+              </span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-base sm:text-lg md:text-xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed px-4 font-sans"
+            >
+              Dedicated professionals committed to delivering exceptional real estate experiences
+            </motion.p>
+            
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.2, delay: 0.6 }}
+              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#DC2626] to-transparent mx-auto mt-4 md:mt-6"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Team Grid */}
+      <section className="py-8 md:py-12 px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-6 md:mb-8"
+          >
+            
+            
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
+              <button
+                onClick={() => setActiveFilter('management')}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                  activeFilter === 'management'
+                    ? 'bg-[#DC2626] text-white shadow-lg'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626] hover:shadow-md'
+                }`}
+              >
+                Management
+              </button>
+              <button
+                onClick={() => setActiveFilter('broker')}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                  activeFilter === 'broker'
+                    ? 'bg-[#DC2626] text-white shadow-lg'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626] hover:shadow-md'
+                }`}
+              >
+                Brokers
+              </button>
+            </div>
+            
+            {/* Results Count */}
+            <div className="text-center">
+              <p className="text-sm text-gray-500">
+                Showing {filteredAgents.length} {activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} team members
+              </p>
+            </div>
+          </motion.div>
+
+          {filteredAgents.length > 0 ? (
+            <motion.div
+              key={activeFilter}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-10 items-stretch"
+            >
+              <AnimatePresence mode="wait">
+                {filteredAgents.map((agent) => (
+                <motion.div
+                  key={agent.id}
+                  variants={cardVariants}
+                  layout
+                  className="group cursor-pointer h-full"
+                  onClick={() => setSelectedAgent(agent)}
+                >
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-white/60 hover:border-[#DC2626]/30 group h-96 flex flex-col">
+                    {/* Agent Avatar */}
+                    <div className="relative mb-4 md:mb-6 flex-shrink-0">
+                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-[#DC2626] shadow-lg group-hover:shadow-xl group-hover:border-[#B91C1C] transition-all duration-300 relative">
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#DC2626]/20 to-[#B91C1C]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        {agent.avatar ? (
+                          <Image
+                            src={agent.avatar}
+                            alt={agent.name}
+                            width={128}
+                            height={128}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-0"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center relative z-0">
+                            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                              {agent.name?.charAt(0) || 'A'}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Agent Info */}
+                    <div className="text-center mb-4 md:mb-6 flex-grow flex flex-col justify-center">
+                      <div className="space-y-1">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 leading-tight">
+                          {agent.name}
+                        </h3>
+                        
+                        {/* Designation */}
+                        {agent.role_name && (
+                          <p className="text-[#DC2626] font-medium text-xs sm:text-sm uppercase tracking-wider">
+                            {agent.role_name}
+                          </p>
+                        )}
+                        
+                        {/* Team Name */}
+                        {/* {agent.team_name && agent.team_name !== 'No team assigned' && (
+                          <p className="text-gray-500 font-medium text-xs sm:text-sm">
+                            {agent.team_name}
+                          </p>
+                        )} */}
+                        
+                        {/* Languages */}
+                        {agent.languages && agent.languages.length > 0 && (
+                          <div className="pt-2">
+                            <p className="text-gray-600 text-xs sm:text-sm mb-1">
+                              Languages:
+                            </p>
+                            <div className="flex flex-wrap justify-center gap-1">
+                              {agent.languages.slice(0, 3).map((language, index) => (
+                                <span
+                                  key={index}
+                                  className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
+                                >
+                                  {language}
+                                </span>
+                              ))}
+                              {agent.languages.length > 3 && (
+                                <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
+                                  +{agent.languages.length - 3}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Contact Buttons */}
+                    <div className="flex justify-center gap-3 md:gap-4 mt-auto">
+                      <a
+                        href={`https://wa.me/${agent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${agent.name}, I'm interested in luxury properties in Dubai`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Icon icon="iconoir:whatsapp-solid" className="w-4 h-4 text-white" />
+                      </a>
+                      <a
+                        href={`tel:${agent.phone}`}
+                        className="w-10 h-10 bg-gradient-to-br from-[#DC2626] to-[#B91C1C] hover:from-[#B91C1C] hover:to-[#991B1B] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Icon icon="line-md:phone-call-filled" className="w-4 h-4 text-white" />
+                      </a>
+                      <a
+                        href={`mailto:${agent.email}?subject=Luxury Property Inquiry`}
+                        className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Icon icon="material-symbols:mail-outline" className="w-4 h-4 text-white" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+              </AnimatePresence>
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-12"
+            >
+              <div className="text-gray-400 mb-4">
+                <Icon icon="material-symbols:person-search-outline" className="w-16 h-16 mx-auto" />
+              </div>
+              <h3 className="text-xl font-medium text-gray-600 mb-2">No {activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} found</h3>
+              <p className="text-gray-500">
+                No {activeFilter} team members found. Try selecting a different filter.
+              </p>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-[#F8F6F0] to-[#F2EEE8]">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-800 mb-6 font-serif">
+              Ready to Start Your <span className="text-[#DC2626] font-normal">Luxury Journey</span>?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Connect with our expert team and discover the perfect property that matches your dreams
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contactUs"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Get In Touch
+              </a>
+              <a
+                href="/buy"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white font-medium rounded-full transition-all duration-300"
+              >
+                Browse Properties
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Agent Detail Modal */}
+      <AnimatePresence>
+        {selectedAgent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedAgent(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 50 }}
+              className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-start mb-4 md:mb-6">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-3 md:border-4 border-[#DC2626]">
+                    {selectedAgent.avatar ? (
+                      <Image
+                        src={selectedAgent.avatar}
+                        alt={selectedAgent.name}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center">
+                        <span className="text-xl md:text-2xl font-bold text-white">
+                          {selectedAgent.name?.charAt(0) || 'A'}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <h2 className="text-lg md:text-2xl font-semibold text-gray-800 leading-tight font-serif">
+                      {selectedAgent.name}
+                    </h2>
+                    {selectedAgent.team_name && selectedAgent.team_name !== 'No team assigned' && (
+                      <p className="text-[#DC2626] font-medium text-sm md:text-base uppercase tracking-wider">
+                        {selectedAgent.team_name}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedAgent(null)}
+                  className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                >
+                  <Icon icon="material-symbols:close" className="w-5 h-5 text-gray-600" />
+                </button>
+              </div>
+
+              {selectedAgent.remarks && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">About</h3>
+                  <p className="text-gray-600 leading-relaxed">{selectedAgent.remarks}</p>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                {selectedAgent.experience_years && (
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-1 text-sm md:text-base">Experience</h4>
+                    <p className="text-gray-600 text-sm md:text-base">{selectedAgent.experience_years} Years</p>
+                  </div>
+                )}
+                {selectedAgent.nationality && (
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-1 text-sm md:text-base">Nationality</h4>
+                    <p className="text-gray-600 text-sm md:text-base">
+                      {parseNationality(selectedAgent.nationality)}
+                    </p>
+                  </div>
+                )}
+                {selectedAgent.kyc_verification && (
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-1 text-sm md:text-base">Verification</h4>
+                    <p className="text-green-600 text-sm md:text-base">✓ KYC Verified</p>
+                  </div>
+                )}
+              </div>
+
+              {selectedAgent.languages && selectedAgent.languages.length > 0 && (
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-800 mb-2">Languages</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedAgent.languages.map((lang, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-[#DC2626]/10 text-[#DC2626] rounded-full text-sm"
+                      >
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
+                <a
+                  href={`https://wa.me/${selectedAgent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${selectedAgent.name}, I'm interested in luxury properties in Dubai`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 md:px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
+                >
+                  <Icon icon="iconoir:whatsapp-solid" className="w-4 h-4 md:w-5 md:h-5" />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href={`tel:${selectedAgent.phone}`}
+                  className="flex items-center justify-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-4 md:px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
+                >
+                  <Icon icon="line-md:phone-call-filled" className="w-4 h-4 md:w-5 md:h-5" />
+                  <span>Call</span>
+                </a>
+                <a
+                  href={`mailto:${selectedAgent.email}?subject=Luxury Property Inquiry`}
+                  className="flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-800 text-white px-4 md:px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
+                >
+                  <Icon icon="material-symbols:mail-outline" className="w-4 h-4 md:w-5 md:h-5" />
+                  <span>Email</span>
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
