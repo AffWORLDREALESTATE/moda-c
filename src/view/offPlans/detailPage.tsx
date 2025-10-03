@@ -135,7 +135,7 @@ export default function DetailPage({ id }: any) {
                 <span className="text-gray-300 hidden sm:inline">|</span>
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-gradient-to-r from-[#F8F6F0] to-[#F2EEE8] px-3 sm:px-4 py-3 rounded-xl border border-[#E5E1D8] shadow-lg">
                   <div className="relative">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-3 border-[#DC2626] shadow-md">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-md">
                       {property.agent.avatar ? (
                         <Image
                           src={property.agent.avatar}
@@ -145,7 +145,7 @@ export default function DetailPage({ id }: any) {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center">
+                        <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
                           <span className="text-sm sm:text-lg font-bold text-white">
                             {property.agent.name?.charAt(0) || 'A'}
                           </span>
@@ -160,7 +160,7 @@ export default function DetailPage({ id }: any) {
                     <span className="text-xs sm:text-sm font-semibold text-gray-800 uppercase tracking-wide">
                       {property.agent.name}
                     </span>
-                    <span className="text-xs text-[#DC2626] font-medium uppercase tracking-wider">
+                    <span className="text-xs text-[#0a4b6f] font-medium uppercase tracking-wider">
                       Property Specialist
                     </span>
                   </div>
@@ -175,7 +175,7 @@ export default function DetailPage({ id }: any) {
                     </a>
                     <a
                       href={`tel:${property.agent.phone}`}
-                      className="w-8 h-8 sm:w-10 sm:h-10 bg-[#DC2626] hover:bg-[#B91C1C] rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      className="w-8 h-8 sm:w-10 sm:h-10 bg-[#0a4b6f] hover:bg-[#1a6b8f] rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
                       <Icon icon="line-md:phone-call-filled" className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </a>
@@ -196,10 +196,10 @@ export default function DetailPage({ id }: any) {
           {/* Luxury Property Details Section */}
           <div className="relative mb-16 sm:mb-20">
             {/* Luxury Background Elements */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#DC2626]/5 via-transparent to-[#B91C1C]/5 rounded-3xl"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#DC2626] to-transparent rounded-full"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a4b6f]/5 via-transparent to-[#1a6b8f]/5 rounded-3xl"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#0a4b6f] to-transparent rounded-full"></div>
             
-            <div className="relative bg-white/80 backdrop-blur-sm border border-[#DC2626]/20 rounded-3xl p-8 sm:p-12 shadow-2xl">
+            <div className="relative bg-white/80 backdrop-blur-sm border border-[#0a4b6f]/20 rounded-3xl p-8 sm:p-12 shadow-2xl">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
                 {/* Price Section */}
                 <motion.div 
@@ -208,7 +208,7 @@ export default function DetailPage({ id }: any) {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="text-center group"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#DC2626] mb-3 tracking-[0.2em] font-serif">
+                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">
                     Starting From
                   </h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
@@ -220,7 +220,7 @@ export default function DetailPage({ id }: any) {
                       ? `AED ${property.price.toLocaleString()}`
                       : "Price on Request"}
                   </p>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] mx-auto rounded-full"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto rounded-full"></div>
                 </motion.div>
 
                 {/* Completion Date Section */}
@@ -230,7 +230,7 @@ export default function DetailPage({ id }: any) {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-center group"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#DC2626] mb-3 tracking-[0.2em] font-serif">
+                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">
                     Completion Date
                   </h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
@@ -242,7 +242,7 @@ export default function DetailPage({ id }: any) {
                       ? moment(property?.handoverTime).format("MMMM YYYY")
                       : "TBA"}
                   </p>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] mx-auto rounded-full"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto rounded-full"></div>
                 </motion.div>
 
                 {/* Construction Stage Section */}
@@ -252,13 +252,13 @@ export default function DetailPage({ id }: any) {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-center group sm:col-span-2 lg:col-span-1"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#DC2626] mb-3 tracking-[0.2em] font-serif">
+                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">
                     Construction Stage
                   </h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.constructionStage || property?.completionStatus || "Off-plan"}
                   </p>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] mx-auto rounded-full"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto rounded-full"></div>
                 </motion.div>
               </div>
             </div>
@@ -276,7 +276,7 @@ export default function DetailPage({ id }: any) {
             {property?.description && property.description.length > 200 && (
               <button 
                 onClick={() => setShowFullDescription(!showFullDescription)}
-                className="inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
+                className="inline-flex items-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <span>{showFullDescription ? 'Read Less' : 'Read More'}</span>
                 <Icon icon={showFullDescription ? "lucide:arrow-up" : "lucide:arrow-right"} className="w-4 h-4" />

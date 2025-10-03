@@ -246,7 +246,7 @@ function Buy() {
               placeholder="Location or Project"
               value={filters.title}
               onChange={(e) => handleFilterChange("title", e.target.value)}
-              className="w-full text-gray-800 bg-white/90 border border-[#DC2626]/30 placeholder:text-gray-600 hover:border-[#DC2626]/50 transition-colors font-sans h-12"
+              className="w-full text-gray-800 bg-white/90 border border-[#0a4b6f]/30 placeholder:text-gray-600 hover:border-[#0a4b6f]/50 transition-colors font-sans h-12"
             />
           </div>
           <Button
@@ -351,7 +351,7 @@ function Buy() {
                 value={filters.listing_type}
                 onValueChange={(value) => handleFilterChange("listing_type", value)}
               >
-                <SelectTrigger className="w-full bg-white/90 border border-[#DC2626]/30 text-gray-800 h-12 sm:h-14 hover:border-[#DC2626]/50 transition-colors font-sans">
+                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
                   <SelectValue placeholder="Type" />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
@@ -379,7 +379,7 @@ function Buy() {
                   handleFilterChange("property_type", value)
                 }
               >
-                <SelectTrigger className="w-full bg-white/90 border border-[#DC2626]/30 text-gray-800 h-12 sm:h-14 hover:border-[#DC2626]/50 transition-colors font-sans">
+                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
                   <SelectValue placeholder="Property Type" />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
@@ -401,7 +401,7 @@ function Buy() {
                   handleFilterChange("min_price", value)
                 }
               >
-                <SelectTrigger className="w-full bg-white/90 border border-[#DC2626]/30 text-gray-800 h-12 sm:h-14 hover:border-[#DC2626]/50 transition-colors font-sans">
+                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
                   <SelectValue placeholder="Min Price" />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
@@ -423,7 +423,7 @@ function Buy() {
                   handleFilterChange("max_price", value)
                 }
               >
-                <SelectTrigger className="w-full bg-white/90 border border-[#DC2626]/30 text-gray-800 h-12 sm:h-14 hover:border-[#DC2626]/50 transition-colors font-sans">
+                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
                   <SelectValue placeholder="Max Price" />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
@@ -443,7 +443,7 @@ function Buy() {
                 value={filters.bedrooms}
                 onValueChange={(value) => handleFilterChange("bedrooms", value)}
               >
-                <SelectTrigger className="w-full bg-white/90 border border-[#DC2626]/30 text-gray-800 h-12 sm:h-14 hover:border-[#DC2626]/50 transition-colors font-sans">
+                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
                   <SelectValue placeholder="Beds" />
                 </SelectTrigger>
                 <SelectContent>
@@ -462,7 +462,7 @@ function Buy() {
               <Button
                 onClick={toggleFilters}
                 variant="outline"
-                className="w-28 sm:w-32 h-12 sm:h-14 bg-white/90 hover:bg-white border border-[#DC2626]/30 text-gray-700 hover:border-[#DC2626]/50 transition-colors flex items-center justify-center gap-2 font-sans text-xs sm:text-sm"
+                className="w-28 sm:w-32 h-12 sm:h-14 bg-white/90 hover:bg-white border border-[#0a4b6f]/30 text-gray-700 hover:border-[#0a4b6f]/50 transition-colors flex items-center justify-center gap-2 font-sans text-xs sm:text-sm"
               >
                 <Icon icon="lucide:sliders-horizontal" className="w-3 h-3 sm:w-4 sm:h-4" />
                 More Filters
@@ -470,7 +470,7 @@ function Buy() {
 
               <Button
                 onClick={handleSearch}
-                className="h-12 w-12 sm:h-14 sm:w-14 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] hover:from-[#B91C1C] hover:to-[#991B1B] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                className="h-12 w-12 sm:h-14 sm:w-14 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 <Icon
                   icon="iconamoon:search-fill"
@@ -834,7 +834,7 @@ function Buy() {
                   onClick={() => setCurrentPage(pageNum)}
                   className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
                     currentPage === pageNum
-                      ? 'bg-[#DC2626] text-white'
+                      ? 'bg-[#0a4b6f] text-white'
                       : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
                   }`}
                 >

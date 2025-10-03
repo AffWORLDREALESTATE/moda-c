@@ -179,11 +179,11 @@ export default function DisclaimerPage() {
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-700 mb-2"><strong>EVIDPROPERTIES</strong></p>
-                <p className="text-gray-700 mb-2">2107, Al Manara Tower, Business Bay</p>
-                <p className="text-gray-700 mb-2">Dubai, UAE</p>
-                <p className="text-gray-700 mb-2">Phone: <a href="tel:+971542524242" className="text-blue-600 hover:underline">+971 54 252 4242</a></p>
-                <p className="text-gray-700 mb-2">Email: <a href="mailto:legal@evidproperties.com" className="text-blue-600 hover:underline">legal@evidproperties.com</a></p>
-                <p className="text-gray-700">General Email: <a href="mailto:info@evidproperties.com" className="text-blue-600 hover:underline">info@evidproperties.com</a></p>
+                <p className="text-gray-700 mb-2">1205, Prime Tower</p>
+                <p className="text-gray-700 mb-2">Business Bay, Dubai, UAE</p>
+                <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>
+                <p className="text-gray-700 mb-2">Email: <a href="mailto:legal@modacrealestate.com" className="text-blue-600 hover:underline">legal@modacrealestate.com</a></p>
+                <p className="text-gray-700">General Email: <a href="mailto:info@modacrealestate.com" className="text-blue-600 hover:underline">info@modacrealestate.com</a></p>
               </div>
             </section>
 

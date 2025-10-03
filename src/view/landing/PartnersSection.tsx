@@ -132,7 +132,7 @@ function PartnersSection() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'bg-[#DC2626] scale-125' 
+                    ? 'bg-[#0a4b6f] scale-125' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
               />

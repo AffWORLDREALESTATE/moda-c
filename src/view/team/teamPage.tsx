@@ -72,7 +72,7 @@ export default function TeamPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-[#DC2626] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-[#0a4b6f] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 font-light">Loading our luxury team...</p>
         </div>
       </div>
@@ -85,8 +85,8 @@ export default function TeamPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8]"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/3 via-transparent to-black/3"></div>
         
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#DC2626]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#DC2626]/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#0a4b6f]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0a4b6f]/8 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -101,13 +101,13 @@ export default function TeamPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-4 md:mb-6 leading-[0.9] tracking-tight font-serif"
             >
-              Meet Our <span className="text-[#DC2626] font-normal relative">
+              Meet Our <span className="text-[#0a4b6f] font-normal relative">
               Experts
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1, delay: 0.8 }}
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] rounded-full"
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] rounded-full"
                 />
               </span>
             </motion.h1>
@@ -125,7 +125,7 @@ export default function TeamPage() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1.2, delay: 0.6 }}
-              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#DC2626] to-transparent mx-auto mt-4 md:mt-6"
+              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#0a4b6f] to-transparent mx-auto mt-4 md:mt-6"
             />
           </motion.div>
         </div>
@@ -150,8 +150,8 @@ export default function TeamPage() {
                 onClick={() => setActiveFilter('management')}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeFilter === 'management'
-                    ? 'bg-[#DC2626] text-white shadow-lg'
-                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626] hover:shadow-md'
+                    ? 'bg-[#0a4b6f] text-white shadow-lg'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#0a4b6f] hover:text-[#0a4b6f] hover:shadow-md'
                 }`}
               >
                 Management
@@ -160,8 +160,8 @@ export default function TeamPage() {
                 onClick={() => setActiveFilter('broker')}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeFilter === 'broker'
-                    ? 'bg-[#DC2626] text-white shadow-lg'
-                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626] hover:shadow-md'
+                    ? 'bg-[#0a4b6f] text-white shadow-lg'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#0a4b6f] hover:text-[#0a4b6f] hover:shadow-md'
                 }`}
               >
                 Brokers
@@ -193,12 +193,12 @@ export default function TeamPage() {
                   className="group cursor-pointer h-full"
                   onClick={() => setSelectedAgent(agent)}
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-white/60 hover:border-[#DC2626]/30 group h-96 flex flex-col">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-white/60 hover:border-[#0a4b6f]/30 group h-96 flex flex-col">
                     {/* Agent Avatar */}
                     <div className="relative mb-4 md:mb-6 flex-shrink-0">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-[#DC2626] shadow-lg group-hover:shadow-xl group-hover:border-[#B91C1C] transition-all duration-300 relative">
+                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-lg group-hover:shadow-xl group-hover:border-[#1a6b8f] transition-all duration-300 relative">
                         {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#DC2626]/20 to-[#B91C1C]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0a4b6f]/20 to-[#1a6b8f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                         {agent.avatar ? (
                           <Image
                             src={agent.avatar}
@@ -208,7 +208,7 @@ export default function TeamPage() {
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-0"
                           />
                         ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center relative z-0">
+                          <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center relative z-0">
                             <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                               {agent.name?.charAt(0) || 'A'}
                             </span>
@@ -229,7 +229,7 @@ export default function TeamPage() {
                         
                         {/* Designation */}
                         {agent.role_name && (
-                          <p className="text-[#DC2626] font-medium text-xs sm:text-sm uppercase tracking-wider">
+                          <p className="text-[#0a4b6f] font-medium text-xs sm:text-sm uppercase tracking-wider">
                             {agent.role_name}
                           </p>
                         )}
@@ -280,7 +280,7 @@ export default function TeamPage() {
                       </a>
                       <a
                         href={`tel:${agent.phone}`}
-                        className="w-10 h-10 bg-gradient-to-br from-[#DC2626] to-[#B91C1C] hover:from-[#B91C1C] hover:to-[#991B1B] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+                        className="w-10 h-10 bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <Icon icon="line-md:phone-call-filled" className="w-4 h-4 text-white" />
@@ -326,7 +326,7 @@ export default function TeamPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-800 mb-6 font-serif">
-              Ready to Start Your <span className="text-[#DC2626] font-normal">Luxury Journey</span>?
+              Ready to Start Your <span className="text-[#0a4b6f] font-normal">Luxury Journey</span>?
             </h2>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Connect with our expert team and discover the perfect property that matches your dreams
@@ -334,13 +334,13 @@ export default function TeamPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contactUs"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Get In Touch
               </a>
               <a
                 href="/buy"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white font-medium rounded-full transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#0a4b6f] text-[#0a4b6f] hover:bg-[#0a4b6f] hover:text-white font-medium rounded-full transition-all duration-300"
               >
                 Browse Properties
               </a>
@@ -368,7 +368,7 @@ export default function TeamPage() {
             >
               <div className="flex justify-between items-start mb-4 md:mb-6">
                 <div className="flex items-center gap-3 md:gap-4">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-3 md:border-4 border-[#DC2626]">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-3 md:border-4 border-[#0a4b6f]">
                     {selectedAgent.avatar ? (
                       <Image
                         src={selectedAgent.avatar}
@@ -378,7 +378,7 @@ export default function TeamPage() {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
                         <span className="text-xl md:text-2xl font-bold text-white">
                           {selectedAgent.name?.charAt(0) || 'A'}
                         </span>
@@ -390,7 +390,7 @@ export default function TeamPage() {
                       {selectedAgent.name}
                     </h2>
                     {selectedAgent.team_name && selectedAgent.team_name !== 'No team assigned' && (
-                      <p className="text-[#DC2626] font-medium text-sm md:text-base uppercase tracking-wider">
+                      <p className="text-[#0a4b6f] font-medium text-sm md:text-base uppercase tracking-wider">
                         {selectedAgent.team_name}
                       </p>
                     )}
@@ -441,7 +441,7 @@ export default function TeamPage() {
                     {selectedAgent.languages.map((lang, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-[#DC2626]/10 text-[#DC2626] rounded-full text-sm"
+                        className="px-3 py-1 bg-[#0a4b6f]/10 text-[#0a4b6f] rounded-full text-sm"
                       >
                         {lang}
                       </span>
@@ -462,7 +462,7 @@ export default function TeamPage() {
                 </a>
                 <a
                   href={`tel:${selectedAgent.phone}`}
-                  className="flex items-center justify-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-4 md:px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
+                  className="flex items-center justify-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 md:px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
                 >
                   <Icon icon="line-md:phone-call-filled" className="w-4 h-4 md:w-5 md:h-5" />
                   <span>Call</span>

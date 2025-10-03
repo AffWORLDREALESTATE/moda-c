@@ -100,8 +100,8 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 md:py-24 text-center px-2 sm:px-4">
-        <p className="text-[#DC2626] text-xs sm:text-sm uppercase tracking-widest mb-2 font-light">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 text-center px-3 sm:px-4 md:px-6 lg:px-8">
+        <p className="text-[#0a4b6f] text-xs sm:text-sm uppercase tracking-widest mb-2 font-light">
           COMMUNITIES
         </p>
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono text-gray-800 mb-4 sm:mb-6 tracking-wide font-serif px-2">
@@ -116,7 +116,7 @@ export default function Component() {
       </section>
 
       {/* Communities Section - Carousel */}
-      <section className="relative pb-12 sm:pb-16 px-2 sm:px-4 md:px-12">
+      <section className="relative pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 lg:px-12 xl:px-20">
         <Carousel
           setApi={setApi}
           opts={{
@@ -175,7 +175,7 @@ export default function Component() {
               key={index}
               className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
                 index === current - 1
-                  ? "bg-[#DC2626]"
+                  ? "bg-[#0a4b6f]"
                   : "bg-gray-300 hover:bg-gray-400"
               }`}
               onClick={() => {
@@ -189,7 +189,7 @@ export default function Component() {
         <div className="w-full flex justify-center items-center mt-8 sm:mt-11 mb-4">
           
         <Link href={"/communities"}>
-           <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-light tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
+           <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-light tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
             View All Communities
           </Button>
         </Link>

@@ -1,6 +1,6 @@
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
-import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
 
 const sitemapLinks = [
   { href: "/buy", label: "Buy" },
@@ -14,10 +14,10 @@ const sitemapLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 md:py-12 px-4 md:px-6 lg:px-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2  gap-8">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Newsletter Section */}
-        <div className="md:col-span-2 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 w-full bg-gradient-to-r from-[#DC2626]/10 to-[#B91C1C]/10 p-4 md:p-6 rounded-2xl border border-[#DC2626]/20">
+        <div className="md:col-span-3 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 w-full bg-gradient-to-r from-[#0a4b6f]/10 to-[#1a6b8f]/10 p-4 md:p-6 rounded-2xl border border-[#0a4b6f]10/20">
           <h3 className="text-xl font-light tracking-wide leading-relaxed w-full md:flex-none md:w-[40%] text-white font-sans">
             Receive our exceptional real estate listings delivered straight to
             your inbox.
@@ -30,9 +30,9 @@ export default function Footer() {
               id="email-subscribe"
               type="email"
               placeholder="Enter your email address"
-              className="flex-grow bg-white/10 text-white border-[#DC2626]/50 placeholder:text-white/60 focus-visible:ring-offset-0 focus-visible:ring-[#DC2626] focus:border-[#DC2626] rounded-lg md:w-1/2 w-full h-12 backdrop-blur-sm"
+              className="flex-grow bg-white/10 text-white border-[#0a4b6f]/50 placeholder:text-white/60 focus-visible:ring-offset-0 focus-visible:ring-[#0a4b6f] focus:border-[#0a4b6f] rounded-lg md:w-1/2 w-full h-12 backdrop-blur-sm"
             />
-            <Button className="bg-gradient-to-r from-[#DC2626] to-[#B91C1C] hover:from-[#B91C1C] hover:to-[#991B1B] text-white font-medium tracking-wider py-3 px-6 transition-all duration-300 uppercase h-12 rounded-lg md:w-1/3 w-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-sans">
+            <Button className="bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white font-medium tracking-wider py-3 px-6 transition-all duration-300 uppercase h-12 rounded-lg md:w-1/3 w-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-sans">
               Subscribe
             </Button>
           </div>
@@ -40,7 +40,7 @@ export default function Footer() {
 
         {/* Sitemap */}
         <div>
-          <h4 className="text-lg  mb-4 font-sans">Sitemap</h4>
+          <h4 className="text-lg mb-4 font-sans">Sitemap</h4>
           <ul className="space-y-2 text-sm font-sans">
             {sitemapLinks.map((link, i) => (
               <li key={i}>
@@ -48,7 +48,7 @@ export default function Footer() {
                   href={link.href}
                   className="relative inline-block hover:text-gray-300 transition-colors
                              after:content-[''] after:absolute after:left-0 after:bottom-0
-                             after:h-[2px] after:w-0 after:bg-[#DC2626]
+                             after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                              after:transition-all after:duration-300 hover:after:w-full font-sans"
                 >
                   {link.label}
@@ -63,53 +63,123 @@ export default function Footer() {
           <h4 className="text-lg mb-4 font-sans">Contact</h4>
           <address className="not-italic space-y-3 text-sm font-sans leading-relaxed">
             <div className="flex items-start space-x-3">
-              <MapPin className="w-4 h-4 text-[#DC2626] mt-0.5 flex-shrink-0" />
-              <div>
-                <p>2107, Al Manara Tower, Business Bay</p>
-                <p>Dubai, UAE</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Phone className="w-4 h-4 text-[#DC2626] flex-shrink-0" />
+              <MapPin className="w-4 h-4 text-[#0a4b6f] mt-0.5 flex-shrink-0" />
               <a
-                href="tel:+971542524242"
-                className="relative inline-block hover:text-gray-300 transition-colors
-                           after:content-[''] after:absolute after:left-0 after:bottom-0
-                           after:h-[2px] after:w-0 after:bg-[#DC2626]
-                           after:transition-all after:duration-300 hover:after:w-full font-sans"
+                href="https://maps.app.goo.gl/MLsZVHdi97PSmAwL9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors"
               >
-                +971 54 252 4242
+                <div>
+                  <p>1205, Prime Tower</p>
+                  <p>Business Bay, Dubai, UAE</p>
+                </div>
               </a>
             </div>
             <div className="flex items-center space-x-3">
-              <Mail className="w-4 h-4 text-[#DC2626] flex-shrink-0" />
+              <Phone className="w-4 h-4 text-[#0a4b6f] flex-shrink-0" />
               <a
-                href="mailto:info@modacproperties.com"
+                href="tel:+97145758035"
                 className="relative inline-block hover:text-gray-300 transition-colors
                            after:content-[''] after:absolute after:left-0 after:bottom-0
-                           after:h-[2px] after:w-0 after:bg-[#DC2626]
+                           after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                info@modacproperties.com
+                +971-4-575-8035
               </a>
             </div>
             <div className="flex items-center space-x-3">
-              <Instagram className="w-4 h-4 text-[#DC2626] flex-shrink-0" />
+              <Mail className="w-4 h-4 text-[#0a4b6f] flex-shrink-0" />
               <a
-                href="https://www.instagram.com/modacproperties/?hl=en"
+                href="mailto:info@modacrealestate.com"
+                className="relative inline-block hover:text-gray-300 transition-colors
+                           after:content-[''] after:absolute after:h-[2px] after:absolute after:left-0 after:bottom-0
+                           after:h-[2px] after:w-0 after:bg-[#0a4b6f]
+                           after:transition-all after:duration-300 hover:after:w-full font-sans"
+              >
+                info@modacrealestate.com
+              </a>
+            </div>
+            
+          </address>
+        </div>
+
+        {/* Social Media */}
+        <div className="font-sans">
+          <h4 className="text-lg mb-4 font-sans">Follow Us</h4>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <Facebook className="w-5 h-5 text-[#0a4b6f] flex-shrink-0" />
+              <a
+                href="https://www.facebook.com/modacrealestate/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-block hover:text-gray-300 transition-colors
                            after:content-[''] after:absolute after:left-0 after:bottom-0
-                           after:h-[2px] after:w-0 after:bg-[#DC2626]
+                           after:h-[2px] after:h-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                @modacproperties
+                Facebook
               </a>
             </div>
-          </address>
+            <div className="flex items-center space-x-3">
+              <Instagram className="w-5 h-5 text-[#0a4b6f] flex-shrink-0" />
+              <a
+                href="https://www.instagram.com/modacrealestate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block hover:text-gray-300 transition-colors
+                           after:content-[''] after:absolute after:left-0 after:bottom-0
+                           after:h-[2px] after:w-0 after:bg-[#0a4b6f]
+                           after:transition-all after:duration-300 hover:after:w-full font-sans"
+              >
+                Instagram
+              </a>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Linkedin className="w-5 h-5 text-[#0a4b6f] flex-shrink-0" />
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block hover:text-gray-300 transition-colors
+                           after:content-[''] after:absolute after:left-0 after:bottom-0
+                           after:h-[2px] after:w-0 after:bg-[#0a4b6f]
+                           after:transition-all after:duration-300 hover:after:w-full font-sans"
+              >
+                LinkedIn
+              </a>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Twitter className="w-5 h-5 text-[#0a4b6f] flex-shrink-0" />
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block hover:text-gray-300 transition-colors
+                           after:content-[''] after:absolute after:left-0 after:bottom-0
+                           after:h-[2px] after:w-0 after:bg-[#0a4b6f]
+                           after:transition-all after:duration-300 hover:after:w-full font-sans"
+              >
+                Twitter
+              </a>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Youtube className="w-5 h-5 text-[#0a4b6f] flex-shrink-0" />
+              <a
+                href="https://www.youtube.com/@ModacRealEstate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block hover:text-gray-300 transition-colors
+                           after:content-[''] after:absolute after:left-0 after:bottom-0
+                           after:h-[2px] after:w-0 after:bg-[#0a4b6f]
+                           after:transition-all after:duration-300 hover:after:w-full font-sans"
+              >
+                YouTube
+              </a>
+            </div>
+          </div>
         </div>
-
       </div>
 
       {/* Legal Links */}

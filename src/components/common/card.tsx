@@ -48,7 +48,7 @@ export function PropertyCard({
           className="rounded-none object-cover"
         />
         <div className="absolute top-4 left-4 flex gap-2">
-          <span className="bg-[#DC2626] text-white px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
+          <span className="bg-[#0a4b6f] text-white px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
             FOR SALE
           </span>
           <span className="bg-white text-gray-800 px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
@@ -140,7 +140,7 @@ export function BlogCard({
         <motion.a
           href={href}
           whileHover={{ x: 5 }}
-          className="inline-flex items-center font-extralight tracking-wider hover:underline text-[#DC2626] uppercase"
+          className="inline-flex items-center font-extralight tracking-wider hover:underline text-[#0a4b6f] uppercase"
         >
           READ MORE
           <ChevronRight size={15} />

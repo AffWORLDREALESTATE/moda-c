@@ -35,11 +35,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/new_.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/new_.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
-    shortcut: '/images/new_.png',
-    apple: '/images/new_.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
   },
   openGraph: {
     title: "Modac Properties - Premium Real Estate Solutions in Dubai",
@@ -48,9 +50,9 @@ export const metadata: Metadata = {
     siteName: 'Modac Properties',
     images: [
       {
-        url: '/images/new_logo.png',
+        url: '/images/logo.png',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'Modac Properties Logo',
       },
     ],
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Modac Properties - Premium Real Estate Solutions in Dubai",
     description: "Discover luxury properties, off-plan projects, and premium real estate services in Dubai.",
-    images: ['/images/new_logo.png'],
+    images: ['/images/logo.png'],
   },
   robots: {
     index: true,
@@ -91,8 +93,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#DC2626" />
+        <meta name="theme-color" content="#0a4b6f" />
         <meta name="color-scheme" content="light" />
+        
+        {/* Enhanced Favicon Links */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/images/logo.png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="luxury-bg touch-optimized">
         {children}

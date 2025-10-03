@@ -11,7 +11,7 @@ import Solutions from "../../view/landing/solutions";
 
 export default function Home() {
   return (
-    <div className="bg-[#fff]">
+    <div className="bg-[#fff] overflow-hidden">
       <HeroSection />
       <PartnersSection />
       <Solutions/>

@@ -345,7 +345,7 @@ function OffPlansPage() {
                 placeholder="City, building or community"
                 value={filters.title}
                 onChange={(e) => handleFilterChange("title", e.target.value)}
-                className="w-full text-gray-800 bg-white/90 border border-[#DC2626]/30 placeholder:text-gray-600 hover:border-[#DC2626]/50 transition-colors font-sans"
+                className="w-full text-gray-800 bg-white/90 border border-[#0a4b6f]/30 placeholder:text-gray-600 hover:border-[#0a4b6f]/50 transition-colors font-sans"
               />
             </div>
 
@@ -368,7 +368,7 @@ function OffPlansPage() {
                 value={filters.bedrooms}
                 onValueChange={(value) => handleFilterChange("bedrooms", value)}
               >
-                <SelectTrigger className="w-full bg-white/90 border border-[#DC2626]/30 text-gray-800 hover:border-[#DC2626]/50 transition-colors font-sans">
+                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 hover:border-[#0a4b6f]/50 transition-colors font-sans">
                   <SelectValue placeholder="Beds" />
                 </SelectTrigger>
                 <SelectContent>

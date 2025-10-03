@@ -75,7 +75,7 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
           className="rounded-none object-cover"
         />
         <div className="absolute top-4 left-4 flex gap-2">
-          <span className="bg-[#DC2626] text-white px-3 py-1 text-xs tracking-wider uppercase">
+          <span className="bg-[#0a4b6f] text-white px-3 py-1 text-xs tracking-wider uppercase">
             For Rent
           </span>
           <span className="bg-white text-gray-800 px-3 py-1 text-xs tracking-wider uppercase">
@@ -129,7 +129,7 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
           {/* Agent Avatar - Bottom Right Corner */}
           <div className="flex items-center justify-center">
             {data?.agent?.avatar ? (
-              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-[#DC2626] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-[#0a4b6f] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                 <Image
                   src={data.agent.avatar}
                   alt={data.agent.name || "Agent"}
@@ -139,7 +139,7 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
                 />
               </div>
             ) : (
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center shadow-lg">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                 </svg>

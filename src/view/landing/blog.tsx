@@ -38,7 +38,7 @@ export function InsightsInspiration() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-sm sm:text-base md:text-lg text-[#DC2626] uppercase font-extralight tracking-wider mb-2">INSIGHTS & INSPIRATION</p>
+          <p className="text-sm sm:text-base md:text-lg text-[#0a4b6f] uppercase font-extralight tracking-wider mb-2">INSIGHTS & INSPIRATION</p>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono text-gray-800 mb-3 sm:mb-4 font-serif px-2">
             Unveiling Dubai&apos;s Luxurious Real Estate Landscape
           </h2>
@@ -70,7 +70,7 @@ export function InsightsInspiration() {
           whileTap={{ scale: 0.95 }}
         >
        <Link href={"/blog"} passHref>
-        <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
+        <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
        VIEW ALL BLOGS
           </Button>
        </Link>

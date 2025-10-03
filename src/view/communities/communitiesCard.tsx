@@ -66,9 +66,9 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
           <Link
             href={`/communities/details/${encodeURIComponent(data?.name)}`}
             className={cn(
-              "relative pb-1 transition-all duration-300 text-[#DC2626] uppercase text-sm font-light tracking-wider group-hover:text-[#B91C1C]",
+              "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-sm font-light tracking-wider group-hover:text-[#1a6b8f]",
               "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
-              "after:bg-[#DC2626] after:transition-all after:duration-300 group-hover:after:w-full"
+              "after:bg-[#0a4b6f] after:transition-all after:duration-300 group-hover:after:w-full"
             )}
             onClick={(e) => e.stopPropagation()}
           >
@@ -77,7 +77,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
         </div>
 
         {/* Luxury Border Effect */}
-        <div className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-[#DC2626]/20 via-transparent to-[#B91C1C]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-[#0a4b6f]/20 via-transparent to-[#1a6b8f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </CardContent>
     </Card>
   );

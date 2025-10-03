@@ -21,7 +21,7 @@ export default function TermsConditionsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">1. Acceptance of Terms</h2>
               <p className="text-gray-700 mb-4">
-                Welcome to MODACPROPERTIES. These Terms and Conditions ("Terms") govern your use of our website <a href="https://modacproperties.com" className="text-blue-600 hover:underline">modacproperties.com</a> and our services. By accessing or using our website, you agree to be bound by these Terms.
+                Welcome to MODACPROPERTIES. These Terms and Conditions ("Terms") govern your use of our website <a href="https://modacrealestate.com" className="text-blue-600 hover:underline">modacrealestate.com</a> and our services. By accessing or using our website, you agree to be bound by these Terms.
               </p>
               <p className="text-gray-700 mb-4">
                 If you do not agree to these Terms, please do not use our website or services.
@@ -31,15 +31,15 @@ export default function TermsConditionsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">2. About MODACPROPERTIES</h2>
               <p className="text-gray-700 mb-4">
-                MODACPROPERTIES is a real estate platform based in Dubai, UAE, providing property listings, real estate services, and related services. We are committed to connecting property buyers, sellers, and renters in the Dubai real estate market.
+                MODACPROPERTIES is a real estate platform based in Business Bay, Dubai, UAE, providing property listings, real estate services, and related services. We are committed to connecting property buyers, sellers, and renters in the Dubai real estate market.
               </p>
               <div className="bg-gray-50 p-6 rounded-lg mb-4">
                 <p className="text-gray-700 mb-2"><strong>Company Information:</strong></p>
                 <p className="text-gray-700 mb-2">MODACPROPERTIES</p>
-                <p className="text-gray-700 mb-2">2107, Al Manara Tower, Business Bay</p>
-                <p className="text-gray-700 mb-2">Dubai, UAE</p>
-                <p className="text-gray-700 mb-2">Phone: <a href="tel:+971542524242" className="text-blue-600 hover:underline">+971 54 252 4242</a></p>
-                <p className="text-gray-700">Email: <a href="mailto:info@modacproperties.com" className="text-blue-600 hover:underline">info@modacproperties.com</a></p>
+                <p className="text-gray-700 mb-2">1205, Prime Tower</p>
+                <p className="text-gray-700 mb-2">Business Bay, Dubai, UAE</p>
+                <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>
+                <p className="text-gray-700">Email: <a href="mailto:info@modacrealestate.com" className="text-blue-600 hover:underline">info@modacrealestate.com</a></p>
               </div>
             </section>
 
@@ -173,7 +173,7 @@ export default function TermsConditionsPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">12. Governing Law and Dispute Resolution</h2>
               <h3 className="text-xl font-semibold text-gray-800 mb-3 font-sans">12.1 Governing Law</h3>
               <p className="text-gray-700 mb-4">
-                These Terms are governed by the laws of the United Arab Emirates. Any disputes arising from these Terms will be subject to the exclusive jurisdiction of the courts of Dubai, UAE.
+                These Terms are governed by the laws of the United Arab Emirates. Any disputes arising from these Terms will be subject to the exclusive jurisdiction of the courts of Business Bay, Dubai, UAE.
               </p>
 
               <h3 className="text-xl font-semibold text-gray-800 mb-3 font-sans">12.2 Dispute Resolution</h3>
@@ -210,11 +210,11 @@ export default function TermsConditionsPage() {
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-700 mb-2"><strong>MODACPROPERTIES</strong></p>
-                <p className="text-gray-700 mb-2">2107, Al Manara Tower, Business Bay</p>
-                <p className="text-gray-700 mb-2">Dubai, UAE</p>
-                <p className="text-gray-700 mb-2">Phone: <a href="tel:+971542524242" className="text-blue-600 hover:underline">+971 54 252 4242</a></p>
-                <p className="text-gray-700 mb-2">Email: <a href="mailto:legal@modacproperties.com" className="text-blue-600 hover:underline">legal@modacproperties.com</a></p>
-                <p className="text-gray-700">General Email: <a href="mailto:info@modacproperties.com" className="text-blue-600 hover:underline">info@modacproperties.com</a></p>
+                <p className="text-gray-700 mb-2">1205, Prime Tower</p>
+                <p className="text-gray-700 mb-2">Business Bay, Dubai, UAE</p>
+                <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>
+                <p className="text-gray-700 mb-2">Email: <a href="mailto:legal@modacrealestate.com" className="text-blue-600 hover:underline">legal@modacrealestate.com</a></p>
+                <p className="text-gray-700">General Email: <a href="mailto:info@modacrealestate.com" className="text-blue-600 hover:underline">info@modacrealestate.com</a></p>
               </div>
             </section>
 

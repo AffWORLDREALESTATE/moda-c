@@ -69,7 +69,7 @@ export default function Property() {
 
   return (
     <div className="min-h-screen bg-[#F2EEE8] text-[#1A202C]">
-      <main className="container mx-auto py-8 sm:py-12 px-2 sm:px-4 md:px-6 lg:px-8">
+      <main className="container mx-auto py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
         <section className="text-center mb-8 sm:mb-12">
           <h2 className="text-black text-xs sm:text-sm font-light tracking-widest mb-2 uppercase font-serif">
             FEATURED PROPERTIES
@@ -89,7 +89,7 @@ export default function Property() {
           )}
         </section>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12">
           {loading ? (
             // Loading skeleton
             Array.from({ length: 6 }).map((_, i) => (
@@ -100,8 +100,8 @@ export default function Property() {
             <div className="col-span-full text-center py-12">
               <p className="text-red-600 mb-4">{error}</p>
               <Button 
-                onClick={fetchproperty}
-                className="bg-[#DC2626] hover:bg-[#B91C1C] text-white"
+                  onClick={fetchproperty}
+                  className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white"
               >
                 Try Again
               </Button>
@@ -152,7 +152,7 @@ export default function Property() {
                 <Button 
                   onClick={loadMore}
                   disabled={loading}
-                  className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
+                  className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
                 >
                   {loading ? "Loading..." : `Load More Properties (Page ${currentPage + 1})`}
                 </Button>
@@ -161,7 +161,7 @@ export default function Property() {
                 onClick={showAllProperties}
                 disabled={loading}
                 variant="outline"
-                className="border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
+                className="border-[#0a4b6f] text-[#0a4b6f] hover:bg-[#0a4b6f] hover:text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
               >
                 Show All {totalProperties} Properties
               </Button>
@@ -171,7 +171,7 @@ export default function Property() {
 
         <div className="text-center">
          <Link href={"/buy"}>
-           <Button className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg font-light tracking-wider rounded-none shadow-md uppercase">
+           <Button className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg font-light tracking-wider rounded-none shadow-md uppercase">
             VIEW ALL PROPERTIES
           </Button>
          </Link>

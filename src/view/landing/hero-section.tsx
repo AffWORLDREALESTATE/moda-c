@@ -30,7 +30,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative h-screen md:h-[115vh] w-full flex items-center justify-center text-center bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] overflow-hidden px-2 sm:px-4"
+      className="relative h-screen sm:h-screen md:h-[115vh] w-full flex items-center justify-center text-center bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
     >
       {/* Luxury Loading Overlay */}
       {isLoading && (
@@ -44,13 +44,13 @@ export default function HeroSection() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-[#DC2626]/30 border-t-[#DC2626] rounded-full mx-auto mb-4"
+              className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-[#0a4b6f]/30 border-t-[#0a4b6f] rounded-full mx-auto mb-4"
             />
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-[#DC2626] font-light text-sm sm:text-lg tracking-wider"
+              className="text-[#0a4b6f] font-light text-sm sm:text-lg tracking-wider"
             >
               MODAC PROPERTIES
             </motion.p>
@@ -88,7 +88,7 @@ export default function HeroSection() {
               }}
               poster="/images/bgImage.webp"
             >
-              <source src="/her.mp4" type="video/mp4" />
+              <source src="/herooo.mp4" type="video/mp4" />
               {/* Fallback for browsers that don't support video */}
               <Image
                 src="/images/bgImage.webp"

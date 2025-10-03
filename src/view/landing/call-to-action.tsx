@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function CallToAction() {
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden bg-[#F8F5EF]">
+    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden bg-[#F8F5EF]">
 ]      <div className="absolute bottom-0 inset-x-0 w-full h-48 sm:h-64 md:h-96 opacity-40">
         <Image
           src="/images/dubai-skyline-30.svg" 
@@ -37,7 +37,7 @@ export function CallToAction() {
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href={"/contactUs"}>
-              <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
+              <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
                 CONTACT US
               </Button>
             </Link>

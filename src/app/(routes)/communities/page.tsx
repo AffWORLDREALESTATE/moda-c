@@ -97,20 +97,20 @@ function Communities() {
       <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-black/5"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#DC2626]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#B91C1C]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#0a4b6f]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#1a6b8f]/10 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 mx-auto text-center">
           <h1 className="font-bold font-serif">
-            <span className="text-[#DC2626] font-normal">Luxury</span> Communities
+            <span className="text-[#0a4b6f] font-normal">Luxury</span> Communities
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-8"></div>
         </div>
       </section>
       <div className="mx-auto px-4 py-16 max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6 font-serif">
-            Unveiling Dubai&rsquo;s <span className="text-[#DC2626] font-normal">Vibrant</span> Communities
+            Unveiling Dubai&rsquo;s <span className="text-[#0a4b6f] font-normal">Vibrant</span> Communities
           </h2>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-sans">
             Dubai is a city of diverse neighborhoods, each offering a unique
@@ -124,7 +124,7 @@ function Communities() {
         {/* Enhanced Search Input */}
         <div className="flex justify-center mb-16">
           <div className="relative w-full max-w-2xl">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-[#DC2626]/20 shadow-xl p-2">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-[#0a4b6f]/20 shadow-xl p-2">
               <input
                 type="text"
                 placeholder="Search communities by name, location, or description..."
@@ -133,7 +133,7 @@ function Communities() {
                 className="w-full px-6 py-4 pl-14 text-gray-800 bg-transparent border-0 rounded-xl focus:outline-none placeholder:text-gray-500 font-sans text-lg"
               />
               <svg
-                className="absolute left-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#DC2626]"
+                className="absolute left-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#0a4b6f]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -153,8 +153,8 @@ function Communities() {
         {/* Search Results Counter */}
         {searchKeyword && (
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#DC2626]/20 shadow-lg">
-              <p className="text-[#DC2626] font-light text-sm tracking-wider">
+            <div className="inline-flex items-center px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#0a4b6f]/20 shadow-lg">
+              <p className="text-[#0a4b6f] font-light text-sm tracking-wider">
                 Found {filteredCommunities.length} community{filteredCommunities.length !== 1 ? 'ies' : 'y'} matching "{searchKeyword}"
               </p>
             </div>
@@ -166,8 +166,8 @@ function Communities() {
         <div className="container mx-auto max-w-7xl px-6">
           {/* Results Summary */}
           <div className="mb-12 text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-[#DC2626]/20 shadow-lg">
-              <span className="text-[#DC2626] font-light text-sm tracking-wider">
+            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-[#0a4b6f]/20 shadow-lg">
+              <span className="text-[#0a4b6f] font-light text-sm tracking-wider">
                 {searchKeyword ? 
                   `Found ${filteredCommunities.length} communities matching "${searchKeyword}"` : 
                   `Showing ${filteredCommunities.length} of ${total} luxury communities`
@@ -197,8 +197,8 @@ function Communities() {
         {loading && (
           <div className="flex justify-center items-center py-12">
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-4 border-[#DC2626]/30 border-t-[#DC2626] rounded-full animate-spin mb-4"></div>
-              <p className="text-[#DC2626] font-medium font-sans">Loading Communities...</p>
+              <div className="w-12 h-12 border-4 border-[#0a4b6f]/30 border-t-[#0a4b6f] rounded-full animate-spin mb-4"></div>
+              <p className="text-[#0a4b6f] font-medium font-sans">Loading Communities...</p>
             </div>
           </div>
         )}
@@ -212,8 +212,8 @@ function Communities() {
         {searchKeyword && filteredCommunities.length === 0 && (
           <div className="text-center py-12">
             <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-[#DC2626]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-[#DC2626]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-[#0a4b6f]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-[#0a4b6f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>

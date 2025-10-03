@@ -142,7 +142,7 @@ export default function DetailPage({ id }: any) {
                 <span className="text-gray-300">|</span>
                 <div className="flex items-center gap-4 bg-gradient-to-r from-[#F8F6F0] to-[#F2EEE8] px-4 py-3 rounded-xl border border-[#E5E1D8] shadow-lg">
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-3 border-[#DC2626] shadow-md">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-md">
                       {property.agent.avatar ? (
                         <Image
                           src={property.agent.avatar}
@@ -152,7 +152,7 @@ export default function DetailPage({ id }: any) {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-[#DC2626] to-[#B91C1C] flex items-center justify-center">
+                        <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
                           <span className="text-lg font-bold text-white">
                             {property.agent.name?.charAt(0) || 'A'}
                           </span>
@@ -167,7 +167,7 @@ export default function DetailPage({ id }: any) {
                     <span className="text-sm font-semibold text-gray-800 uppercase tracking-wide">
                       {property.agent.name}
                     </span>
-                    <span className="text-xs text-[#DC2626] font-medium uppercase tracking-wider">
+                    <span className="text-xs text-[#0a4b6f] font-medium uppercase tracking-wider">
                       Property Specialist
                     </span>
                   </div>
@@ -182,7 +182,7 @@ export default function DetailPage({ id }: any) {
                     </a>
                     <a
                       href={`tel:${property.agent.phone}`}
-                      className="w-10 h-10 bg-[#DC2626] hover:bg-[#B91C1C] rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      className="w-10 h-10 bg-[#0a4b6f] hover:bg-[#1a6b8f] rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
                       <Icon icon="line-md:phone-call-filled" className="w-5 h-5 text-white" />
                     </a>
@@ -263,7 +263,7 @@ export default function DetailPage({ id }: any) {
             {property?.description && property.description.length > 200 && (
               <button 
                 onClick={() => setShowFullDescription(!showFullDescription)}
-                className="inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
+                className="inline-flex items-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <span>{showFullDescription ? 'Read Less' : 'Read More'}</span>
                 <Icon icon={showFullDescription ? "lucide:arrow-up" : "lucide:arrow-right"} className="w-4 h-4" />

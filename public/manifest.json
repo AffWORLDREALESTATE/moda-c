@@ -1,0 +1,28 @@
+{
+  "name": "Modac Properties",
+  "short_name": "Modac",
+  "description": "Premium Real Estate Solutions in Dubai",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a4b6f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "real-estate", "property"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}

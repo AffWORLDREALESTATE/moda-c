@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                MODACPROPERTIES ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://modacproperties.com" className="text-blue-600 hover:underline">modacproperties.com</a> or use our services.
+                MODACPROPERTIES ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://modacrealestate.com" className="text-blue-600 hover:underline">modacrealestate.com</a> or use our services.
               </p>
               <p className="text-gray-700 mb-4">
                 This policy applies to all users of our website and services, including visitors, registered users, and property owners.
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Withdrawal of Consent:</strong> Withdraw consent for data processing</li>
               </ul>
               <p className="text-gray-700 mb-4">
-                To exercise these rights, please contact us at <a href="mailto:privacy@modacproperties.com" className="text-blue-600 hover:underline">privacy@modacproperties.com</a>.
+                To exercise these rights, please contact us at <a href="mailto:privacy@modacrealestate.com" className="text-blue-600 hover:underline">privacy@modacrealestate.com</a>.
               </p>
             </section>
 
@@ -158,11 +158,11 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-700 mb-2"><strong>MODACPROPERTIES</strong></p>
-                <p className="text-gray-700 mb-2">2107, Al Manara Tower, Business Bay</p>
+                <p className="text-gray-700 mb-2">1205, Prime Tower</p>
                 <p className="text-gray-700 mb-2">Dubai, UAE</p>
-                <p className="text-gray-700 mb-2">Phone: <a href="tel:+971542524242" className="text-blue-600 hover:underline">+971 54 252 4242</a></p>
-                <p className="text-gray-700 mb-2">Email: <a href="mailto:privacy@modacproperties.com" className="text-blue-600 hover:underline">privacy@modacproperties.com</a></p>
-                <p className="text-gray-700">General Email: <a href="mailto:info@modacproperties.com" className="text-blue-600 hover:underline">info@modacproperties.com</a></p>
+                <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>
+                <p className="text-gray-700 mb-2">Email: <a href="mailto:privacy@modacrealestate.com" className="text-blue-600 hover:underline">privacy@modacrealestate.com</a></p>
+                <p className="text-gray-700">General Email: <a href="mailto:info@modacrealestate.com" className="text-blue-600 hover:underline">info@modacrealestate.com</a></p>
               </div>
             </section>
 

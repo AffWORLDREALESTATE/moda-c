@@ -4,9 +4,9 @@ export default function WhyDubai() {
       <section className="pt-32 pb-16 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-6xl md:text-7xl font-light mb-8 text-gray-800 leading-tight font-serif">
-            <span className="text-[#DC2626] font-normal">Why</span> Dubai
+            <span className="text-[#0a4b6f] font-normal">Why</span> Dubai
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#DC2626] to-[#B91C1C] mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-8"></div>
         </div>
       </section>
       
@@ -15,11 +15,11 @@ export default function WhyDubai() {
         <section className="mb-12 md:my-16">
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
             <h2 className="text-3xl md:text-4xl font-light mb-8 text-gray-800 font-serif">
-              <span className="text-[#DC2626] font-normal">Advantages</span> to buy a Luxury property in Dubai
+              <span className="text-[#0a4b6f] font-normal">Advantages</span> to buy a Luxury property in Dubai
             </h2>
             <div className="space-y-8 text-gray-600">
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">Lifestyle:</h3>
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">Lifestyle:</h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
                   <li>
                     Unparalleled Luxury: Own a luxury property offering a
@@ -39,7 +39,7 @@ export default function WhyDubai() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">Investment:</h3>
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">Investment:</h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
                   <li>
                     Tax-Free Haven: Investing in Dubai means
@@ -69,7 +69,7 @@ export default function WhyDubai() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">Exclusivity & Status:</h3>
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">Exclusivity & Status:</h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
                   <li>
                     Own a Piece of History: Invest in Dubai real
@@ -96,13 +96,13 @@ export default function WhyDubai() {
           </div>
         </section>
 
-        <hr className="border-[#DC2626]/20 my-12 md:my-16" />
+        <hr className="border-[#0a4b6f]/20 my-12 md:my-16" />
 
         {/* Off-Plan Property Investment */}
         <section className="mb-12 md:mb-16">
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
             <h2 className="text-3xl md:text-4xl font-light mb-8 text-gray-800 font-serif">
-              <span className="text-[#DC2626] font-normal">Off-Plan</span> Property Investment
+              <span className="text-[#0a4b6f] font-normal">Off-Plan</span> Property Investment
             </h2>
             <p className="mb-8 text-gray-600 leading-relaxed text-lg font-sans">
               For seasoned and first-time property investors seeking unique
@@ -114,7 +114,7 @@ export default function WhyDubai() {
             </p>
             <div className="space-y-8 text-gray-600">
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">
                   Attractive Entry Point & Potential Capital Growth:
                 </h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
@@ -138,7 +138,7 @@ export default function WhyDubai() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">
                   Flexible Payment Plans & Lower Upfront Costs:
                 </h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
@@ -161,7 +161,7 @@ export default function WhyDubai() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">
                   Diversification & Tax Benefits:
                 </h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
@@ -178,7 +178,7 @@ export default function WhyDubai() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4 text-[#DC2626] font-sans">
+                <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">
                   Strong Market Fundamentals & Growth Potential:
                 </h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
@@ -214,13 +214,13 @@ export default function WhyDubai() {
           </div>
         </section>
 
-        <hr className="border-[#DC2626]/20 my-12 md:my-16" />
+        <hr className="border-[#0a4b6f]/20 my-12 md:my-16" />
 
         {/* Ready Property Investment */}
         <section>
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
             <h2 className="text-3xl md:text-4xl font-light mb-8 text-gray-800 font-serif">
-              <span className="text-[#DC2626] font-normal">Ready</span> Property Investment
+              <span className="text-[#0a4b6f] font-normal">Ready</span> Property Investment
             </h2>
             <p className="mb-8 text-gray-600 leading-relaxed text-lg font-sans">
               Ready properties are completed buildings available for immediate

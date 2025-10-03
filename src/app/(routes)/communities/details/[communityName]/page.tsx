@@ -138,7 +138,7 @@ export default function CommunityDetails({ params }: { params: { communityName: 
                   {article.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-[#DC2626]/20 text-gray-700 rounded-full text-sm font-medium hover:bg-[#DC2626]/30 transition-colors font-sans"
+                      className="px-4 py-2 bg-[#0a4b6f]/20 text-gray-700 rounded-full text-sm font-medium hover:bg-[#0a4b6f]/30 transition-colors font-sans"
                     >
                       {tag}
                     </span>
@@ -150,7 +150,7 @@ export default function CommunityDetails({ params }: { params: { communityName: 
             {/* View Properties Button */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <div className="flex justify-center">
-                <button className="bg-[#DC2626] text-white px-8 py-3 rounded-none font-medium hover:bg-[#B91C1C] transition-colors">
+                <button className="bg-[#0a4b6f] text-white px-8 py-3 rounded-none font-medium hover:bg-[#1a6b8f] transition-colors">
                   View Properties
                 </button>
               </div>
