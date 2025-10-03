@@ -132,48 +132,20 @@ export default function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/98 backdrop-blur-xl border-b border-blue-200 shadow-lg' 
-        : 'bg-white/95 backdrop-blur-xl border-b border-blue-100 shadow-sm'
+        ? 'bg-white/98 backdrop-blur-xl border-b border-gray-200 shadow-lg' 
+        : 'bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm'
     }`}>
       <nav className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 h-12 sm:h-14 md:h-16 lg:h-18">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
-          <Link href={"/"} className="flex items-center">
-            {/* Small Mobile Logo (320px - 768px) */}
-            <div className="md:hidden">Modac Properties
-              {/* <Image
-                src="/images/logo.png"
-                alt="MODAC REAL ESTATE Logo"
-                width={40}
-                height={40}
-                className="object-contain h-4 sm:h-5 w-auto max-w-[35px] sm:max-w-[45px]"
-                priority
-              /> */}
-            </div>
-            
-            {/* Tablet Logo (768px - 1024px) */}
-            <div className="hidden md:block lg:hidden">Modac Properties
-              {/* <Image
-                src="/images/logo.png"
-                alt="MODAC REAL ESTATE Logo"
-                width={120}
-                height={120}
-                className="object-contain h-8 w-auto max-w-[100px]"
-                priority
-              /> */}
-            </div>
-            
-            {/* Desktop Logo (1024px+) */}
-            <div className="hidden lg:block">
-              <Image
-                src="/images/logo.png"
-                alt="MODAC REAL ESTATE Logo" 
-                width={160}
-                height={168}
-                className="object-contain h-10 w-auto"
-                priority
-              />
-            </div>
+          <Link href={"/"}>
+            <Image
+              src="/images/logo.png"
+              alt="ETHOSPROPERTIES Logo"
+              width={100}
+              height={32}
+              className="object-contain"
+            />
           </Link>
         </div>
 
@@ -187,10 +159,10 @@ export default function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "relative pb-1 transition-all duration-300 font-light text-sm text-gray-700 hover:text-[#0a4b6f]",
+                        "relative pb-1 transition-all duration-300 font-light text-sm text-gray-700 hover:text-[#314355]",
                         "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
-                        "after:bg-[#0a4b6f] after:transition-all after:duration-300 hover:after:w-full",
-                        pathname === link.href && "after:w-full text-[#0a4b6f]"
+                        "after:bg-[#314355] after:transition-all after:duration-300 hover:after:w-full",
+                        pathname === link.href && "after:w-full text-[#314355]"
                       )}
                       style={{
                         letterSpacing: "0.5px",
@@ -222,12 +194,12 @@ export default function Header() {
                                   service.name === "Short Term Rentals" ? "/short-term-rental" :
                                   "/service"
                                 }
-                                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer group"
+                                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
                               >
-                                <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-blue-600">
+                                <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
                                   {service.icon}
                                 </div>
-                                <span className="text-blue-900 font-medium text-sm group-hover:text-blue-700 transition-colors duration-200">
+                                <span className="text-gray-800 font-medium text-sm group-hover:text-[#314355] transition-colors duration-200">
                                   {service.name}
                                 </span>
                               </Link>
@@ -247,12 +219,12 @@ export default function Header() {
                                   service.name === "Short-Term Rental" ? "/short-term-rental" :
                                   "/service"
                                 }
-                                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer group"
+                                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
                               >
-                                <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-blue-600">
+                                <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
                                   {service.icon}
                                 </div>
-                                <span className="text-blue-900 font-medium text-sm group-hover:text-blue-700 transition-colors duration-200">
+                                <span className="text-gray-800 font-medium text-sm group-hover:text-[#314355] transition-colors duration-200">
                                   {service.name}
                                 </span>
                               </Link>
@@ -271,10 +243,10 @@ export default function Header() {
               key={i}
               href={link.href}
               className={cn(
-                  "relative pb-1 transition-all duration-300 font-light text-sm text-gray-700 hover:text-[#0a4b6f]",
+                  "relative pb-1 transition-all duration-300 font-light text-sm text-gray-700 hover:text-[#314355]",
                   "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
-                "after:bg-[#0a4b6f] after:transition-all after:duration-300 hover:after:w-full",
-                pathname === link.href && "after:w-full text-[#0a4b6f]"
+                "after:bg-[#314355] after:transition-all after:duration-300 hover:after:w-full",
+                pathname === link.href && "after:w-full text-[#314355]"
               )}
               style={{
                 letterSpacing: "0.5px",
@@ -287,7 +259,7 @@ export default function Header() {
         </div>
 
         {/* Right Side - Currency, Login, Signup */}
-        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-shrink-0">
+        <div className="flex items-center space-x-3 flex-shrink-0">
           {/* Currency Display */}
           <div className="hidden md:flex items-center space-x-2">
             <div className="w-px h-4 bg-gray-300"></div>
@@ -301,7 +273,7 @@ export default function Header() {
           <Link href="/login">
             <Button
               variant="outline"
-              className="hidden sm:flex items-center space-x-2 bg-transparent h-8 px-3 border-gray-300 text-gray-700 hover:border-[#0a4b6f] hover:text-[#0a4b6f] transition-all duration-200"
+              className="hidden sm:flex items-center space-x-2 bg-transparent h-8 px-3 border-gray-300 text-gray-700 hover:border-[#314355] hover:text-[#314355] transition-all duration-200"
             >
               <User className="h-3 w-3" />
               <span className="text-xs font-light">Login</span>
@@ -310,15 +282,14 @@ export default function Header() {
 
           {/* List Your Property Button */}
           <Link href="/list-your-property">
-            <Button className="h-8 px-3 sm:px-4 text-xs font-light bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white border-0 transition-all duration-200">
-              <span className="hidden sm:inline">List Your Property</span>
-              <span className="sm:hidden">List</span>
+            <Button className="h-8 px-4 text-xs font-light bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white border-0 transition-all duration-200">
+              List Your Property
             </Button>
           </Link>
 
           {/* Mobile Menu Button */}
           <div
-            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-[#0a4b6f]"
+            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-[#314355]"
             onClick={() => setIsOverlayOpen(true)}
           >
             <Menu className="h-5 w-5" />
@@ -337,7 +308,7 @@ export default function Header() {
       {/* Mobile Overlay */}
       <div
         data-mobile-overlay
-        className={`fixed top-0 bottom-0 right-0 w-full md:w-1/2 lg:w-1/3 bg-white text-gray-900 z-[9999] transform transition-transform duration-300 ease-in-out shadow-2xl ${
+        className={`fixed top-0 bottom-0 right-0 w-full md:w-1/3 bg-white text-gray-900 z-[9999] transform transition-transform duration-300 ease-in-out shadow-2xl ${
           isOverlayOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ 
@@ -346,8 +317,8 @@ export default function Header() {
           backgroundImage: 'none'
         }}
       >
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] text-white min-h-16">
-          <h2 className="text-lg sm:text-xl font-bold font-serif">Menu</h2>
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-[#314355] to-[#24313f] text-white">
+          <h2 className="text-xl font-bold font-serif">Menu</h2>
           <button
             onClick={() => setIsOverlayOpen(false)}
             className="text-white hover:text-gray-200 transition-colors duration-200 p-2 rounded-full hover:bg-white/10"
@@ -363,10 +334,10 @@ export default function Header() {
                 <div key={i} className="space-y-2">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className={cn(
-                        "flex items-center justify-between w-full text-left text-gray-700 hover:text-[#0a4b6f] transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200",
-                        pathname === link.href && "text-[#0a4b6f] font-medium bg-gray-50 border-gray-200"
-                      )}
+                    className={cn(
+                      "flex items-center justify-between w-full text-left text-gray-700 hover:text-[#314355] transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200",
+                      pathname === link.href && "text-[#314355] font-medium bg-gray-50 border-gray-200"
+                    )}
                   >
                     <span className="font-medium">{link.label}</span>
                     <ChevronDown className={cn(
@@ -380,7 +351,7 @@ export default function Header() {
                     "overflow-hidden transition-all duration-300",
                     isServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   )}>
-                    <div className="pl-4 space-y-1 border-l-2 border-[#0a4b6f]/30 bg-white rounded-r-lg p-2 border border-gray-100">
+                    <div className="pl-4 space-y-1 border-l-2 border-[#314355]/30 bg-white rounded-r-lg p-2 border border-gray-100">
                       {services.map((service, serviceIndex) => (
                         <Link
                           key={serviceIndex}
@@ -392,10 +363,10 @@ export default function Header() {
                           onClick={() => setIsOverlayOpen(false)}
                           className="flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group border border-transparent hover:border-gray-200"
                         >
-                          <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#0a4b6f]">
+                          <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
                             {service.icon}
                           </div>
-                            <span className="text-gray-700 font-medium text-sm group-hover:text-[#0a4b6f] transition-colors duration-200">
+                          <span className="text-gray-700 font-medium text-sm group-hover:text-[#314355] transition-colors duration-200">
                             {service.name}
                           </span>
                         </Link>
@@ -411,8 +382,8 @@ export default function Header() {
               key={i}
               href={link.href}
               className={cn(
-                  "text-gray-700 hover:text-[#0a4b6f] transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200 font-medium",
-                  pathname === link.href && "text-[#0a4b6f] font-medium bg-gray-50 border-gray-200"
+                  "text-gray-700 hover:text-[#314355] transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200 font-medium",
+                  pathname === link.href && "text-[#314355] font-medium bg-gray-50 border-gray-200"
               )}
                 onClick={() => setIsOverlayOpen(false)}
             >
@@ -425,7 +396,7 @@ export default function Header() {
         <div className="p-4 sm:p-6 border-t border-gray-200 bg-white space-y-4 sm:space-y-6">
           {/* Mobile Currency Display */}
           <div className="flex items-center justify-center space-x-2 p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
-            <Globe className="h-4 w-4 text-[#0a4b6f]" />
+            <Globe className="h-4 w-4 text-[#314355]" />
             <span className="text-sm font-medium text-gray-700">AED</span>
           </div>
 
@@ -434,14 +405,14 @@ export default function Header() {
             <Link href="/login" onClick={() => setIsOverlayOpen(false)}>
               <Button
                 variant="outline"
-                className="w-full flex items-center justify-center space-x-2 border-[#0a4b6f] text-[#0a4b6f] hover:bg-[#0a4b6f] hover:text-white transition-all duration-200 font-medium"
+                className="w-full flex items-center justify-center space-x-2 border-[#314355] text-[#314355] hover:bg-[#314355] hover:text-white transition-all duration-200 font-medium"
               >
                 <User className="h-4 w-4" />
                 <span>Login</span>
               </Button>
             </Link>
             <Link href="/list-your-property" onClick={() => setIsOverlayOpen(false)}>
-              <Button className="w-full bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200">
+              <Button className="w-full bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200">
                 List Your Property
               </Button>
             </Link>
