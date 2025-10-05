@@ -8,7 +8,6 @@ import {
   X,
   Globe,
   ChevronDown,
-  User,
   Settings,
   Home,
   DollarSign,
@@ -35,11 +34,14 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/src/components/ui/hover-card";
+import LanguageSwitcher from "./language-switcher";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function Header() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -72,44 +74,44 @@ export default function Header() {
   const services = [
     {
       icon: <Settings className="h-4 w-4 text-gray-500" />,
-      name: "Property Management"
+      name: t('services.propertyManagement')
     },
     {
       icon: <Home className="h-4 w-4 text-gray-500" />,
-      name: "List Your Property"
+      name: t('nav.listYourProperty')
     },
     {
       icon: <DollarSign className="h-4 w-4 text-gray-500" />,
-      name: "Mortgages"
+      name: t('services.mortgages')
     },
     {
       icon: <Scale className="h-4 w-4 text-gray-500" />,
-      name: "Conveyancing"
+      name: t('services.conveyancing')
     },
     {
       icon: <Bed className="h-4 w-4 text-gray-500" />,
-      name: "Short Term Rentals"
+      name: t('services.shortTermRentals')
     },
     {
       icon: <Wrench className="h-4 w-4 text-gray-500" />,
-      name: "Property Snagging"
+      name: t('services.propertySnagging')
     },
     {
       icon: <Users className="h-4 w-4 text-gray-500" />,
-      name: "Partner Program"
+      name: t('services.partnerProgram')
     },
     
   ];
 
   const headerLink = [
-    { href: "/buy", label: "Buy" },
-    { href: "/rent", label: "Rent" },
-    { href: "/offPlans", label: "Projects" },
-    { href: "/team", label: "Teams" },
-    { href: "/communities", label: "Areas" },
-    { href: "/service", label: "Services", hasDropdown: true },
-    { href: "/blog", label: "Blogs" },
-    { href: "/contactUs", label: "More" },
+    { href: "/buy", label: t('nav.buy') },
+    { href: "/rent", label: t('nav.rent') },
+    { href: "/offPlans", label: t('nav.projects') },
+    { href: "/team", label: t('nav.teams') },
+    { href: "/communities", label: t('nav.areas') },
+    { href: "/service", label: t('nav.services'), hasDropdown: true },
+    { href: "/blog", label: t('nav.blogs') },
+    { href: "/contactUs", label: t('nav.more') },
   ];
   useEffect(() => {
     if (!isOverlayOpen) return;
@@ -258,32 +260,25 @@ export default function Header() {
           })}
         </div>
 
-        {/* Right Side - Currency, Login, Signup */}
+        {/* Right Side - Currency and Actions */}
         <div className="flex items-center space-x-3 flex-shrink-0">
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
           {/* Currency Display */}
           <div className="hidden md:flex items-center space-x-2">
             <div className="w-px h-4 bg-gray-300"></div>
             <div className="flex items-center space-x-1 text-gray-600">
               <Globe className="h-3 w-3" />
-              <span className="text-xs font-light">AED</span>
+              <span className="text-xs font-light">{t('common.currency')}</span>
             </div>
           </div>
 
-          {/* Login Button */}
-          <Link href="/login">
-            <Button
-              variant="outline"
-              className="hidden sm:flex items-center space-x-2 bg-transparent h-8 px-3 border-gray-300 text-gray-700 hover:border-[#314355] hover:text-[#314355] transition-all duration-200"
-            >
-              <User className="h-3 w-3" />
-              <span className="text-xs font-light">Login</span>
-            </Button>
-          </Link>
 
           {/* List Your Property Button */}
           <Link href="/list-your-property">
             <Button className="h-8 px-4 text-xs font-light bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white border-0 transition-all duration-200">
-              List Your Property
+              {t('nav.listYourProperty')}
             </Button>
           </Link>
 
@@ -318,7 +313,7 @@ export default function Header() {
         }}
       >
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-[#314355] to-[#24313f] text-white">
-          <h2 className="text-xl font-bold font-serif">Menu</h2>
+          <h2 className="text-xl font-bold font-serif">{t('common.menu')}</h2>
           <button
             onClick={() => setIsOverlayOpen(false)}
             className="text-white hover:text-gray-200 transition-colors duration-200 p-2 rounded-full hover:bg-white/10"
@@ -397,23 +392,19 @@ export default function Header() {
           {/* Mobile Currency Display */}
           <div className="flex items-center justify-center space-x-2 p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
             <Globe className="h-4 w-4 text-[#314355]" />
-            <span className="text-sm font-medium text-gray-700">AED</span>
+            <span className="text-sm font-medium text-gray-700">{t('common.currency')}</span>
+          </div>
+
+          {/* Mobile Language Switcher */}
+          <div className="w-full">
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Buttons */}
           <div className="space-y-3">
-            <Link href="/login" onClick={() => setIsOverlayOpen(false)}>
-              <Button
-                variant="outline"
-                className="w-full flex items-center justify-center space-x-2 border-[#314355] text-[#314355] hover:bg-[#314355] hover:text-white transition-all duration-200 font-medium"
-              >
-                <User className="h-4 w-4" />
-                <span>Login</span>
-              </Button>
-            </Link>
             <Link href="/list-your-property" onClick={() => setIsOverlayOpen(false)}>
               <Button className="w-full bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200">
-                List Your Property
+                {t('nav.listYourProperty')}
               </Button>
             </Link>
           </div>

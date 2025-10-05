@@ -30,7 +30,7 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     if (error.response?.status === 401) {
       clearCookies();
-      window.location.href = "/login";
+      console.error("Unauthorized access");
     }
 
     if (error.response?.status === 403) {

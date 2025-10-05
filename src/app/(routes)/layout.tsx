@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/common/header';
-import Footer from '../../components/common/footer';
+import Header from '@/src/components/common/header';
+import Footer from '@/src/components/common/footer';
 import { X } from 'lucide-react';
 
 export default function WebsiteLayout({

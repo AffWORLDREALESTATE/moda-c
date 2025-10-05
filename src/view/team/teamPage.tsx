@@ -5,12 +5,14 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { getAllAgents, Agent } from "@/src/api/agents";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function TeamPage() {
   const [agents, setAgents] = useState<Agent[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
   const [activeFilter, setActiveFilter] = useState<'management' | 'broker'>('management');
+  const { t } = useLanguage();
 
   // Utility function to parse nationality
   const parseNationality = (nationality: string) => {
@@ -73,7 +75,7 @@ export default function TeamPage() {
       <div className="min-h-screen bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-[#0a4b6f] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600 font-light">Loading our luxury team...</p>
+          <p className="text-gray-600 font-light">{t('team.loading')}</p>
         </div>
       </div>
     );
@@ -101,7 +103,7 @@ export default function TeamPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-4 md:mb-6 leading-[0.9] tracking-tight font-serif"
             >
-              Meet Our <span className="text-[#0a4b6f] font-normal relative">
+              {t('team.title')} <span className="text-[#0a4b6f] font-normal relative">
               Experts
                 <motion.div
                   initial={{ scaleX: 0 }}
@@ -118,7 +120,7 @@ export default function TeamPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed px-4 font-sans"
             >
-              Dedicated professionals committed to delivering exceptional real estate experiences
+              {t('team.subtitle')}
             </motion.p>
             
             <motion.div
@@ -154,7 +156,7 @@ export default function TeamPage() {
                     : 'bg-white text-gray-600 border border-gray-300 hover:border-[#0a4b6f] hover:text-[#0a4b6f] hover:shadow-md'
                 }`}
               >
-                Management
+                {t('team.management')}
               </button>
               <button
                 onClick={() => setActiveFilter('broker')}
@@ -164,14 +166,14 @@ export default function TeamPage() {
                     : 'bg-white text-gray-600 border border-gray-300 hover:border-[#0a4b6f] hover:text-[#0a4b6f] hover:shadow-md'
                 }`}
               >
-                Brokers
+                {t('team.brokers')}
               </button>
             </div>
             
             {/* Results Count */}
             <div className="text-center">
               <p className="text-sm text-gray-500">
-                Showing {filteredAgents.length} {activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} team members
+                {t('team.showing')} {filteredAgents.length} {activeFilter === 'management' ? t('team.management') : t('team.brokers')} {t('team.teamMembers')}
               </p>
             </div>
           </motion.div>
@@ -245,7 +247,7 @@ export default function TeamPage() {
                         {agent.languages && agent.languages.length > 0 && (
                           <div className="pt-2">
                             <p className="text-gray-600 text-xs sm:text-sm mb-1">
-                              Languages:
+                              {t('team.languages')}:
                             </p>
                             <div className="flex flex-wrap justify-center gap-1">
                               {agent.languages.slice(0, 3).map((language, index) => (

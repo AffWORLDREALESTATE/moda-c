@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function HeroSection() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const { t } = useLanguage();
 
   // Check if mobile for performance optimization
   useEffect(() => {
@@ -52,7 +54,7 @@ export default function HeroSection() {
               transition={{ delay: 0.5 }}
               className="text-[#0a4b6f] font-light text-sm sm:text-lg tracking-wider"
             >
-              MODAC PROPERTIES
+              {t('hero.companyName')}
             </motion.p>
           </div>
         </motion.div>

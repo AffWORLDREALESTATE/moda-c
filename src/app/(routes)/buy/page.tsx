@@ -24,15 +24,7 @@ import React, { useCallback, useMemo } from "react";
 import { api } from "@/src/lib/axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
-// Constants
-const COMPLETION_STATUS_OPTIONS = [
-  { label: "Completion Status", value: "all" },
-  { label: "Completed Secondary", value: "completed" },
-  { label: "Off Plan Secondary", value: "off_plan" },
-  { label: "Completed Primary", value: "completed_primary" },
-  { label: "Off Plan Primary", value: "off_plan_primary" },
-];
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 const PROPERTY_TYPES = [
   "APARTMENT",
@@ -86,6 +78,16 @@ const HANDOVER_YEAR_OPTIONS = [
 
 function Buy() {
   const router = useRouter();
+  const { t } = useLanguage();
+  
+  // Constants with translations
+  const COMPLETION_STATUS_OPTIONS = [
+    { label: t('buy.completionStatus'), value: "all" },
+    { label: t('buy.completedSecondary'), value: "completed" },
+    { label: "Off Plan Secondary", value: "off_plan" },
+    { label: t('buy.completedPrimary'), value: "completed_primary" },
+    { label: "Off Plan Primary", value: "off_plan_primary" },
+  ];
   const [property, setProperty] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [showFilters, setShowFilters] = React.useState(false);
@@ -352,11 +354,11 @@ function Buy() {
                 onValueChange={(value) => handleFilterChange("listing_type", value)}
               >
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Type" />
+                  <SelectValue placeholder={t('buy.type')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="SELL">Buy</SelectItem>
-                  <SelectItem value="RENT">Rent</SelectItem>
+                  <SelectItem value="SELL">{t('buy.buy')}</SelectItem>
+                  <SelectItem value="RENT">{t('buy.rent')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -364,7 +366,7 @@ function Buy() {
             {/* Location */}
             <div className="col-span-2">
               <Input
-                placeholder="City, building or community"
+                placeholder={t('buy.location')}
                 value={filters.title}
                 onChange={(e) => handleFilterChange("title", e.target.value)}
                 className="w-full text-black bg-white border border-gray-300 placeholder:text-gray-500 h-12 sm:h-14"
@@ -380,7 +382,7 @@ function Buy() {
                 }
               >
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Property Type" />
+                  <SelectValue placeholder={t('buy.propertyType')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
                   <SelectItem value="any">Property Type</SelectItem>
@@ -402,7 +404,7 @@ function Buy() {
                 }
               >
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Min Price" />
+                  <SelectValue placeholder={t('buy.minPrice')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
                   <SelectItem value="any">Min Price</SelectItem>
@@ -424,7 +426,7 @@ function Buy() {
                 }
               >
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Max Price" />
+                  <SelectValue placeholder={t('buy.maxPrice')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
                   <SelectItem value="any">Max Price</SelectItem>
@@ -507,7 +509,7 @@ function Buy() {
               </label>
               <div className="relative">
                 <Input
-                  placeholder="City, building or community"
+                  placeholder={t('buy.location')}
                   value={filters.title}
                   onChange={(e) => handleFilterChange("title", e.target.value)}
                   className="w-full bg-white border border-gray-300 rounded-md h-12 sm:h-14 text-gray-900 placeholder:text-gray-600 focus-visible:ring-2 focus-visible:ring-primary"
@@ -530,8 +532,8 @@ function Buy() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="SELL">Buy</SelectItem>
-                  <SelectItem value="RENT">Rent</SelectItem>
+                  <SelectItem value="SELL">{t('buy.buy')}</SelectItem>
+                  <SelectItem value="RENT">{t('buy.rent')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>

@@ -1,46 +1,47 @@
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
 import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
-
-const sitemapLinks = [
-  { href: "/buy", label: "Buy" },
-  { href: "/offPlans", label: "Off-Plan" },
-  { href: "/rent", label: "Rent" },
-  { href: "/communities", label: "Communities" },
-  { href: "/whyDubai", label: "Why Dubai" },
-  { href: "/service", label: "Services" },
-  { href: "/contactUs", label: "Contact Us" },
-];
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const sitemapLinks = [
+    { href: "/buy", label: t('nav.buy') },
+    { href: "/offPlans", label: t('nav.projects') },
+    { href: "/rent", label: t('nav.rent') },
+    { href: "/communities", label: t('nav.areas') },
+    { href: "/whyDubai", label: t('footer.whyDubai') },
+    { href: "/service", label: t('nav.services') },
+    { href: "/contactUs", label: t('footer.contactUs') },
+  ];
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Newsletter Section */}
         <div className="md:col-span-3 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 w-full bg-gradient-to-r from-[#0a4b6f]/10 to-[#1a6b8f]/10 p-4 md:p-6 rounded-2xl border border-[#0a4b6f]10/20">
           <h3 className="text-xl font-light tracking-wide leading-relaxed w-full md:flex-none md:w-[40%] text-white font-sans">
-            Receive our exceptional real estate listings delivered straight to
-            your inbox.
+            {t('footer.newsletter')}
           </h3>
           <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full md:flex-1">
             <label htmlFor="email-subscribe" className="sr-only">
-              Email address for newsletter subscription
+              {t('footer.emailLabel')}
             </label>
             <Input
               id="email-subscribe"
               type="email"
-              placeholder="Enter your email address"
+              placeholder={t('footer.emailPlaceholder')}
               className="flex-grow bg-white/10 text-white border-[#0a4b6f]/50 placeholder:text-white/60 focus-visible:ring-offset-0 focus-visible:ring-[#0a4b6f] focus:border-[#0a4b6f] rounded-lg md:w-1/2 w-full h-12 backdrop-blur-sm"
             />
             <Button className="bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white font-medium tracking-wider py-3 px-6 transition-all duration-300 uppercase h-12 rounded-lg md:w-1/3 w-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-sans">
-              Subscribe
+              {t('footer.subscribe')}
             </Button>
           </div>
         </div>
 
         {/* Sitemap */}
         <div>
-          <h4 className="text-lg mb-4 font-sans">Sitemap</h4>
+          <h4 className="text-lg mb-4 font-sans">{t('footer.sitemap')}</h4>
           <ul className="space-y-2 text-sm font-sans">
             {sitemapLinks.map((link, i) => (
               <li key={i}>
@@ -60,7 +61,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="font-sans">
-          <h4 className="text-lg mb-4 font-sans">Contact</h4>
+          <h4 className="text-lg mb-4 font-sans">{t('footer.contact')}</h4>
           <address className="not-italic space-y-3 text-sm font-sans leading-relaxed">
             <div className="flex items-start space-x-3">
               <MapPin className="w-4 h-4 text-[#0a4b6f] mt-0.5 flex-shrink-0" />

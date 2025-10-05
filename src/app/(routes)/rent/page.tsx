@@ -25,6 +25,7 @@ import React, { useCallback, useMemo } from "react";
 import { api } from "@/src/lib/axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 // Constants
 const COMPLETION_STATUS_OPTIONS = [
@@ -56,6 +57,7 @@ const HANDOVER_YEAR_OPTIONS = [
 
 function Rent() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [property, setProperty] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [showFilters, setShowFilters] = React.useState(false);
@@ -297,11 +299,11 @@ function Rent() {
             <div>
               <Select value={filters.listing_type} onValueChange={(value) => handleFilterChange("listing_type", value)}>
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Type" />
+                  <SelectValue placeholder={t('buy.type')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="SELL">Buy</SelectItem>
-                  <SelectItem value="RENT">Rent</SelectItem>
+                  <SelectItem value="SELL">{t('buy.buy')}</SelectItem>
+                  <SelectItem value="RENT">{t('buy.rent')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -320,7 +322,7 @@ function Rent() {
             <div>
               <Select value={filters.property_type} onValueChange={(value) => handleFilterChange("property_type", value)}>
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Property Type" />
+                  <SelectValue placeholder={t('buy.propertyType')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
                   <SelectItem value="any">Property Type</SelectItem>
@@ -335,7 +337,7 @@ function Rent() {
             <div>
               <Select value={filters.min_price} onValueChange={(value) => handleFilterChange("min_price", value)}>
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Min Price" />
+                  <SelectValue placeholder={t('buy.minPrice')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
                   <SelectItem value="any">Min Price</SelectItem>
@@ -352,7 +354,7 @@ function Rent() {
             <div>
               <Select value={filters.max_price} onValueChange={(value) => handleFilterChange("max_price", value)}>
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Max Price" />
+                  <SelectValue placeholder={t('buy.maxPrice')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
                   <SelectItem value="any">Max Price</SelectItem>

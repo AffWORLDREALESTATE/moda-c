@@ -1,21 +1,22 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Poppins, Playfair_Display } from "next/font/google";
+// import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/src/contexts/LanguageContext";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-  display: "swap",
-});
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "600", "700", "800", "900"],
+//   variable: "--font-poppins",
+//   display: "swap",
+// });
 
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-playfair",
-  display: "swap",
-});
+// const playfairDisplay = Playfair_Display({
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   variable: "--font-playfair",
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Modac Properties - Premium Real Estate Solutions in Dubai",
@@ -87,11 +88,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${playfairDisplay.variable} antialiased smooth-scroll`}>
+    <html lang="en" className="antialiased smooth-scroll">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#0a4b6f" />
         <meta name="color-scheme" content="light" />
@@ -104,7 +105,9 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="luxury-bg touch-optimized">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

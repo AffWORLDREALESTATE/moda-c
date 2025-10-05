@@ -24,15 +24,7 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import { api } from "@/src/lib/axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-// Constants
-const COMPLETION_STATUS_OPTIONS = [
-  { label: "Completion Status", value: "all" },
-  { label: "Completed Secondary", value: "completed" },
-  { label: "Off Plan Secondary", value: "off_plan" },
-  { label: "Completed Primary", value: "completed_primary" },
-  { label: "Off Plan Primary", value: "off_plan_primary" },
-];
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 const PROPERTY_TYPES = [
   "APARTMENT",
@@ -66,26 +58,63 @@ const PRICE_OPTIONS = [
   "100000000",
 ];
 
-const BEDROOM_OPTIONS = ["any", "1", "2", "3", "4", "5+"];
-const BATHROOM_OPTIONS = ["any", "1", "2", "3", "4", "5+"];
-const HANDOVER_YEAR_OPTIONS = [
-  "any",
-  "2024",
-  "2025",
-  "2026",
-  "2027",
-  "2028",
-  "2029",
-  "2030",
-  "2031",
-  "2032",
-  "2033",
-  "2034",
-  "2035",
-];
-
 function OffPlansPage() {
   const router = useRouter();
+  const { t } = useLanguage();
+
+  // Constants with translations
+  const COMPLETION_STATUS_OPTIONS = [
+    { label: t('offplans.completionStatus'), value: "all" },
+    { label: t('offplans.completedSecondary'), value: "completed" },
+    { label: t('offplans.offPlanSecondary'), value: "off_plan" },
+    { label: t('offplans.completedPrimary'), value: "completed_primary" },
+    { label: t('offplans.offPlanPrimary'), value: "off_plan_primary" },
+  ];
+
+  const PROPERTY_TYPE_OPTIONS = [
+    { label: t('offplans.propertyType'), value: "all" },
+    { label: t('offplans.apartment'), value: "apartment" },
+    { label: t('offplans.villa'), value: "villa" },
+    { label: t('offplans.townhouse'), value: "townhouse" },
+    { label: t('offplans.penthouse'), value: "penthouse" },
+    { label: t('offplans.studio'), value: "studio" },
+  ];
+
+  const BEDROOM_OPTIONS = [
+    { label: t('offplans.bedrooms'), value: "all" },
+    { label: t('offplans.studio'), value: "0" },
+    { label: t('offplans.oneBedroom'), value: "1" },
+    { label: t('offplans.twoBedrooms'), value: "2" },
+    { label: t('offplans.threeBedrooms'), value: "3" },
+    { label: t('offplans.fourBedrooms'), value: "4" },
+    { label: t('offplans.fivePlusBedrooms'), value: "5" },
+  ];
+
+  const BATHROOM_OPTIONS = [
+    { label: t('offplans.bathrooms'), value: "all" },
+    { label: t('offplans.oneBathroom'), value: "1" },
+    { label: t('offplans.twoBathrooms'), value: "2" },
+    { label: t('offplans.threeBathrooms'), value: "3" },
+    { label: t('offplans.fourBathrooms'), value: "4" },
+    { label: t('offplans.fivePlusBathrooms'), value: "5" },
+  ];
+
+  const YEAR_OPTIONS = [
+    { label: t('offplans.year'), value: "all" },
+    { label: "2024", value: "2024" },
+    { label: "2025", value: "2025" },
+    { label: "2026", value: "2026" },
+    { label: "2027", value: "2027" },
+    { label: "2028", value: "2028" },
+    { label: "2029", value: "2029" },
+    { label: "2030", value: "2030" },
+    { label: "2031", value: "2031" },
+    { label: "2032", value: "2032" },
+    { label: "2033", value: "2033" },
+    { label: "2034", value: "2034" },
+    { label: "2035", value: "2035" },
+  ];
+
   const [property, setProperty] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
@@ -236,7 +265,7 @@ function OffPlansPage() {
         <div className="flex items-center gap-3 p-4 backdrop-blur-md">
           <div className="flex-1">
             <Input
-              placeholder="City, building or community"
+              placeholder={t('offplans.locationPlaceholder')}
               value={filters.title}
               onChange={(e) => handleFilterChange("title", e.target.value)}
               className="w-full text-black bg-white border border-gray-300 placeholder:text-gray-500 h-12"
@@ -273,10 +302,10 @@ function OffPlansPage() {
         onValueChange={(value) => handleFilterChange("property_type", value)}
       >
         <SelectTrigger className="w-full bg-white border border-gray-300 text-black">
-          <SelectValue placeholder="Property Type" />
+          <SelectValue placeholder={t('offplans.propertyType')} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="any">Property Type</SelectItem>
+          <SelectItem value="any">{t('offplans.propertyType')}</SelectItem>
           {PROPERTY_TYPES.map((type) => (
             <SelectItem key={type} value={type}>
               {type}
@@ -295,10 +324,10 @@ function OffPlansPage() {
         onValueChange={(value) => handleFilterChange("min_price", value)}
       >
         <SelectTrigger className="w-full bg-white border border-gray-300 text-black">
-          <SelectValue placeholder="Min Price" />
+          <SelectValue placeholder={t('offplans.minPrice')} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="any">Min Price</SelectItem>
+          <SelectItem value="any">{t('offplans.minPrice')}</SelectItem>
           {PRICE_OPTIONS.map((price) => (
             <SelectItem key={price} value={price}>
               AED {parseInt(price).toLocaleString()}
@@ -314,10 +343,10 @@ function OffPlansPage() {
         onValueChange={(value) => handleFilterChange("max_price", value)}
       >
         <SelectTrigger className="w-full bg-white border border-gray-300 text-black">
-          <SelectValue placeholder="Max Price" />
+          <SelectValue placeholder={t('offplans.maxPrice')} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="any">Max Price</SelectItem>
+          <SelectItem value="any">{t('offplans.maxPrice')}</SelectItem>
           {PRICE_OPTIONS.map((price) => (
             <SelectItem key={price} value={price}>
               AED {parseInt(price).toLocaleString()}
@@ -336,53 +365,53 @@ function OffPlansPage() {
         <div className="container mx-auto">
           {FilterButton}
 
-          {/* Desktop Search Form */}
+          {/* {t('offplans.desktopSearchForm')} */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-8 gap-4 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl">
            
-            {/* Location */}
+            {/* {t('offplans.location')} */}
             <div className="col-span-2">
               <Input
-                placeholder="City, building or community"
+                placeholder={t('offplans.locationPlaceholder')}
                 value={filters.title}
                 onChange={(e) => handleFilterChange("title", e.target.value)}
                 className="w-full text-gray-800 bg-white/90 border border-[#0a4b6f]/30 placeholder:text-gray-600 hover:border-[#0a4b6f]/50 transition-colors font-sans"
               />
             </div>
 
-            {/* Property Type */}
+            {/* {t('offplans.propertyType')} */}
             <div>{PropertyTypeSelect}</div>
 
-            {/* Min Price */}
+            {/* {t('offplans.minPrice')} */}
             <div>
               <PriceSelect.MinPriceSelect />
             </div>
 
-            {/* Max Price */}
+            {/* {t('offplans.maxPrice')} */}
             <div>
               <PriceSelect.MaxPriceSelect />
             </div>
 
-            {/* Beds */}
+            {/* {t('offplans.beds')} */}
             <div>
               <Select
                 value={filters.bedrooms}
                 onValueChange={(value) => handleFilterChange("bedrooms", value)}
               >
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Beds" />
+                  <SelectValue placeholder={t('offplans.beds')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Beds</SelectItem>
-                  {BEDROOM_OPTIONS.slice(1).map((bed) => (
-                    <SelectItem key={bed} value={bed}>
-                      {bed === "5+" ? "5+ Beds" : `${bed} Bed`}
+                  <SelectItem value="any">{t('offplans.beds')}</SelectItem>
+                  {BEDROOM_OPTIONS.slice(1).map((bedObj) => (
+                    <SelectItem key={bedObj.value} value={bedObj.value}>
+                      {bedObj.value === "5" ? t('offplans.fivePlusBeds') : `${bedObj.value} ${t('offplans.bed')}`}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
 
-            {/* More Filters Button and Search Button in same column */}
+            {/* {t('offplans.moreFiltersButton')} and {t('offplans.searchButton')} in same column */}
             <div className="flex gap-2">
               <Button
                 onClick={toggleFilters}
@@ -390,7 +419,7 @@ function OffPlansPage() {
                 className="w-32 h-14 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 flex items-center justify-center gap-2"
               >
                 <Icon icon="lucide:sliders-horizontal" className="w-4 h-4" />
-                More Filters
+                {t('offplans.moreFilters')}
               </Button>
 
               <Button
@@ -407,12 +436,12 @@ function OffPlansPage() {
         </div>
       </section>
 
-      {/* Mobile Filter Modal */}
+      {/* {t('offplans.mobileFilterModal')} */}
       <Dialog open={showFilters} onOpenChange={setShowFilters}>
         <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
-              <span className="text-xl font-semibold">Search Filters</span>
+              <span className="text-xl font-semibold">{t('offplans.searchFilters')}</span>
               <Button
                 variant="ghost"
                 size="sm"
@@ -427,7 +456,7 @@ function OffPlansPage() {
           <div className="space-y-6 py-4">
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Handover Year
+                {t('offplans.handoverYear')}
               </label>
               <Select
                 value={filters.handover_year}
@@ -439,38 +468,38 @@ function OffPlansPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="any">Handover Year</SelectItem>
-                  {HANDOVER_YEAR_OPTIONS.slice(1).map((year) => (
-                    <SelectItem key={year} value={year}>
-                      {year}
+                  <SelectItem value="any">{t('offplans.handoverYear')}</SelectItem>
+                  {YEAR_OPTIONS.slice(1).map((yearObj) => (
+                    <SelectItem key={yearObj.value} value={yearObj.value}>
+                      {yearObj.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
 
-            {/* Type Filter - Hidden on large screens since it's shown in desktop form */}
+            {/* {t('offplans.typeFilter')} - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
-              <label className="text-sm font-medium text-gray-700">Type</label>
+              <label className="text-sm font-medium text-gray-700">{t('offplans.type')}</label>
               <Select value={filters.type} onValueChange={(value) => handleFilterChange("type", value)}>
                 <SelectTrigger className="w-full bg-white border border-gray-300 rounded-md h-14 text-gray-900 focus:ring-2 focus:ring-primary">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="buy">Buy</SelectItem>
-                  <SelectItem value="rent">Rent</SelectItem>
-                  <SelectItem value="off_plan">Off Plan</SelectItem>
+                  <SelectItem value="buy">{t('offplans.buy')}</SelectItem>
+                  <SelectItem value="rent">{t('offplans.rent')}</SelectItem>
+                  <SelectItem value="off_plan">{t('offplans.offPlan')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
-            {/* Search Input - Hidden on large screens since it's shown in desktop form */}
+            {/* {t('offplans.searchInput')} - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
               <label className="text-sm font-medium text-gray-700">
-                Location
+                {t('offplans.location')}
               </label>
               <div className="relative">
                 <Input
-                  placeholder="City, building or community"
+                  placeholder={t('offplans.locationPlaceholder')}
                   value={filters.title}
                   onChange={(e) => handleFilterChange("title", e.target.value)}
                   className="w-full bg-white border border-gray-300 rounded-md h-12 text-gray-900 placeholder:text-gray-600 focus-visible:ring-2 focus-visible:ring-primary"
@@ -482,10 +511,10 @@ function OffPlansPage() {
               </div>
             </div>
 
-            {/* Property Type - Hidden on large screens since it's shown in desktop form */}
+            {/* {t('offplans.propertyType')} - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
               <label className="text-sm font-medium text-gray-700">
-                Property Type
+                {t('offplans.propertyType')}
               </label>
               <Select
                 value={filters.property_type}
@@ -497,7 +526,7 @@ function OffPlansPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white max-h-60">
-                  <SelectItem value="any"> Property Type</SelectItem>
+                  <SelectItem value="any"> {t('offplans.propertyType')}</SelectItem>
                   {PROPERTY_TYPES.map((type) => (
                     <SelectItem key={type} value={type}>
                       {type}
@@ -507,10 +536,10 @@ function OffPlansPage() {
               </Select>
             </div>
 
-            {/* Completion Status */}
+            {/* {t('offplans.completionStatus')} */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Completion Status
+                {t('offplans.completionStatus')}
               </label>
               <Select
                 value={filters.completion_status}
@@ -531,14 +560,14 @@ function OffPlansPage() {
               </Select>
             </div>
 
-            {/* Developer Search */}
+            {/* {t('offplans.developerSearch')} */}
             <div className="space-y-2 developer-search">
               <label className="text-sm font-medium text-gray-700">
-                Developer
+                {t('offplans.developer')}
               </label>
               <div className="relative">
                 <Input
-                  placeholder="Search developers..."
+                  placeholder={t('offplans.searchDevelopers')}
                   value={developerSearch}
                   onChange={(e) => setDeveloperSearch(e.target.value)}
                   className="w-full bg-white border border-gray-300 rounded-md h-12 text-gray-900 placeholder:text-gray-600 focus-visible:ring-2 focus-visible:ring-primary pr-10"
@@ -571,11 +600,11 @@ function OffPlansPage() {
               )}
             </div>
 
-            {/* Price Range - Hidden on large screens since it's shown in desktop form */}
+            {/* {t('offplans.priceRange')} - Hidden on large screens since it's shown in desktop form */}
             <div className="grid grid-cols-2 gap-4 md:hidden">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  Min Price
+                  {t('offplans.minPrice')}
                 </label>
                 <Select
                   value={filters.min_price}
@@ -599,7 +628,7 @@ function OffPlansPage() {
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  Max Price
+                  {t('offplans.maxPrice')}
                 </label>
                 <Select
                   value={filters.max_price}
@@ -622,10 +651,10 @@ function OffPlansPage() {
               </div>
             </div>
 
-            {/* Bedrooms - Hidden on large screens since it's shown in desktop form */}
+            {/* {t('offplans.bedrooms')} - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
               <label className="text-sm font-medium text-gray-700">
-                Bedrooms
+                {t('offplans.bedrooms')}
               </label>
               <Select
                 value={filters.bedrooms}
@@ -635,20 +664,20 @@ function OffPlansPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="any">Any Bedrooms</SelectItem>
-                  {BEDROOM_OPTIONS.slice(1).map((bed) => (
-                    <SelectItem key={bed} value={bed}>
-                      {bed === "5+" ? "5+ Beds" : `${bed} Bed`}
+                  <SelectItem value="any">{t('offplans.anyBedrooms')}</SelectItem>
+                  {BEDROOM_OPTIONS.slice(1).map((bedObj) => (
+                    <SelectItem key={bedObj.value} value={bedObj.value}>
+                      {bedObj.value === "5" ? t('offplans.fivePlusBeds') : `${bedObj.value} ${t('offplans.bed')}`}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
 
-            {/* Bathrooms */}
+            {/* {t('offplans.bathrooms')} */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Bathrooms
+                {t('offplans.bathrooms')}
               </label>
               <Select
                 value={filters.bathrooms}
@@ -660,23 +689,23 @@ function OffPlansPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="any">Any Bathrooms</SelectItem>
-                  {BATHROOM_OPTIONS.slice(1).map((bath) => (
-                    <SelectItem key={bath} value={bath}>
-                      {bath === "5+" ? "5+ Baths" : `${bath} Bath`}
+                  <SelectItem value="any">{t('offplans.anyBathrooms')}</SelectItem>
+                  {BATHROOM_OPTIONS.slice(1).map((bathObj) => (
+                    <SelectItem key={bathObj.value} value={bathObj.value}>
+                      {bathObj.value === "5" ? t('offplans.fivePlusBaths') : `${bathObj.value} ${t('offplans.bath')}`}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
 
-            {/* Search Button */}
+            {/* {t('offplans.searchButton')} */}
             <Button
               onClick={handleSearch}
               className="w-full bg-primary hover:bg-primary/90 text-white font-medium h-12 rounded-md"
             >
               <Search className="w-5 h-5 mr-2" />
-              Search Properties
+              {t('offplans.searchProperties')}
             </Button>
           </div>
         </DialogContent>
@@ -696,7 +725,7 @@ function OffPlansPage() {
                 "after:-translate-x-1/2 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               )}
             >
-              Learn More
+              {t('offplans.learnMore')}
             </span>
           </Link>
         </p>

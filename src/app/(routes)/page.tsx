@@ -6,8 +6,8 @@ import Property from "@/src/view/landing/property";
 import { InsightsInspiration } from "@/src/view/landing/blog";
 import InstagramSection from "@/src/view/landing/instagram-section";
 import { CallToAction } from "@/src/view/landing/call-to-action";
-import PartnersSection from "../../view/landing/PartnersSection";
-import Solutions from "../../view/landing/solutions";
+import PartnersSection from "@/src/view/landing/PartnersSection";
+import Solutions from "@/src/view/landing/solutions";
 
 export default function Home() {
   return (
