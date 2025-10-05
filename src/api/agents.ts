@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://evid-api.propfusion.io';
+const API_BASE_URL = 'https://modac-api.propfusion.io';
 const BEARER_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjAzNSwicm9sZV9pZHMiOlsxMDBdLCJ0eXBlIjoiYWdlbnQiLCJleHAiOjE5MTQ3MDYyODB9.HomftCQdlLSR1LLuageO1uo_iJTYw59pktyFQ_cuK0I';
 
 // Create axios instance with default config
@@ -57,7 +57,17 @@ export interface AgentsResponse {
 export const getAllAgents = async (): Promise<Agent[]> => {
   try {
     const response = await apiClient.get('/agent/all');
-    return response.data;
+    // The new API returns an array directly, not wrapped in a data property
+    const agents = Array.isArray(response.data) ? response.data : response.data.data || [];
+    
+    // Map the response to match our Agent interface
+    return agents.map((agent: any) => ({
+      ...agent,
+      // Derive agent_type from role_name for filtering
+      agent_type: agent.role_name?.toLowerCase().includes('admin') ? 'management' : 
+                  agent.role_name?.toLowerCase().includes('sales') ? 'broker' : 
+                  agent.role_name?.toLowerCase().includes('agent') ? 'broker' : 'management'
+    }));
   } catch (error) {
     console.error('Error fetching agents:', error);
     throw new Error('Failed to fetch agents');
@@ -68,7 +78,14 @@ export const getAllAgents = async (): Promise<Agent[]> => {
 export const getAgentById = async (id: number): Promise<Agent> => {
   try {
     const response = await apiClient.get(`/agent/${id}`);
-    return response.data;
+    const agent = response.data;
+    return {
+      ...agent,
+      // Derive agent_type from role_name for filtering
+      agent_type: agent.role_name?.toLowerCase().includes('admin') ? 'management' : 
+                  agent.role_name?.toLowerCase().includes('sales') ? 'broker' : 
+                  agent.role_name?.toLowerCase().includes('agent') ? 'broker' : 'management'
+    };
   } catch (error) {
     console.error('Error fetching agent:', error);
     throw new Error('Failed to fetch agent');
@@ -79,7 +96,16 @@ export const getAgentById = async (id: number): Promise<Agent> => {
 export const getFeaturedAgents = async (): Promise<Agent[]> => {
   try {
     const response = await apiClient.get('/agent/featured');
-    return response.data;
+    const agents = Array.isArray(response.data) ? response.data : response.data.data || [];
+    
+    // Map the response to match our Agent interface
+    return agents.map((agent: any) => ({
+      ...agent,
+      // Derive agent_type from role_name for filtering
+      agent_type: agent.role_name?.toLowerCase().includes('admin') ? 'management' : 
+                  agent.role_name?.toLowerCase().includes('sales') ? 'broker' : 
+                  agent.role_name?.toLowerCase().includes('agent') ? 'broker' : 'management'
+    }));
   } catch (error) {
     console.error('Error fetching featured agents:', error);
     // Fallback to all agents if featured endpoint doesn't exist
