@@ -23,4 +23,4 @@ const nextConfig = {
   generateEtags: true,
 }
 
-export default nextConfig
+export default nextConfig;
