@@ -11,7 +11,6 @@ export default function TeamPage() {
   const [agents, setAgents] = useState<Agent[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'management' | 'broker'>('management');
   const { t } = useLanguage();
 
   // Utility function to parse nationality
@@ -40,14 +39,6 @@ export default function TeamPage() {
     }
     fetchAgents();
   }, []);
-
-  // Filter agents based on active filter
-  const filteredAgents = agents.filter(agent => {
-    const agentType = agent.agent_type?.toLowerCase();
-    return agentType === activeFilter;
-  });
-
-
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -146,48 +137,23 @@ export default function TeamPage() {
           >
             
             
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
-              <button
-                onClick={() => setActiveFilter('management')}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                  activeFilter === 'management'
-                    ? 'bg-[#0a4b6f] text-white shadow-lg'
-                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#0a4b6f] hover:text-[#0a4b6f] hover:shadow-md'
-                }`}
-              >
-                {t('team.management')}
-              </button>
-              <button
-                onClick={() => setActiveFilter('broker')}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                  activeFilter === 'broker'
-                    ? 'bg-[#0a4b6f] text-white shadow-lg'
-                    : 'bg-white text-gray-600 border border-gray-300 hover:border-[#0a4b6f] hover:text-[#0a4b6f] hover:shadow-md'
-                }`}
-              >
-                {t('team.brokers')}
-              </button>
-            </div>
-            
             {/* Results Count */}
             <div className="text-center">
               <p className="text-sm text-gray-500">
-                {t('team.showing')} {filteredAgents.length} {activeFilter === 'management' ? t('team.management') : t('team.brokers')} {t('team.teamMembers')}
+                {t('team.showing')} {agents.length} Team Management Members
               </p>
             </div>
           </motion.div>
 
-          {filteredAgents.length > 0 ? (
+          {agents.length > 0 ? (
             <motion.div
-              key={activeFilter}
               variants={containerVariants}
               initial="hidden"
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-10 items-stretch"
             >
               <AnimatePresence mode="wait">
-                {filteredAgents.map((agent) => (
+                {agents.map((agent) => (
                 <motion.div
                   key={agent.id}
                   variants={cardVariants}
@@ -309,9 +275,9 @@ export default function TeamPage() {
               <div className="text-gray-400 mb-4">
                 <Icon icon="material-symbols:person-search-outline" className="w-16 h-16 mx-auto" />
               </div>
-              <h3 className="text-xl font-medium text-gray-600 mb-2">No {activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} found</h3>
+              <h3 className="text-xl font-medium text-gray-600 mb-2">No Team Members Found</h3>
               <p className="text-gray-500">
-                No {activeFilter} team members found. Try selecting a different filter.
+                No team members found at the moment.
               </p>
             </motion.div>
           )}
