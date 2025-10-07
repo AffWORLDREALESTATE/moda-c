@@ -14,12 +14,12 @@ export default function Home() {
     <div className="bg-[#fff] overflow-hidden">
       <HeroSection />
       <PartnersSection />
+      <Property />
       <Solutions/>
       <Feature />
       <Communities />
-      <Property />
+      
       <InsightsInspiration />
-      <InstagramSection />
       <CallToAction />
     </div>
   );

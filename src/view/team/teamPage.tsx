@@ -137,11 +137,25 @@ export default function TeamPage() {
           >
             
             
-            {/* Results Count */}
+            {/* Meet Our Experts Section */}
             <div className="text-center">
-              <p className="text-sm text-gray-500">
-                {t('team.showing')} {agents.length} Team Management Members
-              </p>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
+              >
+                Dedicated professionals committed to delivering exceptional real estate experiences
+              </motion.p>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#0a4b6f] to-transparent mx-auto mt-4 md:mt-6"
+              />
             </div>
           </motion.div>
 
