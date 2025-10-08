@@ -86,7 +86,7 @@ export default function DisclaimerPage() {
 
               <h3 className="text-xl font-semibold text-gray-800 mb-3 font-sans">4.3 User-Generated Content</h3>
               <p className="text-gray-700 mb-4">
-                Any content submitted by users, including reviews, comments, or other materials, represents the views of the individual user and not necessarily the views of EVIDPROPERTIES. We are not responsible for the accuracy or reliability of user-generated content.
+                Any content submitted by users, including reviews, comments, or other materials, represents the views of the individual user and not necessarily the views of ModacPROPERTIES. We are not responsible for the accuracy or reliability of user-generated content.
               </p>
             </section>
 
@@ -112,7 +112,7 @@ export default function DisclaimerPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">6. Limitation of Liability</h2>
               <p className="text-gray-700 mb-4">
-                In no event shall EVIDPROPERTIES, its officers, directors, employees, agents, or affiliates be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to:
+                In no event shall ModacPROPERTIES, its officers, directors, employees, agents, or affiliates be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
                 <li>Loss of profits, data, or other intangible losses</li>
@@ -126,7 +126,7 @@ export default function DisclaimerPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">7. Indemnification</h2>
               <p className="text-gray-700 mb-4">
-                You agree to indemnify and hold harmless EVIDPROPERTIES, its officers, directors, employees, agents, and affiliates from any claims, damages, losses, or expenses (including reasonable attorney's fees) arising from:
+                You agree to indemnify and hold harmless ModacPROPERTIES, its officers, directors, employees, agents, and affiliates from any claims, damages, losses, or expenses (including reasonable attorney's fees) arising from:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
                 <li>Your use of our website or services</li>
@@ -139,7 +139,7 @@ export default function DisclaimerPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-serif">8. Force Majeure</h2>
               <p className="text-gray-700 mb-4">
-                EVIDPROPERTIES shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to:
+                ModacPROPERTIES shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
                 <li>Acts of God, natural disasters, or extreme weather conditions</li>
@@ -178,7 +178,7 @@ export default function DisclaimerPage() {
                 If you have any questions about this disclaimer, please contact us:
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-gray-700 mb-2"><strong>EVIDPROPERTIES</strong></p>
+                <p className="text-gray-700 mb-2"><strong>ModacPROPERTIES</strong></p>
                 <p className="text-gray-700 mb-2">1205, Prime Tower</p>
                 <p className="text-gray-700 mb-2">Business Bay, Dubai, UAE</p>
                 <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>

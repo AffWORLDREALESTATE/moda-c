@@ -21,7 +21,7 @@ function ContactUs() {
               CONNECT WITH LUXURY
             </p>
             <h2 className="text-4xl md:text-5xl text-gray-800 leading-tight font-sans mb-6 font-serif">
-              Get in Touch with <span className="text-[#0a4b6f] font-normal">Evid Properties</span>
+              Get in Touch with <span className="text-[#0a4b6f] font-normal">Modac Properties</span>
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed font-sans">
               Have a question or ready to embark on your real estate journey? Our team is here to assist you every step of
