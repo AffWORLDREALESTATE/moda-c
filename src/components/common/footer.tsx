@@ -204,7 +204,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="container mx-auto border-t border-white/20 pt-4 flex flex-col md:flex-row items-center justify-between text-sm text-white/70">
         <p className="font-sans">
-          &copy; {"2025 Modac Properties. All Rights Reserved."}
+          &copy; {"2025 Modac Real Estate. All Rights Reserved."}
         </p>
       </div>
     </footer>

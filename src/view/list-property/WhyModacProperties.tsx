@@ -17,7 +17,7 @@ function WhyModacProperties() {
           {/* Left Content */}
           <div>
             <h2 className="text-4xl font-bold text-blue-900 mb-8 font-serif">
-              Why Choose Modac Properties?
+              Why Choose Modac Real Estate?
             </h2>
             
             <div className="space-y-4 mb-8">

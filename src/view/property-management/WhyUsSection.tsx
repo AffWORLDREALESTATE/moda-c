@@ -37,7 +37,7 @@ export default function WhyUsSection() {
             </h2>
             
             <p className="text-lg text-gray-700 leading-relaxed">
-              Modac Properties is one of Dubai's best property management companies with a proven track record. We provide tailor-made services that ensure the best returns on investment.
+              Modac Real Estate is one of Dubai's best property management companies with a proven track record. We provide tailor-made services that ensure the best returns on investment.
             </p>
 
             <div className="space-y-4">

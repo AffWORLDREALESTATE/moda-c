@@ -43,7 +43,7 @@ export function InsightsInspiration() {
             Unveiling Dubai&apos;s Luxurious Real Estate Landscape
           </h2>
           <p className="text-xs sm:text-sm font-extralight text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed tracking-wide px-2">
-            Dive into our curated collection of articles, designed to enlighten, inspire, and guide you through Dubai&apos;s dynamic real estate market.
+            Immerse yourself in our carefully selected compilation of insights, crafted to educate, motivate, and navigate you through Dubai&apos;s ever-evolving property landscape.
           </p>
         </motion.div>
 

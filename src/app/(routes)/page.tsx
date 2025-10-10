@@ -13,12 +13,12 @@ export default function Home() {
   return (
     <div className="bg-[#fff] overflow-hidden">
       <HeroSection />
-      <PartnersSection />
+     
       <Property />
       <Solutions/>
       <Feature />
       <Communities />
-      
+      <PartnersSection />
       <InsightsInspiration />
       <CallToAction />
     </div>

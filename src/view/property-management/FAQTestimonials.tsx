@@ -25,7 +25,7 @@ const testimonials = [
     time: "1 year ago",
     rating: 5,
     title: "Finding Reliable Tenants Quickly",
-    review: "I was having a hard time finding reliable tenants for my rental property. Modac Properties stepped in and took over the tenant screening process. Within just...",
+    review: "I was having a hard time finding reliable tenants for my rental property. Modac Real Estate stepped in and took over the tenant screening process. Within just...",
     avatar: "/placeholder-user.jpg"
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     time: "1 year ago",
     rating: 5,
     title: "Overseas Property Management Made Easy",
-    review: "Being an overseas property owner, managing maintenance issues was quite challenging. Modac Properties' team managed everything, from",
+    review: "Being an overseas property owner, managing maintenance issues was quite challenging. Modac Real Estate's team managed everything, from",
     avatar: "/placeholder-user.jpg"
   },
   {
@@ -41,7 +41,7 @@ const testimonials = [
     time: "1 year ago",
     rating: 5,
     title: "Stress-Free Tenant Eviction and New Tenants",
-    review: "I had a difficult situation with a tenant that needed to be evicted. Modac Properties' team expertly navigated the legal process and",
+    review: "I had a difficult situation with a tenant that needed to be evicted. Modac Real Estate's team expertly navigated the legal process and",
     avatar: "/placeholder-user.jpg"
   }
 ];

@@ -190,10 +190,11 @@ export default function Header() {
                                 key={index}
                                 href={
                                   service.name === "List Your Property" ? "/list-your-property" :
-                                  service.name === "Property Management" ? "/property-management" :
+                                 
                                   service.name === "Mortgages" ? "/mortgages" :
                                   service.name === "Conveyancing" ? "/conveyancing" :
                                   service.name === "Short Term Rentals" ? "/short-term-rental" :
+                                  service.name === "Offplan Management" ? "/offplan-management" :
                                   "/service"
                                 }
                                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
@@ -215,10 +216,11 @@ export default function Header() {
                                 key={index + 5}
                                 href={
                                   service.name === "List Your Property" ? "/list-your-property" :
-                                  service.name === "Property Management" ? "/property-management" :
+                                  
                                   service.name === "Mortgages" ? "/mortgages" :
                                   service.name === "Conveyancing" ? "/conveyancing" :
                                   service.name === "Short-Term Rental" ? "/short-term-rental" :
+                                  service.name === "Offplan Management" ? "/offplan-management" :
                                   "/service"
                                 }
                                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
@@ -352,7 +354,7 @@ export default function Header() {
                           key={serviceIndex}
                           href={
                             service.name === "List Your Property" ? "/list-your-property" :
-                            service.name === "Property Management" ? "/property-management" :
+                            service.name === "Offplan Management" ? "/offplan-management" :
                             "/service"
                           }
                           onClick={() => setIsOverlayOpen(false)}

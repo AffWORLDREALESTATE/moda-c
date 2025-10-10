@@ -49,7 +49,7 @@ const translations: Record<string, Translations> = {
     'nav.listYourProperty': 'List Your Property',
     
     // Services
-    'services.propertyManagement': 'Property Management',
+    'services.propertyManagement': 'Off-Plan Management',
     'services.mortgages': 'Mortgages',
     'services.conveyancing': 'Conveyancing',
     'services.shortTermRentals': 'Short Term Rentals',
@@ -81,7 +81,7 @@ const translations: Record<string, Translations> = {
     'footer.contactUs': 'Contact Us',
     
     // Hero
-    'hero.companyName': 'MODAC PROPERTIES',
+    'hero.companyName': 'MODAC REAL ESTATE',
     
     // Buy page
     'buy.completionStatus': 'Completion Status',
@@ -295,7 +295,7 @@ const translations: Record<string, Translations> = {
     'footer.contactUs': 'Nous contacter',
     
     // Hero
-    'hero.companyName': 'MODAC PROPERTIES',
+    'hero.companyName': 'MODAC REAL ESTATE',
     
     // Buy page
     'buy.completionStatus': 'Statut d\'achèvement',
@@ -402,7 +402,7 @@ const translations: Record<string, Translations> = {
     'footer.contactUs': 'Contáctanos',
     
     // Hero
-    'hero.companyName': 'MODAC PROPERTIES',
+    'hero.companyName': 'MODAC REAL ESTATE',
     
     // Buy page
     'buy.completionStatus': 'Estado de finalización',
@@ -509,7 +509,7 @@ const translations: Record<string, Translations> = {
     'footer.contactUs': 'Kontaktieren Sie uns',
     
     // Hero
-    'hero.companyName': 'MODAC PROPERTIES',
+    'hero.companyName': 'MODAC REAL ESTATE',
     
     // Buy page
     'buy.completionStatus': 'Fertigstellungsstatus',
@@ -615,7 +615,7 @@ const translations: Record<string, Translations> = {
     'footer.contactUs': 'Contattaci',
     
     // Hero
-    'hero.companyName': 'MODAC PROPERTIES',
+    'hero.companyName': 'MODAC REAL ESTATE',
     
     // Buy page
     'buy.completionStatus': 'Stato di completamento',

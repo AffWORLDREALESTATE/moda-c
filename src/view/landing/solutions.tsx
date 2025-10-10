@@ -6,28 +6,28 @@ function Solutions() {
       icon: <User className="h-10 w-10 text-[#0a4b6f]" />,
       title: "Connect with a Specialist",
       description:
-        "Access our dedicated team of over 400+ expert agents ready to assist you.",
+        "Connect with our committed network of 400+ specialized professionals prepared to support your needs.",
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
     {
       icon: <Building className="h-10 w-10 text-[#0a4b6f]" />,
       title: "List Your Property",
       description:
-        "Achieve optimal value by listing your property with our expert marketing strategies.",
+        "Maximize your property's potential through our sophisticated promotional approaches and market expertise.",
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
     {
       icon: <Download className="h-10 w-10 text-[#0a4b6f]" />,
       title: "Download Report",
       description:
-        "Download the latest Comprehensive Dubai Real Estate Market Report Q1 2025",
+        "Access the most recent Detailed Dubai Property Market Analysis for Q1 2025",
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
     {
       icon: <MapPin className="h-10 w-10 text-[#0a4b6f]" />,
       title: "Explore Dubai Projects",
       description:
-        "Browse and find your ideal property from our extensive portfolio of Dubai projects.",
+        "Discover and select your perfect home from our comprehensive collection of Dubai developments.",
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
   ];

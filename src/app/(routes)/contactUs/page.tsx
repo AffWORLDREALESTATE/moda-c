@@ -14,21 +14,28 @@ function ContactUs() {
           <div className="w-44 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-8"></div>
         </div>
       </section>
-      <div className="flex flex-col lg:flex-row py-20 items-center justify-center container mx-auto max-w-7xl">
-        <div className="w-full lg:w-1/2 p-6 md:p-8 lg:pr-16 space-y-8 text-center lg:text-left">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
-            <p className="text-[#0a4b6f] text-sm font-medium uppercase tracking-widest font-sans mb-4">
-              CONNECT WITH LUXURY
-            </p>
-            <h2 className="text-4xl md:text-5xl text-gray-800 leading-tight font-sans mb-6 font-serif">
-              Get in Touch with <span className="text-[#0a4b6f] font-normal">Modac Properties</span>
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed font-sans">
-              Have a question or ready to embark on your real estate journey? Our team is here to assist you every step of
-              the way. Reach out to us via phone, email, or simply fill out the contact form below. We look forward to
-              hearing from you!
-            </p>
-          </div>
+      {/* Top Section - Full Width */}
+      <div className="py-20 container mx-auto max-w-7xl px-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 text-center">
+          <p className="text-[#0a4b6f] text-sm font-medium uppercase tracking-widest font-sans mb-4">
+            CONNECT WITH LUXURY
+          </p>
+          <h2 className="text-4xl md:text-5xl text-gray-800 leading-tight font-sans mb-6 font-serif">
+            Get in Touch with <span className="text-[#0a4b6f] font-normal">Modac Real Estate</span>
+          </h2>
+          <p className="text-gray-600 text-[20px] leading-relaxed font-sans max-w-4xl mx-auto">
+            Modac Real Estate is one of the most recognized african trusted real estate consultancies in Dubai United Arab Emirates, founded by Mr. Fabien Mvie Monefong from Cameroon, Since its launched in 2022 with his experienced in the industry and in the field of his other businesses locally & globally, it has been successful and we will continue to thrive and provide quality services to our clients both locally and Internationally who sincerely gain trust and to new real estate buyers.<br/><br/>
+
+The extent of our experienced research driven and professional teams to give reliable information and advice to our clients make a right decision for the house search and investment.<br/><br/>
+
+Our service offers acquiring, leasing residential and commercial real estate.   
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Section - Two Columns */}
+      <div className="flex flex-col lg:flex-row py-20 items-start justify-center container mx-auto max-w-7xl px-6 gap-8">
+        <div className="w-full lg:w-1/2">
           <div className="bg-gradient-to-br from-[#0a4b6f]/10 to-[#1a6b8f]/10 rounded-2xl p-6 border border-[#0a4b6f]/20">
             <h3 className="text-xl font-semibold text-gray-800 mb-6 font-sans">Contact Information</h3>
             <div className="space-y-4">
@@ -45,7 +52,7 @@ function ContactUs() {
                     href="https://maps.app.goo.gl/MLsZVHdi97PSmAwL9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-[#0a4b6f] transition-colors font-sans"
+                    className="text-gray-600 text-[17px] hover:text-[#0a4b6f] transition-colors font-sans"
                   >
                     <p>1205, Prime Tower</p>
                     <p>Business Bay, Dubai, UAE</p>
@@ -114,13 +121,13 @@ function ContactUs() {
                 </div>
                 <div>
                   <p className="text-gray-800 font-medium font-sans">Business Hours</p>
-                  <p className="text-gray-600 font-sans">Mon – Fri: 9AM to 7PM</p>
+                  <p className="text-gray-600 text-[17px] font-sans">Mon – Fri: 9AM to 7PM</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 p-6 md:p-8 lg:pl-16 mt-8 lg:mt-0">
+        <div className="w-full lg:w-1/2">
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
             <EnquireForm type="contact"/>
           </div>

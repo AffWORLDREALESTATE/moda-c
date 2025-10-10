@@ -3,11 +3,11 @@ import { Check } from 'lucide-react';
 
 function WhyModacProperties() {
   const benefits = [
-    "Most awarded real estate agency in the UAE",
-    "Our agents speak more than 45 languages",
-    "Achieved 50+ billion AED sales in our career",
-    "0% Zero fees to you",
-    "Get listed on local & global portals"
+    "Most recognized property agency in the UAE",
+    "Our specialists communicate in more than 45 languages",
+    "Accomplished 50+ billion AED transactions in our profession",
+    "0% No charges to you",
+    "Get featured on regional & international platforms"
   ];
 
   return (
@@ -82,7 +82,7 @@ function WhyModacProperties() {
             How does it work?
           </h2>
           <p className="text-xl text-gray-600">
-            Start the effortless journey of listing your property with us, step by step.
+            Begin the seamless process of featuring your asset with us, stage by stage.
           </p>
         </div>
       </div>

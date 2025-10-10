@@ -12,7 +12,7 @@ export default function AboutSection() {
           {/* Content */}
           <div className="order-2 lg:order-1">
             <h2 className="text-4xl font-bold text-blue-900 mb-6 font-serif">
-              About Conveyance with Modac Properties
+              About Conveyance with Modac Real Estate
             </h2>
             
             <h3 className="text-xl font-bold text-gray-800 mb-6">
@@ -21,11 +21,11 @@ export default function AboutSection() {
             
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p>
-                Specializing in Property Conveyancing Services, we seamlessly collaborate with essential stakeholders in Dubai's property market. Our team possesses extensive transactional expertise and proficiency in both financial and cash-based transfers, ensuring your property transactions are handled with the highest level of professionalism and efficiency.
+                Focusing on Real Estate Transfer Services, we effortlessly partner with key participants in Dubai's property sector. Our group holds comprehensive deal-making experience and mastery in both mortgage and cash transactions, guaranteeing your real estate dealings are managed with exceptional professionalism and effectiveness.
               </p>
               
               <p>
-                Recognizing the intricacies of Dubai's real estate regulations, we have instituted a dedicated conveyancing department to simplify the buying and selling process, ensuring a smooth and hassle-free experience.
+                Understanding the complexities of Dubai's property laws, we have established a specialized transfer division to streamline the acquisition and disposal process, ensuring a seamless and stress-free journey.
               </p>
             </div>
 

@@ -74,13 +74,13 @@ export default function Property() {
           <h2 className="text-black text-xs sm:text-sm font-light tracking-widest mb-2 uppercase font-serif">
             FEATURED PROPERTIES
           </h2>
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono mb-3 sm:mb-4 text-[#1A202C] tracking-wide font-serif px-2">
-            Handpicked Luxury Listings in Dubai
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-mono mb-3 sm:mb-4 text-[#1A202C] tracking-wide font-serif px-2">
+          Checkout Some of the Most Promising Properties by Modac Real Estate
           </h1>
           <p className="max-w-4xl mx-auto text-xs sm:text-sm font-light text-gray-700 leading-relaxed mb-3 sm:mb-4 px-2">
             Step into a realm of unparalleled sophistication with our featured
             properties. Explore these exclusive gems and envision your next
-            luxurious retreat with Modac Properties.
+            luxurious retreat with Modac Real Estate.
           </p>
           {totalProperties > 0 && (
             <p className="text-xs sm:text-sm text-gray-600">

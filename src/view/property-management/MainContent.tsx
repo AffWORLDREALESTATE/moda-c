@@ -17,15 +17,15 @@ export default function MainContent() {
             
             <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
               <p>
-                Owning a lucrative rental property requires significant time, expertise, and know-how. Let Modac Properties alleviate the burden and hassle associated with property management.
+                Managing a profitable rental asset demands substantial time investment, specialized skills, and industry knowledge. Allow Modac Real Estate to relieve the stress and complexity involved with property administration.
               </p>
               
               <p>
-                As a leading property management company in Dubai, we provide comprehensive, professional services, handling all aspects of rental property management.
+                As a premier property administration firm in Dubai, we deliver thorough, expert solutions, managing every facet of rental asset oversight.
               </p>
               
               <p>
-                We protect your property, deposits, and tenants for rentals in Dubai, handling rental collection, condition reports, and maintenance oversight. Our collaborative approach ensures faster, higher-quality service, and greater transparency, setting us apart.
+                We safeguard your assets, security deposits, and residents for Dubai rentals, managing rent collection, inspection reports, and upkeep supervision. Our partnership methodology guarantees quicker, superior service, and enhanced clarity, distinguishing us from competitors.
               </p>
             </div>
 

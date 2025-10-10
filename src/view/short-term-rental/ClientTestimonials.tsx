@@ -10,19 +10,19 @@ export default function ClientTestimonials() {
       name: "David E",
       time: "1 year ago",
       title: "Amazing Rental Experience",
-      review: "Renting my property on a short-term basis with Modac Properties has been a fantastic experience. They handled everything, ensuring high occupancy and satisfied guests."
+      review: "Leasing my asset on a temporary basis with Modac Real Estate has been an exceptional journey. They managed all aspects, guaranteeing maximum occupancy and content visitors."
     },
     {
       name: "Fatima A.",
       time: "1 year ago", 
       title: "Best Short-Term Rental Services",
-      review: "Modac Properties' short-term rental service has been amazing. They handled everything, from marketing my property to managing guest stays. I'm thrilled with the results."
+      review: "Modac Real Estate's temporary rental offerings have been outstanding. They managed all elements, from promoting my asset to overseeing visitor accommodations. I'm delighted with the outcomes."
     },
     {
       name: "Omar F.",
       time: "1 year ago",
       title: "The Team has it all Handled", 
-      review: "I couldn't be happier with Modac Properties' short-term rental service. They maximise the rental income, take care of maintenance, and ensure a smooth guest experience.",
+      review: "I couldn't be more satisfied with Modac Real Estate's temporary rental solutions. They optimize the lease revenue, handle upkeep, and guarantee a seamless visitor experience.",
       rating: 4
     }
   ];
@@ -36,7 +36,7 @@ export default function ClientTestimonials() {
               Why Our Clients Trust Us
             </h2>
             <p className="text-xl text-gray-600">
-              Discover what our customers are saying about their experiences.
+              Explore what our clients are expressing about their journeys.
             </p>
           </div>
           

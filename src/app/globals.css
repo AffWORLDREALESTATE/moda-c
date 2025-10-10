@@ -149,6 +149,24 @@
   p, span, div, a, button, input, select, textarea {
     @apply font-sans;
   }
+  /* Global paragraph sizing to match homepage lead paragraph */
+  p {
+    font-size: 0.875rem; /* text-sm */
+  }
+  @media (min-width: 640px) {
+    p { font-size: 1rem; } /* sm:text-base */
+  }
+  @media (min-width: 768px) {
+    p { font-size: 1.125rem; } /* md:text-lg */
+  }
+
+  /* Paragraph directly after a heading uses the same sizes, with improved line-height */
+  h1 + p,
+  h2 + p,
+  h3 + p {
+    font-size: inherit;
+    line-height: 1.75rem;
+  }
   
   /* Mobile optimizations */
   @media (max-width: 768px) {

@@ -1,7 +1,7 @@
 import TeamPage from "@/src/view/team/teamPage";
 
 export const metadata = {
-  title: "Our Luxury Team - Modac Properties",
+  title: "Our Luxury Team - Modac Real Estate",
   description: "Meet our exceptional team of luxury real estate professionals in Dubai. Expert agents dedicated to making your property dreams come true.",
 };
 

@@ -22,19 +22,19 @@ export default function WhyDubai() {
                 <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">Lifestyle:</h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
                   <li>
-                    Unparalleled Luxury: Own a luxury property offering a
-                    combination of stunning architecture, world-class amenities,
-                    and breathtaking views.
+                    Exceptional Elegance: Possess a premium residence featuring a
+                    blend of magnificent design, international-standard facilities,
+                    and spectacular vistas.
                   </li>
                   <li>
-                    Vibrant & Diverse: Be immersed in one of the most dynamic
-                    lifestyle cities in the world with a well-diversified cultural
-                    mix and infinite entertainment options.
+                    Energetic & Varied: Experience immersion in one of the most active
+                    lifestyle urban centers globally with a richly diverse cultural
+                    blend and limitless recreational possibilities.
                   </li>
                   <li>
-                    Year-Round Sunshine: Enjoy life in a city with sunshine for
-                    most of the year, a perfect place for outdoor activities and
-                    soaking up the sun.
+                    Continuous Daylight: Experience living in a metropolis with sunlight for
+                    most of the year, an ideal location for exterior pursuits and
+                    basking in the warmth.
                   </li>
                 </ul>
               </div>
@@ -42,29 +42,29 @@ export default function WhyDubai() {
                 <h3 className="font-semibold text-lg mb-4 text-[#0a4b6f] font-sans">Investment:</h3>
                 <ul className="list-disc pl-6 space-y-3 text-base font-sans leading-relaxed">
                   <li>
-                    Tax-Free Haven: Investing in Dubai means
-                    benefiting from high-profit margins with no income or property
-                    taxes.
+                    Tax-Exempt Sanctuary: Investing in Dubai signifies
+                    profiting from elevated-profit margins with zero income or real estate
+                    levies.
                   </li>
                   <li>
-                    Stable & Growing Market: Enjoy Dubai&apos;s
-                    diversified economy, its stable property value, and dynamic
-                    appreciation.
+                    Steady & Expanding Market: Experience Dubai&apos;s
+                    varied economic structure, its consistent real estate worth, and vigorous
+                    value growth.
                   </li>
                   <li>
-                    High Rental Yields: Dubai generates above-
-                    average rental returns through short-term or long-term rentals
-                    in a high-demand world-class tourism hub.
+                    Elevated Lease Returns: Dubai produces superior-
+                    average rental income through temporary or extended rentals
+                    in a sought-after international tourism destination.
                   </li>
                   <li>
-                    Favorable Payment Plans: Dubai developers
-                    offer personalized payment plans and incentives to make your
-                    dream a reality.
+                    Advantageous Installment Schemes: Dubai builders
+                    provide customized payment arrangements and bonuses to make your
+                    aspiration come true.
                   </li>
                   <li>
-                    Visa Opportunities: Owning a Dubai property
-                    for a value above AED 2 Mill, qualifies you and the entire
-                    family automatically for residency visas.
+                    Permit Possibilities: Possessing a Dubai asset
+                    for a worth exceeding AED 2 Million, qualifies you and the complete
+                    family automatically for residence permits.
                   </li>
                 </ul>
               </div>

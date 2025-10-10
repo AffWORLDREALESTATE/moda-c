@@ -32,8 +32,8 @@ export function CallToAction() {
             Elevate Your Real Estate Journey
           </h2>
           <p className="text-sm sm:text-base md:text-lg font-extralight max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed text-[#333] px-2">
-            Ready to embark on a luxurious real estate experience tailored just
-            for you? Take the first step towards unparalleled living.
+            Prepared to begin your premium property journey customized exclusively
+            for your needs? Initiate your path toward extraordinary lifestyle experiences.
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href={"/contactUs"}>

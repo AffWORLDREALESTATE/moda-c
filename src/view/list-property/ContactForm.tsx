@@ -49,9 +49,9 @@ function ContactForm() {
             </div>
 
             <p className="text-gray-600 text-lg leading-relaxed">
-              For over 16 years, Modac Properties has been the go-to choice for landlords and homeowners. 
-              With a dedicated team of over 200 area specialists, we specialize in maximizing your returns. 
-              Don't miss out on our expertise. Contact Modac Properties today!
+              For more than 16 years, Modac Real Estate has been the preferred option for property owners and residents. 
+              With a committed group of over 200 regional experts, we focus on optimizing your profits. 
+              Don't overlook our knowledge. Reach out to Modac Real Estate today!
             </p>
           </div>
 

@@ -19,12 +19,12 @@ import { LanguageProvider } from "@/src/contexts/LanguageContext";
 // });
 
 export const metadata: Metadata = {
-  title: "Modac Properties - Premium Real Estate Solutions in Dubai",
+  title: "Modac Real Estate - Premium Real Estate Solutions in Dubai",
   description: "Discover luxury properties, off-plan projects, and premium real estate services in Dubai. Expert agents, comprehensive market insights, and exceptional customer service.",
   keywords: "Dubai real estate, luxury properties, off-plan projects, property management, mortgages, conveyancing",
-  authors: [{ name: "Modac Properties" }],
-  creator: "Modac Properties",
-  publisher: "Modac Properties",
+  authors: [{ name: "Modac Real Estate" }],
+  creator: "Modac Real Estate",
+  publisher: "Modac Real Estate",
   formatDetection: {
     email: false,
     address: false,
@@ -45,16 +45,16 @@ export const metadata: Metadata = {
     apple: '/images/logo.png',
   },
   openGraph: {
-    title: "Modac Properties - Premium Real Estate Solutions in Dubai",
+    title: "Modac Real Estate - Premium Real Estate Solutions in Dubai",
     description: "Discover luxury properties, off-plan projects, and premium real estate services in Dubai.",
     url: 'https://modacproperties.com',
-    siteName: 'Modac Properties',
+    siteName: 'Modac Real Estate',
     images: [
       {
         url: '/images/logo.png',
         width: 1200,
         height: 1200,
-        alt: 'Modac Properties Logo',
+        alt: 'Modac Real Estate Logo',
       },
     ],
     locale: 'en_US',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Modac Properties - Premium Real Estate Solutions in Dubai",
+    title: "Modac Real Estate - Premium Real Estate Solutions in Dubai",
     description: "Discover luxury properties, off-plan projects, and premium real estate services in Dubai.",
     images: ['/images/logo.png'],
   },

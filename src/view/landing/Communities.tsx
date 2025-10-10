@@ -108,10 +108,10 @@ export default function Component() {
           Discover Dubai&apos;s Finest
         </h1>
         <p className="max-w-4xl mx-auto text-gray-600 text-xs sm:text-sm tracking-tight font-light px-2">
-          Explore the diverse tapestry of Dubai&apos;s most sought-after areas
-          and communities. From serene waterfront retreats to bustling urban
-          hubs, our curated selection showcases the essence of luxury living in
-          each locale.
+          Navigate through the rich mosaic of Dubai&apos;s most desirable districts
+          and neighborhoods. From peaceful coastal sanctuaries to vibrant metropolitan
+          centers, our handpicked collection reveals the spirit of premium lifestyle in
+          every location.
         </p>
       </section>
 
