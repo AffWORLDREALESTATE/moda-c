@@ -90,7 +90,7 @@ export default function HeroSection() {
               }}
               poster="/images/bgImage.webp"
             >
-              <source src="/herooo.mp4" type="video/mp4" />
+              <source src="/herooooo.mp4" type="video/mp4" />
               {/* Fallback for browsers that don't support video */}
               <Image
                 src="/images/bgImage.webp"

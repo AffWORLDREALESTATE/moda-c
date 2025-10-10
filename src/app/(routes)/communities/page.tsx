@@ -3,10 +3,12 @@ import { getAllCommunities } from "@/src/api/communities";
 import CommunitiesCard from "@/src/view/communities/communitiesCard";
 import { Loader } from "lucide-react";
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 const PAGE_SIZE = 100;
 
 function Communities() {
+  const { t } = useLanguage();
   const [communities, setCommunities] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);

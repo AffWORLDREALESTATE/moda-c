@@ -1,33 +1,33 @@
+"use client";
+
 import { ArrowRight, User, Building, Download, MapPin } from "lucide-react";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 function Solutions() {
+  const { t } = useLanguage();
   const solutions = [
     {
       icon: <User className="h-10 w-10 text-[#0a4b6f]" />,
-      title: "Connect with a Specialist",
-      description:
-        "Connect with our committed network of 400+ specialized professionals prepared to support your needs.",
+      title: t('solutions.connectSpecialist'),
+      description: t('solutions.connectDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
     {
       icon: <Building className="h-10 w-10 text-[#0a4b6f]" />,
-      title: "List Your Property",
-      description:
-        "Maximize your property's potential through our sophisticated promotional approaches and market expertise.",
+      title: t('solutions.listProperty'),
+      description: t('solutions.listDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
     {
       icon: <Download className="h-10 w-10 text-[#0a4b6f]" />,
-      title: "Download Report",
-      description:
-        "Access the most recent Detailed Dubai Property Market Analysis for Q1 2025",
+      title: t('solutions.downloadReport'),
+      description: t('solutions.downloadDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
     {
       icon: <MapPin className="h-10 w-10 text-[#0a4b6f]" />,
-      title: "Explore Dubai Projects",
-      description:
-        "Discover and select your perfect home from our comprehensive collection of Dubai developments.",
+      title: t('solutions.exploreProjects'),
+      description: t('solutions.exploreDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-[#0a4b6f]" />,
     },
   ];

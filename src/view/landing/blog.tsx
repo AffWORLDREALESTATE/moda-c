@@ -3,32 +3,34 @@ import { BlogCard } from "@/src/components/common/card"
 import { Button } from "@/src/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useLanguage } from "@/src/contexts/LanguageContext"
 
 const blogPosts = [
   {
-    imageSrc: "/images/blog1.webp",
+    imageSrc: "/images/property1.jpeg",
     date: "Jul 16, 2025",
-    title: "Why Your Home Should Feel as Good as It Looks: The Psychology of Luxury Living",
-    description: "Have you ever stepped into a space that looked stunning... yet somehow felt wrong?...",
+    title: "Design That Feels Right: The Psychology Behind Luxury Living",
+    description: "Ever stepped into a beautiful room that still felt off? We unpack how lighting, layout, textures, and proportion shape mood—and why true luxury is as much about comfort as it is about looks.",
     href: "/blog/details/why-your-home-should-feel-as-good-as-it-looks",
   },
   {
-    imageSrc: "/images/blog2.webp",
+    imageSrc: "/images/property2.jpeg",
     date: "Dec 24, 2024",
-    title: "Why Buying Property in Dubai is Better than Renting",
-    description: "Dubai's real estate market continues to be one of the most dynamic and sought-after...",
+    title: "Buying vs Renting in Dubai: Why Ownership Often Wins",
+    description: "From long‑term value and rental yields to flexible payment plans and residency perks—discover the practical advantages that make owning property in Dubai a compelling choice for many residents and investors.",
     href: "/blog/details/why-your-home-should-feel-as-good-as-it-looks",
   },
   {
-    imageSrc: "/images/building.jpg",
+    imageSrc: "/images/property3.jpeg",
     date: "Jan 8, 2024",
-    title: "Why Invest in Dubai's Real Estate? A Look into the Future",
-    description: "Introduction in the heart of the Middle East, Dubai shines as a beacon of progress...",
+    title: "Dubai Real Estate Outlook: Investing for the Years Ahead",
+    description: "With world‑class infrastructure, ambitious developments, and a growth‑driven vision, Dubai continues to attract global capital. Here’s what to watch—and where the next opportunities may emerge.",
     href: "/blog/details/why-your-home-should-feel-as-good-as-it-looks",
   },
 ]
 
 export function InsightsInspiration() {
+  const { t } = useLanguage();
   return (
     <section className="py-12 sm:py-16 md:py-24 bg-white">
       <div className="mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-20 text-center">
@@ -38,12 +40,12 @@ export function InsightsInspiration() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-sm sm:text-base md:text-lg text-[#0a4b6f] uppercase font-extralight tracking-wider mb-2">INSIGHTS & INSPIRATION</p>
+          <p className="text-sm sm:text-base md:text-lg text-[#0a4b6f] uppercase font-extralight tracking-wider mb-2">{t('landing.blog.kicker')}</p>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono text-gray-800 mb-3 sm:mb-4 font-serif px-2">
-            Unveiling Dubai&apos;s Luxurious Real Estate Landscape
+            {t('landing.blog.heading')}
           </h2>
           <p className="text-xs sm:text-sm font-extralight text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed tracking-wide px-2">
-            Immerse yourself in our carefully selected compilation of insights, crafted to educate, motivate, and navigate you through Dubai&apos;s ever-evolving property landscape.
+            {t('landing.blog.subtitle')}
           </p>
         </motion.div>
 
@@ -71,7 +73,7 @@ export function InsightsInspiration() {
         >
        <Link href={"/blog"} passHref>
         <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
-       VIEW ALL BLOGS
+       {t('landing.blog.viewAll')}
           </Button>
        </Link>
         </motion.div>

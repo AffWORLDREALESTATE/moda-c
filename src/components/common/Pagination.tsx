@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 interface PaginationProps {
   currentPage: number;
@@ -19,6 +20,7 @@ export default function Pagination({
   onPageChange,
   className = "",
 }: PaginationProps) {
+  const { t } = useLanguage();
   // Don't show pagination if there's only one page or no items
   if (totalPages <= 1 || totalItems === 0) {
     return null;
@@ -69,7 +71,7 @@ export default function Pagination({
     <div className={`flex flex-col sm:flex-row justify-between items-center gap-4 ${className}`}>
       {/* Results Info */}
       <div className="text-sm text-gray-600 order-2 sm:order-1">
-        Showing {startItem} to {endItem} of {totalItems} properties
+        {t('buy.showing')} {startItem} {t('buy.to')} {endItem} {t('buy.of')} {totalItems} {t('buy.properties')}
       </div>
 
       {/* Pagination Controls */}
@@ -82,7 +84,7 @@ export default function Pagination({
           aria-label="Previous page"
         >
           <ChevronLeft className="w-4 h-4 mr-1" />
-          Previous
+          {t('buy.previous')}
         </button>
 
         {/* Page Numbers */}
@@ -127,7 +129,7 @@ export default function Pagination({
           className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           aria-label="Next page"
         >
-          Next
+          {t('buy.next')}
           <ChevronRight className="w-4 h-4 ml-1" />
         </button>
       </div>

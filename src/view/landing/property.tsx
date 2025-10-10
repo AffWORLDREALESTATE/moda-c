@@ -1,10 +1,14 @@
+"use client";
+
 import { getAllProperties } from "@/src/api/offPlans";
 import PropertyCard from "@/src/components/common/property-card";
 import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
 import React from "react";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function Property() {
+  const { t } = useLanguage();
   const [property, setProperty] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -72,19 +76,17 @@ export default function Property() {
       <main className="container mx-auto py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
         <section className="text-center mb-8 sm:mb-12">
           <h2 className="text-black text-xs sm:text-sm font-light tracking-widest mb-2 uppercase font-serif">
-            FEATURED PROPERTIES
+            {t('landing.property.kicker')}
           </h2>
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-mono mb-3 sm:mb-4 text-[#1A202C] tracking-wide font-serif px-2">
-          Checkout Some of the Most Promising Properties by Modac Real Estate
+          {t('landing.property.heading')}
           </h1>
           <p className="max-w-4xl mx-auto text-xs sm:text-sm font-light text-gray-700 leading-relaxed mb-3 sm:mb-4 px-2">
-            Step into a realm of unparalleled sophistication with our featured
-            properties. Explore these exclusive gems and envision your next
-            luxurious retreat with Modac Real Estate.
+            {t('landing.property.subtitle')}
           </p>
           {totalProperties > 0 && (
             <p className="text-xs sm:text-sm text-gray-600">
-              Showing {property.length} of {totalProperties} properties
+              {t('landing.property.showing')} {property.length} {t('landing.property.of')} {totalProperties} {t('landing.property.properties')}
             </p>
           )}
         </section>
@@ -103,13 +105,13 @@ export default function Property() {
                   onClick={fetchproperty}
                   className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white"
               >
-                Try Again
+                {t('landing.property.tryAgain')}
               </Button>
             </div>
           ) : property?.length === 0 ? (
             // No properties state
             <div className="col-span-full text-center py-12">
-              <p className="text-gray-600">No featured properties available at the moment.</p>
+              <p className="text-gray-600">{t('landing.property.noProperties')}</p>
             </div>
           ) : (
             property?.map((obj: any, i) => {
@@ -154,7 +156,7 @@ export default function Property() {
                   disabled={loading}
                   className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
                 >
-                  {loading ? "Loading..." : `Load More Properties (Page ${currentPage + 1})`}
+                  {loading ? "Loading..." : `${t('landing.property.loadMore')} (Page ${currentPage + 1})`}
                 </Button>
               )}
               <Button 
@@ -163,7 +165,7 @@ export default function Property() {
                 variant="outline"
                 className="border-[#0a4b6f] text-[#0a4b6f] hover:bg-[#0a4b6f] hover:text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
               >
-                Show All {totalProperties} Properties
+                {t('landing.property.showAll')} {totalProperties} {t('landing.property.properties')}
               </Button>
             </div>
           </div>
@@ -172,7 +174,7 @@ export default function Property() {
         <div className="text-center">
          <Link href={"/buy"}>
            <Button className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg font-light tracking-wider rounded-none shadow-md uppercase">
-            VIEW ALL PROPERTIES
+            {t('landing.property.viewAll')}
           </Button>
          </Link>
         </div>

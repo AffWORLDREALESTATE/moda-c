@@ -56,7 +56,7 @@ const blogPost = {
   readTime: "6 min read",
   category: "Real Estate",
   tags: ["Dubai", "Investment", "Real Estate", "Property"],
-  featuredImage: "/images/blog1.webp",
+  featuredImage: "/images/property1.jpeg",
 };
 
 export default function DetailsBlog() {
@@ -79,7 +79,7 @@ export default function DetailsBlog() {
       <div className="max-w-5xl mx-auto px-6 mt-8 mb-12">
         <div className="relative rounded-none overflow-hidden ">
           <Image
-            src={"/images/blog1.webp"}
+            src={blogPost.featuredImage}
             alt="Featured image"
             width={0}
             height={0}

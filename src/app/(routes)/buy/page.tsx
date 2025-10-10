@@ -285,7 +285,7 @@ function Buy() {
           <SelectValue />
         </SelectTrigger>
         <SelectContent className="bg-white">
-          <SelectItem value="any">Property Type</SelectItem>
+          <SelectItem value="any">{t('buy.anyPropertyType')}</SelectItem>
           {PROPERTY_TYPES.map((type) => (
             <SelectItem key={type} value={type}>
               {type}
@@ -307,7 +307,7 @@ function Buy() {
           <SelectValue />
         </SelectTrigger>
         <SelectContent className="bg-white">
-          <SelectItem value="any">Min </SelectItem>
+          <SelectItem value="any">{t('buy.min')}</SelectItem>
           {PRICE_OPTIONS.map((price) => (
             <SelectItem key={price} value={price}>
               {parseInt(price).toLocaleString()}
@@ -326,7 +326,7 @@ function Buy() {
           <SelectValue />
         </SelectTrigger>
         <SelectContent className="bg-white">
-          <SelectItem value="any">Max</SelectItem>
+          <SelectItem value="any">{t('buy.max')}</SelectItem>
           {PRICE_OPTIONS.map((price) => (
             <SelectItem key={price} value={price}>
               {parseInt(price).toLocaleString()}
@@ -446,10 +446,10 @@ function Buy() {
                 onValueChange={(value) => handleFilterChange("bedrooms", value)}
               >
                 <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 h-12 sm:h-14 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder="Beds" />
+                  <SelectValue placeholder={t('buy.beds')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Beds</SelectItem>
+                  <SelectItem value="any">{t('buy.beds')}</SelectItem>
                   {BEDROOM_OPTIONS.slice(1).map((bed) => (
                     <SelectItem key={bed} value={bed}>
                       {bed === "5+" ? "5+ Beds" : `${bed} Bed`}
@@ -467,7 +467,7 @@ function Buy() {
                 className="w-28 sm:w-32 h-12 sm:h-14 bg-white/90 hover:bg-white border border-[#0a4b6f]/30 text-gray-700 hover:border-[#0a4b6f]/50 transition-colors flex items-center justify-center gap-2 font-sans text-xs sm:text-sm"
               >
                 <Icon icon="lucide:sliders-horizontal" className="w-3 h-3 sm:w-4 sm:h-4" />
-                More Filters
+                {t('buy.moreFilters')}
               </Button>
 
               <Button
@@ -489,7 +489,7 @@ function Buy() {
         <DialogContent className="max-w-sm sm:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
-              <span className="text-lg sm:text-xl font-semibold">Search Filters</span>
+              <span className="text-lg sm:text-xl font-semibold">{t('offplans.searchFilters')}</span>
               <Button
                 variant="ghost"
                 size="sm"
@@ -505,7 +505,7 @@ function Buy() {
             {/* Search Input - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
               <label className="text-sm font-medium text-gray-700">
-                Location
+                {t('buy.location')}
               </label>
               <div className="relative">
                 <Input
@@ -523,7 +523,7 @@ function Buy() {
 
             {/* Listing Type Filter - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
-              <label className="text-sm font-medium text-gray-700">Type</label>
+              <label className="text-sm font-medium text-gray-700">{t('buy.type')}</label>
               <Select
                 value={filters.listing_type}
                 onValueChange={(value) => handleFilterChange("listing_type", value)}
@@ -541,7 +541,7 @@ function Buy() {
             {/* Property Type - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
               <label className="text-sm font-medium text-gray-700">
-                Property Type
+                {t('buy.propertyType')}
               </label>
               <Select
                 value={filters.property_type}
@@ -553,7 +553,7 @@ function Buy() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white max-h-60">
-                  <SelectItem value="any">Any Property Type</SelectItem>
+                  <SelectItem value="any">{t('buy.anyPropertyType')}</SelectItem>
                   {PROPERTY_TYPES.map((type) => (
                     <SelectItem key={type} value={type}>
                       {type}
@@ -566,7 +566,7 @@ function Buy() {
             {/* Completion Status */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Completion Status
+                {t('buy.completionStatus')}
               </label>
               <Select
                 value={filters.completion_status}
@@ -590,11 +590,11 @@ function Buy() {
             {/* Developer Search */}
             <div className="space-y-2 developer-search">
               <label className="text-sm font-medium text-gray-700">
-                Developer
+                {t('buy.developer')}
               </label>
               <div className="relative">
                 <Input
-                  placeholder="Search developers..."
+                  placeholder={t('buy.searchDevelopers')}
                   value={developerSearch}
                   onChange={(e) => setDeveloperSearch(e.target.value)}
                   className="w-full bg-white border border-gray-300 rounded-md h-12 sm:h-14 text-gray-900 placeholder:text-gray-600 focus-visible:ring-2 focus-visible:ring-primary pr-10"
@@ -631,7 +631,7 @@ function Buy() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:hidden">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  Min Price
+                  {t('buy.minPrice')}
                 </label>
                 <Select
                   value={filters.min_price}
@@ -643,7 +643,7 @@ function Buy() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-white max-h-60">
-                    <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="any">{t('buy.any')}</SelectItem>
                     {PRICE_OPTIONS.map((price) => (
                       <SelectItem key={price} value={price}>
                         {parseInt(price).toLocaleString()}
@@ -655,7 +655,7 @@ function Buy() {
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  Max Price
+                  {t('buy.maxPrice')}
                 </label>
                 <Select
                   value={filters.max_price}
@@ -667,7 +667,7 @@ function Buy() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-white max-h-60">
-                    <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="any">{t('buy.any')}</SelectItem>
                     {PRICE_OPTIONS.map((price) => (
                       <SelectItem key={price} value={price}>
                         {parseInt(price).toLocaleString()}
@@ -681,7 +681,7 @@ function Buy() {
             {/* Bedrooms - Hidden on large screens since it's shown in desktop form */}
             <div className="space-y-2 md:hidden">
               <label className="text-sm font-medium text-gray-700">
-                Bedrooms
+                {t('buy.beds')}
               </label>
               <Select
                 value={filters.bedrooms}
@@ -691,7 +691,7 @@ function Buy() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="any">Any Bedrooms</SelectItem>
+                  <SelectItem value="any">{t('buy.anyBedrooms')}</SelectItem>
                   {BEDROOM_OPTIONS.slice(1).map((bed) => (
                     <SelectItem key={bed} value={bed}>
                       {bed === "5+" ? "5+ Beds" : `${bed} Bed`}
@@ -704,7 +704,7 @@ function Buy() {
             {/* Bathrooms */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Bathrooms
+                {t('buy.bathrooms')}
               </label>
               <Select
                 value={filters.bathrooms}
@@ -716,7 +716,7 @@ function Buy() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="any">Any Bathrooms</SelectItem>
+                  <SelectItem value="any">{t('buy.anyBathrooms')}</SelectItem>
                   {BATHROOM_OPTIONS.slice(1).map((bath) => (
                     <SelectItem key={bath} value={bath}>
                       {bath === "5+" ? "5+ Baths" : `${bath} Bath`}
@@ -729,7 +729,7 @@ function Buy() {
             {/* Handover Year */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Handover Year
+                {t('buy.handoverYear')}
               </label>
               <Select
                 value={filters.handover_year}
@@ -741,7 +741,7 @@ function Buy() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white">
-                  <SelectItem value="any">Any Year</SelectItem>
+                  <SelectItem value="any">{t('buy.anyYear')}</SelectItem>
                   {HANDOVER_YEAR_OPTIONS.slice(1).map((year) => (
                     <SelectItem key={year} value={year}>
                       {year}
@@ -757,7 +757,7 @@ function Buy() {
               className="w-full bg-primary hover:bg-primary/90 text-white font-medium h-12 sm:h-14 rounded-md"
             >
               <Search className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              Search Properties
+              {t('buy.search')}
             </Button>
           </div>
         </DialogContent>
@@ -765,11 +765,10 @@ function Buy() {
 
       <div className="mx-auto px-4 py-4 sm:py-7 mt-8 sm:mt-11 max-w-5xl">
         <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
-          Dubai&apos;s most exquisite properties
+          {t('buy.locationHeading')}
         </h1>
         <p className="text-center text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base">
-          Become part of a world class lifestyle, benefit of unrivaled returns
-          and own a piece of Dubai&apos;s future.
+          {t('buy.locationSubheading')}
         </p>
       </div>
       <p className="text-center mb-8 sm:mb-11">
@@ -781,7 +780,7 @@ function Buy() {
               "after:-translate-x-1/2 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
             )}
           >
-            Learn More
+            {t('buy.learnMore')}
           </span>
         </Link>
       </p>
@@ -814,7 +813,7 @@ function Buy() {
               disabled={currentPage === 1}
               className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              Previous
+              {t('buy.previous')}
             </button>
 
             {/* Page Numbers */}
@@ -851,13 +850,13 @@ function Buy() {
               disabled={currentPage === totalPages}
               className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              Next
+              {t('buy.next')}
             </button>
           </div>
 
           {/* Results Info */}
           <div className="text-xs sm:text-sm text-gray-600 text-center sm:ml-8">
-            Showing {((currentPage - 1) * 24) + 1} to {Math.min(currentPage * 24, totalProperties)} of {totalProperties} properties
+            {t('buy.showingRange')} {((currentPage - 1) * 24) + 1} {t('buy.to')} {Math.min(currentPage * 24, totalProperties)} {t('buy.of')} {totalProperties} {t('buy.properties')}
           </div>
         </div>
       )}

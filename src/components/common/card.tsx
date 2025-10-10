@@ -5,6 +5,7 @@ import { Button } from "@/src/components/ui/button";
 import { Heart, Bed, Bath, SquareGanttChart, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 interface PropertyCardProps {
   photos: string;
@@ -28,6 +29,7 @@ export function PropertyCard({
   propertyId,
 }: PropertyCardProps) {
   const router = useRouter();
+  const { t } = useLanguage();
   
   const handleCardClick = () => {
     if (propertyId) {
@@ -49,7 +51,7 @@ export function PropertyCard({
         />
         <div className="absolute top-4 left-4 flex gap-2">
           <span className="bg-[#0a4b6f] text-white px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
-            FOR SALE
+            {t('common.forSale')}
           </span>
           <span className="bg-white text-gray-800 px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
             AVAILABLE
@@ -114,6 +116,7 @@ export function BlogCard({
   description,
   href,
 }: BlogCardProps) {
+  const { t } = useLanguage();
   return (
     <motion.div
       transition={{ duration: 0.3 }}
@@ -142,7 +145,7 @@ export function BlogCard({
           whileHover={{ x: 5 }}
           className="inline-flex items-center font-extralight tracking-wider hover:underline text-[#0a4b6f] uppercase"
         >
-          READ MORE
+          {t('common.readMore')}
           <ChevronRight size={15} />
         </motion.a>
       </div>

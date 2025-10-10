@@ -15,6 +15,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { getAllCommunities } from "@/src/api/communities";
 import { cn } from "@/src/lib/utils";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 const communities = [
   {
@@ -56,6 +57,7 @@ const communities = [
 ];
 
 export default function Component() {
+  const { t } = useLanguage();
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -102,16 +104,13 @@ export default function Component() {
       {/* Hero Section */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-28 text-center px-3 sm:px-4 md:px-6 lg:px-8">
         <p className="text-[#0a4b6f] text-xs sm:text-sm uppercase tracking-widest mb-2 font-light">
-          COMMUNITIES
+          {t('landing.communities.kicker')}
         </p>
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono text-gray-800 mb-4 sm:mb-6 tracking-wide font-serif px-2">
-          Discover Dubai&apos;s Finest
+          {t('landing.communities.heading')}
         </h1>
         <p className="max-w-4xl mx-auto text-gray-600 text-xs sm:text-sm tracking-tight font-light px-2">
-          Navigate through the rich mosaic of Dubai&apos;s most desirable districts
-          and neighborhoods. From peaceful coastal sanctuaries to vibrant metropolitan
-          centers, our handpicked collection reveals the spirit of premium lifestyle in
-          every location.
+          {t('landing.communities.subtitle')}
         </p>
       </section>
 
@@ -190,7 +189,7 @@ export default function Component() {
           
         <Link href={"/communities"}>
            <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-light tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
-            View All Communities
+            {t('landing.communities.viewAll')}
           </Button>
         </Link>
         </div>
