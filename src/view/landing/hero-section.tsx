@@ -2,10 +2,14 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { getBinghattiHillviewsImages, HeroImage } from "@/src/api/hero";
 
 export default function HeroSection() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [heroImages, setHeroImages] = useState<HeroImage[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [error, setError] = useState<string | null>(null);
   const { t } = useLanguage();
 
   // Check if mobile for performance optimization
@@ -19,6 +23,52 @@ export default function HeroSection() {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Fetch Binghatti Hillviews images from backend
+  useEffect(() => {
+    const fetchHeroImages = async () => {
+      try {
+        const response = await getBinghattiHillviewsImages();
+        setHeroImages(response.images);
+        setError(null);
+      } catch (err) {
+        console.error("Error fetching Binghatti Hillviews images:", err);
+        setError("Failed to load Binghatti Hillviews images");
+      }
+    };
+
+    fetchHeroImages();
+  }, []);
+
+  // Auto-rotate images with pause on hover/touch
+  useEffect(() => {
+    if (heroImages.length <= 1) return;
+
+    let interval: NodeJS.Timeout;
+    
+    const startRotation = () => {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          (prevIndex + 1) % heroImages.length
+        );
+      }, 5000); // Change image every 5 seconds
+    };
+
+    const pauseRotation = () => {
+      if (interval) clearInterval(interval);
+    };
+
+    startRotation();
+
+    // Pause rotation on mobile to save battery
+    if (isMobile) {
+      pauseRotation();
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [heroImages.length, isMobile]);
 
   // Optimized loading for mobile vs desktop
   useEffect(() => {
@@ -60,7 +110,7 @@ export default function HeroSection() {
         </motion.div>
       )}
 
-      {/* Optimized Video Background */}
+      {/* Hero Image Carousel Background */}
       <div className="absolute inset-0 w-full h-full">
         {isLoading ? (
           <Image
@@ -77,33 +127,47 @@ export default function HeroSection() {
           />
         ) : (
           <div className="relative w-full h-full">
-            {/* Hero Video Background - Optimized for mobile */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload={isMobile ? "metadata" : "auto"}
-              className="absolute inset-0 w-full h-full object-cover z-0"
-              style={{
-                filter: isMobile ? 'brightness(1.1) contrast(1.05)' : 'brightness(1.2) contrast(1.1) saturate(1.1)'
-              }}
-              poster="/images/bgImage.webp"
-            >
-              <source src="/herooooo.mp4" type="video/mp4" />
-              {/* Fallback for browsers that don't support video */}
-              <Image
-                src="/images/bgImage.webp"
-                alt="Luxury Living in Dubai"
-                fill
-                className="object-cover"
-                style={{
-                  filter: isMobile ? 'brightness(1.1) contrast(1.05)' : 'brightness(1.2) contrast(1.1) saturate(1.1)'
-                }}
-                quality={isMobile ? 60 : 80}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-              />
-            </video>
+            <AnimatePresence mode="wait">
+              {heroImages.length > 0 && (
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    src={heroImages[currentImageIndex]?.url || "/images/bgImage.webp"}
+                    alt={heroImages[currentImageIndex]?.alt || "Luxury Living in Dubai"}
+                    fill
+                    className="object-cover z-0"
+                    style={{
+                      filter: isMobile ? 'brightness(1.1) contrast(1.05)' : 'brightness(1.2) contrast(1.1) saturate(1.1)'
+                    }}
+                    quality={isMobile ? 60 : 80}
+                    priority={currentImageIndex === 0}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+
+            {/* Error State */}
+            {error && (
+              <div className="absolute inset-0 flex items-center justify-center z-30">
+                <div className="bg-black/70 text-white px-6 py-3 rounded-lg text-center">
+                  <p className="text-sm">{error}</p>
+                  <button 
+                    onClick={() => window.location.reload()} 
+                    className="mt-2 text-xs underline hover:no-underline"
+                  >
+                    Retry
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
