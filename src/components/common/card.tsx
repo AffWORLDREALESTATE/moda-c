@@ -39,50 +39,50 @@ export function PropertyCard({
 
   return (
     <Card 
-      className="relative overflow-hidden rounded-none shadow-sm bg-white p-0 border cursor-pointer hover:shadow-lg transition-shadow duration-300" 
+      className="relative overflow-hidden rounded-xl shadow-sm bg-white p-0 border border-gray-100 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300" 
       onClick={handleCardClick}
     >
-      <div className="relative w-full h-80">
+      <div className="relative w-full h-72 md:h-80">
         <Image
           src={photos}
           alt={title}
           fill
-          className="rounded-none object-cover"
+          className="object-cover"
         />
-        <div className="absolute top-4 left-4 flex gap-2">
-          <span className="bg-[#0a4b6f] text-white px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
+        <div className="absolute top-3 left-3 flex gap-2">
+          <span className="bg-[#0a4b6f] text-white px-3 py-1 rounded-full text-xs font-light tracking-wider uppercase">
             {t('common.forSale')}
           </span>
-          <span className="bg-white text-gray-800 px-3 py-1 rounded-none text-xs font-light tracking-wider uppercase">
+          <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-light tracking-wider uppercase border border-gray-200">
             AVAILABLE
           </span>
         </div>
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-4 right-4 text-white rounded-full"
+          className="absolute top-3 right-3 text-white bg-black/30 hover:bg-black/50 rounded-full"
         >
           <Heart className="w-7 h-7 " />
           <span className="sr-only">Add to favorites</span>
         </Button>
       </div>
-      <CardContent className="grid gap-2 px-4 py-3">
+      <CardContent className="grid gap-2 px-4 py-4">
         <div className="flex items-center justify-between">
           <h3
-            className="text-lg font-light text-[#1A202C] tracking-wide line-clamp-1"
+            className="text-lg md:text-xl font-light text-[#1A202C] tracking-wide line-clamp-1"
             title={title}
           >
             {title}
           </h3>
         </div>
 
-        <p className="text-sm text-primary uppercase font-light tracking-wider">
+        <p className="text-xs md:text-sm text-primary uppercase font-light tracking-wider">
           {location}
         </p>
-        <p className="text-xl font-light text-[#1A202C] tracking-wide">
+        <p className="text-xl md:text-2xl font-light text-[#1A202C] tracking-wide">
           {price}
         </p>
-        <div className="flex items-end gap-11 text-gray-600 text-sm mt-2 font-light">
+        <div className="flex items-end gap-6 md:gap-11 text-gray-600 text-sm mt-2 font-light">
           <div className="flex items-center gap-1">
             <Bed className="w-4 h-4" />
             <span>{bedrooms}</span>

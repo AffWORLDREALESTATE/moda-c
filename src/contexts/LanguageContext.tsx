@@ -51,8 +51,8 @@ const translations: Record<string, Translations> = {
     
     // Team page
     'team.loading': 'Loading team members...',
-    'team.title': 'Meet Our Team',
-    'team.subtitle': 'Discover our exceptional team of luxury real estate professionals in Dubai. Expert agents dedicated to making your property dreams come true.',
+    'team.title': 'Modac\'s team of ',
+    'team.subtitle': 'Modac Real Estate is a team of Professionals and Expertise in Dubai\'s Property Sphere',
     'team.management': 'Management',
     'team.brokers': 'Brokers',
     'team.showing': 'Showing',

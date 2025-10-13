@@ -95,7 +95,7 @@ export default function TeamPage() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-4 md:mb-6 leading-[0.9] tracking-tight font-serif"
             >
               {t('team.title')} <span className="text-[#0a4b6f] font-normal relative">
-              Experts
+              Realtors
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -111,6 +111,7 @@ export default function TeamPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed px-4 font-sans"
             >
+              <br/>
               {t('team.subtitle')}
             </motion.p>
             
@@ -140,22 +141,22 @@ export default function TeamPage() {
             {/* Meet Our Experts Section */}
             <div className="text-center">
               
-              <motion.p 
+              {/* <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
                 className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
               >
-                Dedicated professionals committed to delivering exceptional real estate experiences
-              </motion.p>
-              <motion.div
+                Modac Real Estate is a team of Professionals and Expertise in Dubai's Property Sphere
+              </motion.p> */}
+              {/* <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
                 className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#0a4b6f] to-transparent mx-auto mt-4 md:mt-6"
-              />
+              /> */}
             </div>
           </motion.div>
 

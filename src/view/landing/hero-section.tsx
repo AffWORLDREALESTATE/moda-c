@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { getBinghattiHillviewsImages, HeroImage } from "@/src/api/hero";
+import { SearchBar } from "@/src/components/common/search-bar";
 
 export default function HeroSection() {
   const [isLoading, setIsLoading] = useState(true);
@@ -82,7 +83,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative h-screen sm:h-screen md:h-[115vh] w-full flex items-center justify-center text-center bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
+      className="relative min-h-[100vh] sm:min-h-[100vh] md:h-[115vh] w-full flex items-center justify-center text-center bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
     >
       {/* Luxury Loading Overlay */}
       {isLoading && (
@@ -177,6 +178,37 @@ export default function HeroSection() {
       
       {/* Cinematic Overlay Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-15" />
+
+      {/* Search Bar: absolute for lg+, inline for mobile */}
+      <div className="hidden lg:block absolute bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-20 left-1/2 transform -translate-x-1/2 z-20 w-full px-2 sm:px-4 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <SearchBar />
+        </motion.div>
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-20 text-center px-3 sm:px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="max-w-5xl mx-auto"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight">
+          Find Your Dream Home With Modac Real Estate
+          </h1>
+          {/* Optional subtitle for spacing balance on mobile */}
+          
+          {/* Mobile search bar directly under heading */}
+          <div className="lg:hidden mt-4">
+            <SearchBar />
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

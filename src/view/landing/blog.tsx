@@ -8,24 +8,24 @@ import { useLanguage } from "@/src/contexts/LanguageContext"
 const blogPosts = [
   {
     imageSrc: "/images/property1.jpeg",
-    date: "Jul 16, 2025",
-    title: "Design That Feels Right: The Psychology Behind Luxury Living",
-    description: "Ever stepped into a beautiful room that still felt off? We unpack how lighting, layout, textures, and proportion shape mood—and why true luxury is as much about comfort as it is about looks.",
-    href: "/blog/details/why-your-home-should-feel-as-good-as-it-looks",
+    date: "Jan 15, 2025",
+    title: "Guide to Interior Design Trends in Dubai Luxury Residences",
+    description: "Discover the latest interior design trends shaping Dubai's luxury residences. From traditional Arabic influences to modern minimalist aesthetics, explore how to create stunning spaces that reflect the city's opulent lifestyle.",
+    href: "/blog/details/interior-design-trends-dubai-luxury-residences",
   },
   {
     imageSrc: "/images/property2.jpeg",
-    date: "Dec 24, 2024",
-    title: "Buying vs Renting in Dubai: Why Ownership Often Wins",
-    description: "From long‑term value and rental yields to flexible payment plans and residency perks—discover the practical advantages that make owning property in Dubai a compelling choice for many residents and investors.",
-    href: "/blog/details/why-your-home-should-feel-as-good-as-it-looks",
+    date: "Jan 10, 2025",
+    title: "Dubai's Hidden Gems: Guide to Exclusive Neighborhoods",
+    description: "Explore Dubai's most exclusive neighborhoods and discover hidden gems that offer unparalleled luxury living. From waterfront communities to golf course estates, find your perfect home in the city of dreams.",
+    href: "/blog/details/dubai-hidden-gems-exclusive-neighborhoods",
   },
   {
     imageSrc: "/images/property3.jpeg",
-    date: "Jan 8, 2024",
-    title: "Dubai Real Estate Outlook: Investing for the Years Ahead",
-    description: "With world‑class infrastructure, ambitious developments, and a growth‑driven vision, Dubai continues to attract global capital. Here’s what to watch—and where the next opportunities may emerge.",
-    href: "/blog/details/why-your-home-should-feel-as-good-as-it-looks",
+    date: "Jan 5, 2025",
+    title: "Your Guide to Dubai's Premier Real Estate Investment",
+    description: "Discover the top 10 areas for property investment in Dubai. From Downtown Dubai to Palm Jumeirah, explore lucrative opportunities in the world's most dynamic real estate market.",
+    href: "/blog/details/dubai-premier-real-estate-investment-guide",
   },
 ]
 
