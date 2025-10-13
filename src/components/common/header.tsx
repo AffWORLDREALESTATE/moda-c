@@ -72,26 +72,26 @@ export default function Header() {
     { href: "/contactUs", label: "More" },
   ];
   const services = [
-    {
-      icon: <Settings className="h-4 w-4 text-gray-500" />,
-      name: t('services.propertyManagement')
-    },
+    // {
+    //   icon: <Settings className="h-4 w-4 text-gray-500" />,
+    //   name: t('services.propertyManagement')
+    // },
     // {
     //   icon: <Home className="h-4 w-4 text-gray-500" />,
     //   name: t('nav.listYourProperty')
     // },
-    {
-      icon: <DollarSign className="h-4 w-4 text-gray-500" />,
-      name: t('services.mortgages')
-    },
-    {
-      icon: <Scale className="h-4 w-4 text-gray-500" />,
-      name: t('services.conveyancing')
-    },
-    {
-      icon: <Bed className="h-4 w-4 text-gray-500" />,
-      name: t('services.shortTermRentals')
-    },
+    // {
+    //   icon: <DollarSign className="h-4 w-4 text-gray-500" />,
+    //   name: t('services.mortgages')
+    // },
+    // {
+    //   icon: <Scale className="h-4 w-4 text-gray-500" />,
+    //   name: t('services.conveyancing')
+    // },
+    // {
+    //   icon: <Bed className="h-4 w-4 text-gray-500" />,
+    //   name: t('services.shortTermRentals')
+    // },
     // {
     //   icon: <Wrench className="h-4 w-4 text-gray-500" />,
     //   name: t('services.propertySnagging')
@@ -100,7 +100,9 @@ export default function Header() {
     //   icon: <Users className="h-4 w-4 text-gray-500" />,
     //   name: t('services.partnerProgram')
     // },
-    
+    { icon: <Globe className="h-4 w-4 text-gray-500" />, name: "Residents Visa", href: "/service/residents-visa" },
+    { icon: <DollarSign className="h-4 w-4 text-gray-500" />, name: "Golden Visa", href: "/service/golden-visa" },
+    { icon: <TrendingUp className="h-4 w-4 text-gray-500" />, name: "Investment", href: "/service/investment" },
   ];
 
   const headerLink = [
@@ -188,15 +190,14 @@ export default function Header() {
                             {services.slice(0, 5).map((service, index) => (
                               <Link
                                 key={index}
-                                href={
+                                href={(service as any).href || (
                                   service.name === "List Your Property" ? "/list-your-property" :
-                                 
                                   service.name === "Mortgages" ? "/mortgages" :
                                   service.name === "Conveyancing" ? "/conveyancing" :
                                   service.name === "Short Term Rentals" ? "/short-term-rental" :
                                   service.name === "Offplan Management" ? "/offplan-management" :
                                   "/service"
-                                }
+                                )}
                                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
                               >
                                 <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
@@ -214,15 +215,14 @@ export default function Header() {
                             {services.slice(5, 10).map((service, index) => (
                               <Link
                                 key={index + 5}
-                                href={
+                                href={(service as any).href || (
                                   service.name === "List Your Property" ? "/list-your-property" :
-                                  
                                   service.name === "Mortgages" ? "/mortgages" :
                                   service.name === "Conveyancing" ? "/conveyancing" :
                                   service.name === "Short-Term Rental" ? "/short-term-rental" :
                                   service.name === "Offplan Management" ? "/offplan-management" :
                                   "/service"
-                                }
+                                )}
                                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
                               >
                                 <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
@@ -352,11 +352,11 @@ export default function Header() {
                       {services.map((service, serviceIndex) => (
                         <Link
                           key={serviceIndex}
-                          href={
+                          href={(service as any).href || (
                             service.name === "List Your Property" ? "/list-your-property" :
                             service.name === "Offplan Management" ? "/offplan-management" :
                             "/service"
-                          }
+                          )}
                           onClick={() => setIsOverlayOpen(false)}
                           className="flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group border border-transparent hover:border-gray-200"
                         >

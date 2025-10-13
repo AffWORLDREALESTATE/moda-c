@@ -135,3 +135,39 @@ export const getHeroImages = async (): Promise<HeroImagesResponse> => {
     };
   }
 };
+
+export const getProjectImagesByName = async (projectName: string): Promise<HeroImagesResponse> => {
+  try {
+    const res = await api.get(`/properties/projects?search=${encodeURIComponent(projectName)}`);
+    const projects = res.data?.projects || [];
+
+    const match = projects.find((project: any) =>
+      (project.name || '').toLowerCase().includes(projectName.toLowerCase())
+    );
+
+    if (match?.photos && match.photos.length > 0) {
+      return {
+        images: match.photos.map((photo: string, index: number) => ({
+          id: `${projectName}-${index}`,
+          url: photo,
+          alt: `${projectName} - Image ${index + 1}`,
+          title: projectName,
+          description: match.description || projectName,
+        })),
+        total: match.photos.length,
+      };
+    }
+
+    throw new Error("No photos found for project");
+  } catch (error) {
+    // Fallback to static images if API fails
+    return {
+      images: [
+        { id: "1", url: "/images/bgImage.webp", alt: "Dubai", title: projectName },
+        { id: "2", url: "/images/Dubai-Creek-Harbour.webp", alt: "Dubai Creek", title: projectName },
+        { id: "3", url: "/images/dubai-marina.webp", alt: "Dubai Marina", title: projectName },
+      ],
+      total: 3,
+    };
+  }
+};
