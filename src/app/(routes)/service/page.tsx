@@ -3,30 +3,39 @@ import React from "react";
 const servicesData = [
   {
     id: 1,
-    title: "Market Insights",
+    title: "Off‑Plan Management",
     description:
-      "We understand Dubai's luxury real estate market and explain areas like freehold locations, property types (townhouses, villas, penthouses), and current market trends (capital appreciation, rental yields).",
+      "From unit selection to handover, we manage the entire off‑plan journey—payment plans, SPA reviews, construction updates, and snagging—so your investment stays on track.",
     additionalInfo:
-      "We provide insights on areas with high investment potential. We assist in making informed decisions by considering upcoming developments, infrastructure projects, and areas poised for growth.",
-    imageUrl: "/images/third.webp",
+      "We compare developers, negotiate allocations, monitor milestones, and coordinate with banks and DM/Trakhees for timely NOCs and registrations.",
+    imageUrl: "/images/Dubai-Hills-Estate.webp",
   },
   {
     id: 2,
-    title: "Property Investment Consultation",
+    title: "Mortgages",
     description:
-      "Expert guidance on investment opportunities in Dubai's dynamic real estate market. We analyze market trends, ROI potential, and help you make strategic investment decisions.",
+      "Independent mortgage advice with access to multiple banks. Get competitive rates, faster approvals, and a clear path from pre‑approval to transfer.",
     additionalInfo:
-      "Our team provides comprehensive analysis of emerging neighborhoods, off-plan projects, and established luxury communities to maximize your investment returns.",
-    imageUrl: "/images/marketprofiling.webp",
+      "Residents and non‑residents welcome—buy‑outs, equity release, and tailored finance structures for end users and investors.",
+    imageUrl: "/images/analysis.webp",
   },
   {
     id: 3,
-    title: "Luxury Property Management",
+    title: "Conveyancing",
     description:
-      "Complete property management services for your luxury real estate portfolio. From tenant screening to maintenance coordination, we handle every aspect of property management.",
+      "Seamless sale and purchase transfers. We handle contracts, settlement statements, developer NOCs, trustee coordination, and registration.",
     additionalInfo:
-      "Premium services including concierge support, regular property inspections, and direct communication channels for all your property needs.",
-    imageUrl: "/images/analysis.webp",
+      "Stay informed with proactive updates and risk checks that keep your transaction compliant and stress‑free.",
+    imageUrl: "/images/third.webp",
+  },
+  {
+    id: 4,
+    title: "Short‑Term Rentals",
+    description:
+      "Full‑service holiday home management—pricing, marketing, guest vetting, housekeeping, and maintenance—to maximize occupancy and returns.",
+    additionalInfo:
+      "Hotel‑grade standards with transparent reporting and owner portals. Ideal for second homes and investment properties.",
+    imageUrl: "/images/property3.jpeg",
   },
 ];
 

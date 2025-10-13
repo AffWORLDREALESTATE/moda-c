@@ -12,13 +12,9 @@ export default function HeroSection() {
           {/* Left Content */}
           <div>
             <h1 className="text-5xl md:text-6xl font-bold text-blue-900 mb-6 leading-tight font-serif">
-              From Finding Your Perfect
+              Luxury Holiday Homes
               <br />
-              <span className="text-primary">Holiday Home</span> Or
-              <br />
-              Transforming it Into A
-              <br />
-              <span className="text-primary">Short-Term Rental,</span>
+              & Short‑Term Rental Experts
             </h1>
 
             <h2 className="text-2xl font-bold text-blue-900 mb-6 font-serif">
@@ -26,7 +22,7 @@ export default function HeroSection() {
             </h2>
 
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Exceptional Dubai Holiday Homes and Expert Short-Term Rental Services.
+              From finding your perfect stay to maximizing rental returns—we manage it all with hotel‑grade standards.
             </p>
 
             <Button className="bg-primary hover:bg-primary text-white px-8 py-4 text-lg font-semibold rounded-lg transition-colors duration-200">
@@ -38,8 +34,8 @@ export default function HeroSection() {
           <div className="order-first lg:order-last">
             <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden">
               <Image
-                src="/images/building.jpg"
-                alt="Happy family in modern living room"
+                src="/images/property3.jpeg"
+                alt="Premium short term rental apartment interior"
                 fill
                 className="object-cover"
               />

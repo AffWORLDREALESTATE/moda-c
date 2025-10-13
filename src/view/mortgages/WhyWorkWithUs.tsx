@@ -14,33 +14,33 @@ export default function WhyWorkWithUs() {
   const features = [
     {
       icon: <Home className="w-6 h-6" />,
-      title: "Smooth Process & Support",
-      description: "The emphasis on ensuring a smooth process in obtaining finance aid, coupled with excellent customer support, makes the overall experience less stressful and more efficient for clients."
+      title: "End‑to‑End Guidance",
+      description: "From pre‑approval to handover, we manage paperwork, timelines, and bank coordination so you can focus on the move."
     },
     {
       icon: <Camera className="w-6 h-6" />,
-      title: "Tailored Financial Solutions",
-      description: "The company offers customized financial solutions to meet the unique needs of each client, ensuring a personalized approach to mortgage financing."
+      title: "Tailored Strategies",
+      description: "Resident or non‑resident, first‑time or investor—we structure options that match your goals and eligibility."
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      title: "Decade of Experience",
-      description: "With over 10 years of experience in the UAE market, Premier Property Finance possesses a deep understanding of local real estate and finance nuances, ensuring expert guidance."
+      title: "UAE Market Expertise",
+      description: "A decade of on‑ground experience and strong lender relationships help unlock better terms and faster approvals."
     },
     {
       icon: <Check className="w-6 h-6" />,
-      title: "Unbiased Financial Advice",
-      description: "Premier Finance is committed to offering unbiased advice, prioritizing the client's needs and interests first, which is crucial for building trust and ensuring client satisfaction."
+      title: "Independent Advice",
+      description: "Unbiased recommendations. We compare multiple banks and products, putting your interests first."
     },
     {
       icon: <BarChart3 className="w-6 h-6" />,
-      title: "Access to Competitive Rates",
-      description: "Clients benefit from access to low and competitive interest rates, making their financial commitments more manageable and cost-effective."
+      title: "Competitive Rates",
+      description: "Access preferential rates and fee structures negotiated through our lender network."
     },
     {
       icon: <FileCheck className="w-6 h-6" />,
-      title: "Diverse Home Loan Programs",
-      description: "The availability of a variety of home loan programs means that clients have more options to choose from, increasing their chances of finding a mortgage that suits their specific needs."
+      title: "Wider Product Choice",
+      description: "Fixed, variable, buy‑out, equity release, and more—choose confidently from a wide range of products."
     }
   ];
 
@@ -52,7 +52,7 @@ export default function WhyWorkWithUs() {
             Why Work With Us
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Start the effortless journey of listing your property with us, step by step.
+            Work with a mortgage partner who simplifies decisions and speeds up outcomes.
           </p>
         </div>
 

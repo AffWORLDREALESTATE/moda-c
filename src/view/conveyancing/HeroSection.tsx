@@ -10,8 +10,8 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/bgImage.webp"
-          alt="Conveyancing Background"
+          src="/images/analysis.webp"
+          alt="Conveyancing services in Dubai"
           fill
           className="object-cover"
           priority
@@ -35,18 +35,18 @@ export default function HeroSection() {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight text-left font-serif">
-            Your property transactions simplified
+            Seamless Conveyancing, Start To Finish
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl leading-relaxed text-left">
-            Your single point of contact for successful property transactions.
+          <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-3xl leading-relaxed text-left">
+            Contracts, compliance, and coordination handled expertly—so you can move with confidence.
           </p>
 
           {/* CTA Button */}
           <div className="text-left">
-            <Button className="bg-primary hover:bg-primary text-white px-8 py-4 text-lg font-semibold rounded-lg transition-colors duration-200">
-              Get expert assistance
+            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-colors duration-200">
+              Speak to a specialist
             </Button>
           </div>
         </div>

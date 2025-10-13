@@ -12,7 +12,7 @@ export default function AboutSection() {
           {/* Content */}
           <div className="order-2 lg:order-1">
             <h2 className="text-4xl font-bold text-blue-900 mb-6 font-serif">
-              About Conveyance with Modac Real Estate
+              About Our Conveyancing
             </h2>
             
             <h3 className="text-xl font-bold text-gray-800 mb-6">
@@ -21,11 +21,11 @@ export default function AboutSection() {
             
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p>
-                Focusing on Real Estate Transfer Services, we effortlessly partner with key participants in Dubai's property sector. Our group holds comprehensive deal-making experience and mastery in both mortgage and cash transactions, guaranteeing your real estate dealings are managed with exceptional professionalism and effectiveness.
+                We coordinate transfers with developers, banks, and government entities—covering contracts, settlement statements, NOCs, and registration—so your sale or purchase stays on track.
               </p>
-              
+
               <p>
-                Understanding the complexities of Dubai's property laws, we have established a specialized transfer division to streamline the acquisition and disposal process, ensuring a seamless and stress-free journey.
+                Our specialists pre‑check documents, flag risks early, and keep you informed at every step to make the process clear, compliant, and stress‑free.
               </p>
             </div>
 
@@ -40,8 +40,8 @@ export default function AboutSection() {
           <div className="order-1 lg:order-2">
             <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden">
               <Image
-                src="/images/building.jpg"
-                alt="Professional conveyancing consultation"
+                src="/images/third.webp"
+                alt="Conveyancing consultation in Dubai"
                 fill
                 className="object-cover"
               />

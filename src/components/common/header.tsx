@@ -76,10 +76,10 @@ export default function Header() {
       icon: <Settings className="h-4 w-4 text-gray-500" />,
       name: t('services.propertyManagement')
     },
-    {
-      icon: <Home className="h-4 w-4 text-gray-500" />,
-      name: t('nav.listYourProperty')
-    },
+    // {
+    //   icon: <Home className="h-4 w-4 text-gray-500" />,
+    //   name: t('nav.listYourProperty')
+    // },
     {
       icon: <DollarSign className="h-4 w-4 text-gray-500" />,
       name: t('services.mortgages')
@@ -92,14 +92,14 @@ export default function Header() {
       icon: <Bed className="h-4 w-4 text-gray-500" />,
       name: t('services.shortTermRentals')
     },
-    {
-      icon: <Wrench className="h-4 w-4 text-gray-500" />,
-      name: t('services.propertySnagging')
-    },
-    {
-      icon: <Users className="h-4 w-4 text-gray-500" />,
-      name: t('services.partnerProgram')
-    },
+    // {
+    //   icon: <Wrench className="h-4 w-4 text-gray-500" />,
+    //   name: t('services.propertySnagging')
+    // },
+    // {
+    //   icon: <Users className="h-4 w-4 text-gray-500" />,
+    //   name: t('services.partnerProgram')
+    // },
     
   ];
 
