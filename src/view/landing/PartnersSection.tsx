@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 function PartnersSection() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0)
   
   const partners = [
@@ -86,7 +88,7 @@ function PartnersSection() {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-gray-600 text-sm sm:text-base font-light tracking-widest uppercase font-sans mb-2">
-            Partners with Dubai's leading developers
+            {t('landing.partners.heading')}
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#0a4b6f] to-transparent mx-auto"></div>
         </motion.div>
@@ -155,7 +157,7 @@ function PartnersSection() {
           {/* Partner Counter */}
           <div className="text-center mt-4">
             <p className="text-xs text-gray-500">
-              {currentIndex + 1} of {partners.length}
+              {currentIndex + 1} {t('common.of')} {partners.length}
             </p>
           </div>
         </div>

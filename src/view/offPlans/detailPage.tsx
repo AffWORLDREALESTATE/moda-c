@@ -7,10 +7,12 @@ import moment from "moment";
 import EnquireForm from "@/src/components/common/enquireForm";
 import { Dialog, DialogContent, DialogTitle } from "@/src/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import LocationSection from "./Location";
 
 export default function DetailPage({ id }: any) {
+  const { formatPrice } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
@@ -213,11 +215,11 @@ export default function DetailPage({ id }: any) {
                   </h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.newParam?.price
-                      ? `AED ${property.newParam.price.toLocaleString()}`
+                      ? formatPrice(property.newParam.price)
                       : property?.price_from
-                      ? `AED ${property.price_from.toLocaleString()}`
+                      ? formatPrice(property.price_from)
                       : property?.price
-                      ? `AED ${property.price.toLocaleString()}`
+                      ? formatPrice(property.price)
                       : "Price on Request"}
                   </p>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto rounded-full"></div>

@@ -199,7 +199,7 @@ export default function HeroSection() {
           className="max-w-5xl mx-auto"
         >
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight">
-          Find Your Dream Home With Modac Real Estate
+          {t('landing.hero.heading')}
           </h1>
           {/* Optional subtitle for spacing balance on mobile */}
           

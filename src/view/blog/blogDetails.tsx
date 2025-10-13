@@ -10,6 +10,7 @@ import { Separator } from "@/src/components/ui/separator";
 import { Calendar, Clock, Share2, BookOpen, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 import { useParams } from "next/navigation";
 
 // Mock data - in a real app, this would come from your CMS or database
@@ -212,11 +213,132 @@ const blogPosts = {
   },
 };
 
+// Localized titles/subtitles by language code
+const localizedMeta: Record<string, Record<string, { title: string; subtitle: string }>> = {
+  ar: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "دليل اتجاهات التصميم الداخلي في مساكن دبي الفاخرة",
+      subtitle: "اكتشف أحدث اتجاهات التصميم الداخلي التي تشكل مساكن دبي الفاخرة وتعرف على كيفية إنشاء مساحات مذهلة تعكس أسلوب الحياة الفاخر للمدينة.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "كنوز دبي الخفية: دليل الأحياء الحصرية",
+      subtitle: "استكشف أكثر أحياء دبي حصرية واكتشف الكنوز الخفية التي تقدم أسلوب حياة فاخرًا لا مثيل له في مدينة الأحلام.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "دليلك للاستثمار العقاري المتميز في دبي",
+      subtitle: "اكتشف أفضل 10 مناطق للاستثمار العقاري في دبي واستكشف الفرص المربحة في أكثر أسواق العقارات ديناميكية في العالم.",
+    },
+  },
+  fr: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "Guide des tendances de design d'intérieur à Dubaï",
+      subtitle: "Découvrez les dernières tendances qui façonnent les résidences de luxe à Dubaï.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "Les perles cachées de Dubaï : quartiers exclusifs",
+      subtitle: "Explorez les quartiers les plus exclusifs et leurs atouts uniques.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "Guide de l'investissement immobilier à Dubaï",
+      subtitle: "Top 10 des zones pour investir sur le marché immobilier dynamique de Dubaï.",
+    },
+  },
+  es: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "Guía de tendencias de diseño interior en Dubái",
+      subtitle: "Descubre las últimas tendencias que dan forma a las residencias de lujo en Dubái.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "Tesoros ocultos de Dubái: barrios exclusivos",
+      subtitle: "Explora los barrios más exclusivos y sus experiencias únicas de vida.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "Guía de inversión inmobiliaria en Dubái",
+      subtitle: "Las 10 mejores zonas para invertir en el mercado inmobiliario de Dubái.",
+    },
+  },
+  de: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "Leitfaden zu Interior-Design-Trends in Dubai",
+      subtitle: "Entdecken Sie die neuesten Trends in Dubais Luxusresidenzen.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "Dubais verborgene Juwelen: exklusive Viertel",
+      subtitle: "Erkunden Sie die exklusivsten Viertel und ihre besonderen Vorzüge.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "Leitfaden für Immobilieninvestitionen in Dubai",
+      subtitle: "Top 10 Gebiete für Investitionen im dynamischen Markt Dubais.",
+    },
+  },
+  it: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "Guida alle tendenze dell'interior design a Dubai",
+      subtitle: "Scopri le ultime tendenze che plasmano le residenze di lusso di Dubai.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "Gioielli nascosti di Dubai: quartieri esclusivi",
+      subtitle: "Esplora i quartieri più esclusivi e le loro esperienze uniche.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "Guida agli investimenti immobiliari a Dubai",
+      subtitle: "Le 10 migliori aree per investire nel mercato immobiliare di Dubai.",
+    },
+  },
+  pt: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "Guia de tendências de design de interiores em Dubai",
+      subtitle: "Descubra as últimas tendências nas residências de luxo de Dubai.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "Joias escondidas de Dubai: bairros exclusivos",
+      subtitle: "Explore os bairros mais exclusivos e suas experiências únicas.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "Guia de investimento imobiliário em Dubai",
+      subtitle: "Top 10 áreas para investir no dinâmico mercado imobiliário de Dubai.",
+    },
+  },
+  ru: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "Гид по трендам интерьерного дизайна в Дубае",
+      subtitle: "Узнайте о последних трендах в роскошных резиденциях Дубая.",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "Сокровища Дубая: эксклюзивные районы",
+      subtitle: "Исследуйте самые эксклюзивные районы и их уникальный образ жизни.",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "Руководство по инвестициям в недвижимость Дубая",
+      subtitle: "Топ‑10 районов для инвестиций на динамичном рынке Дубая.",
+    },
+  },
+  zh: {
+    "interior-design-trends-dubai-luxury-residences": {
+      title: "迪拜豪华住宅室内设计趋势指南",
+      subtitle: "了解塑造迪拜豪宅的最新室内设计趋势。",
+    },
+    "dubai-hidden-gems-exclusive-neighborhoods": {
+      title: "迪拜的隐藏宝地：独家社区指南",
+      subtitle: "探索迪拜最独特的社区及其非凡生活方式。",
+    },
+    "dubai-premier-real-estate-investment-guide": {
+      title: "迪拜顶级房地产投资指南",
+      subtitle: "在迪拜充满活力的房地产市场投资的十大热门区域。",
+    },
+  },
+};
+
 export default function DetailsBlog() {
+  const { t } = useLanguage();
   const params = useParams();
   const slug = params?.slug as string;
   
   const blogPost = blogPosts[slug as keyof typeof blogPosts];
+  const lang = (typeof window !== 'undefined' && localStorage.getItem('selectedLanguage')) || 'en';
+  const metaOverride = localizedMeta[lang]?.[slug];
+  const title = metaOverride?.title || blogPost?.title;
+  const subtitle = metaOverride?.subtitle || blogPost?.subtitle;
   
   if (!blogPost) {
     return (
@@ -224,16 +346,16 @@ export default function DetailsBlog() {
         <section className="pt-32 pb-12 px-4 bg-[#141442]">
           <div className=" mx-auto text-center">
             <h1 className="text-5xl font-medium mb-6 text-white font-serif font-bold">
-              Blog Not Found
+              {t('blog.notFound',)}
             </h1>
           </div>
         </section>
         <div className="max-w-5xl mx-auto px-6 mt-16 text-center">
           <h1 className="text-4xl font-serif font-bold mb-4">
-            The blog post you're looking for doesn't exist.
+            {t('blog.notFoundDescription')}
           </h1>
           <Link href="/blog">
-            <Button className="mt-4">Back to Blog</Button>
+            <Button className="mt-4">{t('blog.backToBlog')}</Button>
           </Link>
         </div>
       </div>
@@ -245,13 +367,13 @@ export default function DetailsBlog() {
       <section className="pt-32 pb-12 px-4 bg-[#141442]">
         <div className=" mx-auto text-center">
           <h1 className="text-5xl font-medium mb-6 text-white font-serif font-bold">
-            Blog
+            {t('blog.title')}
           </h1>
         </div>
       </section>
       <div className="max-w-5xl mx-auto px-6 mt-16">
         <h1 className="text-center text-4xl font-serif font-bold">
-          {blogPost.title}
+          {title}
         </h1>
         <p className="text-center text-xl font-mono mt-11">{blogPost.publishedAt}</p>
       </div>

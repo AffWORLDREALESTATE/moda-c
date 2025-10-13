@@ -343,7 +343,7 @@ function Rent() {
                   <SelectItem value="any">Min Price</SelectItem>
                   {RENT_PRICE_OPTIONS.map(price => (
                     <SelectItem key={price} value={price}>
-                      AED {parseInt(price).toLocaleString()}
+                      {parseInt(price).toLocaleString()}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -360,7 +360,7 @@ function Rent() {
                   <SelectItem value="any">Max Price</SelectItem>
                   {RENT_PRICE_OPTIONS.map(price => (
                     <SelectItem key={price} value={price}>
-                      AED {parseInt(price).toLocaleString()}
+              {parseInt(price).toLocaleString()}
                     </SelectItem>
                   ))}
                 </SelectContent>

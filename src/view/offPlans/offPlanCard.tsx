@@ -5,6 +5,7 @@ import {
   CardTitle,
 } from "@/src/components/ui/card";
 import Image from "next/image";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 import { useRouter } from "next/navigation";
 
 interface PropertyData {
@@ -32,6 +33,7 @@ interface PropertyData {
 
 export default function OffPlanCard({ data }: { data?: PropertyData }) {
     const router = useRouter();
+    const { formatPrice, t } = useLanguage();
   return (
     <Card className="overflow-hidden border-none p-0 shadow-sm border-2 rounded-none" onClick={() => router.push(`/offPlans/details/${data?.id}`)}>
       <div className="relative w-full h-96 overflow-hidden group">
@@ -49,8 +51,7 @@ export default function OffPlanCard({ data }: { data?: PropertyData }) {
           </div>
         ) : null}
         <div className="absolute bottom-4 right-4 bg-white text-sm font-light px-3 py-1 rounded-full shadow-md text-[#1A202C]">
-          FROM {data?.newParam?.price?.toLocaleString() ?? "N/A"}
-          <span className="font-light text-gray-500 ml-1">د.إ</span>
+          {t('common.from')} {data?.newParam?.price ? formatPrice(data.newParam.price) : "N/A"}
         </div>
       </div>
       <CardContent className="p-6">

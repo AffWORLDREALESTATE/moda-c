@@ -107,7 +107,7 @@ export default function Footer() {
 
         {/* Social Media */}
         <div className="font-sans">
-          <h4 className="text-lg mb-4 font-sans">Follow Us</h4>
+          <h4 className="text-lg mb-4 font-sans">{t('footer.followUs')}</h4>
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <Facebook className="w-5 h-5 text-[#0a4b6f] flex-shrink-0" />
@@ -120,7 +120,7 @@ export default function Footer() {
                            after:h-[2px] after:h-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                Facebook
+                {t('footer.facebook')}
               </a>
             </div>
             <div className="flex items-center space-x-3">
@@ -134,7 +134,7 @@ export default function Footer() {
                            after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                Instagram
+                {t('footer.instagram')}
               </a>
             </div>
             <div className="flex items-center space-x-3">
@@ -148,7 +148,7 @@ export default function Footer() {
                            after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                LinkedIn
+                {t('footer.linkedin')}
               </a>
             </div>
             <div className="flex items-center space-x-3">
@@ -162,7 +162,7 @@ export default function Footer() {
                            after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                Twitter
+                {t('footer.twitter')}
               </a>
             </div>
             <div className="flex items-center space-x-3">
@@ -176,7 +176,7 @@ export default function Footer() {
                            after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                YouTube
+                {t('footer.youtube')}
               </a>
             </div>
           </div>
@@ -187,25 +187,23 @@ export default function Footer() {
       <div className="container mx-auto border-t border-white/20 mt-8 pt-8">
         <div className="flex flex-wrap justify-center gap-6 text-sm text-white/70 mb-4">
           <a href="/privacy-policy" className="hover:text-white transition-colors font-sans">
-            Privacy Policy
+            {t('footer.privacyPolicy')}
           </a>
           <a href="/terms-conditions" className="hover:text-white transition-colors font-sans">
-            Terms & Conditions
+            {t('footer.terms')}
           </a>
           <a href="/cookie-policy" className="hover:text-white transition-colors font-sans">
-            Cookie Policy
+            {t('footer.cookiePolicy')}
           </a>
           <a href="/disclaimer" className="hover:text-white transition-colors font-sans">
-            Disclaimer
+            {t('footer.disclaimer')}
           </a>
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="container mx-auto border-t border-white/20 pt-4 flex flex-col md:flex-row items-center justify-between text-sm text-white/70">
-        <p className="font-sans">
-          &copy; {"2025 Modac Real Estate. All Rights Reserved."}
-        </p>
+        <p className="font-sans">{t('footer.copyright')}</p>
       </div>
     </footer>
   );

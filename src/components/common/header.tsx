@@ -179,7 +179,7 @@ export default function Header() {
                     <div className="bg-white rounded-lg shadow-xl border border-gray-200">
                       {/* Header */}
                       <div className="p-4 border-b border-gray-100">
-                        <h3 className="text-gray-500 text-sm font-light">Our Services</h3>
+                        <h3 className="text-gray-500 text-sm font-light">{t('nav.services')}</h3>
                       </div>
                       
                       {/* Services Grid */}

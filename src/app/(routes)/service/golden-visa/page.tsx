@@ -5,6 +5,7 @@ import EnquireForm from "@/src/components/common/enquireForm";
 import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
+import { T } from "@/src/components/common/T";
 
 export default async function GoldenVisaPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
@@ -25,13 +26,12 @@ export default async function GoldenVisaPage() {
               <span className="text-white">Golden Visa</span>
             </nav>
             <FadeUp>
-              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3">UAE Golden Visa</h1>
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3"><T k="services.golden.title" fallback="UAE Golden Visa" /></h1>
               <p className="max-w-2xl text-white/90">
-                Secure a 10-year residency through property investment, entrepreneurship, or recognised
-                professional excellence. We manage every step with precision.
+                <T k="services.golden.subtitle" fallback="Secure a 10-year residency through property investment, entrepreneurship, or recognised professional excellence. We manage every step with precision." />
               </p>
               <div className="mt-6">
-                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0">Contact Us</Button></Link>
+                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0"><T k="contact.cta" fallback="Contact Us" /></Button></Link>
               </div>
             </FadeUp>
           </div>

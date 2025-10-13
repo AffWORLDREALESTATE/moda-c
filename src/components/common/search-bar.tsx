@@ -5,6 +5,7 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/src/components/ui/select";
 import { ChevronDown, Search } from "lucide-react";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 interface SearchBarProps {
   className?: string;
@@ -12,10 +13,11 @@ interface SearchBarProps {
 
 export function SearchBar({ className = "" }: SearchBarProps) {
   const router = useRouter();
+  const { t } = useLanguage();
   const [searchParams, setSearchParams] = useState({
     propertyType: "any",
     location: "any", 
-    type: "any",
+    type: "buy",
     price: "any",
     bedrooms: "any",
     refNumber: ""
@@ -66,13 +68,13 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, type: value }))}
             >
               <SelectTrigger className="w-full h-12 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left">
-                <SelectValue placeholder="Property Type" />
+                <SelectValue placeholder={t('buy.type')} />
               </SelectTrigger>
               <SelectContent className="bg-white text-gray-800 border-gray-200">
-                <SelectItem value="any">Property Type</SelectItem>
-                <SelectItem value="buy">Buy</SelectItem>
-                <SelectItem value="rent">Rent</SelectItem>
-                <SelectItem value="offplan">Offplan</SelectItem>
+               
+                <SelectItem value="buy" defaultValue="buy">{t('buy.buy')}</SelectItem>
+                <SelectItem value="rent">{t('buy.rent')}</SelectItem>
+                <SelectItem value="offplan">{t('offplans.offPlan')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -84,10 +86,10 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, location: value }))}
             >
               <SelectTrigger className="w-full h-12 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left">
-                <SelectValue placeholder="Location" />
+                <SelectValue placeholder={t('buy.location')} />
               </SelectTrigger>
               <SelectContent className="bg-white text-gray-800 border-gray-200">
-                <SelectItem value="any">Location</SelectItem>
+                <SelectItem value="any">{t('buy.location')}</SelectItem>
                 <SelectItem value="downtown-dubai">Downtown Dubai</SelectItem>
                 <SelectItem value="dubai-marina">Dubai Marina</SelectItem>
                 <SelectItem value="business-bay">Business Bay</SelectItem>
@@ -108,15 +110,15 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, propertyType: value }))}
             >
               <SelectTrigger className="w-full h-12 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left">
-                <SelectValue placeholder=" Type" />
+                <SelectValue placeholder={t('buy.propertyType')} />
               </SelectTrigger>
               <SelectContent className="bg-white text-gray-800 border-gray-200">
-                <SelectItem value="any">Type</SelectItem>
-                <SelectItem value="apartment">Apartment</SelectItem>
-                <SelectItem value="villa">Villa</SelectItem>
-                <SelectItem value="townhouse">Townhouse</SelectItem>
-                <SelectItem value="penthouse">Penthouse</SelectItem>
-                <SelectItem value="studio">Studio</SelectItem>
+                <SelectItem value="any">{t('buy.propertyType')}</SelectItem>
+                <SelectItem value="apartment">{t('offplans.apartment')}</SelectItem>
+                <SelectItem value="villa">{t('offplans.villa')}</SelectItem>
+                <SelectItem value="townhouse">{t('offplans.townhouse')}</SelectItem>
+                <SelectItem value="penthouse">{t('offplans.penthouse')}</SelectItem>
+                <SelectItem value="studio">{t('offplans.studio')}</SelectItem>
                 <SelectItem value="duplex">Duplex</SelectItem>
               </SelectContent>
             </Select>
@@ -129,10 +131,10 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, price: value }))}
             >
               <SelectTrigger className="w-full h-12 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left">
-                <SelectValue placeholder="Price Range" />
+                <SelectValue placeholder={t('search.priceRange')} />
               </SelectTrigger>
               <SelectContent className="bg-white text-gray-800 border-gray-200">
-                <SelectItem value="any">Price Range</SelectItem>
+                <SelectItem value="any">{t('search.priceRange')}</SelectItem>
                 <SelectItem value="0-500000">Under 500K AED</SelectItem>
                 <SelectItem value="500000-1000000">500K - 1M AED</SelectItem>
                 <SelectItem value="1000000-2000000">1M - 2M AED</SelectItem>
@@ -150,16 +152,16 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, bedrooms: value }))}
             >
               <SelectTrigger className="w-full h-12 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left">
-                <SelectValue placeholder="Bedrooms" />
+                <SelectValue placeholder={t('offplans.bedrooms')} />
               </SelectTrigger>
               <SelectContent className="bg-white text-gray-800 border-gray-200">
-                <SelectItem value="any"> Bedrooms</SelectItem>
-                <SelectItem value="studio">Studio</SelectItem>
-                <SelectItem value="1">1 Bedroom</SelectItem>
-                <SelectItem value="2">2 Bedrooms</SelectItem>
-                <SelectItem value="3">3 Bedrooms</SelectItem>
-                <SelectItem value="4">4 Bedrooms</SelectItem>
-                <SelectItem value="5+">5+ Bedrooms</SelectItem>
+                <SelectItem value="any">{t('offplans.bedrooms')}</SelectItem>
+                <SelectItem value="studio">{t('offplans.studio')}</SelectItem>
+                <SelectItem value="1">{t('offplans.oneBedroom')}</SelectItem>
+                <SelectItem value="2">{t('offplans.twoBedrooms')}</SelectItem>
+                <SelectItem value="3">{t('offplans.threeBedrooms')}</SelectItem>
+                <SelectItem value="4">{t('offplans.fourBedrooms')}</SelectItem>
+                <SelectItem value="5+">{t('offplans.fivePlusBedrooms')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -168,7 +170,7 @@ export function SearchBar({ className = "" }: SearchBarProps) {
           <div className="col-span-1 min-w-0">
             <Input
               type="text"
-              placeholder="Reference Number"
+              placeholder={t('search.referenceNumber')}
               value={searchParams.refNumber}
               onChange={(e) => setSearchParams(prev => ({ ...prev, refNumber: e.target.value }))}
               onKeyPress={handleKeyPress}
@@ -183,7 +185,7 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               className="w-full h-12 md:h-12 lg:h-14 bg-gradient-to-r from-[#0a4b6f] to-[#0d5a7f] hover:from-[#0d5a7f] hover:to-[#0a4b6f] text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg cursor-pointer"
             >
               <Search className="w-5 h-5 mr-2" />
-              Search
+              {t('buy.search')}
             </Button>
           </div>
         </div>

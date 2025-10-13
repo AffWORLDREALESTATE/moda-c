@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/src/components/ui/card";
 import { Bath, Bed, Heart, SquareGanttChart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 interface PropertyData {
   id?: string | number;
@@ -37,6 +38,7 @@ interface RentCardProps {
 
 export function RentCard({ data, onFavorite }: RentCardProps) {
   const router = useRouter();
+  const { formatPrice, t } = useLanguage();
   const handleFavorite = () => {
     if (data && onFavorite) {
       onFavorite(data);
@@ -59,8 +61,8 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
     .join(", ");
 
   const formattedPrice = data.price
-    ? `AED ${data.price.toLocaleString()}`
-    : "Price on request";
+    ? formatPrice(data.price)
+    : t('common.priceOnRequest');
 
   return (
     <Card
@@ -76,10 +78,10 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
         />
         <div className="absolute top-4 left-4 flex gap-2">
           <span className="bg-[#0a4b6f] text-white px-3 py-1 text-xs tracking-wider uppercase">
-            For Rent
+            {t('common.forRent')}
           </span>
           <span className="bg-white text-gray-800 px-3 py-1 text-xs tracking-wider uppercase">
-            Available
+            {t('common.available')}
           </span>
         </div>
         <Button
@@ -104,7 +106,7 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
         </div>
 
         <p className="text-sm text-primary uppercase font-light tracking-wider">
-          {locationName || "Location not specified"}
+          {locationName || t('common.locationNotSpecified')}
         </p>
         <p className="text-sm font-bold text-[#1A202C] tracking-wide">
           {formattedPrice}/{data?.priceType}

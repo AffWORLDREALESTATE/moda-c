@@ -410,7 +410,9 @@ function Buy() {
                   <SelectItem value="any">Min Price</SelectItem>
                   {PRICE_OPTIONS.map((price) => (
                     <SelectItem key={price} value={price}>
-                      AED {parseInt(price).toLocaleString()}
+                      {/* currency from language context could be wired here in the card itself; keeping label minimal */}
+                      {/* Price formatting handled by downstream card components */}
+                      {parseInt(price).toLocaleString()}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -432,7 +434,7 @@ function Buy() {
                   <SelectItem value="any">Max Price</SelectItem>
                   {PRICE_OPTIONS.map((price) => (
                     <SelectItem key={price} value={price}>
-                      AED {parseInt(price).toLocaleString()}
+                      {parseInt(price).toLocaleString()}
                     </SelectItem>
                   ))}
                 </SelectContent>

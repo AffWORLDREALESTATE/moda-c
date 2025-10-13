@@ -156,7 +156,7 @@ export default function Component() {
                           "after:bg-primary after:transition-all after:duration-300 hover:after:w-20"
                         )}
                       >
-                        EXPLORE
+                        {t('landing.communities.viewAll')}
                       </Link>
                     </div>
                   </CardContent>

@@ -330,7 +330,7 @@ function OffPlansPage() {
           <SelectItem value="any">{t('offplans.minPrice')}</SelectItem>
           {PRICE_OPTIONS.map((price) => (
             <SelectItem key={price} value={price}>
-              AED {parseInt(price).toLocaleString()}
+              {parseInt(price).toLocaleString()}
             </SelectItem>
           ))}
         </SelectContent>
@@ -349,7 +349,7 @@ function OffPlansPage() {
           <SelectItem value="any">{t('offplans.maxPrice')}</SelectItem>
           {PRICE_OPTIONS.map((price) => (
             <SelectItem key={price} value={price}>
-              AED {parseInt(price).toLocaleString()}
+              {parseInt(price).toLocaleString()}
             </SelectItem>
           ))}
         </SelectContent>
@@ -619,7 +619,7 @@ function OffPlansPage() {
                     <SelectItem value="any">Any</SelectItem>
                     {PRICE_OPTIONS.map((price) => (
                       <SelectItem key={price} value={price}>
-                        AED {parseInt(price).toLocaleString()}
+                        {parseInt(price).toLocaleString()}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -643,7 +643,7 @@ function OffPlansPage() {
                     <SelectItem value="any">Any</SelectItem>
                     {PRICE_OPTIONS.map((price) => (
                       <SelectItem key={price} value={price}>
-                        AED {parseInt(price).toLocaleString()}
+                        {parseInt(price).toLocaleString()}
                       </SelectItem>
                     ))}
                   </SelectContent>

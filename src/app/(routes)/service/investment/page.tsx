@@ -5,6 +5,7 @@ import EnquireForm from "@/src/components/common/enquireForm";
 import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
+import { T } from "@/src/components/common/T";
 
 export default async function InvestmentAdvisoryPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
@@ -25,13 +26,12 @@ export default async function InvestmentAdvisoryPage() {
               <span className="text-white">Investment Advisory</span>
             </nav>
             <FadeUp>
-              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3">Investment Advisory</h1>
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3"><T k="services.investment.title" fallback="Investment Advisory" /></h1>
               <p className="max-w-2xl text-white/90">
-                Data-led strategies to optimise yield, growth, and liquidity across Dubai’s prime and
-                emerging districts.
+                <T k="services.investment.subtitle" fallback="Data-led strategies to optimise yield, growth, and liquidity across Dubai’s prime and emerging districts." />
               </p>
               <div className="mt-6">
-                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0">Contact Us</Button></Link>
+                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0"><T k="contact.cta" fallback="Contact Us" /></Button></Link>
               </div>
             </FadeUp>
           </div>

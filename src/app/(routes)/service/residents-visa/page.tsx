@@ -5,6 +5,7 @@ import EnquireForm from "@/src/components/common/enquireForm";
 import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
+import { T } from "@/src/components/common/T";
 
 export default async function ResidentsVisaPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
@@ -25,13 +26,12 @@ export default async function ResidentsVisaPage() {
               <span className="text-white">Residents Visa</span>
             </nav>
             <FadeUp>
-              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3">Residents Visa Services</h1>
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3"><T k="services.residents.title" fallback="Residents Visa Services" /></h1>
               <p className="max-w-2xl text-white/90">
-                End-to-end guidance to obtain or renew your UAE residence visa. Tailored support for
-                property owners, employees, and families relocating to Dubai.
+                <T k="services.residents.subtitle" fallback="End-to-end guidance to obtain or renew your UAE residence visa. Tailored support for property owners, employees, and families relocating to Dubai." />
               </p>
               <div className="mt-6">
-                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0">Contact Us</Button></Link>
+                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0"><T k="contact.cta" fallback="Contact Us" /></Button></Link>
               </div>
             </FadeUp>
           </div>

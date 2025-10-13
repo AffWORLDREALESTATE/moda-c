@@ -17,6 +17,10 @@ export interface LanguageContextType {
   setCurrentLanguage: (language: Language) => void;
   t: (key: string) => string;
   languages: Language[];
+  currencyCode: string;
+  currencySymbol: string;
+  convertFromAED: (amountAED: number) => number;
+  formatPrice: (amountAED?: number | null) => string;
 }
 
 const languages: Language[] = [
@@ -30,6 +34,14 @@ const languages: Language[] = [
 // Translation data
 const translations: Record<string, Translations> = {
   en: {
+    // New: Services hero translations
+    'services.residents.title': 'Residents Visa Services',
+    'services.residents.subtitle': 'End-to-end guidance to obtain or renew your UAE residence visa. Tailored support for property owners, employees, and families relocating to Dubai.',
+    'services.golden.title': 'UAE Golden Visa',
+    'services.golden.subtitle': 'Secure a 10-year residency through property investment, entrepreneurship, or recognised professional excellence. We manage every step with precision.',
+    'services.investment.title': 'Investment Advisory',
+    'services.investment.subtitle': 'Data-led strategies to optimise yield, growth, and liquidity across Dubai’s prime and emerging districts.',
+    'contact.cta': 'Contact Us',
     // Navigation
     'nav.buy': 'Buy',
     'nav.rent': 'Rent',
@@ -72,9 +84,21 @@ const translations: Record<string, Translations> = {
     'footer.contact': 'Contact',
     'footer.whyDubai': 'Why Dubai',
     'footer.contactUs': 'Contact Us',
+    'footer.followUs': 'Follow Us',
+    'footer.facebook': 'Facebook',
+    'footer.instagram': 'Instagram',
+    'footer.linkedin': 'LinkedIn',
+    'footer.twitter': 'Twitter',
+    'footer.youtube': 'YouTube',
+    'footer.privacyPolicy': 'Privacy Policy',
+    'footer.terms': 'Terms & Conditions',
+    'footer.cookiePolicy': 'Cookie Policy',
+    'footer.disclaimer': 'Disclaimer',
+    'footer.copyright': '© 2025 Modac Real Estate. All Rights Reserved.',
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Completion Status',
@@ -112,6 +136,9 @@ const translations: Record<string, Translations> = {
     'buy.learnMore': 'Learn More',
     
     // Landing page sections
+    // Search bar labels
+    'search.priceRange': 'Price Range',
+    'search.referenceNumber': 'Reference Number',
     'landing.feature.kicker': 'FEATURED PROJECTS',
     'landing.feature.heading': 'Luxury Unveiled, Comfort and Sophistication',
     'landing.feature.subtitle': "Discover a curated selection of Dubai's most exquisite properties, epitomizing luxury, elegance, and unparalleled design.",
@@ -133,11 +160,27 @@ const translations: Record<string, Translations> = {
     'landing.communities.heading': 'Discover Dubai\'s Most Desirable Neighborhoods',
     'landing.communities.subtitle': 'Navigate through the rich mosaic of Dubai\'s most desirable districts and neighborhoods. From peaceful coastal sanctuaries to vibrant metropolitan centers, our handpicked collection reveals the spirit of premium lifestyle in every location.',
     'landing.communities.viewAll': 'View All Communities',
+    'landing.partners.heading': "Partners with Dubai's leading developers",
     
     'landing.blog.kicker': 'INSIGHTS & INSPIRATION',
     'landing.blog.heading': 'Latest Real Estate Insights',
     'landing.blog.subtitle': 'Stay informed with expert analysis, market trends, and insider perspectives on Dubai\'s dynamic real estate landscape.',
     'landing.blog.viewAll': 'VIEW ALL BLOGS',
+    // Instagram section
+    'landing.instagram.heading': 'Follow Our Journey',
+    'landing.instagram.subtitle': "Discover luxury properties, behind-the-scenes content, and exclusive insights from Dubai's premier real estate destinations.",
+    'landing.instagram.followFull': 'Follow @modacproperties',
+    'landing.instagram.follow': 'Follow Us',
+    'landing.instagram.cantSee': "Can't see our Instagram feed?",
+    'landing.instagram.visitDirect': 'Visit our Instagram directly',
+
+    // Blog list page
+    'blog.title': 'Blog',
+    'blog.list.introHeading': 'Latest Insights and Stories',
+    'blog.list.introSubheading': 'Expert analysis, market updates, and inspiration from Dubai’s real estate scene.',
+    'blog.notFound': 'Blog Not Found',
+    'blog.notFoundDescription': "The blog post you're looking for doesn't exist.",
+    'blog.backToBlog': 'Back to Blog',
     
     'landing.cta.kicker': 'READY TO BEGIN',
     'landing.cta.heading': 'Your Premium Property Journey Starts Here',
@@ -172,9 +215,12 @@ const translations: Record<string, Translations> = {
     // Common components
     'common.units': 'UNITS',
     'common.from': 'FROM',
+    'common.forSale': 'For Sale',
+    'common.forRent': 'For Rent',
+    'common.available': 'Available',
+    'common.locationNotSpecified': 'Location not specified',
+    'common.priceOnRequest': 'Price on request',
     'common.readMore': 'READ MORE',
-    'common.forSale': 'FOR SALE',
-    'common.forRent': 'FOR RENT',
     'common.offPlan': 'OFF-PLAN',
     
     // Form components
@@ -239,6 +285,17 @@ const translations: Record<string, Translations> = {
     'offplans.learnMore': 'Learn More',
   },
   ar: {
+    // Search bar labels
+    'search.priceRange': 'نطاق السعر',
+    'search.referenceNumber': 'رقم المرجع',
+    // New: Services hero translations
+    'services.residents.title': 'تأشيرة الإقامة',
+    'services.residents.subtitle': 'إرشاد شامل للحصول على أو تجديد تأشيرة الإقامة في الإمارات. دعم مخصص لمالكي العقارات والموظفين والعائلات.',
+    'services.golden.title': 'التأشيرة الذهبية للإمارات',
+    'services.golden.subtitle': 'احصل على إقامة لمدة 10 سنوات عبر الاستثمار العقاري أو ريادة الأعمال أو التميز المهني. ندير كل خطوة بدقة.',
+    'services.investment.title': 'الاستشارات الاستثمارية',
+    'services.investment.subtitle': 'استراتيجيات مدعومة بالبيانات لتحسين العائد والنمو والسيولة عبر أبرز مناطق دبي.',
+    'contact.cta': 'اتصل بنا',
     // Navigation
     'nav.buy': 'شراء',
     'nav.rent': 'إيجار',
@@ -281,9 +338,21 @@ const translations: Record<string, Translations> = {
     'footer.contact': 'اتصل بنا',
     'footer.whyDubai': 'لماذا دبي',
     'footer.contactUs': 'اتصل بنا',
+    'footer.followUs': 'تابعنا',
+    'footer.facebook': 'فيسبوك',
+    'footer.instagram': 'إنستغرام',
+    'footer.linkedin': 'لينكدإن',
+    'footer.twitter': 'تويتر',
+    'footer.youtube': 'يوتيوب',
+    'footer.privacyPolicy': 'سياسة الخصوصية',
+    'footer.terms': 'الشروط والأحكام',
+    'footer.cookiePolicy': 'سياسة ملفات تعريف الارتباط',
+    'footer.disclaimer': 'إخلاء المسؤولية',
+    'footer.copyright': '© 2025 موداك للعقارات. جميع الحقوق محفوظة.',
     
     // Hero
     'hero.companyName': 'موداك العقارية',
+    'landing.hero.heading': 'ابحث عن منزل أحلامك مع موداك للعقارات',
     
     // Buy page
     'buy.completionStatus': 'حالة الإنجاز',
@@ -342,11 +411,27 @@ const translations: Record<string, Translations> = {
     'landing.communities.heading': 'اكتشف أرقى أحياء دبي',
     'landing.communities.subtitle': 'تنقل عبر الفسيفساء الغنية لأرقى أحياء ومناطق دبي. من الملاذات الساحلية الهادئة إلى المراكز الحضرية النابضة بالحياة، تكشف مجموعتنا المختارة روح نمط الحياة المتميز في كل موقع.',
     'landing.communities.viewAll': 'عرض جميع المجتمعات',
+    'landing.partners.heading': 'شركاء مع أبرز مطوري دبي',
     
     'landing.blog.kicker': 'رؤى وإلهام',
     'landing.blog.heading': 'أحدث رؤى العقارات',
     'landing.blog.subtitle': 'ابق على اطلاع مع التحليلات الخبيرة واتجاهات السوق والرؤى الداخلية حول المشهد العقاري الديناميكي في دبي.',
     'landing.blog.viewAll': 'عرض جميع المدونات',
+    // Instagram section
+    'landing.instagram.heading': 'تابعوا رحلتنا',
+    'landing.instagram.subtitle': 'اكتشفوا العقارات الفاخرة وكواليس العمل ورؤى حصرية من وجهات العقارات الرائدة في دبي.',
+    'landing.instagram.followFull': 'تابعوا @modacproperties',
+    'landing.instagram.follow': 'تابعونا',
+    'landing.instagram.cantSee': 'لا يظهر موجز الإنستغرام؟',
+    'landing.instagram.visitDirect': 'زوروا حسابنا مباشرة',
+
+    // Blog list page
+    'blog.title': 'المدونة',
+    'blog.list.introHeading': 'أحدث الرؤى والقصص',
+    'blog.list.introSubheading': 'تحليلات خبراء وتحديثات سوقية وإلهام من مشهد العقارات في دبي.',
+    'blog.notFound': 'المدونة غير موجودة',
+    'blog.notFoundDescription': 'المقال الذي تبحث عنه غير موجود.',
+    'blog.backToBlog': 'العودة إلى المدونة',
     
     'landing.cta.kicker': 'جاهز للبدء',
     'landing.cta.heading': 'رحلتك العقارية المتميزة تبدأ هنا',
@@ -381,9 +466,12 @@ const translations: Record<string, Translations> = {
     // Common components
     'common.units': 'وحدات',
     'common.from': 'من',
-    'common.readMore': 'اقرأ المزيد',
     'common.forSale': 'للبيع',
     'common.forRent': 'للإيجار',
+    'common.available': 'متاح',
+    'common.locationNotSpecified': 'الموقع غير محدد',
+    'common.priceOnRequest': 'السعر عند الطلب',
+    'common.readMore': 'اقرأ المزيد',
     'common.offPlan': 'قيد الإنشاء',
     
     // Form components
@@ -493,6 +581,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Statut d\'achèvement',
@@ -679,6 +768,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Estado de finalización',
@@ -826,6 +916,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Fertigstellungsstatus',
@@ -932,6 +1023,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Stato di completamento',
@@ -1038,6 +1130,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC PROPERTIES',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Status de conclusão',
@@ -1144,6 +1237,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC PROPERTIES',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Статус завершения',
@@ -1329,6 +1423,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC PROPERTIES',
+    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': '完成状态',
@@ -1497,6 +1592,37 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return currentTranslations[key] || key;
   };
 
+  const getCurrencyForLang = (langCode: string) => {
+    // Default to AED; add per-language overrides
+    if (langCode === 'ar') return { code: 'AED', symbol: 'د.إ' };
+    if (langCode === 'zh') return { code: 'CNY', symbol: '¥' };
+    return { code: 'AED', symbol: 'AED' };
+  };
+
+  const { code: currencyCode, symbol: currencySymbol } = getCurrencyForLang(currentLanguage.code);
+
+  // Simple static conversion rates from AED → target currency (approx; replace with API if needed)
+  const getRateForLang = (langCode: string): number => {
+    switch (langCode) {
+      case 'zh':
+        return 1.95; // 1 AED ≈ 1.95 CNY (approx)
+      default:
+        return 1.0; // AED base
+    }
+  };
+  const conversionRate = getRateForLang(currentLanguage.code);
+
+  const convertFromAED = (amountAED: number): number => {
+    if (!amountAED || Number.isNaN(amountAED)) return 0;
+    return Math.round(amountAED * conversionRate);
+  };
+
+  const formatPrice = (amountAED?: number | null): string => {
+    if (!amountAED && amountAED !== 0) return '';
+    const converted = convertFromAED(amountAED as number);
+    return `${currencySymbol} ${converted.toLocaleString()}`;
+  };
+
   return (
     <LanguageContext.Provider
       value={{
@@ -1504,6 +1630,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         setCurrentLanguage: handleSetCurrentLanguage,
         t,
         languages,
+        currencyCode,
+        currencySymbol,
+        convertFromAED,
+        formatPrice,
       }}
     >
       {children}
