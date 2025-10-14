@@ -47,41 +47,48 @@ export const getBinghattiHillviewsImages = async (): Promise<HeroImagesResponse>
       images: [
         {
           id: "1",
-          url: "/images/bgImage.webp",
+          url: "/images/c1.webp",
           alt: "Luxury Living in Dubai",
           title: "Luxury Living",
           description: "Experience the finest properties in Dubai"
         },
         {
           id: "2", 
-          url: "/images/Dubai-Creek-Harbour.webp",
+          url: "/images/c2.webp",
           alt: "Dubai Creek Harbour",
           title: "Dubai Creek Harbour",
           description: "Modern waterfront living"
         },
         {
           id: "3",
-          url: "/images/Dubai-Hills-Estate.webp", 
+          url: "/images/c3.webp", 
           alt: "Dubai Hills Estate",
           title: "Dubai Hills Estate",
           description: "Premium residential community"
         },
         {
           id: "4",
-          url: "/images/dubai-marina.webp",
+          url: "/images/c4.webp",
           alt: "Dubai Marina",
           title: "Dubai Marina", 
           description: "Iconic waterfront lifestyle"
         },
         {
           id: "5",
-          url: "/images/Palm-Jumeirah.webp",
+          url: "/images/c5.webp",
+          alt: "Palm Jumeirah",
+          title: "Palm Jumeirah",
+          description: "The world's most iconic island"
+        },
+        {
+          id: "6",
+          url: "/images/c6.webp",
           alt: "Palm Jumeirah",
           title: "Palm Jumeirah",
           description: "The world's most iconic island"
         }
       ],
-      total: 5
+      total: 6
     };
   }
 };
@@ -97,41 +104,48 @@ export const getHeroImages = async (): Promise<HeroImagesResponse> => {
       images: [
         {
           id: "1",
-          url: "/images/bgImage.webp",
+          url: "/images/c1.webp",
           alt: "Luxury Living in Dubai",
           title: "Luxury Living",
           description: "Experience the finest properties in Dubai"
         },
         {
           id: "2", 
-          url: "/images/Dubai-Creek-Harbour.webp",
+          url: "/images/c2.webp",
           alt: "Dubai Creek Harbour",
           title: "Dubai Creek Harbour",
           description: "Modern waterfront living"
         },
         {
           id: "3",
-          url: "/images/Dubai-Hills-Estate.webp", 
+          url: "/images/c3.webp", 
           alt: "Dubai Hills Estate",
           title: "Dubai Hills Estate",
           description: "Premium residential community"
         },
         {
           id: "4",
-          url: "/images/dubai-marina.webp",
+          url: "/images/c4.webp",
           alt: "Dubai Marina",
           title: "Dubai Marina", 
           description: "Iconic waterfront lifestyle"
         },
         {
           id: "5",
-          url: "/images/Palm-Jumeirah.webp",
+          url: "/images/c5.webp",
+          alt: "Palm Jumeirah",
+          title: "Palm Jumeirah",
+          description: "The world's most iconic island"
+        },
+        {
+          id: "6",
+          url: "/images/c6.webp",
           alt: "Palm Jumeirah",
           title: "Palm Jumeirah",
           description: "The world's most iconic island"
         }
       ],
-      total: 5
+      total: 6
     };
   }
 };
@@ -163,9 +177,9 @@ export const getProjectImagesByName = async (projectName: string): Promise<HeroI
     // Fallback to static images if API fails
     return {
       images: [
-        { id: "1", url: "/images/bgImage.webp", alt: "Dubai", title: projectName },
-        { id: "2", url: "/images/Dubai-Creek-Harbour.webp", alt: "Dubai Creek", title: projectName },
-        { id: "3", url: "/images/dubai-marina.webp", alt: "Dubai Marina", title: projectName },
+        { id: "1", url: "/images/c1.webp", alt: "Dubai", title: projectName },
+        { id: "2", url: "/images/c2.webp", alt: "Dubai Creek", title: projectName },
+        { id: "3", url: "/images/c3.webp", alt: "Dubai Marina", title: projectName },
       ],
       total: 3,
     };
