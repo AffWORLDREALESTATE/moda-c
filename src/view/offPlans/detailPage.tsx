@@ -12,7 +12,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import LocationSection from "./Location";
 
 export default function DetailPage({ id }: any) {
-  const { formatPrice } = useLanguage();
+  const { formatPrice, t } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
@@ -130,7 +130,7 @@ export default function DetailPage({ id }: any) {
               className="hover:underline cursor-pointer text-center"
               onClick={() => setIsOpen(true)}
             >
-              Register Now
+              {t('details.registerNow')}
             </a>
             {property?.agent && (
               <>
@@ -210,9 +210,7 @@ export default function DetailPage({ id }: any) {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="text-center group"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">
-                    Starting From
-                  </h3>
+                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('common.from')}</h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.newParam?.price
                       ? formatPrice(property.newParam.price)
@@ -232,9 +230,7 @@ export default function DetailPage({ id }: any) {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-center group"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">
-                    Completion Date
-                  </h3>
+                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">Completion Date</h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.newParam?.handoverTime
                       ? moment(property?.newParam?.handoverTime).format("MMMM YYYY")
@@ -254,9 +250,7 @@ export default function DetailPage({ id }: any) {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-center group sm:col-span-2 lg:col-span-1"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">
-                    Construction Stage
-                  </h3>
+                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('details.constructionStage')}</h3>
                   <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.constructionStage || property?.completionStatus || "Off-plan"}
                   </p>
@@ -269,9 +263,7 @@ export default function DetailPage({ id }: any) {
           <hr className="border-t border-gray-200 mb-12" />
 
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-4 sm:mb-8 font-serif">
-              Description
-            </h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-4 sm:mb-8 font-serif">{t('details.description')}</h2>
             <p className={`text-sm font-light text-gray-600 leading-relaxed mb-6 sm:mb-8 ${!showFullDescription ? 'line-clamp-4' : ''}`}>
               {property?.description}
             </p>
@@ -280,7 +272,7 @@ export default function DetailPage({ id }: any) {
                 onClick={() => setShowFullDescription(!showFullDescription)}
                 className="inline-flex items-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <span>{showFullDescription ? 'Read Less' : 'Read More'}</span>
+                <span>{showFullDescription ? t('details.readLess') : t('details.readMore')}</span>
                 <Icon icon={showFullDescription ? "lucide:arrow-up" : "lucide:arrow-right"} className="w-4 h-4" />
               </button>
             )}
@@ -401,10 +393,7 @@ export default function DetailPage({ id }: any) {
 
               {/* Verification Text */}
               <div className="text-gray-700 text-center sm:text-left">
-                <p className="text-xs sm:text-sm">
-                  This Listing has been verified by{" "}
-                  <span className="font-bold">Dubai Land Department</span>
-                </p>
+                <p className="text-xs sm:text-sm">{t('details.verifiedBy')} <span className="font-bold">{t('details.dld')}</span></p>
               </div>
             </div>
           </div>
@@ -426,9 +415,7 @@ export default function DetailPage({ id }: any) {
               >
                 <DialogTitle className="mb-4 sm:mb-6 flex justify-between">
                   <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-mono font-thin text-black text-center font-serif">
-                      Take the First Step
-                    </h2>
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-mono font-thin text-black text-center font-serif">{t('details.takeFirstStep')}</h2>
                     <p className="font-mono font-thin text-center text-xs sm:text-sm md:text-[15px] text-neutral-400">
                       Get a free consultation, personalized investment strategy,
                       and exclusive access to Dubai best properties.

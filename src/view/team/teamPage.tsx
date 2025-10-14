@@ -211,11 +211,11 @@ export default function TeamPage() {
                         </h3>
                         
                         {/* Designation */}
-                        {agent.role_name && (
+                        {(agent as any).designation || agent.role_name ? (
                           <p className="text-[#0a4b6f] font-medium text-xs sm:text-sm uppercase tracking-wider">
-                            {agent.role_name}
+                            {(agent as any).designation || agent.role_name}
                           </p>
-                        )}
+                        ) : null}
                         
                         {/* Team Name */}
                         {/* {agent.team_name && agent.team_name !== 'No team assigned' && (
@@ -231,14 +231,36 @@ export default function TeamPage() {
                               {t('team.languages')}:
                             </p>
                             <div className="flex flex-wrap justify-center gap-1">
-                              {agent.languages.slice(0, 3).map((language, index) => (
+                              {agent.languages.slice(0, 3).map((language, index) => {
+                                const raw = String(language);
+                                // Remove language codes like 'en', 'en:GB', 'en-US' anywhere in the string
+                                let cleaned = raw
+                                  // remove leading code forms like "en", "en:GB", "en-GB", "af:🇿🇦"
+                                  .replace(/^[a-z]{2}(?::[A-Z]{2})?:?/i, '')
+                                  // remove any remaining code tokens like en-GB elsewhere
+                                  .replace(/\b[a-z]{2}(?::[A-Z]{2})?\b/gi, '')
+                                  .replace(/\b[a-z]{2}-[A-Z]{2}\b/gi, '')
+                                  // remove flag emojis (regional indicator pairs)
+                                  .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '')
+                                  // punctuation/parentheses
+                                  .replace(/[()]/g, ' ')
+                                  // collapse spaces
+                                  .replace(/\s{2,}/g, ' ')
+                                  .trim();
+                                if (!cleaned) {
+                                  const parts = raw.split(/\s+/);
+                                  cleaned = parts[parts.length - 1] || raw;
+                                }
+                                const label = cleaned;
+                                return (
                                 <span
                                   key={index}
                                   className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
                                 >
-                                  {language}
+                                  {label}
                                 </span>
-                              ))}
+                                );
+                              })}
                               {agent.languages.length > 3 && (
                                 <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
                                   +{agent.languages.length - 3}
@@ -421,14 +443,29 @@ export default function TeamPage() {
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-800 mb-2">Languages</h4>
                   <div className="flex flex-wrap gap-2">
-                    {selectedAgent.languages.map((lang, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-[#0a4b6f]/10 text-[#0a4b6f] rounded-full text-sm"
-                      >
-                        {lang}
-                      </span>
-                    ))}
+                    {selectedAgent.languages.map((lang, index) => {
+                      const raw = String(lang);
+                      let cleaned = raw
+                        .replace(/^[a-z]{2}(?::[A-Z]{2})?:?/i, '')
+                        .replace(/\b[a-z]{2}(?::[A-Z]{2})?\b/gi, '')
+                        .replace(/\b[a-z]{2}-[A-Z]{2}\b/gi, '')
+                        .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '')
+                        .replace(/[()]/g, ' ')
+                        .replace(/\s{2,}/g, ' ')
+                        .trim();
+                      if (!cleaned) {
+                        const parts = raw.split(/\s+/);
+                        cleaned = parts[parts.length - 1] || raw;
+                      }
+                      return (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-[#0a4b6f]/10 text-[#0a4b6f] rounded-full text-sm"
+                        >
+                          {cleaned}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               )}

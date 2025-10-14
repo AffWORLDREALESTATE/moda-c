@@ -311,7 +311,7 @@ function Rent() {
             {/* Location */}
             <div className="col-span-2">
               <Input
-                placeholder="City, building or community"
+                placeholder={t('buy.location')}
                 value={filters.title}
                 onChange={(e) => handleFilterChange("title", e.target.value)}
                 className="w-full text-gray-800 bg-white/90 border border-[#0a4b6f]/30 placeholder:text-gray-600 hover:border-[#0a4b6f]/50 transition-colors font-sans h-14"
@@ -625,11 +625,10 @@ function Rent() {
 
       <div className="mx-auto px-4 py-7 mt-11 max-w-5xl">
         <h1 className="text-center text-5xl font-serif font-bold">
-          Dubai&apos;s most exquisite rental properties
+          {t('rent.heading')}
         </h1>
         <p className="text-center text-gray-600 mt-4">
-          Find your perfect rental home in Dubai&apos;s most prestigious locations
-          with world-class amenities and unmatched lifestyle.
+          {t('rent.subheading')}
         </p>
       </div>
       <p className="text-center mb-11">
@@ -641,7 +640,7 @@ function Rent() {
             "after:-translate-x-1/2 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
           )}
         >
-          Learn More
+          {t('rent.learnMore')}
         </span>
       </Link>
       </p>

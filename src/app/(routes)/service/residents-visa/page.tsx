@@ -13,25 +13,29 @@ export default async function ResidentsVisaPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="relative min-h-[100vh] w-full overflow-hidden">
+      <section className="relative min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-64px)] w-full overflow-hidden">
         <Image src={hero} alt="Dubai Skyline" fill priority className="object-cover" quality={90} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10" />
-        <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-4 pt-24 sm:pt-28">
-            <nav className="mb-3 text-sm text-white/80">
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container mx-auto px-4 text-center">
+            <nav className="mb-3 text-sm text-white/80 flex items-center justify-center gap-2">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="mx-2">/</span>
+              <span>/</span>
               <Link href="/service" className="hover:text-white transition-colors">Services</Link>
-              <span className="mx-2">/</span>
+              <span>/</span>
               <span className="text-white">Residents Visa</span>
             </nav>
             <FadeUp>
-              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-3"><T k="services.residents.title" fallback="Residents Visa Services" /></h1>
-              <p className="max-w-2xl text-white/90">
-                <T k="services.residents.subtitle" fallback="End-to-end guidance to obtain or renew your UAE residence visa. Tailored support for property owners, employees, and families relocating to Dubai." />
-              </p>
-              <div className="mt-6">
-                <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0"><T k="contact.cta" fallback="Contact Us" /></Button></Link>
+              <div className="mx-auto w-full max-w-3xl mt-16 sm:mt-24 md:mt-32">
+                <div className="bg-black/45 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-white/10 shadow-2xl">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3"><T k="services.residents.title" fallback="Residents Visa Services" /></h1>
+                  <p className="text-white/90 text-sm sm:text-base">
+                    <T k="services.residents.subtitle" fallback="End-to-end guidance to obtain or renew your UAE residence visa. Tailored support for property owners, employees, and families relocating to Dubai." />
+                  </p>
+                  <div className="mt-5">
+                    <Link href="/contactUs"><Button className="bg-[#314355] hover:bg-[#24313f] text-white border-0"><T k="contact.cta" fallback="Contact Us" /></Button></Link>
+                  </div>
+                </div>
               </div>
             </FadeUp>
           </div>
@@ -41,7 +45,12 @@ export default async function ResidentsVisaPage() {
       {/* Stats Bar */}
       <section className="bg-white/80 border-y border-gray-200">
         <div className="container mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[{k:"Avg Processing",v:"5-10 Days"},{k:"Approval Rate",v:"98%"},{k:"Family Cases",v:"2,000+"},{k:"Languages",v:"6+"}].map((s,i)=> (
+          {[
+            {k: <T k="services.residents.stats.avgProcessing" fallback="Avg Processing" />, v: "5-10 Days"},
+            {k: <T k="services.residents.stats.approvalRate" fallback="Approval Rate" />, v: "98%"},
+            {k: <T k="services.residents.stats.familyCases" fallback="Family Cases" />, v: "2,000+"},
+            {k: <T k="services.residents.stats.languages" fallback="Languages" />, v: "6+"},
+          ].map((s,i)=> (
             <div key={i}>
               <div className="text-2xl font-serif font-bold text-gray-900">{s.v}</div>
               <div className="text-xs text-gray-500 mt-1">{s.k}</div>

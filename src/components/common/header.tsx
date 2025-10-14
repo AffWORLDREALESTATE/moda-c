@@ -41,7 +41,7 @@ export default function Header() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, currencySymbol } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -100,9 +100,10 @@ export default function Header() {
     //   icon: <Users className="h-4 w-4 text-gray-500" />,
     //   name: t('services.partnerProgram')
     // },
-    { icon: <Globe className="h-4 w-4 text-gray-500" />, name: "Residents Visa", href: "/service/residents-visa" },
-    { icon: <DollarSign className="h-4 w-4 text-gray-500" />, name: "Golden Visa", href: "/service/golden-visa" },
-    { icon: <TrendingUp className="h-4 w-4 text-gray-500" />, name: "Investment", href: "/service/investment" },
+    { icon: <Globe className="h-4 w-4 text-gray-500" />, name: t('services.buySell.title'), href: "/service/buy-sell-offplan" },
+    { icon: <TrendingUp className="h-4 w-4 text-gray-500" />, name: t('services.investment.title'), href: "/service/investment" },
+    { icon: <DollarSign className="h-4 w-4 text-gray-500" />, name: t('services.golden.title'), href: "/service/golden-visa" },
+    { icon: <Globe className="h-4 w-4 text-gray-500" />, name: t('services.residents.title'), href: "/service/residents-visa" },
   ];
 
   const headerLink = [
@@ -272,7 +273,7 @@ export default function Header() {
             <div className="w-px h-4 bg-gray-300"></div>
             <div className="flex items-center space-x-1 text-gray-600">
               <Globe className="h-3 w-3" />
-              <span className="text-xs font-light">{t('common.currency')}</span>
+              <span className="text-xs font-light">{currencySymbol}</span>
             </div>
           </div>
 
@@ -394,7 +395,7 @@ export default function Header() {
           {/* Mobile Currency Display */}
           <div className="flex items-center justify-center space-x-2 p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
             <Globe className="h-4 w-4 text-[#314355]" />
-            <span className="text-sm font-medium text-gray-700">{t('common.currency')}</span>
+            <span className="text-sm font-medium text-gray-700">{currencySymbol}</span>
           </div>
 
           {/* Mobile Language Switcher */}

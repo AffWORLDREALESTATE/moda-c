@@ -9,8 +9,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Dialog, DialogContent, DialogTitle } from "@/src/components/ui/dialog";
+import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function DetailPage({ id }: any) {
+  const { t } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -135,7 +137,7 @@ export default function DetailPage({ id }: any) {
               className="hover:underline cursor-pointer text-center"
               onClick={() => setIsOpen(true)}
             >
-              Register Now
+              {t('details.registerNow')}
             </a>
             {property?.agent && (
               <>
@@ -203,59 +205,57 @@ export default function DetailPage({ id }: any) {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center mb-8 sm:mb-12">
             <div className="border-r-0 sm:border-r border-gray-200 pr-0 sm:pr-4">
               <h3 className="text-sm font-light uppercase text-primary mb-2 border-b border-primary inline-block pb-1">
-                Details
+                {t('details.details')}
               </h3>
               <div className="text-sm font-light text-gray-700 space-y-1">
                 <p>
                   {" "}
-                  <strong className="font-bold">City</strong>:{" "}
+                  <strong className="font-bold">{t('details.city')}</strong>:{" "}
                   {property?.location?.city}{" "}
                 </p>
                 <p>
                   {" "}
-                  <strong className="font-bold">Apartment Type:</strong>{" "}
+                  <strong className="font-bold">{t('details.apartmentType')}:</strong>{" "}
                   {property?.property_type}
                 </p>{" "}
                 <p>
                   {" "}
-                  <strong className="font-bold">
-                    Construction Stage:
-                  </strong>{" "}
+                  <strong className="font-bold">{t('details.constructionStage')}:</strong>{" "}
                   {property?.completionStatus}
                 </p>
                 <p>
-                  <strong className="font-bold">Bedrooms:</strong>{" "}
+                  <strong className="font-bold">{t('details.bedrooms')}:</strong>{" "}
                   {property?.bedRooms}{" "}
                 </p>
                 <p>
-                  <strong className="font-bold">Bathrooms:</strong>{" "}
+                  <strong className="font-bold">{t('details.bathrooms')}:</strong>{" "}
                   {property?.bathrooms}
                 </p>{" "}
                 <p>
-                  <strong className="font-bold">Furnished:</strong>{" "}
+                  <strong className="font-bold">{t('details.furnished')}:</strong>{" "}
                   {property?.isFurnished}
                 </p>
               </div>
             </div>
             <div className="border-r-0 sm:border-r border-gray-200 px-0 sm:px-4">
               <h3 className="text-sm font-light uppercase text-primary mb-2 border-b border-primary inline-block pb-1">
-                Areas
+                {t('details.areas')}
               </h3>
               <p className="text-sm font-light text-gray-700">
-                <strong className="font-bold"> Home Size (Sqft):</strong>{" "}
+                <strong className="font-bold"> {t('details.homeSizeSqft')}:</strong>{" "}
                 {property?.size}²
               </p>
             </div>
             <div className="sm:col-span-2 md:col-span-1">
               <h3 className="text-sm font-light uppercase text-primary mb-2 border-b border-primary inline-block pb-1">
-                Main Features
+                {t('details.mainFeatures')}
               </h3>
             </div>
           </div>
 
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-4 sm:mb-8 font-serif">
-              Description
+              {t('details.description')}
             </h2>
             <p className={`text-sm font-light text-gray-600 leading-relaxed mb-6 sm:mb-8 ${!showFullDescription ? 'line-clamp-4' : ''}`}>
               {property?.description}
@@ -265,7 +265,7 @@ export default function DetailPage({ id }: any) {
                 onClick={() => setShowFullDescription(!showFullDescription)}
                 className="inline-flex items-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <span>{showFullDescription ? 'Read Less' : 'Read More'}</span>
+                <span>{showFullDescription ? t('details.readLess') : t('details.readMore')}</span>
                 <Icon icon={showFullDescription ? "lucide:arrow-up" : "lucide:arrow-right"} className="w-4 h-4" />
               </button>
             )}
@@ -384,8 +384,8 @@ export default function DetailPage({ id }: any) {
               {/* Verification Text */}
               <div className="text-gray-700 text-center sm:text-left">
                 <p className="text-xs sm:text-sm">
-                  This Listing has been verified by{" "}
-                  <span className="font-bold">Dubai Land Department</span>
+                  {t('details.verifiedBy')} {" "}
+                  <span className="font-bold">{t('details.dld')}</span>
                 </p>
               </div>
             </div>
@@ -394,7 +394,7 @@ export default function DetailPage({ id }: any) {
 
 
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-serif text-primary mb-4 sm:mb-8 font-serif">Enquire</h2>
+          <h2 className="text-2xl sm:text-3xl font-serif text-primary mb-4 sm:mb-8 font-serif">{t('details.enquire')}</h2>
           <EnquireForm type="contact" />
         </div>
       </section>
@@ -412,7 +412,7 @@ export default function DetailPage({ id }: any) {
               <DialogTitle className="mb-4 sm:mb-6 flex justify-between">
                 <div>
                   <h2 className="text-lg sm:text-xl md:text-2xl font-mono font-thin text-black text-center font-serif">
-                    Take the First Step
+                    {t('details.takeFirstStep')}
                   </h2>
                   <p className="font-mono font-thin text-center text-xs sm:text-sm md:text-[15px] text-neutral-400">
                     Get a free consultation, personalized investment strategy,

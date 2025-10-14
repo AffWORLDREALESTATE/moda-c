@@ -34,13 +34,23 @@ const languages: Language[] = [
 // Translation data
 const translations: Record<string, Translations> = {
   en: {
+    // New Services grouping
+    'services.buySell.title': 'Buy, Sell & Off-Plan Properties',
+    'services.buySell.subtitle': 'End-to-end brokerage for primary and secondary markets: sourcing, pricing, negotiations and after‑sales.',
+    // Homepage solutions heading
+    'solutions.heading': 'Dubai real estate solutions focused around',
+    'solutions.headingEmphasis': 'excellent customer service',
+    // Rent page hero
+    'rent.heading': "Dubai's most exquisite rental properties",
+    'rent.subheading': "Find your perfect rental home in Dubai's most prestigious locations with world-class amenities and unmatched lifestyle.",
+    'rent.learnMore': 'Learn More',
     // New: Services hero translations
     'services.residents.title': 'Residents Visa Services',
     'services.residents.subtitle': 'End-to-end guidance to obtain or renew your UAE residence visa. Tailored support for property owners, employees, and families relocating to Dubai.',
     'services.golden.title': 'UAE Golden Visa',
     'services.golden.subtitle': 'Secure a 10-year residency through property investment, entrepreneurship, or recognised professional excellence. We manage every step with precision.',
     'services.investment.title': 'Investment Advisory',
-    'services.investment.subtitle': 'Data-led strategies to optimise yield, growth, and liquidity across Dubai’s prime and emerging districts.',
+    'services.investment.subtitle': 'Data-led strategies to optimise yield, growth, and liquidity across Dubai\'s prime and emerging districts.',
     'contact.cta': 'Contact Us',
     // Navigation
     'nav.buy': 'Buy',
@@ -60,6 +70,50 @@ const translations: Record<string, Translations> = {
     'services.shortTermRentals': 'Short Term Rentals',
     'services.propertySnagging': 'Property Snagging',
     'services.partnerProgram': 'Partner Program',
+    // Services - common stats/sections
+    'services.residents.stats.avgProcessing': 'Avg Processing',
+    'services.residents.stats.approvalRate': 'Approval Rate',
+    'services.residents.stats.familyCases': 'Family Cases',
+    'services.residents.stats.languages': 'Languages',
+    
+    'services.golden.stats.residencyTenure': 'Residency Tenure',
+    'services.golden.stats.dependants': 'Dependants',
+    'services.golden.stats.processing': 'Processing',
+    'services.golden.stats.sponsor': 'Sponsor',
+    
+    'services.investment.stats.targetYields': 'Target Yields',
+    'services.investment.stats.transactions': 'Transactions',
+    'services.investment.stats.communities': 'Communities',
+    'services.investment.stats.team': 'Team',
+    
+    'services.investment.focus.marketIntelligence.title': 'Market Intelligence',
+    'services.investment.focus.marketIntelligence.desc': 'Supply-demand analysis, developer pipelines, and micro-market insights.',
+    'services.investment.focus.assetSelection.title': 'Asset Selection',
+    'services.investment.focus.assetSelection.desc': 'Off-plan allocations and secondary assets matched to your risk profile.',
+    'services.investment.focus.performanceExits.title': 'Performance & Exits',
+    'services.investment.focus.performanceExits.desc': 'Leasing strategy, holiday homes, and exit timing to optimise returns.',
+    
+    'services.investment.insights.heading': 'Risk and Return Balance',
+    'services.investment.insights.p': 'We map sub-market cycles, rental demand, and developer supply to recommend assets aligned to your risk tolerance and holding horizon.',
+    'services.investment.insights.b1': '• Yield vs growth trade-offs by community',
+    'services.investment.insights.b2': '• Off-plan stage selection and incentive analysis',
+    'services.investment.insights.b3': '• Exit timing and liquidity considerations',
+    
+    'services.investment.approach.heading': 'Our Advisory Approach',
+    'services.investment.approach.01.title': 'Brief & Mandate',
+    'services.investment.approach.01.desc': 'Define objectives, budget, and timelines with a clear mandate.',
+    'services.investment.approach.02.title': 'Shortlist',
+    'services.investment.approach.02.desc': 'Data-backed shortlist with comparables, cashflows, and risk notes.',
+    'services.investment.approach.03.title': 'Negotiation',
+    'services.investment.approach.03.desc': 'Secure allocations, incentives, and pricing with developers or sellers.',
+    'services.investment.approach.04.title': 'Execution',
+    'services.investment.approach.04.desc': 'Conveyancing, financing, and post-handover leasing or exit planning.',
+    
+    'services.investment.cta.heading': 'Request an Investment Brief',
+    'services.investment.cta.p': 'Tell us your target returns and timeline. We’ll respond with a strategy outline and next steps.',
+    'services.investment.cta.b1': '• Rental yields and IRR modelling',
+    'services.investment.cta.b2': '• Off-plan and secondary deal flow',
+    'services.investment.cta.b3': '• Portfolio structuring and financing',
     
     // Team page
     'team.loading': 'Loading team members...',
@@ -177,7 +231,7 @@ const translations: Record<string, Translations> = {
     // Blog list page
     'blog.title': 'Blog',
     'blog.list.introHeading': 'Latest Insights and Stories',
-    'blog.list.introSubheading': 'Expert analysis, market updates, and inspiration from Dubai’s real estate scene.',
+    'blog.list.introSubheading': 'Expert analysis, market updates, and inspiration from Dubai\'s real estate scene.',
     'blog.notFound': 'Blog Not Found',
     'blog.notFoundDescription': "The blog post you're looking for doesn't exist.",
     'blog.backToBlog': 'Back to Blog',
@@ -196,6 +250,29 @@ const translations: Record<string, Translations> = {
     'solutions.downloadDescription': 'Access the most recent Detailed Dubai Property Market Analysis for Q1 2025',
     'solutions.exploreProjects': 'Explore Dubai Projects',
     'solutions.exploreDescription': 'Discover and select your perfect home from our comprehensive collection of Dubai developments.',
+    
+    // Details pages (property detail labels)
+    'details.details': 'Details',
+    'details.city': 'City',
+    'details.apartmentType': 'Apartment Type',
+    'details.propertyStatus': 'Property Status',
+    'details.forRent': 'For Rent',
+    'details.constructionStage': 'Construction Stage',
+    'details.bedrooms': 'Bedrooms',
+    'details.bathrooms': 'Bathrooms',
+    'details.furnished': 'Furnished',
+    'details.areas': 'Areas',
+    'details.homeSizeSqft': 'Home Size (Sqft)',
+    'details.mainFeatures': 'Main Features',
+    'details.description': 'Description',
+    'details.enquire': 'Enquire',
+    'details.enquireNow': 'Enquire Now',
+    'details.registerNow': 'Register Now',
+    'details.readMore': 'Read More',
+    'details.readLess': 'Read Less',
+    'details.takeFirstStep': 'Take the First Step',
+    'details.verifiedBy': 'This Listing has been verified by',
+    'details.dld': 'Dubai Land Department',
     
     // Contact page
     'contact.title': 'Contact Us',
@@ -285,6 +362,8 @@ const translations: Record<string, Translations> = {
     'offplans.learnMore': 'Learn More',
   },
   ar: {
+    'services.buySell.title': 'شراء، بيع وعقارات قيد الإنشاء',
+    'services.buySell.subtitle': 'وساطة متكاملة للأسواق الأولية والثانوية: التوريد، التسعير، التفاوض وخدمات ما بعد البيع.',
     // Search bar labels
     'search.priceRange': 'نطاق السعر',
     'search.referenceNumber': 'رقم المرجع',
@@ -447,6 +526,44 @@ const translations: Record<string, Translations> = {
     'solutions.downloadDescription': 'احصل على أحدث تحليل مفصل لسوق العقارات في دبي للربع الأول من 2025',
     'solutions.exploreProjects': 'استكشف مشاريع دبي',
     'solutions.exploreDescription': 'اكتشف واختر منزلك المثالي من مجموعتنا الشاملة لمشاريع دبي.',
+
+    // Homepage solutions heading
+    'solutions.heading': 'حلول عقارية في دبي تتمحور حول',
+    'solutions.headingEmphasis': 'خدمة عملاء ممتازة',
+    
+    // Rent page hero
+    'rent.heading': 'أرقى عقارات الإيجار في دبي',
+    'rent.subheading': 'اعثر على منزل الإيجار المثالي في أكثر مواقع دبي تميزًا مع مرافق عالمية المستوى وأسلوب حياة لا يُضاهى.',
+    'rent.learnMore': 'اعرف المزيد',
+
+    // Services stats labels
+    'services.residents.stats.avgProcessing': 'متوسط المعالجة',
+    'services.residents.stats.approvalRate': 'نسبة القبول',
+    'services.residents.stats.familyCases': 'الحالات العائلية',
+    'services.residents.stats.languages': 'اللغات',
+    
+    // Details pages (property detail labels)
+    'details.details': 'التفاصيل',
+    'details.city': 'المدينة',
+    'details.apartmentType': 'نوع الشقة',
+    'details.propertyStatus': 'حالة العقار',
+    'details.forRent': 'للإيجار',
+    'details.constructionStage': 'مرحلة الإنشاء',
+    'details.bedrooms': 'غرف النوم',
+    'details.bathrooms': 'الحمامات',
+    'details.furnished': 'مفروش',
+    'details.areas': 'المساحات',
+    'details.homeSizeSqft': 'مساحة المنزل (قدم²)',
+    'details.mainFeatures': 'الميزات الرئيسية',
+    'details.description': 'الوصف',
+    'details.enquire': 'استفسر',
+    'details.enquireNow': 'استفسر الآن',
+    'details.registerNow': 'سجّل الآن',
+    'details.readMore': 'اقرأ المزيد',
+    'details.readLess': 'اقرأ أقل',
+    'details.takeFirstStep': 'اتخذ الخطوة الأولى',
+    'details.verifiedBy': 'تم التحقق من هذا الإدراج بواسطة',
+    'details.dld': 'دائرة الأراضي والأملاك في دبي',
     
     // Contact page
     'contact.title': 'اتصل بنا',
@@ -536,6 +653,71 @@ const translations: Record<string, Translations> = {
     'offplans.learnMore': 'اعرف المزيد',
   },
   fr: {
+    'services.buySell.title': 'Achat, Vente & Hors Plan',
+    'services.buySell.subtitle': 'Courtage de bout en bout sur primaire et secondaire : sourcing, tarification, négociation et après‑vente.',
+    'solutions.heading': "Des solutions immobilières à Dubaï centrées sur", 
+    'solutions.headingEmphasis': 'un service client d’excellence',
+    'landing.partners.heading': "Partenaires des principaux promoteurs de Dubaï",
+    // Rent page hero
+    'rent.heading': 'Les plus belles locations de Dubaï',
+    'rent.subheading': "Trouvez votre logement idéal dans les quartiers les plus prestigieux de Dubaï, avec des équipements haut de gamme et un style de vie incomparable.",
+    'rent.learnMore': 'En savoir plus',
+    'buy.moreFilters': 'Plus de filtres',
+    'buy.beds': 'Chambres',
+    'buy.locationHeading': 'Les propriétés les plus exquises de Dubaï',
+    'buy.locationSubheading': "Rejoignez un style de vie d’exception, profitez de rendements incomparables et possédez une part de l’avenir de Dubaï.",
+    'buy.learnMore': 'En savoir plus',
+    'common.available': 'Disponible',
+    // Services hero translations
+    'services.residents.title': 'Services de visa de résident',
+    'services.residents.subtitle': "Accompagnement de bout en bout pour obtenir ou renouveler votre visa de résidence aux Émirats arabes unis. Assistance sur mesure pour les propriétaires, salariés et familles s’installant à Dubaï.",
+    'services.golden.title': 'Visa doré des Émirats',
+    'services.golden.subtitle': 'Obtenez une résidence de 10 ans via l’investissement immobilier, l’entrepreneuriat ou l’excellence professionnelle reconnue. Nous gérons chaque étape avec précision.',
+    'services.investment.title': 'Conseil en investissement',
+    'services.investment.subtitle': 'Stratégies pilotées par la donnée pour optimiser rendement, croissance et liquidité dans les quartiers phares et émergents de Dubaï.',
+    'contact.cta': 'Nous contacter',
+    // Services i18n
+    'services.residents.stats.avgProcessing': 'Délai moyen',
+    'services.residents.stats.approvalRate': "Taux d'approbation",
+    'services.residents.stats.familyCases': 'Dossiers familiaux',
+    'services.residents.stats.languages': 'Langues',
+    'services.golden.stats.residencyTenure': 'Durée du séjour',
+    'services.golden.stats.dependants': 'Ayants droit',
+    'services.golden.stats.processing': 'Traitement',
+    'services.golden.stats.sponsor': 'Parrain',
+    'services.investment.stats.targetYields': 'Rendements cibles',
+    'services.investment.stats.transactions': 'Transactions',
+    'services.investment.stats.communities': 'Communautés',
+    'services.investment.stats.team': 'Équipe',
+    'services.investment.focus.marketIntelligence.title': 'Intelligence de marché',
+    'services.investment.focus.marketIntelligence.desc': 'Analyse offre‑demande, pipeline des promoteurs et micro‑marchés.',
+    'services.investment.focus.assetSelection.title': 'Sélection d’actifs',
+    'services.investment.focus.assetSelection.desc': 'All allocations off-plan et actifs secondaires adaptés à votre profil de risque.',
+    'services.investment.focus.performanceExits.title': 'Performance & sorties',
+    'services.investment.focus.performanceExits.desc': 'Location, locations saisonnières et timing de sortie pour optimiser le rendement.',
+    'services.investment.insights.heading': 'Équilibre risque / rendement',
+    'services.investment.insights.p': 'Nous cartographions les cycles, la demande locative et l’offre des promoteurs pour recommander des actifs alignés à votre profil.',
+    'services.investment.insights.b1': '• Arbitrages rendement vs croissance par communauté',
+    'services.investment.insights.b2': '• Choix du stade off‑plan et analyse des incitations',
+    'services.investment.insights.b3': '• Timing de sortie et liquidité',
+    'services.investment.approach.heading': 'Notre approche de conseil',
+    'services.investment.approach.01.title': 'Brief & mandat',
+    'services.investment.approach.01.desc': 'Définir objectifs, budget et délais avec un mandat clair.',
+    'services.investment.approach.02.title': 'Shortlist',
+    'services.investment.approach.02.desc': 'Liste courte fondée sur les données, comparables et flux.',
+    'services.investment.approach.03.title': 'Négociation',
+    'services.investment.approach.03.desc': 'Obtenir allocations, incitations et prix auprès des promoteurs ou vendeurs.',
+    'services.investment.approach.04.title': 'Exécution',
+    'services.investment.approach.04.desc': 'Conveyancing, financement et location / sortie post‑handover.',
+    'services.investment.cta.heading': 'Demander une note d’investissement',
+    'services.investment.cta.p': 'Indiquez vos objectifs de rendement et votre calendrier. Nous revenons avec une stratégie.',
+    'services.investment.cta.b1': '• Rendements locatifs et modélisation TRI',
+    'services.investment.cta.b2': '• Flux d’opportunités off‑plan et secondaire',
+    'services.investment.cta.b3': '• Structuration de portefeuille et financement',
+    // Blog list page
+    'blog.title': 'Blog',
+    'blog.list.introHeading': 'Dernières analyses et histoires',
+    'blog.list.introSubheading': 'Analyses d’experts, mises à jour du marché et inspiration sur la scène immobilière de Dubaï.',
     // Navigation
     'nav.buy': 'Acheter',
     'nav.rent': 'Louer',
@@ -546,6 +728,10 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'Plus',
     'nav.listYourProperty': 'Listez Votre Propriété',
+    
+    // Search bar labels
+    'search.priceRange': 'Plage de prix',
+    'search.referenceNumber': 'Numéro de référence',
     
     // Services
     'services.propertyManagement': 'Gestion Immobilière',
@@ -578,10 +764,21 @@ const translations: Record<string, Translations> = {
     'footer.contact': 'Contact',
     'footer.whyDubai': 'Pourquoi Dubaï',
     'footer.contactUs': 'Nous contacter',
+    'footer.followUs': 'Suivez-nous',
+    'footer.facebook': 'Facebook',
+    'footer.instagram': 'Instagram',
+    'footer.linkedin': 'LinkedIn',
+    'footer.twitter': 'Twitter',
+    'footer.youtube': 'YouTube',
+    'footer.privacyPolicy': 'Politique de confidentialité',
+    'footer.terms': 'Conditions générales',
+    'footer.cookiePolicy': 'Politique de cookies',
+    'footer.disclaimer': 'Avertissement',
+    'footer.copyright': '© 2025 Modac Real Estate. Tous droits réservés.',
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': 'Trouvez la maison de vos rêves avec Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Statut d\'achèvement',
@@ -594,6 +791,7 @@ const translations: Record<string, Translations> = {
     'buy.type': 'Type',
     'buy.buy': 'Acheter',
     'buy.rent': 'Louer',
+    'buy.search': 'Rechercher des biens',
 
     // Off Plans page
     'offplans.completionStatus': 'Statut d\'achèvement',
@@ -686,6 +884,29 @@ const translations: Record<string, Translations> = {
     'solutions.exploreProjects': 'Explorer les Projets de Dubaï',
     'solutions.exploreDescription': 'Découvrez et sélectionnez votre maison parfaite parmi notre collection complète de développements de Dubaï.',
     
+    // Details pages (property detail labels)
+    'details.details': 'Détails',
+    'details.city': 'Ville',
+    'details.apartmentType': 'Type d\'appartement',
+    'details.propertyStatus': 'Statut du bien',
+    'details.forRent': 'À louer',
+    'details.constructionStage': 'Phase de construction',
+    'details.bedrooms': 'Chambres',
+    'details.bathrooms': 'Salles de bain',
+    'details.furnished': 'Meublé',
+    'details.areas': 'Surfaces',
+    'details.homeSizeSqft': 'Surface du logement (pieds²)',
+    'details.mainFeatures': 'Caractéristiques principales',
+    'details.description': 'Description',
+    'details.enquire': 'Demander',
+    'details.enquireNow': 'Demander maintenant',
+    'details.registerNow': 'S\'inscrire maintenant',
+    'details.readMore': 'Lire plus',
+    'details.readLess': 'Lire moins',
+    'details.takeFirstStep': 'Faites le premier pas',
+    'details.verifiedBy': 'Cette annonce a été vérifiée par',
+    'details.dld': 'Département foncier de Dubaï',
+    
     // Contact page
     'contact.title': 'Nous Contacter',
     'contact.kicker': 'CONNECTEZ-VOUS AVEC LE LUXE',
@@ -723,6 +944,8 @@ const translations: Record<string, Translations> = {
     'form.beingStored': 'être stockés sur votre ordinateur.',
   },
   es: {
+    'services.buySell.title': 'Comprar, Vender y Fuera de Plano',
+    'services.buySell.subtitle': 'Intermediación integral en mercados primario y secundario: búsqueda, precios, negociación y posventa.',
     // Navigation
     'nav.buy': 'Comprar',
     'nav.rent': 'Alquilar',
@@ -768,7 +991,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': 'Encuentra la casa de tus sueños con Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Estado de finalización',
@@ -850,8 +1073,33 @@ const translations: Record<string, Translations> = {
     'form.andConsent': 'y consientes a',
     'form.cookies': 'cookies',
     'form.beingStored': 'ser almacenadas en tu computadora.',
+    
+    // Details pages (property detail labels)
+    'details.details': 'Detalles',
+    'details.city': 'Ciudad',
+    'details.apartmentType': 'Tipo de apartamento',
+    'details.propertyStatus': 'Estado de la propiedad',
+    'details.forRent': 'En alquiler',
+    'details.constructionStage': 'Etapa de construcción',
+    'details.bedrooms': 'Dormitorios',
+    'details.bathrooms': 'Baños',
+    'details.furnished': 'Amueblado',
+    'details.areas': 'Áreas',
+    'details.homeSizeSqft': 'Tamaño del hogar (pies²)',
+    'details.mainFeatures': 'Características principales',
+    'details.description': 'Descripción',
+    'details.enquire': 'Consultar',
+    'details.enquireNow': 'Consultar ahora',
+    'details.registerNow': 'Registrarse ahora',
+    'details.readMore': 'Leer más',
+    'details.readLess': 'Leer menos',
+    'details.takeFirstStep': 'Da el primer paso',
+    'details.verifiedBy': 'Este anuncio ha sido verificado por',
+    'details.dld': 'Departamento de Tierras de Dubái',
   },
   de: {
+    'services.buySell.title': 'Kaufen, Verkaufen & Off-Plan',
+    'services.buySell.subtitle': 'Full‑Service‑Maklerschaft für Erst- und Zweitmarkt: Sourcing, Pricing, Verhandlung und After‑Sales.',
     // Navigation
     'nav.buy': 'Kaufen',
     'nav.rent': 'Mieten',
@@ -904,6 +1152,29 @@ const translations: Record<string, Translations> = {
     'form.cookies': 'Cookies',
     'form.beingStored': 'auf Ihrem Computer gespeichert werden.',
     
+    // Details pages (property detail labels)
+    'details.details': 'Details',
+    'details.city': 'Stadt',
+    'details.apartmentType': 'Wohnungstyp',
+    'details.propertyStatus': 'Immobilienstatus',
+    'details.forRent': 'Zu mieten',
+    'details.constructionStage': 'Bauphase',
+    'details.bedrooms': 'Schlafzimmer',
+    'details.bathrooms': 'Badezimmer',
+    'details.furnished': 'Möbliert',
+    'details.areas': 'Bereiche',
+    'details.homeSizeSqft': 'Wohnfläche (ft²)',
+    'details.mainFeatures': 'Hauptmerkmale',
+    'details.description': 'Beschreibung',
+    'details.enquire': 'Anfragen',
+    'details.enquireNow': 'Jetzt anfragen',
+    'details.registerNow': 'Jetzt registrieren',
+    'details.readMore': 'Mehr lesen',
+    'details.readLess': 'Weniger lesen',
+    'details.takeFirstStep': 'Machen Sie den ersten Schritt',
+    'details.verifiedBy': 'Dieses Inserat wurde verifiziert von',
+    'details.dld': 'Dubai Land Department',
+    
     // Footer
     'footer.newsletter': 'Erhalten Sie unsere außergewöhnlichen Immobilienlisten direkt in Ihrem Posteingang.',
     'footer.emailLabel': 'E-Mail-Adresse für Newsletter-Anmeldung',
@@ -916,7 +1187,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': 'Finden Sie Ihr Traumhaus mit Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Fertigstellungsstatus',
@@ -978,6 +1249,8 @@ const translations: Record<string, Translations> = {
     'offplans.learnMore': 'Learn More',
   },
   it: {
+    'services.buySell.title': 'Acquista, Vendi & Off-Plan',
+    'services.buySell.subtitle': 'Intermediazione end‑to‑end per primario e secondario: sourcing, pricing, negoziazione e post‑vendita.',
     // Navigation
     'nav.buy': 'Acquista',
     'nav.rent': 'Affitta',
@@ -1013,7 +1286,7 @@ const translations: Record<string, Translations> = {
     
     // Footer
     'footer.newsletter': 'Ricevi le nostre eccezionali liste immobiliari direttamente nella tua casella di posta.',
-    'footer.emailLabel': 'Indirizzo email per l\'iscrizione alla newsletter',
+    'footer.emailLabel': "Indirizzo email per l'iscrizione alla newsletter",
     'footer.emailPlaceholder': 'Inserisci il tuo indirizzo email',
     'footer.subscribe': 'Iscriviti',
     'footer.sitemap': 'Mappa del sito',
@@ -1023,7 +1296,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': 'Trova la casa dei tuoi sogni con Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Stato di completamento',
@@ -1036,6 +1309,30 @@ const translations: Record<string, Translations> = {
     'buy.type': 'Tipo',
     'buy.buy': 'Acquista',
     'buy.rent': 'Affitta',
+
+    // Details pages (property detail labels)
+    'details.details': 'Dettagli',
+    'details.city': 'Città',
+    'details.apartmentType': 'Tipo di appartamento',
+    'details.propertyStatus': 'Stato della proprietà',
+    'details.forRent': 'In affitto',
+    'details.constructionStage': 'Fase di costruzione',
+    'details.bedrooms': 'Camere da letto',
+    'details.bathrooms': 'Bagni',
+    'details.furnished': 'Arredata',
+    'details.areas': 'Aree',
+    'details.homeSizeSqft': 'Dimensione casa (piedi²)',
+    'details.mainFeatures': 'Caratteristiche principali',
+    'details.description': 'Descrizione',
+    'details.enquire': 'Richiedi',
+    'details.enquireNow': 'Richiedi ora',
+    'details.registerNow': 'Registrati ora',
+    'details.readMore': 'Leggi di più',
+    'details.readLess': 'Leggi meno',
+    'details.takeFirstStep': 'Fai il primo passo',
+    'details.verifiedBy': 'Questo annuncio è stato verificato da',
+    'details.dld': 'Dipartimento fondiario di Dubai',
+    
     // Off Plans page
     'offplans.completionStatus': 'Completion Status',
     'offplans.completedSecondary': 'Completed Secondary',
@@ -1085,6 +1382,8 @@ const translations: Record<string, Translations> = {
     'offplans.learnMore': 'Learn More',
   },
   pt: {
+    'services.buySell.title': 'Comprar, Vender & Off-Plan',
+    'services.buySell.subtitle': 'Corretagem ponta a ponta nos mercados primário e secundário: prospecção, precificação, negociação e pós‑venda.',
     // Navigation
     'nav.buy': 'Comprar',
     'nav.rent': 'Alugar',
@@ -1130,7 +1429,7 @@ const translations: Record<string, Translations> = {
     
     // Hero
     'hero.companyName': 'MODAC PROPERTIES',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': 'Encontre a casa dos seus sonhos com a Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Status de conclusão',
@@ -1192,6 +1491,71 @@ const translations: Record<string, Translations> = {
     'offplans.learnMore': 'Learn More',
   },
   ru: {
+    'services.buySell.title': 'Покупка, продажа и объекты на этапе строительства',
+    'services.buySell.subtitle': 'Полный цикл брокерского сопровождения на первичном и вторичном рынках: подбор, ценообразование, переговоры и пост‑сервис.',
+    'solutions.heading': 'Решения на рынке недвижимости Дубая, ориентированные на',
+    'solutions.headingEmphasis': 'безупречный клиентский сервис',
+    'landing.partners.heading': 'Партнёры ведущих девелоперов Дубая',
+    // Rent page hero
+    'rent.heading': 'Самые изысканные объекты аренды Дубая',
+    'rent.subheading': 'Найдите идеальный дом в самых престижных локациях Дубая с инфраструктурой мирового уровня и безупречным стилем жизни.',
+    'rent.learnMore': 'Узнать больше',
+    'buy.moreFilters': 'Больше фильтров',
+    'buy.beds': 'Спальни',
+    'buy.locationHeading': 'Самые изысканные объекты Дубая',
+    'buy.locationSubheading': 'Станьте частью образа жизни мирового уровня, получите непревзойденную доходность и владейте частью будущего Дубая.',
+    'buy.learnMore': 'Узнать больше',
+    'common.available': 'Доступно',
+    // Services hero translations
+    'services.residents.title': 'Виза резидента ОАЭ',
+    'services.residents.subtitle': 'Полное сопровождение для получения или продления резидентской визы ОАЭ. Индивидуальная поддержка для владельцев недвижимости, сотрудников и семей, переезжающих в Дубай.',
+    'services.golden.title': 'Золотая виза ОАЭ',
+    'services.golden.subtitle': '10‑летнее резидентство через инвестиции в недвижимость, предпринимательство или признанное профессиональное мастерство. Мы управляем каждым этапом.',
+    'services.investment.title': 'Инвестиционный консалтинг',
+    'services.investment.subtitle': 'Стратегии на основе данных для оптимизации доходности, роста и ликвидности в ключевых и развивающихся районах Дубая.',
+    'contact.cta': 'Связаться с нами',
+    // Services i18n
+    'services.residents.stats.avgProcessing': 'Средний срок',
+    'services.residents.stats.approvalRate': 'Одобрения',
+    'services.residents.stats.familyCases': 'Семейные кейсы',
+    'services.residents.stats.languages': 'Языки',
+    'services.golden.stats.residencyTenure': 'Срок резидентства',
+    'services.golden.stats.dependants': 'Иждивенцы',
+    'services.golden.stats.processing': 'Оформление',
+    'services.golden.stats.sponsor': 'Спонсор',
+    'services.investment.stats.targetYields': 'Целевые доходности',
+    'services.investment.stats.transactions': 'Сделки',
+    'services.investment.stats.communities': 'Районы',
+    'services.investment.stats.team': 'Команда',
+    'services.investment.focus.marketIntelligence.title': 'Аналитика рынка',
+    'services.investment.focus.marketIntelligence.desc': 'Баланс спроса‑предложения, планы застройщиков и микро‑рынки.',
+    'services.investment.focus.assetSelection.title': 'Подбор активов',
+    'services.investment.focus.assetSelection.desc': 'Аллокации off‑plan и вторичка под ваш риск‑профиль.',
+    'services.investment.focus.performanceExits.title': 'Доходность и выходы',
+    'services.investment.focus.performanceExits.desc': 'Стратегия сдачи, daily‑rent и тайминг выхода для максимума дохода.',
+    'services.investment.insights.heading': 'Баланс риска и доходности',
+    'services.investment.insights.p': 'Мы анализируем циклы субрынков, спрос на аренду и предложение, чтобы рекомендовать активы под ваши цели.',
+    'services.investment.insights.b1': '• Компромисс доходность/рост по районам',
+    'services.investment.insights.b2': '• Выбор стадии off‑plan и анализ стимулов',
+    'services.investment.insights.b3': '• Тайминг выхода и ликвидность',
+    'services.investment.approach.heading': 'Наш подход',
+    'services.investment.approach.01.title': 'Бриф и мандат',
+    'services.investment.approach.01.desc': 'Определение целей, бюджета и сроков с ясным мандатом.',
+    'services.investment.approach.02.title': 'Шорт‑лист',
+    'services.investment.approach.02.desc': 'Отбор на основе данных, сравнимых сделок и кэш‑флоу.',
+    'services.investment.approach.03.title': 'Переговоры',
+    'services.investment.approach.03.desc': 'Аллокации, стимулы и цены у девелоперов или продавцов.',
+    'services.investment.approach.04.title': 'Исполнение',
+    'services.investment.approach.04.desc': 'Оформление, финансирование и сдача/выход после передачи.',
+    'services.investment.cta.heading': 'Запросить инвестиционный бриф',
+    'services.investment.cta.p': 'Укажите целевую доходность и сроки. Мы вернемся со стратегией и шагами.',
+    'services.investment.cta.b1': '• Доходность и моделирование IRR',
+    'services.investment.cta.b2': '• Поток сделок off‑plan и вторички',
+    'services.investment.cta.b3': '• Структурирование портфеля и финансирование',
+    // Blog list page
+    'blog.title': 'Блог',
+    'blog.list.introHeading': 'Последние инсайты и истории',
+    'blog.list.introSubheading': 'Аналитика экспертов, рыночные обновления и вдохновение из мира недвижимости Дубая.',
     // Navigation
     'nav.buy': 'Купить',
     'nav.rent': 'Арендовать',
@@ -1202,6 +1566,10 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Блоги',
     'nav.more': 'Больше',
     'nav.listYourProperty': 'Разместить Недвижимость',
+    
+    // Search bar labels
+    'search.priceRange': 'Диапазон цен',
+    'search.referenceNumber': 'Номер объявления',
     
     // Services
     'services.propertyManagement': 'Управление Недвижимостью',
@@ -1225,6 +1593,29 @@ const translations: Record<string, Translations> = {
     'common.currency': 'Дирхам',
     'common.menu': 'Меню',
     
+    // Details pages (property detail labels)
+    'details.details': 'Детали',
+    'details.city': 'Город',
+    'details.apartmentType': 'Тип апартаментов',
+    'details.propertyStatus': 'Статус недвижимости',
+    'details.forRent': 'В аренду',
+    'details.constructionStage': 'Стадия строительства',
+    'details.bedrooms': 'Спальни',
+    'details.bathrooms': 'Ванные комнаты',
+    'details.furnished': 'Меблированная',
+    'details.areas': 'Площади',
+    'details.homeSizeSqft': 'Размер жилья (фут²)',
+    'details.mainFeatures': 'Основные особенности',
+    'details.description': 'Описание',
+    'details.enquire': 'Запросить',
+    'details.enquireNow': 'Запросить сейчас',
+    'details.registerNow': 'Зарегистрироваться сейчас',
+    'details.readMore': 'Читать далее',
+    'details.readLess': 'Скрыть',
+    'details.takeFirstStep': 'Сделайте первый шаг',
+    'details.verifiedBy': 'Это объявление подтверждено',
+    'details.dld': 'Земельным департаментом Дубая',
+    
     // Footer
     'footer.newsletter': 'Получайте наши исключительные списки недвижимости прямо в ваш почтовый ящик.',
     'footer.emailLabel': 'Адрес электронной почты для подписки на рассылку',
@@ -1234,10 +1625,21 @@ const translations: Record<string, Translations> = {
     'footer.contact': 'Контакты',
     'footer.whyDubai': 'Почему Дубай',
     'footer.contactUs': 'Связаться с нами',
+    'footer.followUs': 'Подписывайтесь',
+    'footer.facebook': 'Facebook',
+    'footer.instagram': 'Instagram',
+    'footer.linkedin': 'LinkedIn',
+    'footer.twitter': 'Twitter',
+    'footer.youtube': 'YouTube',
+    'footer.privacyPolicy': 'Политика конфиденциальности',
+    'footer.terms': 'Условия и положения',
+    'footer.cookiePolicy': 'Политика cookies',
+    'footer.disclaimer': 'Отказ от ответственности',
+    'footer.copyright': '© 2025 Modac Real Estate. Все права защищены.',
     
     // Hero
     'hero.companyName': 'MODAC PROPERTIES',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': 'Найдите дом своей мечты с Modac Real Estate',
     
     // Buy page
     'buy.completionStatus': 'Статус завершения',
@@ -1250,6 +1652,7 @@ const translations: Record<string, Translations> = {
     'buy.type': 'Тип',
     'buy.buy': 'Купить',
     'buy.rent': 'Арендовать',
+    'buy.search': 'Поиск недвижимости',
     // Off Plans page
     'offplans.completionStatus': 'Completion Status',
     'offplans.completedSecondary': 'Completed Secondary',
@@ -1262,12 +1665,12 @@ const translations: Record<string, Translations> = {
     'offplans.townhouse': 'Townhouse',
     'offplans.penthouse': 'Penthouse',
     'offplans.studio': 'Studio',
-    'offplans.bedrooms': 'Bedrooms',
-    'offplans.oneBedroom': '1 Bedroom',
-    'offplans.twoBedrooms': '2 Bedrooms',
-    'offplans.threeBedrooms': '3 Bedrooms',
-    'offplans.fourBedrooms': '4 Bedrooms',
-    'offplans.fivePlusBedrooms': '5+ Bedrooms',
+    'offplans.bedrooms': 'Спальни',
+    'offplans.oneBedroom': '1 спальня',
+    'offplans.twoBedrooms': '2 спальни',
+    'offplans.threeBedrooms': '3 спальни',
+    'offplans.fourBedrooms': '4 спальни',
+    'offplans.fivePlusBedrooms': '5+ спален',
     'offplans.bathrooms': 'Bathrooms',
     'offplans.oneBathroom': '1 Bathroom',
     'offplans.twoBathrooms': '2 Bathrooms',
@@ -1378,6 +1781,71 @@ const translations: Record<string, Translations> = {
     'form.beingStored': 'хранение на вашем компьютере.',
   },
   zh: {
+    'services.buySell.title': '买卖与期房',
+    'services.buySell.subtitle': '覆盖一手与二手市场的一站式经纪服务：获客与盘源、定价、谈判及售后支持。',
+    'solutions.heading': '以',
+    'solutions.headingEmphasis': '卓越客户服务',
+    'landing.partners.heading': '与迪拜顶级开发商建立合作伙伴关系',
+    // Rent page hero
+    'rent.heading': '迪拜臻选出租房源',
+    'rent.subheading': '在迪拜最负盛名的片区找到理想居所，尊享世界级配套与非凡生活方式。',
+    'rent.learnMore': '了解更多',
+    'buy.moreFilters': '更多筛选',
+    'buy.beds': '卧室',
+    'buy.locationHeading': '迪拜最臻贵的房产',
+    'buy.locationSubheading': '加入世界级生活方式，享受卓越回报，拥有迪拜未来的一部分。',
+    'buy.learnMore': '了解更多',
+    'common.available': '可售',
+    // Services hero translations
+    'services.residents.title': '居留签证服务',
+    'services.residents.subtitle': '提供办理或续签阿联酋居留签证的一站式指导。为房产持有者、雇员及迁居迪拜的家庭提供定制支持。',
+    'services.golden.title': '阿联酋黄金签证',
+    'services.golden.subtitle': '通过房地产投资、创业或公认的专业成就获得10年居留资格。我们精准把控每个流程环节。',
+    'services.investment.title': '投资咨询',
+    'services.investment.subtitle': '以数据驱动的策略，优化迪拜核心与新兴片区的收益、增长与流动性。',
+    'contact.cta': '联系我们',
+    // Services i18n
+    'services.residents.stats.avgProcessing': '平均办理时长',
+    'services.residents.stats.approvalRate': '通过率',
+    'services.residents.stats.familyCases': '家庭案例',
+    'services.residents.stats.languages': '语言',
+    'services.golden.stats.residencyTenure': '居留年限',
+    'services.golden.stats.dependants': '家属',
+    'services.golden.stats.processing': '办理流程',
+    'services.golden.stats.sponsor': '担保',
+    'services.investment.stats.targetYields': '目标收益',
+    'services.investment.stats.transactions': '交易量',
+    'services.investment.stats.communities': '社区',
+    'services.investment.stats.team': '团队',
+    'services.investment.focus.marketIntelligence.title': '市场研判',
+    'services.investment.focus.marketIntelligence.desc': '供需分析、开发商管线与微观板块洞察。',
+    'services.investment.focus.assetSelection.title': '资产筛选',
+    'services.investment.focus.assetSelection.desc': '期房配售与二级资产，匹配您的风险偏好。',
+    'services.investment.focus.performanceExits.title': '运营与退出',
+    'services.investment.focus.performanceExits.desc': '出租策略、短租与退出时机，优化回报。',
+    'services.investment.insights.heading': '风险与回报平衡',
+    'services.investment.insights.p': '我们梳理分市场周期、租赁需求与供给，给出与您风险承受与持有周期匹配的建议。',
+    'services.investment.insights.b1': '• 社区层面的收益与增长权衡',
+    'services.investment.insights.b2': '• 期房阶段选择与激励分析',
+    'services.investment.insights.b3': '• 退出时点与流动性考量',
+    'services.investment.approach.heading': '顾问方法论',
+    'services.investment.approach.01.title': '需求与授权',
+    'services.investment.approach.01.desc': '明确目标、预算与时间表并落实授权。',
+    'services.investment.approach.02.title': '筛选与短清单',
+    'services.investment.approach.02.desc': '基于数据的短清单与可比、现金流及风险说明。',
+    'services.investment.approach.03.title': '谈判',
+    'services.investment.approach.03.desc': '获取配售、激励与价格（开发商或卖方）。',
+    'services.investment.approach.04.title': '执行',
+    'services.investment.approach.04.desc': '过户、融资及交付后的出租或退出计划。',
+    'services.investment.cta.heading': '预约投资简报',
+    'services.investment.cta.p': '告知目标收益与时间，我们将回复策略纲要与下一步。',
+    'services.investment.cta.b1': '• 租金收益与IRR测算',
+    'services.investment.cta.b2': '• 期房与二级市场机会流',
+    'services.investment.cta.b3': '• 组合结构与融资',
+    // Blog list page
+    'blog.title': '博客',
+    'blog.list.introHeading': '最新洞察与故事',
+    'blog.list.introSubheading': '专家分析、市场更新，以及迪拜房地产领域的灵感与见解。',
     // Navigation
     'nav.buy': '购买',
     'nav.rent': '租赁',
@@ -1388,6 +1856,10 @@ const translations: Record<string, Translations> = {
     'nav.blogs': '博客',
     'nav.more': '更多',
     'nav.listYourProperty': '列出您的房产',
+    
+    // Search bar labels
+    'search.priceRange': '价格范围',
+    'search.referenceNumber': '参考编号',
     
     // Services
     'services.propertyManagement': '物业管理',
@@ -1411,6 +1883,29 @@ const translations: Record<string, Translations> = {
     'common.currency': '迪拉姆',
     'common.menu': '菜单',
     
+    // Details pages (property detail labels)
+    'details.details': '详情',
+    'details.city': '城市',
+    'details.apartmentType': '公寓类型',
+    'details.propertyStatus': '房源状态',
+    'details.forRent': '出租',
+    'details.constructionStage': '施工阶段',
+    'details.bedrooms': '卧室',
+    'details.bathrooms': '浴室',
+    'details.furnished': '精装',
+    'details.areas': '面积',
+    'details.homeSizeSqft': '房屋面积（平方英尺）',
+    'details.mainFeatures': '主要特色',
+    'details.description': '描述',
+    'details.enquire': '咨询',
+    'details.enquireNow': '立即咨询',
+    'details.registerNow': '立即注册',
+    'details.readMore': '展开',
+    'details.readLess': '收起',
+    'details.takeFirstStep': '迈出第一步',
+    'details.verifiedBy': '此房源由以下机构认证：',
+    'details.dld': '迪拜土地局',
+    
     // Footer
     'footer.newsletter': '将我们卓越的房地产列表直接发送到您的收件箱。',
     'footer.emailLabel': '新闻订阅的电子邮件地址',
@@ -1420,10 +1915,21 @@ const translations: Record<string, Translations> = {
     'footer.contact': '联系方式',
     'footer.whyDubai': '为什么选择迪拜',
     'footer.contactUs': '联系我们',
+    'footer.followUs': '关注我们',
+    'footer.facebook': 'Facebook',
+    'footer.instagram': 'Instagram',
+    'footer.linkedin': 'LinkedIn',
+    'footer.twitter': 'Twitter',
+    'footer.youtube': 'YouTube',
+    'footer.privacyPolicy': '隐私政策',
+    'footer.terms': '条款与条件',
+    'footer.cookiePolicy': 'Cookie 政策',
+    'footer.disclaimer': '免责声明',
+    'footer.copyright': '© 2025 Modac Real Estate. 保留所有权利。',
     
     // Hero
     'hero.companyName': 'MODAC PROPERTIES',
-    'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.heading': '与 Modac Real Estate 一起寻找理想家园',
     
     // Buy page
     'buy.completionStatus': '完成状态',
@@ -1436,6 +1942,7 @@ const translations: Record<string, Translations> = {
     'buy.type': '类型',
     'buy.buy': '购买',
     'buy.rent': '租赁',
+    'buy.search': '搜索房源',
     // Off Plans page
     'offplans.completionStatus': 'Completion Status',
     'offplans.completedSecondary': 'Completed Secondary',
@@ -1448,12 +1955,12 @@ const translations: Record<string, Translations> = {
     'offplans.townhouse': 'Townhouse',
     'offplans.penthouse': 'Penthouse',
     'offplans.studio': 'Studio',
-    'offplans.bedrooms': 'Bedrooms',
-    'offplans.oneBedroom': '1 Bedroom',
-    'offplans.twoBedrooms': '2 Bedrooms',
-    'offplans.threeBedrooms': '3 Bedrooms',
-    'offplans.fourBedrooms': '4 Bedrooms',
-    'offplans.fivePlusBedrooms': '5+ Bedrooms',
+    'offplans.bedrooms': '卧室',
+    'offplans.oneBedroom': '1 卧室',
+    'offplans.twoBedrooms': '2 卧室',
+    'offplans.threeBedrooms': '3 卧室',
+    'offplans.fourBedrooms': '4 卧室',
+    'offplans.fivePlusBedrooms': '5+ 卧室',
     'offplans.bathrooms': 'Bathrooms',
     'offplans.oneBathroom': '1 Bathroom',
     'offplans.twoBathrooms': '2 Bathrooms',
@@ -1593,21 +2100,51 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const getCurrencyForLang = (langCode: string) => {
-    // Default to AED; add per-language overrides
-    if (langCode === 'ar') return { code: 'AED', symbol: 'د.إ' };
-    if (langCode === 'zh') return { code: 'CNY', symbol: '¥' };
+    // Map UI language to a display currency; keep English/Arabic as AED
+    switch (langCode) {
+      case 'en':
     return { code: 'AED', symbol: 'AED' };
+      case 'ar':
+        return { code: 'AED', symbol: 'د.إ' };
+      case 'fr':
+      case 'de':
+      case 'es':
+      case 'it':
+        return { code: 'EUR', symbol: '€' };
+      case 'pt':
+        return { code: 'BRL', symbol: 'R$' };
+      case 'ru':
+        return { code: 'RUB', symbol: '₽' };
+      case 'zh':
+        return { code: 'CNY', symbol: '¥' };
+      default:
+        return { code: 'AED', symbol: 'AED' };
+    }
   };
 
   const { code: currencyCode, symbol: currencySymbol } = getCurrencyForLang(currentLanguage.code);
 
   // Simple static conversion rates from AED → target currency (approx; replace with API if needed)
   const getRateForLang = (langCode: string): number => {
+    // Approximate conversion rates from AED → target currency
+    // Keep AED for English/Arabic (no conversion)
     switch (langCode) {
+      case 'en':
+      case 'ar':
+        return 1.0; // AED base
+      case 'fr':
+      case 'de':
+      case 'es':
+      case 'it':
+        return 0.25; // 1 AED ≈ 0.25 EUR (approx)
+      case 'pt':
+        return 1.48; // 1 AED ≈ 1.48 BRL (approx)
+      case 'ru':
+        return 26; // 1 AED ≈ 26 RUB (approx)
       case 'zh':
         return 1.95; // 1 AED ≈ 1.95 CNY (approx)
       default:
-        return 1.0; // AED base
+        return 1.0;
     }
   };
   const conversionRate = getRateForLang(currentLanguage.code);

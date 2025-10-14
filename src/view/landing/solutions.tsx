@@ -44,9 +44,9 @@ function Solutions() {
           {/* Luxury Header */}
           <div className="mb-8 sm:mb-12 md:mb-20 text-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-light font-serif text-gray-800 leading-tight px-2">
-              Dubai real estate solutions focused around
+              {t('solutions.heading')}
               <br />
-              <span className="text-[#0a4b6f] font-normal">excellent customer service</span>
+              <span className="text-[#0a4b6f] font-normal">{t('solutions.headingEmphasis')}</span>
             </h2>
             <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mt-4 sm:mt-6 md:mt-8"></div>
           </div>

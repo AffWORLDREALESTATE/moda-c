@@ -712,9 +712,9 @@ function OffPlansPage() {
       </Dialog>
 
       <div className="mx-auto px-4 py-12 max-w-5xl">
-        <h1 className="text-center text-4xl font-serif font-bold">The Art of Selection</h1>
+        <h1 className="text-center text-4xl font-serif font-bold">{t('buy.locationHeading')}</h1>
         <p className="text-center text-gray-600 mt-4">
-          Curated off-plan investments for discerning investors.
+          {t('buy.locationSubheading')}
         </p>
         <p className="text-center my-6">
           <Link href={"/whyDubai#off-plan-investment"}>
