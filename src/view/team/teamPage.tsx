@@ -95,7 +95,7 @@ export default function TeamPage() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-4 md:mb-6 leading-[0.9] tracking-tight font-serif"
             >
               {t('team.title')} <span className="text-[#0a4b6f] font-normal relative">
-              Realtors
+              {t('team.realtors')}
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -176,35 +176,32 @@ export default function TeamPage() {
                   className="group cursor-pointer h-full"
                   onClick={() => setSelectedAgent(agent)}
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-white/60 hover:border-[#0a4b6f]/30 group h-96 flex flex-col">
-                    {/* Agent Avatar */}
-                    <div className="relative mb-4 md:mb-6 flex-shrink-0">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-lg group-hover:shadow-xl group-hover:border-[#1a6b8f] transition-all duration-300 relative">
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0a4b6f]/20 to-[#1a6b8f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                        {agent.avatar ? (
-                          <Image
-                            src={agent.avatar}
-                            alt={agent.name}
-                            width={128}
-                            height={128}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-0"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center relative z-0">
-                            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                              {agent.name?.charAt(0) || 'A'}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-white/60 hover:border-[#0a4b6f]/30 group flex flex-col overflow-hidden">
+                    {/* Agent Photo - rectangular like provided example */}
+                    <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/0 group-hover:from-black/10 group-hover:to-black/20 transition-opacity duration-300 z-10" />
+                      {agent.avatar ? (
+                        <Image
+                          src={agent.avatar}
+                          alt={agent.name}
+                          fill
+                          className="object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          priority={false}
+                          quality={85}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
+                          <span className="text-4xl font-bold text-white">
+                            {agent.name?.charAt(0) || 'A'}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Agent Info */}
-                    <div className="text-center mb-4 md:mb-6 flex-grow flex flex-col justify-center">
+                    <div className="text-center py-4 px-5 md:px-6 flex-grow flex flex-col justify-center">
                       <div className="space-y-1">
                         <h3 className="text-lg sm:text-xl font-semibold text-gray-800 leading-tight">
                           {agent.name}
@@ -380,7 +377,8 @@ export default function TeamPage() {
                         alt={selectedAgent.name}
                         width={80}
                         height={80}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
+                        quality={90}
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
@@ -458,12 +456,12 @@ export default function TeamPage() {
                         cleaned = parts[parts.length - 1] || raw;
                       }
                       return (
-                        <span
-                          key={index}
-                          className="px-3 py-1 bg-[#0a4b6f]/10 text-[#0a4b6f] rounded-full text-sm"
-                        >
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-[#0a4b6f]/10 text-[#0a4b6f] rounded-full text-sm"
+                      >
                           {cleaned}
-                        </span>
+                      </span>
                       );
                     })}
                   </div>

@@ -6,6 +6,7 @@ import { Bath, Bed, Heart, SquareGanttChart } from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/src/contexts/LanguageContext"
+import Image from "next/image"
 
 interface PropertyData {
   id?: string | number
@@ -37,7 +38,7 @@ interface BuyCardProps {
 
 export function BuyCard({ data, onFavorite }: BuyCardProps) {
   const router = useRouter()
-  const { formatPrice, t } = useLanguage()
+  const { formatPrice, t, currencyIconSrc } = useLanguage()
   const handleFavorite = () => {
     if (data && onFavorite) {
       onFavorite(data)
@@ -102,7 +103,10 @@ export function BuyCard({ data, onFavorite }: BuyCardProps) {
         <p className="text-sm text-primary uppercase font-light tracking-wider">
           {locationName || t('common.locationNotSpecified')}
         </p>
-        <p className="text-sm font-bold text-[#1A202C] tracking-wide">
+        <p className="text-sm font-bold text-[#1A202C] tracking-wide flex items-center gap-1">
+          {currencyIconSrc && (
+            <Image src={currencyIconSrc} alt="AED" width={14} height={14} />
+          )}
           {formattedPrice}
         </p>
 

@@ -41,7 +41,7 @@ export default function Header() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t, currencySymbol } = useLanguage();
+  const { t, currencySymbol, currencyIconSrc, availableCurrencies, setCurrency, currencyCode } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -62,14 +62,16 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "/buy", label: "Buy" },
-    { href: "/rent", label: "Rent" },
-    { href: "/offPlans", label: "Projects" },
-    { href: "/team", label: "Teams" },
-    { href: "/communities", label: "Areas" },
-    { href: "/service", label: "Services" },
-    { href: "/blog", label: "Blogs" },
-    { href: "/contactUs", label: "More" },
+    { href: "/", label: t('nav.home') },
+    { href: "/buy", label: t('nav.buy') },
+    { href: "/rent", label: t('nav.rent') },
+    { href: "/offPlans", label: t('nav.projects') },
+    { href: "/team", label: t('nav.teams') },
+    { href: "/communities", label: t('nav.areas') },
+    { href: "/service", label: t('nav.services') },
+    { href: "/blog", label: t('nav.blogs') },
+    { href: "/about", label: t('nav.about') },
+    { href: "/contactUs", label: t('nav.more') },
   ];
   const services = [
     // {
@@ -107,6 +109,8 @@ export default function Header() {
   ];
 
   const headerLink = [
+    
+    { href: "/", label: t('nav.home') },
     { href: "/buy", label: t('nav.buy') },
     { href: "/rent", label: t('nav.rent') },
     { href: "/offPlans", label: t('nav.projects') },
@@ -115,6 +119,7 @@ export default function Header() {
     { href: "/service", label: t('nav.services'), hasDropdown: true },
     { href: "/blog", label: t('nav.blogs') },
     { href: "/contactUs", label: t('nav.more') },
+    { href: "/about", label: t('nav.about') },
   ];
   useEffect(() => {
     if (!isOverlayOpen) return;
@@ -140,16 +145,16 @@ export default function Header() {
         ? 'bg-white/98 backdrop-blur-xl border-b border-gray-200 shadow-lg' 
         : 'bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm'
     }`}>
-      <nav className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 h-12 sm:h-14 md:h-16 lg:h-18">
+      <nav className="w-full flex items-center justify-between px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 h-12 sm:h-14 md:h-16 lg:h-18">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <Link href={"/"}>
             <Image
               src="/images/logo.png"
-              alt="ETHOSPROPERTIES Logo"
-              width={100}
-              height={32}
-              className="object-contain"
+              alt="MODAC Real Estate Logo"
+              width={80}
+              height={24}
+              className="object-contain sm:w-20 sm:h-6 md:w-32 md:h-10 lg:w-39 lg:h-32"
             />
           </Link>
         </div>
@@ -264,30 +269,46 @@ export default function Header() {
         </div>
 
         {/* Right Side - Currency and Actions */}
-        <div className="flex items-center space-x-3 flex-shrink-0">
-          {/* Language Switcher */}
-          <LanguageSwitcher />
+        <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+          {/* Language Switcher - Smaller on mobile */}
+          <div className="scale-75 sm:scale-90 md:scale-100 origin-right">
+            <LanguageSwitcher />
+          </div>
 
-          {/* Currency Display */}
-          <div className="hidden md:flex items-center space-x-2">
-            <div className="w-px h-4 bg-gray-300"></div>
-            <div className="flex items-center space-x-1 text-gray-600">
-              <Globe className="h-3 w-3" />
-              <span className="text-xs font-light">{currencySymbol}</span>
+          {/* Currency Selector - Smaller on mobile */}
+          <div className="flex items-center space-x-0.5">
+            <div className="hidden md:block w-px h-4 bg-gray-300"></div>
+            <div className="flex items-center space-x-0.5 text-gray-600 scale-75 sm:scale-90 md:scale-100 origin-right">
+              {currencyIconSrc ? (
+                <Image src={currencyIconSrc} alt="AED" width={10} height={10} />
+              ) : (
+                <Globe className="h-2.5 w-2.5" />
+              )}
+              <select
+                className="text-[9px] sm:text-[10px] md:text-xs font-light bg-transparent focus:outline-none cursor-pointer"
+                value={currencyCode}
+                onChange={(e) => setCurrency(e.target.value)}
+                aria-label="Select currency"
+              >
+                {availableCurrencies.map((c) => (
+                  <option key={c.code} value={c.code} className="text-gray-700">
+                    {c.code === 'AED' ? 'AED' : `${c.symbol} ${c.code}`}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
-
-          {/* List Your Property Button */}
+          {/* List Your Property Button - Smaller on mobile */}
           <Link href="/list-your-property">
-            <Button className="h-8 px-4 text-xs font-light bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white border-0 transition-all duration-200">
+            <Button className="h-7 px-2 sm:px-3 md:px-4 text-[9px] sm:text-[10px] md:text-xs font-light bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white border-0 transition-all duration-200">
               {t('nav.listYourProperty')}
             </Button>
           </Link>
 
           {/* Mobile Menu Button */}
           <div
-            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-[#314355]"
+            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-[#314355] ml-1"
             onClick={() => setIsOverlayOpen(true)}
           >
             <Menu className="h-5 w-5" />
@@ -325,7 +346,7 @@ export default function Header() {
           </button>
         </div>
 
-        <nav className="flex flex-col p-4 sm:p-6 space-y-2 bg-white">
+        <nav className="flex flex-col p-4 sm:p-6 space-y-2 bg-white overflow-y-auto max-h-[calc(100vh-200px)]">
           {navLinks.map((link, i) => {
             if (link.href === "/service") {
               return (
@@ -392,17 +413,6 @@ export default function Header() {
         </nav>
 
         <div className="p-4 sm:p-6 border-t border-gray-200 bg-white space-y-4 sm:space-y-6">
-          {/* Mobile Currency Display */}
-          <div className="flex items-center justify-center space-x-2 p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
-            <Globe className="h-4 w-4 text-[#314355]" />
-            <span className="text-sm font-medium text-gray-700">{currencySymbol}</span>
-          </div>
-
-          {/* Mobile Language Switcher */}
-          <div className="w-full">
-            <LanguageSwitcher />
-          </div>
-
           {/* Mobile Buttons */}
           <div className="space-y-3">
             <Link href="/list-your-property" onClick={() => setIsOverlayOpen(false)}>

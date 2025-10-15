@@ -19,6 +19,9 @@ export interface LanguageContextType {
   languages: Language[];
   currencyCode: string;
   currencySymbol: string;
+  currencyIconSrc?: string | null;
+  availableCurrencies: { code: string; symbol: string; label: string }[];
+  setCurrency: (code: string | null) => void;
   convertFromAED: (amountAED: number) => number;
   formatPrice: (amountAED?: number | null) => string;
 }
@@ -53,6 +56,7 @@ const translations: Record<string, Translations> = {
     'services.investment.subtitle': 'Data-led strategies to optimise yield, growth, and liquidity across Dubai\'s prime and emerging districts.',
     'contact.cta': 'Contact Us',
     // Navigation
+    'nav.home': 'Home',
     'nav.buy': 'Buy',
     'nav.rent': 'Rent',
     'nav.projects': 'Projects',
@@ -62,6 +66,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'More',
     'nav.listYourProperty': 'List Your Property',
+    'nav.about': 'About',
+    // About page
+    'about.title': 'About Modac Real Estate',
+    'about.subtitle': 'Trusted African real estate consultancy in Dubai, UAE',
+    'about.p1': 'Modac Real Estate is one of the most recognized African trusted real estate consultancies in Dubai United Arab Emirates, founded by Mr. Fabien Mvie Monefong from Cameroon. Since its launch in 2022, with his experience in the industry and in the field of his other businesses locally and globally, it has been successful and we will continue to thrive and provide quality services to our clients both locally and internationally who sincerely gain trust and to new real estate buyers.',
+    'about.p2': 'The extent of our experienced, research-driven and professional teams to give reliable information and advice to our clients helps them make the right decision for their house search and investment.',
+    'about.p3': 'Our service offers acquiring, leasing residential and commercial real estate.',
+    'about.ceo': 'Founder & CEO',
     
     // Services
     'services.propertyManagement': 'Off-Plan Management',
@@ -124,6 +136,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Showing',
     'team.teamMembers': 'team members',
     'team.languages': 'Languages',
+    'team.realtors': 'Realtors',
     
     // Common
     'common.currency': 'AED',
@@ -376,6 +389,7 @@ const translations: Record<string, Translations> = {
     'services.investment.subtitle': 'استراتيجيات مدعومة بالبيانات لتحسين العائد والنمو والسيولة عبر أبرز مناطق دبي.',
     'contact.cta': 'اتصل بنا',
     // Navigation
+    'nav.home': 'الرئيسية',
     'nav.buy': 'شراء',
     'nav.rent': 'إيجار',
     'nav.projects': 'مشاريع',
@@ -385,6 +399,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'المدونات',
     'nav.more': 'المزيد',
     'nav.listYourProperty': 'أدرج عقارك',
+    'nav.about': 'من نحن',
+    // About page
+    'about.title': 'نبذة عن موداك العقارية',
+    'about.subtitle': 'استشارات عقارية موثوقة من إفريقيا في دبي، الإمارات',
+    'about.p1': 'تُعد موداك العقارية من أبرز الاستشارات العقارية الإفريقية الموثوقة في دبي بدولة الإمارات العربية المتحدة، أسسها السيد فابيان مفي موني فونغ من الكاميرون. منذ انطلاقتها عام 2022 وبخبرته في القطاع وفي مجالات أعماله الأخرى محليًا وعالميًا، حققت نجاحًا وسنواصل الازدهار وتقديم خدمات عالية الجودة لعملائنا محليًا ودوليًا وكسب ثقتهم والمشترين الجدد.',
+    'about.p2': 'توفر فرقنا المهنية ذات الخبرة والمعتمدة على البحث معلومات موثوقة ونصائح تساعد العملاء على اتخاذ القرار الصحيح للبحث عن المنزل والاستثمار.',
+    'about.p3': 'تشمل خدماتنا التملك والتأجير للعقارات السكنية والتجارية.',
+    'about.ceo': 'المؤسس والرئيس التنفيذي',
     
     // Services
     'services.propertyManagement': 'إدارة العقارات',
@@ -403,6 +425,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'عرض',
     'team.teamMembers': 'أعضاء الفريق',
     'team.languages': 'اللغات',
+    'team.realtors': 'وكلاء العقارات',
     
     // Common
     'common.currency': 'درهم',
@@ -719,6 +742,7 @@ const translations: Record<string, Translations> = {
     'blog.list.introHeading': 'Dernières analyses et histoires',
     'blog.list.introSubheading': 'Analyses d’experts, mises à jour du marché et inspiration sur la scène immobilière de Dubaï.',
     // Navigation
+    'nav.home': 'Accueil',
     'nav.buy': 'Acheter',
     'nav.rent': 'Louer',
     'nav.projects': 'Projets',
@@ -728,6 +752,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'Plus',
     'nav.listYourProperty': 'Listez Votre Propriété',
+    'nav.about': 'À propos',
+    // About page
+    'about.title': 'À propos de Modac Real Estate',
+    'about.subtitle': 'Conseil immobilier africain de confiance à Dubaï, EAU',
+    'about.p1': "Modac Real Estate est l'une des sociétés de conseil immobilier africaines les plus reconnues et de confiance à Dubaï, Émirats arabes unis, fondée par M. Fabien Mvie Monefong du Cameroun. Depuis son lancement en 2022, grâce à son expérience dans le secteur et dans ses autres activités à l'échelle locale et internationale, l'entreprise a réussi et continuera à prospérer en offrant des services de qualité à nos clients, localement et à l'international, et aux nouveaux acheteurs immobiliers.",
+    'about.p2': "L'étendue de nos équipes expérimentées, axées sur la recherche et professionnelles, permet de fournir des informations fiables et des conseils afin d'aider nos clients à prendre la bonne décision pour la recherche d'un logement et l'investissement.",
+    'about.p3': 'Nos services couvrent l’acquisition et la location de biens résidentiels et commerciaux.',
+    'about.ceo': 'Fondateur & PDG',
     
     // Search bar labels
     'search.priceRange': 'Plage de prix',
@@ -750,6 +782,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Affichage',
     'team.teamMembers': 'membres de l\'équipe',
     'team.languages': 'Langues',
+    'team.realtors': 'Agents Immobiliers',
     
     // Common
     'common.currency': 'AED',
@@ -947,6 +980,7 @@ const translations: Record<string, Translations> = {
     'services.buySell.title': 'Comprar, Vender y Fuera de Plano',
     'services.buySell.subtitle': 'Intermediación integral en mercados primario y secundario: búsqueda, precios, negociación y posventa.',
     // Navigation
+    'nav.home': 'Inicio',
     'nav.buy': 'Comprar',
     'nav.rent': 'Alquilar',
     'nav.projects': 'Proyectos',
@@ -956,6 +990,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'Más',
     'nav.listYourProperty': 'Lista Tu Propiedad',
+    'nav.about': 'Acerca de',
+    // About page
+    'about.title': 'Acerca de Modac Real Estate',
+    'about.subtitle': 'Consultora inmobiliaria africana de confianza en Dubái, EAU',
+    'about.p1': 'Modac Real Estate es una de las consultoras inmobiliarias africanas más reconocidas y confiables en Dubái, Emiratos Árabes Unidos, fundada por el Sr. Fabien Mvie Monefong de Camerún. Desde su lanzamiento en 2022, con su experiencia en la industria y en otros negocios a nivel local y global, ha tenido éxito y seguiremos prosperando y brindando servicios de calidad a nuestros clientes tanto a nivel local como internacional, ganando su confianza y la de nuevos compradores.',
+    'about.p2': 'La experiencia de nuestros equipos profesionales, impulsados por la investigación, permite brindar información y asesoramiento confiables para ayudar a nuestros clientes a tomar la decisión correcta para la búsqueda de vivienda e inversión.',
+    'about.p3': 'Nuestros servicios incluyen adquisición y arrendamiento de bienes residenciales y comerciales.',
+    'about.ceo': 'Fundador y CEO',
     
     // Services
     'services.propertyManagement': 'Gestión de Propiedades',
@@ -974,6 +1016,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Mostrando',
     'team.teamMembers': 'miembros del equipo',
     'team.languages': 'Idiomas',
+    'team.realtors': 'Agentes Inmobiliarios',
     
     // Common
     'common.currency': 'AED',
@@ -1101,6 +1144,7 @@ const translations: Record<string, Translations> = {
     'services.buySell.title': 'Kaufen, Verkaufen & Off-Plan',
     'services.buySell.subtitle': 'Full‑Service‑Maklerschaft für Erst- und Zweitmarkt: Sourcing, Pricing, Verhandlung und After‑Sales.',
     // Navigation
+    'nav.home': 'Startseite',
     'nav.buy': 'Kaufen',
     'nav.rent': 'Mieten',
     'nav.projects': 'Projekte',
@@ -1110,6 +1154,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'Mehr',
     'nav.listYourProperty': 'Ihre Immobilie Auflisten',
+    'nav.about': 'Über uns',
+    // About page
+    'about.title': 'Über Modac Real Estate',
+    'about.subtitle': 'Vertrauenswürdige afrikanische Immobilienberatung in Dubai, VAE',
+    'about.p1': 'Modac Real Estate ist eine der bekanntesten und vertrauenswürdigsten afrikanischen Immobilienberatungen in Dubai, Vereinigte Arabische Emirate, gegründet von Herrn Fabien Mvie Monefong aus Kamerun. Seit der Gründung im Jahr 2022 und dank seiner Erfahrung in der Branche sowie in anderen Geschäftsbereichen lokal und weltweit ist das Unternehmen erfolgreich. Wir werden weiter wachsen und unseren Kunden lokal und international hochwertige Dienstleistungen bieten und das Vertrauen neuer Käufer gewinnen.',
+    'about.p2': 'Unsere erfahrenen, forschungsorientierten und professionellen Teams liefern verlässliche Informationen und Beratung, um unseren Kunden die richtige Entscheidung bei Haussuche und Investition zu ermöglichen.',
+    'about.p3': 'Unsere Dienstleistungen umfassen Erwerb und Vermietung von Wohn- und Gewerbeimmobilien.',
+    'about.ceo': 'Gründer & CEO',
     
     // Services
     'services.propertyManagement': 'Immobilienverwaltung',
@@ -1128,6 +1180,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Anzeigen',
     'team.teamMembers': 'Teammitglieder',
     'team.languages': 'Sprachen',
+    'team.realtors': 'Immobilienmakler',
     
     // Common
     'common.currency': 'AED',
@@ -1252,6 +1305,7 @@ const translations: Record<string, Translations> = {
     'services.buySell.title': 'Acquista, Vendi & Off-Plan',
     'services.buySell.subtitle': 'Intermediazione end‑to‑end per primario e secondario: sourcing, pricing, negoziazione e post‑vendita.',
     // Navigation
+    'nav.home': 'Home',
     'nav.buy': 'Acquista',
     'nav.rent': 'Affitta',
     'nav.projects': 'Progetti',
@@ -1261,6 +1315,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blog',
     'nav.more': 'Altro',
     'nav.listYourProperty': 'Elenca La Tua Proprietà',
+    'nav.about': 'Chi siamo',
+    // About page
+    'about.title': 'Chi è Modac Real Estate',
+    'about.subtitle': 'Consulenza immobiliare africana di fiducia a Dubai, UAE',
+    'about.p1': 'Modac Real Estate è una delle consulenze immobiliari africane più riconosciute e affidabili a Dubai, Emirati Arabi Uniti, fondata dal Sig. Fabien Mvie Monefong del Camerun. Dal 2022, grazie alla sua esperienza nel settore e nelle altre attività a livello locale e globale, ha avuto successo e continueremo a crescere offrendo servizi di qualità ai nostri clienti, sia localmente che a livello internazionale, conquistando la fiducia dei nuovi acquirenti.',
+    'about.p2': 'L’esperienza dei nostri team professionali, guidati dalla ricerca, consente di fornire informazioni affidabili e consulenza per aiutare i clienti a prendere la decisione giusta per la ricerca della casa e l’investimento.',
+    'about.p3': 'I nostri servizi includono acquisizione e locazione di immobili residenziali e commerciali.',
+    'about.ceo': 'Fondatore & CEO',
     
     // Services
     'services.propertyManagement': 'Gestione Immobiliare',
@@ -1279,6 +1341,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Mostrando',
     'team.teamMembers': 'membri del team',
     'team.languages': 'Lingue',
+    'team.realtors': 'Agenti Immobiliari',
     
     // Common
     'common.currency': 'AED',
@@ -1385,6 +1448,7 @@ const translations: Record<string, Translations> = {
     'services.buySell.title': 'Comprar, Vender & Off-Plan',
     'services.buySell.subtitle': 'Corretagem ponta a ponta nos mercados primário e secundário: prospecção, precificação, negociação e pós‑venda.',
     // Navigation
+    'nav.home': 'Início',
     'nav.buy': 'Comprar',
     'nav.rent': 'Alugar',
     'nav.projects': 'Projetos',
@@ -1394,6 +1458,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'Mais',
     'nav.listYourProperty': 'Liste Sua Propriedade',
+    'nav.about': 'Sobre',
+    // About page
+    'about.title': 'Sobre a Modac Real Estate',
+    'about.subtitle': 'Consultoria imobiliária africana de confiança em Dubai, EAU',
+    'about.p1': 'A Modac Real Estate é uma das consultorias imobiliárias africanas mais reconhecidas e confiáveis em Dubai, Emirados Árabes Unidos, fundada pelo Sr. Fabien Mvie Monefong, dos Camarões. Desde 2022, com sua experiência no setor e em outros negócios local e globalmente, tem alcançado sucesso e continuará a prosperar, oferecendo serviços de qualidade a clientes locais e internacionais e conquistando a confiança de novos compradores.',
+    'about.p2': 'Nossas equipes profissionais, experientes e orientadas por pesquisa fornecem informações confiáveis e aconselhamento para ajudar os clientes a tomar a decisão certa na busca por imóveis e investimentos.',
+    'about.p3': 'Nossos serviços incluem aquisição e locação de imóveis residenciais e comerciais.',
+    'about.ceo': 'Fundador & CEO',
     
     // Services
     'services.propertyManagement': 'Gestão de Propriedades',
@@ -1412,6 +1484,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Mostrando',
     'team.teamMembers': 'membros da equipe',
     'team.languages': 'Idiomas',
+    'team.realtors': 'Corretores Imobiliários',
     
     // Common
     'common.currency': 'AED',
@@ -1557,6 +1630,7 @@ const translations: Record<string, Translations> = {
     'blog.list.introHeading': 'Последние инсайты и истории',
     'blog.list.introSubheading': 'Аналитика экспертов, рыночные обновления и вдохновение из мира недвижимости Дубая.',
     // Navigation
+    'nav.home': 'Главная',
     'nav.buy': 'Купить',
     'nav.rent': 'Арендовать',
     'nav.projects': 'Проекты',
@@ -1566,6 +1640,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Блоги',
     'nav.more': 'Больше',
     'nav.listYourProperty': 'Разместить Недвижимость',
+    'nav.about': 'О нас',
+    // About page
+    'about.title': 'О Modac Real Estate',
+    'about.subtitle': 'Надежная африканская консалтинговая компания в сфере недвижимости в Дубае, ОАЭ',
+    'about.p1': 'Modac Real Estate — одна из самых известных и надежных африканских консалтинговых компаний по недвижимости в Дубае (ОАЭ), основанная господином Фабиеном Мви Монефонгом из Камеруна. С момента запуска в 2022 году, благодаря опыту в отрасли и в других видах бизнеса на местном и глобальном уровнях, компания добилась успеха и продолжит развиваться, предоставляя качественные услуги нашим клиентам как на внутреннем, так и на международном рынках, завоевывая доверие и новых покупателей.',
+    'about.p2': 'Наши опытные, ориентированные на исследования профессиональные команды предоставляют достоверную информацию и советы, помогая клиентам принять правильное решение в поиске жилья и инвестициях.',
+    'about.p3': 'Наши услуги включают приобретение и аренду жилой и коммерческой недвижимости.',
+    'about.ceo': 'Основатель и генеральный директор',
     
     // Search bar labels
     'search.priceRange': 'Диапазон цен',
@@ -1588,6 +1670,7 @@ const translations: Record<string, Translations> = {
     'team.showing': 'Показано',
     'team.teamMembers': 'участников команды',
     'team.languages': 'Языки',
+    'team.realtors': 'Риэлторы',
     
     // Common
     'common.currency': 'Дирхам',
@@ -1847,6 +1930,7 @@ const translations: Record<string, Translations> = {
     'blog.list.introHeading': '最新洞察与故事',
     'blog.list.introSubheading': '专家分析、市场更新，以及迪拜房地产领域的灵感与见解。',
     // Navigation
+    'nav.home': '首页',
     'nav.buy': '购买',
     'nav.rent': '租赁',
     'nav.projects': '项目',
@@ -1856,6 +1940,14 @@ const translations: Record<string, Translations> = {
     'nav.blogs': '博客',
     'nav.more': '更多',
     'nav.listYourProperty': '列出您的房产',
+    'nav.about': '关于我们',
+    // About page
+    'about.title': '关于 Modac Real Estate',
+    'about.subtitle': '迪拜值得信赖的非洲房地产咨询公司',
+    'about.p1': 'Modac Real Estate 是迪拜阿联酋最知名、最值得信赖的非洲房地产咨询公司之一，由喀麦隆的 Fabien Mvie Monefong 先生创立。自 2022 年成立以来，凭借其在行业中的经验以及在本地和全球其他业务领域的积累，公司取得了成功。我们将继续成长，为本地和国际客户提供高质量服务，赢得他们以及新购房者的信任。',
+    'about.p2': '我们经验丰富、以研究为驱动的专业团队为客户提供可靠的信息和建议，帮助他们在找房和投资方面做出正确决定。',
+    'about.p3': '我们的服务涵盖住宅与商业地产的购置与租赁。',
+    'about.ceo': '创始人兼首席执行官',
     
     // Search bar labels
     'search.priceRange': '价格范围',
@@ -1878,6 +1970,7 @@ const translations: Record<string, Translations> = {
     'team.showing': '显示',
     'team.teamMembers': '团队成员',
     'team.languages': '语言',
+    'team.realtors': '房产经纪人',
     
     // Common
     'common.currency': '迪拉姆',
@@ -2076,15 +2169,20 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]);
+  const [selectedCurrencyCode, setSelectedCurrencyCode] = useState<string | null>(null);
 
   // Load saved language from localStorage on mount
   useEffect(() => {
     const savedLanguage = localStorage.getItem('selectedLanguage');
+    const savedCurrency = localStorage.getItem('selectedCurrencyCode');
     if (savedLanguage) {
       const language = languages.find(lang => lang.code === savedLanguage);
       if (language) {
         setCurrentLanguage(language);
       }
+    }
+    if (savedCurrency) {
+      setSelectedCurrencyCode(savedCurrency);
     }
   }, []);
 
@@ -2103,7 +2201,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Map UI language to a display currency; keep English/Arabic as AED
     switch (langCode) {
       case 'en':
-    return { code: 'AED', symbol: 'AED' };
+    return { code: 'AED', symbol: '' };
       case 'ar':
         return { code: 'AED', symbol: 'د.إ' };
       case 'fr':
@@ -2118,36 +2216,49 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       case 'zh':
         return { code: 'CNY', symbol: '¥' };
       default:
-        return { code: 'AED', symbol: 'AED' };
+    return { code: 'AED', symbol: 'AED' };
     }
   };
+  const defaultCurrency = getCurrencyForLang(currentLanguage.code);
 
-  const { code: currencyCode, symbol: currencySymbol } = getCurrencyForLang(currentLanguage.code);
+  const currencyOptions: { code: string; symbol: string; label: string }[] = [
+    { code: 'AED', symbol: currentLanguage.code === 'ar' ? 'د.إ' : 'AED', label: 'AED' },
+    { code: 'EUR', symbol: '€', label: 'EUR' },
+    { code: 'BRL', symbol: 'R$', label: 'BRL' },
+    { code: 'RUB', symbol: '₽', label: 'RUB' },
+    { code: 'CNY', symbol: '¥', label: 'CNY' },
+  ];
+
+  const getCurrencyMeta = (code: string) => {
+    const found = currencyOptions.find(c => c.code === code);
+    if (found) return found;
+    return currencyOptions[0];
+  };
+
+  const effectiveCurrencyCode = selectedCurrencyCode || defaultCurrency.code;
+  const effectiveCurrency = getCurrencyMeta(effectiveCurrencyCode);
+  const currencyCode = effectiveCurrency.code;
+  const currencySymbol = effectiveCurrency.symbol;
+  const currencyIconSrc = currencyCode === 'AED' ? '/dhiram.png' : null;
 
   // Simple static conversion rates from AED → target currency (approx; replace with API if needed)
-  const getRateForLang = (langCode: string): number => {
-    // Approximate conversion rates from AED → target currency
-    // Keep AED for English/Arabic (no conversion)
-    switch (langCode) {
-      case 'en':
-      case 'ar':
-        return 1.0; // AED base
-      case 'fr':
-      case 'de':
-      case 'es':
-      case 'it':
-        return 0.25; // 1 AED ≈ 0.25 EUR (approx)
-      case 'pt':
-        return 1.48; // 1 AED ≈ 1.48 BRL (approx)
-      case 'ru':
-        return 26; // 1 AED ≈ 26 RUB (approx)
-      case 'zh':
-        return 1.95; // 1 AED ≈ 1.95 CNY (approx)
+  const getRateForCurrency = (code: string): number => {
+    switch (code) {
+      case 'AED':
+        return 1.0;
+      case 'EUR':
+        return 0.25; // approx
+      case 'BRL':
+        return 1.48; // approx
+      case 'RUB':
+        return 26; // approx
+      case 'CNY':
+        return 1.95; // approx
       default:
         return 1.0;
     }
   };
-  const conversionRate = getRateForLang(currentLanguage.code);
+  const conversionRate = getRateForCurrency(currencyCode);
 
   const convertFromAED = (amountAED: number): number => {
     if (!amountAED || Number.isNaN(amountAED)) return 0;
@@ -2157,7 +2268,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const formatPrice = (amountAED?: number | null): string => {
     if (!amountAED && amountAED !== 0) return '';
     const converted = convertFromAED(amountAED as number);
-    return `${currencySymbol} ${converted.toLocaleString()}`;
+    // For AED, don't include text symbol since we'll show the dhiram icon
+    if (currencyCode === 'AED') {
+      return converted.toLocaleString();
+    }
+    return `${currencySymbol ? currencySymbol + ' ' : ''}${converted.toLocaleString()}`;
+  };
+
+  const setCurrency = (code: string | null) => {
+    setSelectedCurrencyCode(code);
+    if (code) {
+      localStorage.setItem('selectedCurrencyCode', code);
+    } else {
+      localStorage.removeItem('selectedCurrencyCode');
+    }
   };
 
   return (
@@ -2169,6 +2293,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         languages,
         currencyCode,
         currencySymbol,
+        currencyIconSrc,
+        availableCurrencies: currencyOptions,
+        setCurrency,
         convertFromAED,
         formatPrice,
       }}

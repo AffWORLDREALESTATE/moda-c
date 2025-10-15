@@ -111,7 +111,7 @@ export default function HeroSection() {
         </motion.div>
       )}
 
-      {/* Hero Image Carousel Background */}
+      {/* Hero Background (Video preferred) */}
       <div className="absolute inset-0 w-full h-full">
         {isLoading ? (
           <Image
@@ -128,40 +128,17 @@ export default function HeroSection() {
           />
         ) : (
           <div className="relative w-full h-full">
-            <AnimatePresence mode="sync">
-              {heroImages.length > 0 && (
-                <motion.div
-                  key={currentImageIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <Image
-                    src={heroImages[currentImageIndex]?.url || "/images/bgImage.webp"}
-                    alt={heroImages[currentImageIndex]?.alt || "Luxury Living in Dubai"}
-                    fill
-                    className="object-cover z-0"
-                    quality={isMobile ? 70 : 85}
-                    priority={currentImageIndex === 0}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                  />
-                  {/* Preload next image invisibly to avoid white gap */}
-                  {heroImages[(currentImageIndex + 1) % heroImages.length]?.url && (
-                    <Image
-                      src={heroImages[(currentImageIndex + 1) % heroImages.length].url}
-                      alt="preload"
-                      fill
-                      className="object-cover opacity-0"
-                      priority={false}
-                      sizes="1px"
-                    />
-                  )}
-                </motion.div>
-              )}
-            </AnimatePresence>
-            
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/bgImage.webp"
+            >
+              <source src="/hero.mp4" type="video/mp4" />
+            </video>
 
             {/* Error State */}
             {error && (

@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardTitle,
 } from "@/src/components/ui/card";
-import Image from "next/image";
+import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 
@@ -27,11 +27,11 @@ interface PropertyData {
 
 export default function PropertyCard({ data }: { data?: PropertyData }) {
     const router = useRouter();
-    const { t, formatPrice } = useLanguage();
+    const { t, formatPrice, currencyIconSrc } = useLanguage();
   return (
     <Card className="overflow-hidden border-none p-0 shadow-sm border-2 rounded-none hover:shadow-lg transition-shadow duration-300" onClick={() => router.push(`/offPlans/details/${data?.id}`)}>
       <div className="relative w-full h-80 md:h-96 overflow-hidden group">
-        <Image
+        <NextImage
           src={data?.photos?.[0] ?? "/placeholder.jpg"}
           alt={`Image of ${data?.name}`}
           fill
@@ -45,8 +45,11 @@ export default function PropertyCard({ data }: { data?: PropertyData }) {
             {data.newParam.totalUnits} {t('common.units')}
           </div>
         ) : null}
-        <div className="absolute bottom-4 right-4 bg-white text-sm font-light px-3 py-1 rounded-full shadow-md text-[#1A202C]">
-          {t('common.from')} {data?.newParam?.price ? formatPrice(data.newParam.price) : "N/A"}
+        <div className="absolute bottom-4 right-4 bg-white text-sm font-light px-3 py-1 rounded-full shadow-md text-[#1A202C] flex items-center gap-1">
+          {t('common.from')} {currencyIconSrc && (
+            <NextImage src={currencyIconSrc} alt="AED" width={14} height={14} />
+          )}
+          {data?.newParam?.price ? formatPrice(data.newParam.price) : "N/A"}
         </div>
       </div>
       <CardContent className="p-6">

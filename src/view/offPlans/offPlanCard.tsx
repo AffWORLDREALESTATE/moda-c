@@ -6,6 +6,7 @@ import {
 } from "@/src/components/ui/card";
 import Image from "next/image";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface PropertyData {
@@ -50,8 +51,15 @@ export default function OffPlanCard({ data }: { data?: PropertyData }) {
             {data.newParam.totalUnits} UNITS
           </div>
         ) : null}
-        <div className="absolute bottom-4 right-4 bg-white text-sm font-light px-3 py-1 rounded-full shadow-md text-[#1A202C]">
-          {t('common.from')} {data?.newParam?.price ? formatPrice(data.newParam.price) : "N/A"}
+        <div className="absolute bottom-4 right-4 bg-white text-sm font-light px-3 py-1 rounded-full shadow-md text-[#1A202C] flex items-center gap-1">
+          {t('common.from')} {data?.newParam?.price ? (
+            <>
+              {currencyIconSrc && (
+                <NextImage src={currencyIconSrc} alt="AED" width={14} height={14} />
+              )}
+              {formatPrice(data.newParam.price)}
+            </>
+          ) : "N/A"}
         </div>
       </div>
       <CardContent className="p-6">

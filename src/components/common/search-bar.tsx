@@ -182,10 +182,10 @@ export function SearchBar({ className = "" }: SearchBarProps) {
           <div className="w-full lg:w-auto lg:min-w-[140px] lg:col-span-1 sm:col-span-2 md:col-span-3">
             <Button
               onClick={handleSearch}
-              className="w-full h-12 md:h-12 lg:h-14 bg-gradient-to-r from-[#0a4b6f] to-[#0d5a7f] hover:from-[#0d5a7f] hover:to-[#0a4b6f] text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg cursor-pointer"
+              className="w-full h-12 md:h-12 lg:h-14 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] hover:from-[#dc2626] hover:to-[#b91c1c] text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg cursor-pointer"
             >
               <Search className="w-5 h-5 mr-2" />
-              {t('buy.search')}
+              Search
             </Button>
           </div>
         </div>

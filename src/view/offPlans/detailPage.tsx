@@ -12,7 +12,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import LocationSection from "./Location";
 
 export default function DetailPage({ id }: any) {
-  const { formatPrice, t } = useLanguage();
+  const { formatPrice, t, currencyIconSrc } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
@@ -211,7 +211,10 @@ export default function DetailPage({ id }: any) {
                   className="text-center group"
                 >
                   <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('common.from')}</h3>
-                  <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif flex items-center gap-2">
+                    {currencyIconSrc && (
+                      <Image src={currencyIconSrc} alt="AED" width={20} height={20} />
+                    )}
                     {property?.newParam?.price
                       ? formatPrice(property.newParam.price)
                       : property?.price_from

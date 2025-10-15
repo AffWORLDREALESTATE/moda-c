@@ -109,7 +109,12 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
           {locationName || t('common.locationNotSpecified')}
         </p>
         <p className="text-sm font-bold text-[#1A202C] tracking-wide">
-          {formattedPrice}/{data?.priceType}
+          <span className="inline-flex items-center gap-1">
+            {/* Optional AED icon */}
+            {/* currencyIconSrc available via useLanguage in other components; keep API minimal here */}
+            {formattedPrice}
+          </span>
+          /{data?.priceType}
         </p>
 
         <div className="flex items-end justify-between text-gray-600 text-sm mt-2 font-light">
