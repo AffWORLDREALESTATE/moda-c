@@ -6,7 +6,6 @@ import {
 } from "@/src/components/ui/card";
 import Image from "next/image";
 import { useLanguage } from "@/src/contexts/LanguageContext";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface PropertyData {
@@ -34,7 +33,7 @@ interface PropertyData {
 
 export default function OffPlanCard({ data }: { data?: PropertyData }) {
     const router = useRouter();
-    const { formatPrice, t } = useLanguage();
+    const { formatPrice, t, currencyIconSrc } = useLanguage();
   return (
     <Card className="overflow-hidden border-none p-0 shadow-sm border-2 rounded-none" onClick={() => router.push(`/offPlans/details/${data?.id}`)}>
       <div className="relative w-full h-96 overflow-hidden group">
@@ -55,7 +54,7 @@ export default function OffPlanCard({ data }: { data?: PropertyData }) {
           {t('common.from')} {data?.newParam?.price ? (
             <>
               {currencyIconSrc && (
-                <NextImage src={currencyIconSrc} alt="AED" width={14} height={14} />
+                <Image src={currencyIconSrc} alt="AED" width={14} height={14} />
               )}
               {formatPrice(data.newParam.price)}
             </>
