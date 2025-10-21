@@ -64,7 +64,7 @@ export default function Component() {
   const [communities, setCommunities] = useState<any[]>([]);
 
   const plugin = useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   useEffect(() => {
@@ -100,60 +100,62 @@ export default function Component() {
     fetchCommunities();
   }, []);
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-28 text-center px-3 sm:px-4 md:px-6 lg:px-8">
-        <p className="text-[#0a4b6f] text-xs sm:text-sm uppercase tracking-widest mb-2 font-light">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 text-center px-4 sm:px-6 md:px-8 lg:px-12">
+        <p className="text-[#0a4b6f] text-sm sm:text-base uppercase tracking-widest mb-3 font-light">
           {t('landing.communities.kicker')}
         </p>
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono text-gray-800 mb-4 sm:mb-6 tracking-wide font-serif px-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-gray-800 mb-6 sm:mb-8 tracking-wide font-serif px-2">
           {t('landing.communities.heading')}
         </h1>
-        <p className="max-w-4xl mx-auto text-gray-600 text-xs sm:text-sm tracking-tight font-light px-2">
+        <p className="max-w-4xl mx-auto text-gray-600 text-sm sm:text-base tracking-tight font-light px-2 leading-relaxed">
           {t('landing.communities.subtitle')}
         </p>
       </section>
 
       {/* Communities Section - Carousel */}
-      <section className="relative pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 lg:px-12 xl:px-20">
+      <section className="relative pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
         <Carousel
           setApi={setApi}
           opts={{
             align: "start",
             loop: true,
+            dragFree: true,
+            containScroll: "trimSnaps",
           }}
           plugins={[plugin.current]}
-          className="w-full"
+          className="w-full mx-auto max-w-7xl"
         >
-          <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6">
+          <CarouselContent className="-ml-3 sm:-ml-4 md:-ml-6">
             {communities?.map((community: any, idx: number) => (
               <CarouselItem
                 key={`${community.id ?? idx}-${idx}`}
-                className="pl-2 sm:pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="pl-3 sm:pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Card className="relative w-full h-[400px] sm:h-[500px] md:h-[650px] rounded-none overflow-hidden shadow-lg group border-none">
+                <Card className="relative w-full h-[450px] sm:h-[550px] md:h-[700px] rounded-lg overflow-hidden shadow-xl group border-none hover:shadow-2xl transition-all duration-300">
                   <CardContent className="p-0 h-full">
                     <Image
                       src={community.photos[0]}
                       alt={community.name}
                       fill
                       style={{ objectFit: "cover" }}
-                      className="transition-transform duration-300 group-hover:scale-105"
+                      className="transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 md:p-6 flex flex-col justify-end text-white">
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-light mb-1 sm:mb-2 tracking-wide">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 sm:p-5 md:p-6 flex flex-col justify-end text-white">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 sm:mb-3 tracking-wide drop-shadow-lg">
                         {community.name}
                       </h3>
-                      <p className="text-xs sm:text-sm mb-2 sm:mb-4 font-light leading-relaxed">
+                      <p className="text-sm sm:text-base mb-3 sm:mb-4 font-light leading-relaxed drop-shadow-md opacity-90">
                         {community.order_description}
                       </p>
-                      <div className="w-full border-[0.5px] border-white/30 mb-2 sm:mb-4" />
+                      <div className="w-full border-[1px] border-white/40 mb-3 sm:mb-4" />
                       <Link
                         href={"/communities"}
                         className={cn(
-                          "relative pb-1 transition-all duration-300 text-primary uppercase text-sm sm:text-base",
+                          "relative pb-2 transition-all duration-300 text-white uppercase text-sm sm:text-base font-medium tracking-wider",
                           "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                          "after:bg-primary after:transition-all after:duration-300 hover:after:w-20"
+                          "after:bg-white after:transition-all after:duration-300 hover:after:w-24 hover:text-blue-200"
                         )}
                       >
                         {t('landing.communities.viewAll')}
@@ -168,14 +170,14 @@ export default function Component() {
         </Carousel>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center gap-1 sm:gap-2 mt-6 sm:mt-8">
+        <div className="flex justify-center gap-2 sm:gap-3 mt-8 sm:mt-10">
           {Array.from({ length: count }).map((_, index) => (
             <button
               key={index}
-              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
+              className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 ${
                 index === current - 1
-                  ? "bg-[#0a4b6f]"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "bg-[#0a4b6f] scale-110"
+                  : "bg-gray-300 hover:bg-gray-400 hover:scale-105"
               }`}
               onClick={() => {
                 plugin.current.stop(); // Stop autoplay on manual click
@@ -185,10 +187,10 @@ export default function Component() {
             />
           ))}
         </div>
-        <div className="w-full flex justify-center items-center mt-8 sm:mt-11 mb-4">
+        <div className="w-full flex justify-center items-center mt-10 sm:mt-12 mb-6">
           
         <Link href={"/communities"}>
-           <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-light tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
+           <Button className="w-48 sm:w-56 h-12 sm:h-14 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-medium tracking-wider py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 uppercase text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-1">
             {t('landing.communities.viewAll')}
           </Button>
         </Link>
