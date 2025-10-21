@@ -6,9 +6,9 @@ import MainContent from '@/src/view/property-management/MainContent';
 import ServicesGrid from '@/src/view/property-management/ServicesGrid';
 import WhyUsSection from '@/src/view/property-management/WhyUsSection';
 import FAQTestimonials from '@/src/view/property-management/FAQTestimonials';
-import ContactForm from '@/src/view/list-property/ContactForm';
-import ClientTestimonials from '@/src/view/list-property/ClientTestimonials';
-import NewsletterSection from '@/src/view/list-property/NewsletterSection';
+import ContactForm from '@/src/view/property-management/ContactForm';
+import ClientTestimonials from '@/src/view/property-management/ClientTestimonials';
+import NewsletterSection from '@/src/view/property-management/NewsletterSection';
 
 export default function PropertyManagementPage() {
   return (

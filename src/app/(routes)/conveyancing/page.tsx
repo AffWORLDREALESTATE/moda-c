@@ -5,8 +5,8 @@ import HeroSection from '@/src/view/conveyancing/HeroSection';
 import AboutSection from '@/src/view/conveyancing/AboutSection';
 import QuoteSection from '@/src/view/conveyancing/QuoteSection';
 import PrismAdvantage from '@/src/view/conveyancing/PrismAdvantage';
-import NewsletterSection from '@/src/view/list-property/NewsletterSection';
-import ClientTestimonials from '@/src/view/list-property/ClientTestimonials';
+import NewsletterSection from '@/src/view/conveyancing/NewsletterSection';
+import ClientTestimonials from '@/src/view/conveyancing/ClientTestimonials';
 import FAQSection from '@/src/view/conveyancing/FAQSection';
 import ContactForm from '@/src/view/conveyancing/ContactForm';
 

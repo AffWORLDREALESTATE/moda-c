@@ -10,8 +10,8 @@ import ServicesSection from '@/src/view/short-term-rental/ServicesSection';
 import JourneySection from '@/src/view/short-term-rental/JourneySection';
 import FAQSection from '@/src/view/short-term-rental/FAQSection';
 import ClientTestimonials from '@/src/view/short-term-rental/ClientTestimonials';
-import NewsletterSection from '@/src/view/list-property/NewsletterSection';
-import ContactForm from '@/src/view/list-property/ContactForm';
+import NewsletterSection from '@/src/view/short-term-rental/NewsletterSection';
+import ContactForm from '@/src/view/short-term-rental/ContactForm';
 
 export default function ShortTermRentalPage() {
   return (
