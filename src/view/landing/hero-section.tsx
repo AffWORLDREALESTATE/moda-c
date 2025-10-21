@@ -183,7 +183,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="max-w-5xl mx-auto"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight whitespace-nowrap">
           {t('landing.hero.heading')}
           </h1>
           {/* Optional subtitle for spacing balance on mobile */}

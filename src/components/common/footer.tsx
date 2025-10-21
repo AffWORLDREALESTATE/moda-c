@@ -64,7 +64,7 @@ export default function Footer() {
           <h4 className="text-lg mb-4 font-sans">{t('footer.contact')}</h4>
           <address className="not-italic space-y-3 text-sm font-sans leading-relaxed">
             <div className="flex items-start space-x-3">
-              <MapPin className="w-4 h-4 text-[#0a4b6f] mt-0.5 flex-shrink-0" />
+              <MapPin className="w-4 h-4 text-[#0a4b6f] mt-1 flex-shrink-0" />
               <a
                 href="https://maps.app.goo.gl/MLsZVHdi97PSmAwL9"
                 target="_blank"
