@@ -292,7 +292,7 @@ export default function Header() {
               >
                 {availableCurrencies.map((c) => (
                   <option key={c.code} value={c.code} className="text-gray-700">
-                    {c.code === 'AED' ? 'AED' : `${c.symbol} ${c.code}`}
+                    {c.symbol} {c.code}
                   </option>
                 ))}
               </select>

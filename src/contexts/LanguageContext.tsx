@@ -2187,7 +2187,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Map UI language to a display currency; keep English/Arabic as AED
     switch (langCode) {
       case 'en':
-    return { code: 'AED', symbol: '' };
+        return { code: 'AED', symbol: 'د.إ' };
       case 'ar':
         return { code: 'AED', symbol: 'د.إ' };
       case 'fr':
@@ -2202,13 +2202,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       case 'zh':
         return { code: 'CNY', symbol: '¥' };
       default:
-    return { code: 'AED', symbol: 'AED' };
+        return { code: 'AED', symbol: 'د.إ' };
     }
   };
   const defaultCurrency = getCurrencyForLang(currentLanguage.code);
 
   const currencyOptions: { code: string; symbol: string; label: string }[] = [
-    { code: 'AED', symbol: currentLanguage.code === 'ar' ? 'د.إ' : 'AED', label: 'AED' },
+    { code: 'AED', symbol: currentLanguage.code === 'ar' ? 'د.إ' : 'د.إ', label: 'AED' },
     { code: 'EUR', symbol: '€', label: 'EUR' },
     { code: 'BRL', symbol: 'R$', label: 'BRL' },
     { code: 'RUB', symbol: '₽', label: 'RUB' },
@@ -2254,10 +2254,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const formatPrice = (amountAED?: number | null): string => {
     if (!amountAED && amountAED !== 0) return '';
     const converted = convertFromAED(amountAED as number);
-    // For AED, don't include text symbol since we'll show the dhiram icon
-    if (currencyCode === 'AED') {
-      return converted.toLocaleString();
-    }
     return `${currencySymbol ? currencySymbol + ' ' : ''}${converted.toLocaleString()}`;
   };
 
