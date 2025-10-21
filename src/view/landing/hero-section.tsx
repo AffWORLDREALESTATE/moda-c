@@ -183,13 +183,13 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="max-w-5xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
           {t('landing.hero.heading')}
           </h1>
           {/* Optional subtitle for spacing balance on mobile */}
           
           {/* Mobile search bar directly under heading */}
-          <div className="lg:hidden mt-4">
+          <div className="lg:hidden mt-3 sm:mt-4">
             <SearchBar />
           </div>
         </motion.div>

@@ -27,8 +27,8 @@ export interface LanguageContextType {
 }
 
 const languages: Language[] = [
-  { code: 'en', name: 'US', flag: '🇺🇸' },
-  { code: 'ar', name: 'FE', flag: '🇦🇪' },
+  { code: 'en', name: 'EN', flag: '🇺🇸' },
+  { code: 'ar', name: 'AR', flag: '🇦🇪' },
   { code: 'fr', name: 'FR', flag: '🇫🇷' },
   { code: 'ru', name: 'RU', flag: '🇷🇺' },
   { code: 'zh', name: 'CN', flag: '🇨🇳' },
@@ -204,7 +204,6 @@ const translations: Record<string, Translations> = {
     // Landing page sections
     // Search bar labels
     'search.priceRange': 'Price Range',
-    'search.referenceNumber': 'Reference Number',
     'landing.feature.kicker': 'FEATURED PROJECTS',
     'landing.feature.heading': 'Luxury Unveiled, Comfort and Sophistication',
     'landing.feature.subtitle': "Discover a curated selection of Dubai's most exquisite properties, epitomizing luxury, elegance, and unparalleled design.",
@@ -378,7 +377,6 @@ const translations: Record<string, Translations> = {
     'services.buySell.subtitle': 'وساطة متكاملة للأسواق الأولية والثانوية: التوريد، التسعير، التفاوض وخدمات ما بعد البيع.',
     // Search bar labels
     'search.priceRange': 'نطاق السعر',
-    'search.referenceNumber': 'رقم المرجع',
     // New: Services hero translations
     'services.residents.title': 'تأشيرة الإقامة',
     'services.residents.subtitle': 'إرشاد شامل للحصول على أو تجديد تأشيرة الإقامة في الإمارات. دعم مخصص لمالكي العقارات والموظفين والعائلات.',
@@ -760,7 +758,6 @@ const translations: Record<string, Translations> = {
     
     // Search bar labels
     'search.priceRange': 'Plage de prix',
-    'search.referenceNumber': 'Numéro de référence',
     
     // Services
     'services.propertyManagement': 'Gestion Immobilière',
@@ -1643,7 +1640,6 @@ const translations: Record<string, Translations> = {
     
     // Search bar labels
     'search.priceRange': 'Диапазон цен',
-    'search.referenceNumber': 'Номер объявления',
     
     // Services
     'services.propertyManagement': 'Управление Недвижимостью',
@@ -1942,7 +1938,6 @@ const translations: Record<string, Translations> = {
     
     // Search bar labels
     'search.priceRange': '价格范围',
-    'search.referenceNumber': '参考编号',
     
     // Services
     'services.propertyManagement': '物业管理',
