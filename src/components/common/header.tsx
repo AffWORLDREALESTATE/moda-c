@@ -66,11 +66,11 @@ export default function Header() {
     { href: "/buy", label: t('nav.buy') },
     { href: "/rent", label: t('nav.rent') },
     { href: "/offPlans", label: t('nav.projects') },
-    { href: "/team", label: t('nav.teams') },
     { href: "/communities", label: t('nav.areas') },
     { href: "/service", label: t('nav.services') },
     { href: "/blog", label: t('nav.blogs') },
     { href: "/about", label: t('nav.about') },
+    { href: "/team", label: t('nav.teams') },
     { href: "/contactUs", label: t('nav.more') },
   ];
   const services = [
