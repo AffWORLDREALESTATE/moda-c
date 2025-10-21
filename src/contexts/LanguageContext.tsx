@@ -65,7 +65,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Services',
     'nav.blogs': 'Blogs',
     'nav.more': 'More',
-    'nav.listYourProperty': 'List Your Property',
     'nav.about': 'About',
     // About page
     'about.title': 'About Modac Real Estate',
@@ -398,7 +397,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'الخدمات',
     'nav.blogs': 'المدونات',
     'nav.more': 'المزيد',
-    'nav.listYourProperty': 'أدرج عقارك',
     'nav.about': 'من نحن',
     // About page
     'about.title': 'نبذة عن موداك العقارية',
@@ -751,7 +749,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Services',
     'nav.blogs': 'Blogs',
     'nav.more': 'Plus',
-    'nav.listYourProperty': 'Listez Votre Propriété',
     'nav.about': 'À propos',
     // About page
     'about.title': 'À propos de Modac Real Estate',
@@ -989,7 +986,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Servicios',
     'nav.blogs': 'Blogs',
     'nav.more': 'Más',
-    'nav.listYourProperty': 'Lista Tu Propiedad',
     'nav.about': 'Acerca de',
     // About page
     'about.title': 'Acerca de Modac Real Estate',
@@ -1153,7 +1149,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Dienstleistungen',
     'nav.blogs': 'Blogs',
     'nav.more': 'Mehr',
-    'nav.listYourProperty': 'Ihre Immobilie Auflisten',
     'nav.about': 'Über uns',
     // About page
     'about.title': 'Über Modac Real Estate',
@@ -1314,7 +1309,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Servizi',
     'nav.blogs': 'Blog',
     'nav.more': 'Altro',
-    'nav.listYourProperty': 'Elenca La Tua Proprietà',
     'nav.about': 'Chi siamo',
     // About page
     'about.title': 'Chi è Modac Real Estate',
@@ -1457,7 +1451,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Serviços',
     'nav.blogs': 'Blogs',
     'nav.more': 'Mais',
-    'nav.listYourProperty': 'Liste Sua Propriedade',
     'nav.about': 'Sobre',
     // About page
     'about.title': 'Sobre a Modac Real Estate',
@@ -1639,7 +1632,6 @@ const translations: Record<string, Translations> = {
     'nav.services': 'Услуги',
     'nav.blogs': 'Блоги',
     'nav.more': 'Больше',
-    'nav.listYourProperty': 'Разместить Недвижимость',
     'nav.about': 'О нас',
     // About page
     'about.title': 'О Modac Real Estate',
@@ -1939,7 +1931,6 @@ const translations: Record<string, Translations> = {
     'nav.services': '服务',
     'nav.blogs': '博客',
     'nav.more': '更多',
-    'nav.listYourProperty': '列出您的房产',
     'nav.about': '关于我们',
     // About page
     'about.title': '关于 Modac Real Estate',

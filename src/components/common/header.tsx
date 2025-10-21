@@ -299,12 +299,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* List Your Property Button - Smaller on mobile */}
-          <Link href="/list-your-property">
-            <Button className="h-7 px-2 sm:px-3 md:px-4 text-[9px] sm:text-[10px] md:text-xs font-light bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white border-0 transition-all duration-200">
-              {t('nav.listYourProperty')}
-            </Button>
-          </Link>
 
           {/* Mobile Menu Button */}
           <div
