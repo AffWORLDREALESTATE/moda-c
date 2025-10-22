@@ -2172,10 +2172,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   }, []);
 
-  // Save language to localStorage when it changes
+  // Save language to localStorage when it changes and auto-set currency
   const handleSetCurrentLanguage = (language: Language) => {
     setCurrentLanguage(language);
     localStorage.setItem('selectedLanguage', language.code);
+    
+    // Auto-set currency based on language
+    const defaultCurrency = getCurrencyForLang(language.code);
+    setSelectedCurrencyCode(defaultCurrency.code);
+    localStorage.setItem('selectedCurrencyCode', defaultCurrency.code);
   };
 
   const t = (key: string): string => {
@@ -2187,9 +2192,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Map UI language to a display currency; keep English/Arabic as AED
     switch (langCode) {
       case 'en':
-        return { code: 'AED', symbol: 'د.إ' };
+        return { code: 'AED', symbol: '' };
       case 'ar':
-        return { code: 'AED', symbol: 'د.إ' };
+        return { code: 'AED', symbol: '' };
       case 'fr':
       case 'de':
       case 'es':
@@ -2202,13 +2207,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       case 'zh':
         return { code: 'CNY', symbol: '¥' };
       default:
-        return { code: 'AED', symbol: 'د.إ' };
+        return { code: 'AED', symbol: '' };
     }
   };
   const defaultCurrency = getCurrencyForLang(currentLanguage.code);
 
   const currencyOptions: { code: string; symbol: string; label: string }[] = [
-    { code: 'AED', symbol: currentLanguage.code === 'ar' ? 'د.إ' : 'د.إ', label: 'AED' },
+    { code: 'AED', symbol: '', label: 'AED' },
     { code: 'EUR', symbol: '€', label: 'EUR' },
     { code: 'BRL', symbol: 'R$', label: 'BRL' },
     { code: 'RUB', symbol: '₽', label: 'RUB' },

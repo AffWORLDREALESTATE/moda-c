@@ -64,7 +64,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: t('nav.home') },
     { href: "/rent", label: t('nav.rent') },
-    { href: "/offPlans", label: t('nav.projects') },
+    { href: "/offPlans", label: t('nav.buy') },
     { href: "/team", label: t('nav.teams') },
     { href: "/communities", label: t('nav.areas') },
     { href: "/service", label: t('nav.services') },
@@ -110,15 +110,16 @@ export default function Header() {
   const headerLink = [
     
     { href: "/", label: t('nav.home') },
-    { href: "/buy", label: t('nav.buy') },
+    // { href: "/buy", label: t('nav.buy') },
     { href: "/rent", label: t('nav.rent') },
-    { href: "/offPlans", label: t('nav.projects') },
-    { href: "/team", label: t('nav.teams') },
+    { href: "/offPlans", label: t('nav.buy') },
     { href: "/communities", label: t('nav.areas') },
     { href: "/service", label: t('nav.services'), hasDropdown: true },
     { href: "/blog", label: t('nav.blogs') },
     { href: "/contactUs", label: t('nav.more') },
     { href: "/about", label: t('nav.about') },
+    { href: "/team", label: t('nav.teams') },
+
   ];
   useEffect(() => {
     if (!isOverlayOpen) return;
