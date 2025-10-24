@@ -8,7 +8,7 @@ import EnquireForm from "@/src/components/common/enquireForm";
 import { Dialog, DialogContent, DialogTitle } from "@/src/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/src/contexts/LanguageContext";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import { Icon } from "@iconify/react";
 import LocationSection from "./Location";
 
 export default function DetailPage({ id }: any) {
@@ -79,10 +79,7 @@ export default function DetailPage({ id }: any) {
                 key={index}
                 src={photo}
                 alt="Luxury Living in Dubai"
-                layout="fill"
-                objectFit="cover"
-                quality={85}
-                priority={index === 0}
+                fill
                 className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
                   index === heroImageIndex
                     ? "opacity-100 z-10"

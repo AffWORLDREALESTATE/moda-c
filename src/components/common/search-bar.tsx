@@ -79,26 +79,14 @@ export function SearchBar({ className = "" }: SearchBarProps) {
 
           {/* Location */}
           <div className="col-span-1 min-w-0">
-            <Select
-              value={searchParams.location}
-              onValueChange={(value) => setSearchParams(prev => ({ ...prev, location: value }))}
-            >
-              <SelectTrigger className="w-full h-11 sm:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left">
-                <SelectValue placeholder={t('buy.location')} />
-              </SelectTrigger>
-              <SelectContent className="bg-white text-gray-800 border-gray-200">
-                <SelectItem value="any">{t('buy.location')}</SelectItem>
-                <SelectItem value="downtown-dubai">Downtown Dubai</SelectItem>
-                <SelectItem value="dubai-marina">Dubai Marina</SelectItem>
-                <SelectItem value="business-bay">Business Bay</SelectItem>
-                <SelectItem value="palm-jumeirah">Palm Jumeirah</SelectItem>
-                <SelectItem value="jumeirah-village-circle">Jumeirah Village Circle</SelectItem>
-                <SelectItem value="jumeirah-lake-towers">Jumeirah Lake Towers</SelectItem>
-                <SelectItem value="damac-hills-2">Damac Hills 2</SelectItem>
-                <SelectItem value="dubai-hills-estate">Dubai Hills Estate</SelectItem>
-                <SelectItem value="meydan-city">Meydan City</SelectItem>
-              </SelectContent>
-            </Select>
+            <Input
+              type="text"
+              placeholder={t('buy.location')}
+              value={searchParams.location === "any" ? "" : searchParams.location}
+              onChange={(e) => setSearchParams(prev => ({ ...prev, location: e.target.value || "any" }))}
+              onKeyPress={handleKeyPress}
+              className="w-full h-11 sm:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left"
+            />
           </div>
 
           {/* Property Type */}
