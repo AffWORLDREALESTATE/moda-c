@@ -22,7 +22,7 @@ import { Loader, Filter, X, Search } from "lucide-react";
 import PropertyCardSkeleton from "@/src/components/common/property-card-skeleton";
 import React, { useCallback, useMemo } from "react";
 import { api } from "@/src/lib/axios";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 
@@ -78,6 +78,7 @@ const HANDOVER_YEAR_OPTIONS = [
 
 function Buy() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { t } = useLanguage();
   
   // Constants with translations
@@ -101,7 +102,7 @@ function Buy() {
   // Filter states
   const [filters, setFilters] = React.useState({
     listing_type: "SELL",
-    title: "",
+    title: searchParams?.get('location') || "",
     property_type: "any",
     min_price: "any",
     max_price: "any",
@@ -126,7 +127,9 @@ function Buy() {
     // Add filter parameters
     Object.entries(filters).forEach(([key, value]) => {
       if (value && value !== "any" && value !== "all") {
-        queryParams.append(key, value);
+        // Map 'title' to 'community' for backend
+        const backendKey = key === 'title' ? 'community' : key;
+        queryParams.append(backendKey, value);
       }
     });
     

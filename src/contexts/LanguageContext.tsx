@@ -32,6 +32,11 @@ const languages: Language[] = [
   { code: 'fr', name: 'FR', flag: '🇫🇷' },
   { code: 'ru', name: 'RU', flag: '🇷🇺' },
   { code: 'zh', name: 'CN', flag: '🇨🇳' },
+  { code: 'es', name: 'ES', flag: '🇪🇸' },
+  { code: 'de', name: 'DE', flag: '🇩🇪' },
+  { code: 'it', name: 'IT', flag: '🇮🇹' },
+  { code: 'pt', name: 'PT', flag: '🇵🇹' },
+  { code: 'tr', name: 'TR', flag: '🇹🇷' },
 ];
 
 // Translation data
@@ -1040,6 +1045,102 @@ const translations: Record<string, Translations> = {
     'buy.type': 'Tipo',
     'buy.buy': 'Comprar',
     'buy.rent': 'Alquilar',
+    'buy.moreFilters': 'Más Filtros',
+    'buy.search': 'Buscar Propiedades',
+    'buy.previous': 'Anterior',
+    'buy.next': 'Siguiente',
+    'buy.showingRange': 'Mostrando',
+    'buy.to': 'a',
+    'buy.of': 'de',
+    'buy.properties': 'propiedades',
+    'buy.any': 'Cualquiera',
+    'buy.anyPropertyType': 'Cualquier Tipo de Propiedad',
+    'buy.min': 'Mín',
+    'buy.max': 'Máx',
+    'buy.beds': 'Habitaciones',
+    'buy.anyBedrooms': 'Cualquier Dormitorio',
+    'buy.bathrooms': 'Baños',
+    'buy.anyBathrooms': 'Cualquier Baño',
+    'buy.handoverYear': 'Año de Entrega',
+    'buy.anyYear': 'Cualquier Año',
+    'buy.developer': 'Desarrollador',
+    'buy.searchDevelopers': 'Buscar desarrolladores...',
+    'buy.locationHeading': 'Las propiedades más exquisitas de Dubái',
+    'buy.locationSubheading': 'Sé parte de un estilo de vida de clase mundial, benefíciate de rendimientos inigualables y posee una parte del futuro de Dubái.',
+    'buy.learnMore': 'Saber más',
+    
+    // Landing page sections
+    'search.priceRange': 'Rango de Precio',
+    'landing.feature.kicker': 'PROYECTOS DESTACADOS',
+    'landing.feature.heading': 'Lujo Revelado, Confort y Sofisticación',
+    'landing.feature.subtitle': 'Descubre una selección curada de las propiedades más exquisitas de Dubái, que encarnan lujo, elegancia y diseño sin igual.',
+    'landing.feature.viewAll': 'Ver Todos los Proyectos',
+    
+    'landing.property.kicker': 'PROPIEDADES DESTACADAS',
+    'landing.property.heading': 'Consulta Algunas de las Propiedades Más Prometedoras de Modac Real Estate',
+    'landing.property.subtitle': 'Adéntrate en un reino de sofisticación sin igual con nuestras propiedades destacadas. Explora estas joyas exclusivas e imagina tu próximo retiro de lujo con Modac Real Estate.',
+    'landing.property.showing': 'Mostrando',
+    'landing.property.of': 'de',
+    'landing.property.properties': 'propiedades',
+    'landing.property.tryAgain': 'Intentar de Nuevo',
+    'landing.property.noProperties': 'No se Encontraron Propiedades',
+    'landing.property.loadMore': 'Cargar Más',
+    'landing.property.showAll': 'Mostrar Todo',
+    'landing.property.viewAll': 'VER TODAS LAS PROPIEDADES',
+    
+    'landing.communities.kicker': 'EXPLORAR COMUNIDADES',
+    'landing.communities.heading': 'Descubre los Barrios Más Deseables de Dubái',
+    'landing.communities.subtitle': 'Navega por el rico mosaico de los distritos y barrios más deseables de Dubái. Desde santuarios costeros pacíficos hasta vibrantes centros metropolitanos, nuestra colección seleccionada revela el espíritu del estilo de vida premium en cada ubicación.',
+    'landing.communities.viewAll': 'Ver Todas las Comunidades',
+    'landing.partners.heading': 'Socios con los principales desarrolladores de Dubái',
+    
+    'landing.blog.kicker': 'INSIGHTS E INSPIRACIÓN',
+    'landing.blog.heading': 'Últimos Insights Inmobiliarios',
+    'landing.blog.subtitle': 'Mantente informado con análisis de expertos, tendencias de mercado y perspectivas internas sobre el dinámico paisaje inmobiliario de Dubái.',
+    'landing.blog.viewAll': 'VER TODOS LOS BLOGS',
+    
+    // Instagram section
+    'landing.instagram.heading': 'Sigue Nuestro Viaje',
+    'landing.instagram.subtitle': 'Descubre propiedades de lujo, contenido detrás de escena e insights exclusivos de los principales destinos inmobiliarios de Dubái.',
+    'landing.instagram.followFull': 'Seguir @modacproperties',
+    'landing.instagram.follow': 'Síguenos',
+    'landing.instagram.cantSee': '¿No puedes ver nuestro feed de Instagram?',
+    'landing.instagram.visitDirect': 'Visita nuestro Instagram directamente',
+
+    // Blog list page
+    'blog.title': 'Blog',
+    'blog.list.introHeading': 'Últimos Insights e Historias',
+    'blog.list.introSubheading': 'Análisis de expertos, actualizaciones de mercado e inspiración de la escena inmobiliaria de Dubái.',
+    'blog.notFound': 'Blog No Encontrado',
+    'blog.notFoundDescription': "La publicación del blog que buscas no existe.",
+    'blog.backToBlog': 'Volver al Blog',
+    
+    'landing.cta.kicker': 'LISTO PARA COMENZAR',
+    'landing.cta.heading': 'Tu Viaje Inmobiliario Premium Comienza Aquí',
+    'landing.cta.subtitle': '¿Listo para comenzar tu viaje inmobiliario premium personalizado exclusivamente para tus necesidades? Inicia tu camino hacia experiencias extraordinarias de estilo de vida.',
+    'landing.cta.button': 'CONTÁCTANOS',
+    
+    // Solutions
+    'solutions.heading': 'Soluciones inmobiliarias de Dubái centradas en',
+    'solutions.headingEmphasis': 'servicio al cliente excelente',
+    'solutions.connectSpecialist': 'Conectar con un Especialista',
+    'solutions.connectDescription': 'Conéctate con nuestra red comprometida de más de 400 profesionales especializados preparados para apoyar tus necesidades.',
+    'solutions.listProperty': 'Lista tu Propiedad',
+    'solutions.listDescription': 'Maximiza el potencial de tu propiedad a través de nuestros enfoques promocionales sofisticados y experiencia en el mercado.',
+    'solutions.downloadReport': 'Descargar Informe',
+    'solutions.downloadDescription': 'Accede al Análisis Detallado del Mercado Inmobiliario de Dubái más reciente para Q1 2025',
+    'solutions.exploreProjects': 'Explorar Proyectos de Dubái',
+    'solutions.exploreDescription': 'Descubre y selecciona tu casa perfecta de nuestra colección completa de desarrollos de Dubái.',
+    
+    'services.residents.stats.avgProcessing': 'Procesamiento Promedio',
+    'services.residents.stats.approvalRate': 'Tasa de Aprobación',
+    'services.residents.stats.familyCases': 'Casos Familiares',
+    'services.residents.stats.languages': 'Idiomas',
+    
+    'contact.cta': 'Contáctanos',
+    'rent.heading': 'Las propiedades de alquiler más exquisitas de Dubái',
+    'rent.subheading': 'Encuentra tu casa de alquiler perfecta en las ubicaciones más prestigiosas de Dubái con comodidades de clase mundial y estilo de vida sin igual.',
+    'rent.learnMore': 'Saber más',
 
     // Off Plans page (copying English for now)
     'offplans.completionStatus': 'Completion Status',
@@ -1183,6 +1284,139 @@ const translations: Record<string, Translations> = {
     'common.forSale': 'ZU VERKAUFEN',
     'common.forRent': 'ZU MIETEN',
     'common.offPlan': 'OFF-PLAN',
+    
+    // Hero
+    'hero.companyName': 'MODAC REAL ESTATE',
+    'landing.hero.heading': 'Finden Sie Ihr Traumhaus mit Modac Real Estate',
+    
+    // Buy page
+    'buy.completionStatus': 'Fertigstellungsstatus',
+    'buy.completedSecondary': 'Fertiggestelltes Sekundäres',
+    'buy.completedPrimary': 'Fertiggestelltes Primäres',
+    'buy.propertyType': 'Immobilientyp',
+    'buy.minPrice': 'Mindestpreis',
+    'buy.maxPrice': 'Höchstpreis',
+    'buy.location': 'Standort',
+    'buy.type': 'Typ',
+    'buy.buy': 'Kaufen',
+    'buy.rent': 'Mieten',
+    'buy.moreFilters': 'Weitere Filter',
+    'buy.search': 'Immobilien Suchen',
+    'buy.previous': 'Vorherige',
+    'buy.next': 'Nächste',
+    'buy.showingRange': 'Zeigt',
+    'buy.to': 'bis',
+    'buy.of': 'von',
+    'buy.properties': 'Immobilien',
+    'buy.any': 'Beliebig',
+    'buy.anyPropertyType': 'Jeder Immobilientyp',
+    'buy.min': 'Min',
+    'buy.max': 'Max',
+    'buy.beds': 'Schlafzimmer',
+    'buy.anyBedrooms': 'Beliebig Schlafzimmer',
+    'buy.bathrooms': 'Badezimmer',
+    'buy.anyBathrooms': 'Beliebig Badezimmer',
+    'buy.handoverYear': 'Übergabejahr',
+    'buy.anyYear': 'Beliebiges Jahr',
+    'buy.developer': 'Entwickler',
+    'buy.searchDevelopers': 'Entwickler suchen...',
+    'buy.locationHeading': 'Die exquisitesten Immobilien in Dubai',
+    'buy.locationSubheading': 'Werden Sie Teil eines erstklassigen Lebensstils, profitieren Sie von unvergleichlichen Renditen und besitzen Sie einen Teil der Zukunft von Dubai.',
+    'buy.learnMore': 'Mehr erfahren',
+    
+    // Landing page sections
+    'search.priceRange': 'Preisspanne',
+    'landing.feature.kicker': 'AUSGEWÄHLTE PROJEKTE',
+    'landing.feature.heading': 'Luxus Enthüllt, Komfort und Raffinesse',
+    'landing.feature.subtitle': 'Entdecken Sie eine kuratierte Auswahl der exquisitesten Immobilien in Dubai, die Luxus, Eleganz und unvergleichliches Design verkörpern.',
+    'landing.feature.viewAll': 'Alle Projekte Anzeigen',
+    
+    'landing.property.kicker': 'AUSGEWÄHLTE IMMOBILIEN',
+    'landing.property.heading': 'Sehen Sie sich einige der vielversprechendsten Immobilien von Modac Real Estate an',
+    'landing.property.subtitle': 'Treten Sie in ein Reich außergewöhnlicher Raffinesse mit unseren ausgewählten Immobilien ein. Erkunden Sie diese exklusiven Juwelen und stellen Sie sich Ihren nächsten luxuriösen Rückzugsort mit Modac Real Estate vor.',
+    'landing.property.showing': 'Zeigt',
+    'landing.property.of': 'von',
+    'landing.property.properties': 'Immobilien',
+    'landing.property.tryAgain': 'Erneut Versuchen',
+    'landing.property.noProperties': 'Keine Immobilien Gefunden',
+    'landing.property.loadMore': 'Mehr Laden',
+    'landing.property.showAll': 'Alle Anzeigen',
+    'landing.property.viewAll': 'ALLE IMMOBILIEN ANZEIGEN',
+    
+    'landing.communities.kicker': 'GEMEINSCHAFTEN ERKUNDEN',
+    'landing.communities.heading': 'Entdecken Sie die begehrenswertesten Viertel in Dubai',
+    'landing.communities.subtitle': 'Navigieren Sie durch das reiche Mosaik der begehrenswertesten Bezirke und Viertel Dubais. Von friedlichen Küstenerholungsorten bis hin zu pulsierenden Metropolenzentren, unsere handverlesene Kollektion offenbart den Geist eines Premium-Lebensstils an jedem Standort.',
+    'landing.communities.viewAll': 'Alle Gemeinschaften Anzeigen',
+    'landing.partners.heading': 'Partner mit Dubais führenden Entwicklern',
+    
+    'landing.blog.kicker': 'EINSICHTEN & INSPIRATION',
+    'landing.blog.heading': 'Neueste Immobilieneinsichten',
+    'landing.blog.subtitle': 'Bleiben Sie informiert mit Expertenanalysen, Markttrends und Insider-Perspektiven zur dynamischen Immobilienszene Dubais.',
+    'landing.blog.viewAll': 'ALLE BLOGS ANZEIGEN',
+    
+    // Instagram section
+    'landing.instagram.heading': 'Folgen Sie Unsere Reise',
+    'landing.instagram.subtitle': 'Entdecken Sie Luxusimmobilien, Inhalte hinter den Kulissen und exklusive Einblicke aus Dubais führenden Immobiliendestinationen.',
+    'landing.instagram.followFull': 'Folgen @modacproperties',
+    'landing.instagram.follow': 'Folgen Sie Uns',
+    'landing.instagram.cantSee': 'Können Sie unseren Instagram-Feed nicht sehen?',
+    'landing.instagram.visitDirect': 'Besuchen Sie unser Instagram direkt',
+
+    // Blog list page
+    'blog.title': 'Blog',
+    'blog.list.introHeading': 'Neueste Einsichten und Geschichten',
+    'blog.list.introSubheading': 'Expertenanalysen, Marktaktualisierungen und Inspiration aus Dubais Immobilienszene.',
+    'blog.notFound': 'Blog Nicht Gefunden',
+    'blog.notFoundDescription': "Der gesuchte Blogbeitrag existiert nicht.",
+    'blog.backToBlog': 'Zurück zum Blog',
+    
+    'landing.cta.kicker': 'BEREIT ZU STARTEN',
+    'landing.cta.heading': 'Ihre Premium-Immobilienreise Beginnt Hier',
+    'landing.cta.subtitle': 'Bereit, Ihre auf Ihre Bedürfnisse zugeschnittene Premium-Immobilienreise zu beginnen? Starten Sie Ihren Weg zu außergewöhnlichen Lebensstilerlebnissen.',
+    'landing.cta.button': 'KONTAKTIEREN SIE UNS',
+    
+    // Solutions
+    'solutions.heading': 'Dubai Immobilienlösungen konzentriert auf',
+    'solutions.headingEmphasis': 'ausgezeichneten Kundenservice',
+    'solutions.connectSpecialist': 'Mit einem Spezialisten Verbinden',
+    'solutions.connectDescription': 'Verbinden Sie sich mit unserem Netzwerk von über 400 spezialisierten Fachleuten, die bereit sind, Ihre Bedürfnisse zu unterstützen.',
+    'solutions.listProperty': 'Immobilie Auflisten',
+    'solutions.listDescription': 'Maximieren Sie das Potenzial Ihrer Immobilie durch unsere raffinierten Promotionsansätze und Marktexpertise.',
+    'solutions.downloadReport': 'Bericht Herunterladen',
+    'solutions.downloadDescription': 'Zugriff auf die neueste Detaillierte Dubai Immobilienmarktanalyse für Q1 2025',
+    'solutions.exploreProjects': 'Dubai Projekte Erkunden',
+    'solutions.exploreDescription': 'Entdecken und wählen Sie Ihr perfektes Zuhause aus unserer umfassenden Sammlung von Dubai-Entwicklungen.',
+    
+    'services.residents.stats.avgProcessing': 'Durchschn. Verarbeitung',
+    'services.residents.stats.approvalRate': 'Genehmigungsrate',
+    'services.residents.stats.familyCases': 'Familienfälle',
+    'services.residents.stats.languages': 'Sprachen',
+    
+    'contact.cta': 'Kontaktieren Sie Uns',
+    'rent.heading': 'Dubais exquisite Mietobjekte',
+    'rent.subheading': 'Finden Sie Ihre perfekte Mietwohnung an Dubais prestigeträchtigsten Standorten mit erstklassigen Annehmlichkeiten und einem unvergleichlichen Lebensstil.',
+    'rent.learnMore': 'Mehr erfahren',
+    
+    // Footer
+    'footer.newsletter': 'Erhalten Sie unsere außergewöhnlichen Immobilienangebote direkt in Ihrem Posteingang.',
+    'footer.emailLabel': 'E-Mail-Adresse für Newsletter-Anmeldung',
+    'footer.emailPlaceholder': 'Geben Sie Ihre E-Mail-Adresse ein',
+    'footer.subscribe': 'Abonnieren',
+    'footer.sitemap': 'Sitemap',
+    'footer.contact': 'Kontakt',
+    'footer.whyDubai': 'Warum Dubai',
+    'footer.contactUs': 'Kontaktieren Sie Uns',
+    'footer.followUs': 'Folgen Sie Uns',
+    'footer.facebook': 'Facebook',
+    'footer.instagram': 'Instagram',
+    'footer.linkedin': 'LinkedIn',
+    'footer.twitter': 'Twitter',
+    'footer.youtube': 'YouTube',
+    'footer.privacyPolicy': 'Datenschutzrichtlinie',
+    'footer.terms': 'Allgemeine Geschäftsbedingungen',
+    'footer.cookiePolicy': 'Cookie-Richtlinie',
+    'footer.disclaimer': 'Haftungsausschluss',
+    'footer.copyright': '© 2025 Modac Real Estate. Alle Rechte vorbehalten.',
     
     // Form components
     'form.name': 'Name',
@@ -1363,6 +1597,97 @@ const translations: Record<string, Translations> = {
     'buy.type': 'Tipo',
     'buy.buy': 'Acquista',
     'buy.rent': 'Affitta',
+    'buy.moreFilters': 'Altri Filtri',
+    'buy.search': 'Cerca Proprietà',
+    'buy.previous': 'Precedente',
+    'buy.next': 'Successivo',
+    'buy.showingRange': 'Mostrando',
+    'buy.to': 'a',
+    'buy.of': 'di',
+    'buy.properties': 'proprietà',
+    'buy.any': 'Qualsiasi',
+    'buy.anyPropertyType': 'Qualsiasi Tipo di Proprietà',
+    'buy.min': 'Min',
+    'buy.max': 'Max',
+    'buy.beds': 'Camere',
+    'buy.anyBedrooms': 'Qualsiasi Camera da Letto',
+    'buy.bathrooms': 'Bagni',
+    'buy.anyBathrooms': 'Qualsiasi Bagno',
+    'buy.handoverYear': 'Anno di Consegna',
+    'buy.anyYear': 'Qualsiasi Anno',
+    'buy.developer': 'Sviluppatore',
+    'buy.searchDevelopers': 'Cerca sviluppatori...',
+    'buy.locationHeading': 'Le proprietà più raffinate di Dubai',
+    'buy.locationSubheading': 'Diventa parte di uno stile di vita di classe mondiale, beneficia di rendimenti ineguagliabili e possiedi un pezzo del futuro di Dubai.',
+    'buy.learnMore': 'Scopri di più',
+    
+    // Landing page sections
+    'search.priceRange': 'Fascia di Prezzo',
+    'landing.feature.kicker': 'PROGETTI IN EVIDENZA',
+    'landing.feature.heading': 'Lusso Svelato, Comfort e Raffinatezza',
+    'landing.feature.subtitle': 'Scopri una selezione curata delle proprietà più raffinate di Dubai, che incarnano lusso, eleganza e design senza pari.',
+    'landing.feature.viewAll': 'Visualizza Tutti i Progetti',
+    
+    'landing.property.kicker': 'PROPRIETÀ IN EVIDENZA',
+    'landing.property.heading': 'Scopri Alcune delle Proprietà Più Promettenti di Modac Real Estate',
+    'landing.property.subtitle': 'Entra in un regno di raffinatezza senza pari con le nostre proprietà in evidenza. Esplora queste gemme esclusive e immagina il tuo prossimo ritiro di lusso con Modac Real Estate.',
+    'landing.property.showing': 'Mostrando',
+    'landing.property.of': 'di',
+    'landing.property.properties': 'proprietà',
+    'landing.property.tryAgain': 'Riprova',
+    'landing.property.noProperties': 'Nessuna Proprietà Trovata',
+    'landing.property.loadMore': 'Carica Altro',
+    'landing.property.showAll': 'Mostra Tutto',
+    'landing.property.viewAll': 'VISUALIZZA TUTTE LE PROPRIETÀ',
+    
+    'landing.communities.kicker': 'ESPLORA LE COMUNITÀ',
+    'landing.communities.heading': 'Scopri i Quartieri Più Desiderabili di Dubai',
+    'landing.communities.subtitle': 'Naviga attraverso il ricco mosaico dei distretti e dei quartieri più desiderabili di Dubai. Dai santuari costieri pacifici ai vivaci centri metropolitani, la nostra collezione selezionata rivela lo spirito dello stile di vita premium in ogni posizione.',
+    'landing.communities.viewAll': 'Visualizza Tutte le Comunità',
+    'landing.partners.heading': 'Partner con i principali sviluppatori di Dubai',
+    
+    'landing.blog.kicker': 'INSIGHT E ISPIRAZIONE',
+    'landing.blog.heading': 'Ultimi Insight Immobiliari',
+    'landing.blog.subtitle': 'Resta informato con analisi di esperti, tendenze di mercato e prospettive interne sul dinamico paesaggio immobiliare di Dubai.',
+    'landing.blog.viewAll': 'VISUALIZZA TUTTI I BLOG',
+    
+    // Instagram section
+    'landing.instagram.heading': 'Segui il Nostro Viaggio',
+    'landing.instagram.subtitle': 'Scopri proprietà di lusso, contenuti dietro le quinte e insight esclusivi dalle principali destinazioni immobiliari di Dubai.',
+    'landing.instagram.followFull': 'Segui @modacproperties',
+    'landing.instagram.follow': 'Seguici',
+    'landing.instagram.cantSee': "Non riesci a vedere il nostro feed Instagram?",
+    'landing.instagram.visitDirect': 'Visita il nostro Instagram direttamente',
+
+    // Blog list page
+    'blog.title': 'Blog',
+    'blog.list.introHeading': 'Ultimi Insight e Storie',
+    'blog.list.introSubheading': 'Analisi di esperti, aggiornamenti di mercato e ispirazione dalla scena immobiliare di Dubai.',
+    'blog.notFound': 'Blog Non Trovato',
+    'blog.notFoundDescription': "Il post del blog che stai cercando non esiste.",
+    'blog.backToBlog': 'Torna al Blog',
+    
+    'landing.cta.kicker': 'PRONTO PER INIZIARE',
+    'landing.cta.heading': 'Il Tuo Viaggio Immobiliare Premium Inizia Qui',
+    'landing.cta.subtitle': 'Pronto per iniziare il tuo viaggio immobiliare premium personalizzato esclusivamente per le tue esigenze? Avvia il tuo percorso verso esperienze di stile di vita straordinarie.',
+    'landing.cta.button': 'CONTATTACI',
+    
+    // Solutions
+    'solutions.heading': 'Soluzioni immobiliari di Dubai focalizzate su',
+    'solutions.headingEmphasis': 'servizio clienti eccellente',
+    'solutions.connectSpecialist': 'Connettiti con uno Specialista',
+    'solutions.connectDescription': 'Connettiti con la nostra rete di oltre 400 professionisti specializzati pronti a supportare le tue esigenze.',
+    'solutions.listProperty': 'Inserisci la Tua Proprietà',
+    'solutions.listDescription': "Massimizza il potenziale della tua proprietà attraverso i nostri approcci promozionali sofisticati e l'esperienza di mercato.",
+    'solutions.downloadReport': 'Scarica Report',
+    'solutions.downloadDescription': 'Accedi all\u2019Analisi Dettagliata del Mercato Immobiliare di Dubai per Q1 2025',
+    'solutions.exploreProjects': 'Esplora i Progetti di Dubai',
+    'solutions.exploreDescription': 'Scopri e seleziona la tua casa perfetta dalla nostra collezione completa di sviluppi di Dubai.',
+    
+    'services.residents.stats.avgProcessing': 'Elaborazione Media',
+    'services.residents.stats.approvalRate': 'Tasso di Approvazione',
+    'services.residents.stats.familyCases': 'Casi Familiari',
+    'services.residents.stats.languages': 'Lingue',
 
     // Details pages (property detail labels)
     'details.details': 'Dettagli',
@@ -1505,6 +1830,161 @@ const translations: Record<string, Translations> = {
     'buy.type': 'Tipo',
     'buy.buy': 'Comprar',
     'buy.rent': 'Alugar',
+    'buy.moreFilters': 'Mais Filtros',
+    'buy.search': 'Buscar Propriedades',
+    'buy.previous': 'Anterior',
+    'buy.next': 'Próximo',
+    'buy.showingRange': 'Mostrando',
+    'buy.to': 'a',
+    'buy.of': 'de',
+    'buy.properties': 'propriedades',
+    'buy.any': 'Qualquer',
+    'buy.anyPropertyType': 'Qualquer Tipo de Propriedade',
+    'buy.min': 'Min',
+    'buy.max': 'Max',
+    'buy.beds': 'Quartos',
+    'buy.anyBedrooms': 'Qualquer Quarto',
+    'buy.bathrooms': 'Banheiros',
+    'buy.anyBathrooms': 'Qualquer Banheiro',
+    'buy.handoverYear': 'Ano de Entrega',
+    'buy.anyYear': 'Qualquer Ano',
+    'buy.developer': 'Desenvolvedor',
+    'buy.searchDevelopers': 'Buscar desenvolvedores...',
+    'buy.locationHeading': 'As propriedades mais requintadas de Dubai',
+    'buy.locationSubheading': 'Faça parte de um estilo de vida de classe mundial, beneficie-se de retornos incomparáveis e possua uma parte do futuro de Dubai.',
+    'buy.learnMore': 'Saiba mais',
+    
+    // Landing page sections
+    'search.priceRange': 'Faixa de Preço',
+    'landing.feature.kicker': 'PROJETOS EM DESTAQUE',
+    'landing.feature.heading': 'Luxo Revelado, Conforto e Sofisticação',
+    'landing.feature.subtitle': 'Descubra uma seleção curada das propriedades mais requintadas de Dubai, encarnando luxo, elegância e design sem igual.',
+    'landing.feature.viewAll': 'Ver Todos os Projetos',
+    
+    'landing.property.kicker': 'PROPRIEDADES EM DESTAQUE',
+    'landing.property.heading': 'Confira Algumas das Propriedades Mais Promissoras da Modac Real Estate',
+    'landing.property.subtitle': 'Entre em um reino de sofisticação sem igual com nossas propriedades em destaque. Explore essas joias exclusivas e imagine seu próximo refúgio de luxo com a Modac Real Estate.',
+    'landing.property.showing': 'Mostrando',
+    'landing.property.of': 'de',
+    'landing.property.properties': 'propriedades',
+    'landing.property.tryAgain': 'Tentar Novamente',
+    'landing.property.noProperties': 'Nenhuma Propriedade Encontrada',
+    'landing.property.loadMore': 'Carregar Mais',
+    'landing.property.showAll': 'Mostrar Tudo',
+    'landing.property.viewAll': 'VER TODAS AS PROPRIEDADES',
+    
+    'landing.communities.kicker': 'EXPLORAR COMUNIDADES',
+    'landing.communities.heading': 'Descubra os Bairros Mais Desejáveis de Dubai',
+    'landing.communities.subtitle': 'Navegue pelo rico mosaico dos distritos e bairros mais desejáveis de Dubai. De santuários costeiros pacíficos a centros metropolitanos vibrantes, nossa coleção selecionada revela o espírito do estilo de vida premium em cada localização.',
+    'landing.communities.viewAll': 'Ver Todas as Comunidades',
+    'landing.partners.heading': 'Parceiros com os principais desenvolvedores de Dubai',
+    
+    'landing.blog.kicker': 'INSIGHTS E INSPIRAÇÃO',
+    'landing.blog.heading': 'Últimos Insights Imobiliários',
+    'landing.blog.subtitle': 'Mantenha-se informado com análises de especialistas, tendências de mercado e perspectivas internas sobre a dinâmica paisagem imobiliária de Dubai.',
+    'landing.blog.viewAll': 'VER TODOS OS BLOGS',
+    
+    // Instagram section
+    'landing.instagram.heading': 'Siga Nossa Jornada',
+    'landing.instagram.subtitle': 'Descubra propriedades de luxo, conteúdo nos bastidores e insights exclusivos dos principais destinos imobiliários de Dubai.',
+    'landing.instagram.followFull': 'Seguir @modacproperties',
+    'landing.instagram.follow': 'Siga-nos',
+    'landing.instagram.cantSee': 'Não consegue ver nosso feed do Instagram?',
+    'landing.instagram.visitDirect': 'Visite nosso Instagram diretamente',
+
+    // Blog list page
+    'blog.title': 'Blog',
+    'blog.list.introHeading': 'Últimos Insights e Histórias',
+    'blog.list.introSubheading': 'Análises de especialistas, atualizações de mercado e inspiração da cena imobiliária de Dubai.',
+    'blog.notFound': 'Blog Não Encontrado',
+    'blog.notFoundDescription': "A publicação do blog que você está procurando não existe.",
+    'blog.backToBlog': 'Voltar ao Blog',
+    
+    'landing.cta.kicker': 'PRONTO PARA COMEÇAR',
+    'landing.cta.heading': 'Sua Jornada Imobiliária Premium Começa Aqui',
+    'landing.cta.subtitle': 'Pronto para começar sua jornada imobiliária premium personalizada exclusivamente para suas necessidades? Inicie seu caminho para experiências extraordinárias de estilo de vida.',
+    'landing.cta.button': 'ENTRE EM CONTATO',
+    
+    // Solutions
+    'solutions.heading': 'Soluções imobiliárias de Dubai focadas em',
+    'solutions.headingEmphasis': 'excelente atendimento ao cliente',
+    'solutions.connectSpecialist': 'Conectar com um Especialista',
+    'solutions.connectDescription': 'Conecte-se com nossa rede comprometida de mais de 400 profissionais especializados preparados para apoiar suas necessidades.',
+    'solutions.listProperty': 'Anuncie sua Propriedade',
+    'solutions.listDescription': 'Maximize o potencial da sua propriedade através de nossas abordagens promocionais sofisticadas e expertise de mercado.',
+    'solutions.downloadReport': 'Baixar Relatório',
+    'solutions.downloadDescription': 'Acesse a Análise Detalhada do Mercado Imobiliário de Dubai mais recente para Q1 2025',
+    'solutions.exploreProjects': 'Explorar Projetos de Dubai',
+    'solutions.exploreDescription': 'Descubra e selecione sua casa perfeita de nossa coleção completa de desenvolvimentos de Dubai.',
+    
+    'services.residents.stats.avgProcessing': 'Processamento Médio',
+    'services.residents.stats.approvalRate': 'Taxa de Aprovação',
+    'services.residents.stats.familyCases': 'Casos Familiares',
+    'services.residents.stats.languages': 'Idiomas',
+    
+    'contact.cta': 'Entre em Contato',
+    'rent.heading': 'As propriedades de aluguel mais requintadas de Dubai',
+    'rent.subheading': 'Encontre sua casa de aluguel perfeita nos locais mais prestigiosos de Dubai com comodidades de classe mundial e um estilo de vida incomparável.',
+    'rent.learnMore': 'Saiba mais',
+    
+    // Footer
+    'footer.followUs': 'Siga-nos',
+    'footer.facebook': 'Facebook',
+    'footer.instagram': 'Instagram',
+    'footer.linkedin': 'LinkedIn',
+    'footer.twitter': 'Twitter',
+    'footer.youtube': 'YouTube',
+    'footer.privacyPolicy': 'Política de Privacidade',
+    'footer.terms': 'Termos e Condições',
+    'footer.cookiePolicy': 'Política de Cookies',
+    'footer.disclaimer': 'Isenção de Responsabilidade',
+    'footer.copyright': '© 2025 Modac Real Estate. Todos os direitos reservados.',
+    
+    // Common
+    'common.units': 'UNIDADES',
+    'common.from': 'DESDE',
+    'common.readMore': 'LER MAIS',
+    'common.forSale': 'À VENDA',
+    'common.forRent': 'PARA ALUGUEL',
+    'common.offPlan': 'OFF-PLAN',
+    'common.available': 'Disponível',
+    
+    // Form components
+    'form.name': 'Nome',
+    'form.surname': 'Sobrenome',
+    'form.email': 'Email',
+    'form.telephone': 'Telefone',
+    'form.message': 'Escreva sua mensagem aqui...',
+    'form.submit': 'Enviar',
+    'form.privacyText': 'Ao enviar este formulário, você confirma que este site pode armazenar suas informações enviadas, concorda com nossa',
+    'form.privacyPolicy': 'política de privacidade',
+    'form.andConsent': 'e consente com',
+    'form.cookies': 'cookies',
+    'form.beingStored': 'sendo armazenados em seu computador.',
+    
+    // Details pages (property detail labels)
+    'details.details': 'Detalhes',
+    'details.city': 'Cidade',
+    'details.apartmentType': 'Tipo de apartamento',
+    'details.propertyStatus': 'Status da propriedade',
+    'details.forRent': 'Para alugar',
+    'details.constructionStage': 'Fase de construção',
+    'details.bedrooms': 'Quartos',
+    'details.bathrooms': 'Banheiros',
+    'details.furnished': 'Mobiliado',
+    'details.areas': 'Áreas',
+    'details.homeSizeSqft': 'Tamanho da casa (pés²)',
+    'details.mainFeatures': 'Características principais',
+    'details.description': 'Descrição',
+    'details.enquire': 'Consultar',
+    'details.enquireNow': 'Consultar Agora',
+    'details.registerNow': 'Registrar Agora',
+    'details.readMore': 'Ler mais',
+    'details.readLess': 'Ler menos',
+    'details.takeFirstStep': 'Dê o primeiro passo',
+    'details.verifiedBy': 'Este anúncio foi verificado por',
+    'details.dld': 'Departamento de Terras de Dubai',
+    
     // Off Plans page
     'offplans.completionStatus': 'Completion Status',
     'offplans.completedSecondary': 'Completed Secondary',
@@ -2151,6 +2631,17 @@ const translations: Record<string, Translations> = {
   },
 };
 
+// Helper function to create fallback translations
+function createFallbackTranslations(sourceLang: keyof typeof translations) {
+  const enKeys = Object.keys(translations[sourceLang]);
+  return Object.fromEntries(
+    enKeys.map(key => [key, translations[sourceLang][key]])
+  ) as typeof translations.en;
+}
+
+// Add Turkish translations with English fallback
+(translations as any).tr = createFallbackTranslations('en');
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -2206,6 +2697,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return { code: 'RUB', symbol: '₽' };
       case 'zh':
         return { code: 'CNY', symbol: '¥' };
+      case 'tr':
+        return { code: 'TRY', symbol: '₺' };
+      case 'hi':
+        return { code: 'INR', symbol: '₹' };
       default:
         return { code: 'AED', symbol: '' };
     }
@@ -2218,6 +2713,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     { code: 'BRL', symbol: 'R$', label: 'BRL' },
     { code: 'RUB', symbol: '₽', label: 'RUB' },
     { code: 'CNY', symbol: '¥', label: 'CNY' },
+    { code: 'TRY', symbol: '₺', label: 'TRY' },
+    { code: 'INR', symbol: '₹', label: 'INR' },
   ];
 
   const getCurrencyMeta = (code: string) => {

@@ -26,12 +26,15 @@ interface CommunityData {
 export default function CommunitiesCard({ data }: { data: CommunityData }) {
   const router = useRouter();
 
+  const handleClick = () => {
+    // Navigate to buy page with area filter
+    router.push(`/buy?location=${encodeURIComponent(data?.name)}`);
+  };
+
   return (
     <Card
       className="relative w-full h-[420px] rounded-3xl overflow-hidden shadow-2xl group border border-white/10 cursor-pointer bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 hover:shadow-3xl hover:-translate-y-2"
-      onClick={() =>
-        router.push(`/communities/details/${encodeURIComponent(data?.name)}`)
-      }
+      onClick={handleClick}
     >
       <CardContent className="p-0 h-full relative">
         {/* Main Image */}
@@ -61,10 +64,9 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
             </h3>
           </div>
 
-
           {/* Explore Link */}
           <Link
-            href={`/communities/details/${encodeURIComponent(data?.name)}`}
+            href={`/buy?location=${encodeURIComponent(data?.name)}`}
             className={cn(
               "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-sm font-light tracking-wider group-hover:text-[#1a6b8f]",
               "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
@@ -72,7 +74,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
             )}
             onClick={(e) => e.stopPropagation()}
           >
-            Explore Community
+            View Properties
           </Link>
         </div>
 
