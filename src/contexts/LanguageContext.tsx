@@ -2680,7 +2680,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const getCurrencyForLang = (langCode: string) => {
-    // Map UI language to a display currency; keep English/Arabic as AED
+    // Map UI language to a display currency; keep English and Arabic as AED by default
     switch (langCode) {
       case 'en':
         return { code: 'AED', symbol: '' };
@@ -2709,6 +2709,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const currencyOptions: { code: string; symbol: string; label: string }[] = [
     { code: 'AED', symbol: '', label: 'AED' },
+    { code: 'USD', symbol: '$', label: 'USD' },
     { code: 'EUR', symbol: '€', label: 'EUR' },
     { code: 'BRL', symbol: 'R$', label: 'BRL' },
     { code: 'RUB', symbol: '₽', label: 'RUB' },
@@ -2734,6 +2735,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     switch (code) {
       case 'AED':
         return 1.0;
+      case 'USD':
+        return 0.27; // approx
       case 'EUR':
         return 0.25; // approx
       case 'BRL':
@@ -2742,6 +2745,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return 26; // approx
       case 'CNY':
         return 1.95; // approx
+      case 'TRY':
+        return 8.5; // approx
+      case 'INR':
+        return 22.5; // approx
       default:
         return 1.0;
     }
