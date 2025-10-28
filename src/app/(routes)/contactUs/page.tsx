@@ -58,8 +58,8 @@ function ContactUs() {
                     rel="noopener noreferrer"
                     className="text-gray-600 text-[17px] hover:text-[#0a4b6f] transition-colors font-sans"
                   >
-                    <p>1205, Prime Tower</p>
-                    <p>Business Bay, Dubai, UAE</p>
+                    <p>{t('contact.address.line1')}</p>
+                    <p>{t('contact.address.line2')}</p>
                   </a>
                 </div>
               </div>
@@ -76,7 +76,7 @@ function ContactUs() {
                     href="tel:+97145758035"
                     className="text-[#0a4b6f] hover:text-[#1a6b8f] transition-colors font-sans"
                   >
-                    +971-4-575-8035
+                    {t('contact.phone.number')}
                   </a>
                 </div>
               </div>
@@ -93,7 +93,7 @@ function ContactUs() {
                     href="mailto:info@modacrealestate.com"
                     className="text-[#0a4b6f] hover:text-[#1a6b8f] transition-colors font-sans"
                   >
-                    info@modacrealestate.com
+                    {t('contact.email.address')}
                   </a>
                 </div>
               </div>

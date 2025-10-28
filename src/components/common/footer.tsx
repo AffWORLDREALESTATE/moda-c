@@ -72,8 +72,8 @@ export default function Footer() {
                 className="hover:text-gray-300 transition-colors"
               >
                 <div>
-                  <p>1205, Prime Tower</p>
-                  <p>Business Bay, Dubai, UAE</p>
+                  <p>{t('contact.address.line1')}</p>
+                  <p>{t('contact.address.line2')}</p>
                 </div>
               </a>
             </div>
@@ -86,7 +86,7 @@ export default function Footer() {
                            after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                +971-4-575-8035
+                {t('contact.phone.number')}
               </a>
             </div>
             <div className="flex items-center space-x-3">
@@ -98,7 +98,7 @@ export default function Footer() {
                            after:h-[2px] after:w-0 after:bg-[#0a4b6f]
                            after:transition-all after:duration-300 hover:after:w-full font-sans"
               >
-                info@modacrealestate.com
+                {t('contact.email.address')}
               </a>
             </div>
             

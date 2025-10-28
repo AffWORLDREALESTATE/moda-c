@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 // import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/src/contexts/LanguageContext";
+import LanguageEffects from "@/src/components/common/lang-effects";
 
 // const poppins = Poppins({
 //   subsets: ["latin"],
@@ -106,6 +107,7 @@ export default function RootLayout({
       </head>
       <body className="luxury-bg touch-optimized">
         <LanguageProvider>
+          <LanguageEffects />
           {children}
         </LanguageProvider>
       </body>

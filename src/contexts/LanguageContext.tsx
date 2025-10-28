@@ -78,6 +78,20 @@ const translations: Record<string, Translations> = {
     'about.p2': 'The extent of our experienced, research-driven and professional teams to give reliable information and advice to our clients helps them make the right decision for their house search and investment.',
     'about.p3': 'Our service offers acquiring, leasing residential and commercial real estate.',
     'about.ceo': 'Founder & CEO',
+    // About page - additional
+    'about.stats.propertiesSold': 'Properties Sold',
+    'about.stats.happyClients': 'Happy Clients',
+    'about.stats.established': 'Established',
+    'about.stats.countriesServed': 'Countries Served',
+    'about.ourStory.title': 'Our Story',
+    'about.ourStory.description': "Discover the journey of Modac Real Estate and our commitment to excellence in Dubai's real estate market",
+    'about.values.heading': 'Our Core Values',
+    'about.values.trust.title': 'Trust & Reliability',
+    'about.values.trust.desc': 'Building lasting relationships through transparent and honest service.',
+    'about.values.growth.title': 'Growth & Success',
+    'about.values.growth.desc': 'Helping clients achieve their real estate investment goals.',
+    'about.values.global.title': 'Global Reach',
+    'about.values.global.desc': "Connecting international clients with Dubai's premium properties.",
     
     // Services
     'services.propertyManagement': 'Off-Plan Management',
@@ -304,6 +318,12 @@ const translations: Record<string, Translations> = {
     'contact.instagram': 'Instagram',
     'contact.businessHours': 'Business Hours',
     'contact.hours': 'Mon – Fri: 9AM to 7PM',
+    
+    // Contact details
+    'contact.address.line1': '1205, Prime Tower',
+    'contact.address.line2': 'Business Bay, Dubai, UAE',
+    'contact.phone.number': '+971-4-575-8035',
+    'contact.email.address': 'info@modacrealestate.com',
     
     // Common components
     'common.units': 'UNITS',
@@ -603,6 +623,12 @@ const translations: Record<string, Translations> = {
     'contact.instagram': 'إنستغرام',
     'contact.businessHours': 'ساعات العمل',
     'contact.hours': 'الاثنين - الجمعة: 9 صباحاً إلى 7 مساءً',
+    
+    // Contact details
+    'contact.address.line1': '1205، برايم تاور',
+    'contact.address.line2': 'الخليج التجاري، دبي، الإمارات العربية المتحدة',
+    'contact.phone.number': '971-4-575-8035+',
+    'contact.email.address': 'info@modacrealestate.com',
     
     // Common components
     'common.units': 'وحدات',
@@ -954,6 +980,12 @@ const translations: Record<string, Translations> = {
     'contact.businessHours': 'Heures d\'Ouverture',
     'contact.hours': 'Lun – Ven: 9h à 19h',
     
+    // Contact details
+    'contact.address.line1': '1205, Prime Tower',
+    'contact.address.line2': 'Business Bay, Dubaï, Émirats arabes unis',
+    'contact.phone.number': '+971-4-575-8035',
+    'contact.email.address': 'info@modacrealestate.com',
+    
     // Common components
     'common.units': 'UNITÉS',
     'common.from': 'À PARTIR DE',
@@ -1233,6 +1265,12 @@ const translations: Record<string, Translations> = {
     'details.takeFirstStep': 'Da el primer paso',
     'details.verifiedBy': 'Este anuncio ha sido verificado por',
     'details.dld': 'Departamento de Tierras de Dubái',
+    
+    // Contact details
+    'contact.address.line1': '1205, Prime Tower',
+    'contact.address.line2': 'Business Bay, Dubái, EAU',
+    'contact.phone.number': '+971-4-575-8035',
+    'contact.email.address': 'info@modacrealestate.com',
   },
   de: {
     'services.buySell.title': 'Kaufen, Verkaufen & Off-Plan',
@@ -1431,6 +1469,12 @@ const translations: Record<string, Translations> = {
     'form.cookies': 'Cookies',
     'form.beingStored': 'auf Ihrem Computer gespeichert werden.',
     
+    // Contact details
+    'contact.address.line1': '1205, Prime Tower',
+    'contact.address.line2': 'Business Bay, Dubai, VAE',
+    'contact.phone.number': '+971-4-575-8035',
+    'contact.email.address': 'info@modacrealestate.com',
+    
     // Details pages (property detail labels)
     'details.details': 'Details',
     'details.city': 'Stadt',
@@ -1454,31 +1498,7 @@ const translations: Record<string, Translations> = {
     'details.verifiedBy': 'Dieses Inserat wurde verifiziert von',
     'details.dld': 'Dubai Land Department',
     
-    // Footer
-    'footer.newsletter': 'Erhalten Sie unsere außergewöhnlichen Immobilienlisten direkt in Ihrem Posteingang.',
-    'footer.emailLabel': 'E-Mail-Adresse für Newsletter-Anmeldung',
-    'footer.emailPlaceholder': 'Geben Sie Ihre E-Mail-Adresse ein',
-    'footer.subscribe': 'Abonnieren',
-    'footer.sitemap': 'Sitemap',
-    'footer.contact': 'Kontakt',
-    'footer.whyDubai': 'Warum Dubai',
-    'footer.contactUs': 'Kontaktieren Sie uns',
-    
-    // Hero
-    'hero.companyName': 'MODAC REAL ESTATE',
-    'landing.hero.heading': 'Finden Sie Ihr Traumhaus mit Modac Real Estate',
-    
-    // Buy page
-    'buy.completionStatus': 'Fertigstellungsstatus',
-    'buy.completedSecondary': 'Fertiggestellt sekundär',
-    'buy.completedPrimary': 'Fertiggestellt primär',
-    'buy.propertyType': 'Immobilientyp',
-    'buy.minPrice': 'Mindestpreis',
-    'buy.maxPrice': 'Höchstpreis',
-    'buy.location': 'Standort',
-    'buy.type': 'Typ',
-    'buy.buy': 'Kaufen',
-    'buy.rent': 'Mieten',
+    // (duplicate footer keys removed)
     // Off Plans page
     'offplans.completionStatus': 'Completion Status',
     'offplans.completedSecondary': 'Completed Secondary',
@@ -2310,6 +2330,12 @@ const translations: Record<string, Translations> = {
     'contact.businessHours': 'Рабочие Часы',
     'contact.hours': 'Пн – Пт: 9:00 до 19:00',
     
+    // Contact details
+    'contact.address.line1': '1205, Prime Tower',
+    'contact.address.line2': 'Бизнес-Бей, Дубай, ОАЭ',
+    'contact.phone.number': '+971-4-575-8035',
+    'contact.email.address': 'info@modacrealestate.com',
+    
     // Common components
     'common.units': 'ЕДИНИЦЫ',
     'common.from': 'ОТ',
@@ -2608,6 +2634,12 @@ const translations: Record<string, Translations> = {
     'contact.businessHours': '营业时间',
     'contact.hours': '周一 - 周五: 上午9点至晚上7点',
     
+    // Contact details
+    'contact.address.line1': '1205，Prime Tower',
+    'contact.address.line2': '商务湾，迪拜，阿联酋',
+    'contact.phone.number': '+971-4-575-8035',
+    'contact.email.address': 'info@modacrealestate.com',
+    
     // Common components
     'common.units': '单位',
     'common.from': '起',
@@ -2676,7 +2708,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const t = (key: string): string => {
     const currentTranslations = translations[currentLanguage.code];
-    return currentTranslations[key] || key;
+    // Fallback to English if the key is missing in the current language
+    return (currentTranslations && currentTranslations[key])
+      || (translations.en && (translations.en as any)[key])
+      || key;
   };
 
   const getCurrencyForLang = (langCode: string) => {

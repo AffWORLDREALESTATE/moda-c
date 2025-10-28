@@ -11,27 +11,27 @@ export default function AboutPage() {
   const { t } = useLanguage();
   
   const stats = [
-    { icon: Building2, value: "500+", label: "Properties Sold" },
-    { icon: Users, value: "1000+", label: "Happy Clients" },
-    { icon: Award, value: "2022", label: "Established" },
-    { icon: Globe, value: "15+", label: "Countries Served" },
+    { icon: Building2, value: "500+", label: t('about.stats.propertiesSold') },
+    { icon: Users, value: "1000+", label: t('about.stats.happyClients') },
+    { icon: Award, value: "2022", label: t('about.stats.established') },
+    { icon: Globe, value: "15+", label: t('about.stats.countriesServed') },
   ];
 
   const values = [
     {
       icon: Shield,
-      title: "Trust & Reliability",
-      description: "Building lasting relationships through transparent and honest service."
+      title: t('about.values.trust.title'),
+      description: t('about.values.trust.desc')
     },
     {
       icon: TrendingUp,
-      title: "Growth & Success",
-      description: "Helping clients achieve their real estate investment goals."
+      title: t('about.values.growth.title'),
+      description: t('about.values.growth.desc')
     },
     {
       icon: Globe,
-      title: "Global Reach",
-      description: "Connecting international clients with Dubai's premium properties."
+      title: t('about.values.global.title'),
+      description: t('about.values.global.desc')
     }
   ];
 
@@ -120,11 +120,11 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-serif text-gray-800 mb-4">
-              Our Story
+              {t('about.ourStory.title')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-6" />
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Discover the journey of Modac Real Estate and our commitment to excellence in Dubai's real estate market
+              {t('about.ourStory.description')}
             </p>
           </motion.div>
 
@@ -282,7 +282,7 @@ export default function AboutPage() {
           <FadeUp>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-serif text-gray-800 mb-4">
-                Our Core Values
+                {t('about.ourCoreValues.title')}
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto" />
             </div>
