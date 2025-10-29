@@ -27,7 +27,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
   const router = useRouter();
 
   const handleClick = () => {
-    // Navigate to offplans page with area filter
+    // Navigate to offPlans page with area filter
     const normalizedName = normalizeLocationName(data?.name);
     router.push(`/offPlans?location=${encodeURIComponent(normalizedName)}`);
   };

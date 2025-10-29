@@ -20,10 +20,10 @@ import OffPlanCard from "@/src/view/offPlans/offPlanCard";
 import Pagination from "@/src/components/common/Pagination";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Loader, X, Search } from "lucide-react";
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback, useMemo, Suspense } from "react";
 import { api } from "@/src/lib/axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { translateProperties } from "@/src/lib/translate";
 
@@ -61,6 +61,7 @@ const PRICE_OPTIONS = [
 
 function OffPlansPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { t, currentLanguage } = useLanguage();
 
   // Constants with translations
@@ -129,7 +130,7 @@ function OffPlansPage() {
   // Filter states
   const [filters, setFilters] = useState({
     type: "off_plan",
-    title: "",
+    title: searchParams?.get('location') || "",
     property_type: "any",
     min_price: "any",
     max_price: "any",
@@ -767,4 +768,10 @@ function OffPlansPage() {
   );
 }
 
-export default OffPlansPage;
+export default function OffPlansPageWrapper() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0a4b6f]"></div></div>}>
+      <OffPlansPage />
+    </Suspense>
+  );
+}
