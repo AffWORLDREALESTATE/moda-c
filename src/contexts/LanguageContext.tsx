@@ -2751,6 +2751,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     { code: 'CNY', symbol: '¥', label: 'CNY' },
     { code: 'TRY', symbol: '₺', label: 'TRY' },
     { code: 'INR', symbol: '₹', label: 'INR' },
+    { code: 'XAF', symbol: 'FCFA', label: 'XAF' },
   ];
 
   const getCurrencyMeta = (code: string) => {
@@ -2784,6 +2785,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return 8.5; // approx
       case 'INR':
         return 22.5; // approx
+      case 'XAF':
+        return 165; // Central African CFA Franc (Cameroon) - approx
       default:
         return 1.0;
     }
