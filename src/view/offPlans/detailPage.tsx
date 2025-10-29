@@ -10,10 +10,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { Icon } from "@iconify/react";
 import LocationSection from "./Location";
+import { translateProperty } from "@/src/lib/translate";
 
 export default function DetailPage({ id }: any) {
-  const { formatPrice, t, currencyIconSrc } = useLanguage();
+  const { formatPrice, t, currencyIconSrc, currentLanguage } = useLanguage();
   const [property, setProperty] = useState<any>(null);
+  const [isTranslating, setIsTranslating] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +24,24 @@ export default function DetailPage({ id }: any) {
 
   useEffect(() => {
     async function fetchProperty() {
-      const data = await getPropertyById(id);
-      setProperty(data?.projects?.[0]);
+      try {
+        const data = await getPropertyById(id);
+        const rawProperty = data?.projects?.[0];
+        
+        if (rawProperty) {
+          // Translate the property data based on current language
+          setIsTranslating(true);
+          const translatedProperty = await translateProperty(rawProperty, currentLanguage.code);
+          setProperty(translatedProperty);
+        }
+      } catch (error) {
+        console.error('Error fetching/translating property:', error);
+      } finally {
+        setIsTranslating(false);
+      }
     }
     fetchProperty();
-  }, [id]);
+  }, [id, currentLanguage.code]);
 
   useEffect(() => {
     if (!property?.photos || property.photos.length <= 1) return;

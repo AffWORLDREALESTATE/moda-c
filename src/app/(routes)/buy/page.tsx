@@ -25,6 +25,7 @@ import { api } from "@/src/lib/axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { translateProperties } from "@/src/lib/translate";
 
 const PROPERTY_TYPES = [
   "APARTMENT",
@@ -79,7 +80,7 @@ const HANDOVER_YEAR_OPTIONS = [
 function BuyContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
   
   // Constants with translations
   const COMPLETION_STATUS_OPTIONS = [
@@ -140,7 +141,12 @@ function BuyContent() {
       console.log("Total properties:", res?.total);
       console.log("Current page:", page);
       console.log("Properties received:", res?.properties?.length);
-      setProperty(res?.properties || []);
+      
+      // Translate properties based on current language
+      const rawProperties = res?.properties || [];
+      const translatedProperties = await translateProperties(rawProperties, currentLanguage.code);
+      setProperty(translatedProperties);
+      
       setTotalPages(Math.ceil((res?.total || 0) / 24));
       setTotalProperties(res?.total || 0);
     } catch (error) {
@@ -148,7 +154,7 @@ function BuyContent() {
     } finally {
       setLoading(false);
     }
-  }, [filters]);
+  }, [filters, currentLanguage.code]);
 
   // Debounced developer search
   const searchDevelopers = useCallback((searchTerm: string) => {

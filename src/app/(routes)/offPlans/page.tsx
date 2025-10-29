@@ -25,6 +25,7 @@ import { api } from "@/src/lib/axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { translateProperties } from "@/src/lib/translate";
 
 const PROPERTY_TYPES = [
   "APARTMENT",
@@ -60,7 +61,7 @@ const PRICE_OPTIONS = [
 
 function OffPlansPage() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
 
   // Constants with translations
   const COMPLETION_STATUS_OPTIONS = [
@@ -163,7 +164,12 @@ function OffPlansPage() {
       console.log("Total properties:", res?.total);
       console.log("Current page:", page);
       console.log("Properties received:", res?.projects?.length);
-      setProperty(res?.projects || []);
+      
+      // Translate properties based on current language
+      const rawProperties = res?.projects || [];
+      const translatedProperties = await translateProperties(rawProperties, currentLanguage.code);
+      setProperty(translatedProperties);
+      
       setTotalPages(Math.ceil((res?.total || 0) / 24));
       setTotalProperties(res?.total || 0);
     } catch (error) {
@@ -171,7 +177,7 @@ function OffPlansPage() {
     } finally {
       setLoading(false);
     }
-  }, [filters]);
+  }, [filters, currentLanguage.code]);
 
   // Debounced developer search
   const searchDevelopers = useCallback((searchTerm: string) => {

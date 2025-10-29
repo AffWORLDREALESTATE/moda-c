@@ -4,11 +4,12 @@ import CommunitiesCard from "@/src/view/communities/communitiesCard";
 import { Loader } from "lucide-react";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { translateCommunities } from "@/src/lib/translate";
 
 const PAGE_SIZE = 50;
 
 function Communities() {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
   const [communities, setCommunities] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -39,8 +40,11 @@ function Communities() {
         console.log('API Response:', res); // Debug log
         
         if (res?.communities?.length) {
+          // Translate new communities
+          const translatedCommunities = await translateCommunities(res.communities, currentLanguage.code);
+          
           setCommunities((prev) => {
-            const newCommunities = [...prev, ...res.communities];
+            const newCommunities = [...prev, ...translatedCommunities];
             setHasMore(newCommunities.length < res.total);
             return newCommunities;
           });
@@ -78,7 +82,7 @@ function Communities() {
       }
     };
     fetchCommunities();
-  }, [page]);
+  }, [page, currentLanguage.code]);
 
   // Filter communities based on search keyword
   useEffect(() => {

@@ -105,7 +105,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="luxury-bg touch-optimized" style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 400 }}>
+      <body className="luxury-bg touch-optimized">
         <LanguageProvider>
           <LanguageEffects />
           {children}

@@ -6,9 +6,10 @@ import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
 import React from "react";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { translateProperties } from "@/src/lib/translate";
 
 export default function Property() {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
   const [property, setProperty] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -26,13 +27,17 @@ export default function Property() {
       const res = await getAllProperties(query);
       console.log(`Page ${page} API Response:`, res); // Debug log to see actual data structure
       
+      // Translate properties
+      const rawProperties = res?.projects || [];
+      const translatedProperties = await translateProperties(rawProperties, currentLanguage.code);
+      
       if (page === 1) {
-        setProperty(res?.projects || []);
-        console.log(`Set initial properties: ${res?.projects?.length || 0} items`);
+        setProperty(translatedProperties);
+        console.log(`Set initial properties: ${translatedProperties.length} items`);
       } else {
         setProperty(prev => {
-          const newProperties = [...prev, ...(res?.projects || [])];
-          console.log(`Added ${res?.projects?.length || 0} properties. Total now: ${newProperties.length}`);
+          const newProperties = [...prev, ...translatedProperties];
+          console.log(`Added ${translatedProperties.length} properties. Total now: ${newProperties.length}`);
           return newProperties;
         });
       }
@@ -64,7 +69,7 @@ export default function Property() {
 
   React.useEffect(() => {
     fetchproperty();
-  }, []);
+  }, [currentLanguage.code]);
 
   const handleFavorite = (item: any) => {
     console.log("Added to favorites:", item);

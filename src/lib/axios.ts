@@ -8,6 +8,14 @@ export const api = axios.create({
   timeout: 10000,
 });
 
+// Function to get current language from localStorage
+const getCurrentLanguage = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('selectedLanguage') || 'en';
+  }
+  return 'en';
+};
+
 api.interceptors.request.use(
   (config) => {
     const token = TOKEN || getCookie();

@@ -10,9 +10,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Dialog, DialogContent, DialogTitle } from "@/src/components/ui/dialog";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { translateProperty } from "@/src/lib/translate";
 
 export default function DetailPage({ id }: any) {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -25,7 +26,13 @@ export default function DetailPage({ id }: any) {
     setLoading(true);
     try {
       const res = await getAllBuyPropertiesById(id);
-      setProperty(res?.properties?.[0]);
+      const rawProperty = res?.properties?.[0];
+      
+      if (rawProperty) {
+        // Translate the property data
+        const translatedProperty = await translateProperty(rawProperty, currentLanguage.code);
+        setProperty(translatedProperty);
+      }
     } catch (error) {
       console.error("Error fetching property details:", error);
     } finally {
@@ -34,7 +41,7 @@ export default function DetailPage({ id }: any) {
   };
   useEffect(() => {
     fetchPropertyDetails();
-  }, [id]);
+  }, [id, currentLanguage.code]);
 
   useEffect(() => {
     if (!property?.photos || property.photos.length <= 1) return;
