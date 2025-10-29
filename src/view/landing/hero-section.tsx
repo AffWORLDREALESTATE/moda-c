@@ -83,7 +83,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative min-h-[100vh] sm:min-h-[100vh] md:h-[115vh] w-full flex items-center justify-center text-center bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
+      className="relative min-h-[70vh] sm:min-h-[75vh] md:h-[80vh] w-full flex items-center justify-center text-center bg-white overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
     >
       {/* Luxury Loading Overlay */}
       {isLoading && (
@@ -91,7 +91,7 @@ export default function HeroSection() {
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           transition={{ duration: 1, delay: 2 }}
-          className="absolute inset-0 z-50 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] flex items-center justify-center"
+          className="absolute inset-0 z-50 bg-white flex items-center justify-center"
         >
           <div className="text-center">
             <motion.div
@@ -164,34 +164,22 @@ export default function HeroSection() {
       {/* Cinematic Overlay Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-15" />
 
-      {/* Search Bar: absolute for lg+, inline for mobile */}
-      <div className="hidden lg:block absolute bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-20 left-1/2 transform -translate-x-1/2 z-20 w-full px-2 sm:px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <SearchBar />
-        </motion.div>
-      </div>
-
       {/* Hero Content */}
-      <div className="relative z-20 text-center px-3 sm:px-4">
+      <div className="relative z-20 text-center px-3 sm:px-4 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
-          {t('landing.hero.heading')}
-          </h1>
-          {/* Optional subtitle for spacing balance on mobile */}
-          
-          {/* Mobile search bar directly under heading */}
-          <div className="lg:hidden mt-3 sm:mt-4">
+          {/* Search bar - visible on all screen sizes */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
             <SearchBar />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

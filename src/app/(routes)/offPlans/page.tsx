@@ -709,7 +709,7 @@ function OffPlansPage() {
             {/* {t('offplans.searchButton')} */}
             <Button
               onClick={handleSearch}
-              className="w-full bg-primary hover:bg-primary/90 text-white font-medium h-12 rounded-md"
+              className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium h-12 rounded-md"
             >
               <Search className="w-5 h-5 mr-2" />
               {t('offplans.searchProperties')}
@@ -727,9 +727,9 @@ function OffPlansPage() {
           <Link href={"/whyDubai#off-plan-investment"}>
             <span
               className={cn(
-                "relative pb-1 transition-all duration-300 text-primary uppercase",
+                "relative pb-1 transition-all duration-300 text-red-600 uppercase",
                 "after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0",
-                "after:-translate-x-1/2 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                "after:-translate-x-1/2 after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full"
               )}
             >
               {t('offplans.learnMore')}

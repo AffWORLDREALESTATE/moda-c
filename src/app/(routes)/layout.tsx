@@ -3,6 +3,7 @@
 import React from 'react';
 import Header from '@/src/components/common/header';
 import Footer from '@/src/components/common/footer';
+import WhatsAppWidget from '@/src/components/common/whatsapp-widget';
 
 export default function WebsiteLayout({
   children,
@@ -14,6 +15,7 @@ export default function WebsiteLayout({
       <Header />
       {children}
       <Footer />
+      <WhatsAppWidget />
     </main>
   );
 }

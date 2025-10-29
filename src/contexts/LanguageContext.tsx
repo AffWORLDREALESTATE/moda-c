@@ -60,6 +60,9 @@ const translations: Record<string, Translations> = {
     'services.investment.title': 'Investment Advisory',
     'services.investment.subtitle': 'Data-led strategies to optimise yield, growth, and liquidity across Dubai\'s prime and emerging districts.',
     'contact.cta': 'Contact Us',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Chat with us',
+    'whatsapp.defaultMessage': 'Hi, I would like to inquire about your properties.',
     // Navigation
     'nav.home': 'Home',
     'nav.buy': 'Buy',
@@ -71,6 +74,7 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'Blogs',
     'nav.more': 'More',
     'nav.about': 'About',
+    'nav.submitProperty': 'Submit A Property',
     // About page
     'about.title': 'About Modac Real Estate',
     'about.subtitle': 'Trusted African real estate consultancy in Dubai, UAE',
@@ -410,6 +414,9 @@ const translations: Record<string, Translations> = {
     'services.investment.title': 'الاستشارات الاستثمارية',
     'services.investment.subtitle': 'استراتيجيات مدعومة بالبيانات لتحسين العائد والنمو والسيولة عبر أبرز مناطق دبي.',
     'contact.cta': 'اتصل بنا',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'تواصل معنا',
+    'whatsapp.defaultMessage': 'مرحباً، أود الاستفسار عن عقاراتكم.',
     // Navigation
     'nav.home': 'الرئيسية',
     'nav.buy': 'شراء',
@@ -421,6 +428,7 @@ const translations: Record<string, Translations> = {
     'nav.blogs': 'المدونات',
     'nav.more': 'المزيد',
     'nav.about': 'من نحن',
+    'nav.submitProperty': 'تقديم عقار',
     // About page
     'about.title': 'نبذة عن موداك العقارية',
     'about.subtitle': 'استشارات عقارية موثوقة من إفريقيا في دبي، الإمارات',
@@ -726,6 +734,9 @@ const translations: Record<string, Translations> = {
     'services.investment.title': 'Conseil en investissement',
     'services.investment.subtitle': 'Stratégies pilotées par la donnée pour optimiser rendement, croissance et liquidité dans les quartiers phares et émergents de Dubaï.',
     'contact.cta': 'Nous contacter',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Chattez avec nous',
+    'whatsapp.defaultMessage': 'Bonjour, je souhaiterais me renseigner sur vos propriétés.',
     // Services i18n
     'services.residents.stats.avgProcessing': 'Délai moyen',
     'services.residents.stats.approvalRate': "Taux d'approbation",
@@ -1170,6 +1181,9 @@ const translations: Record<string, Translations> = {
     'services.residents.stats.languages': 'Idiomas',
     
     'contact.cta': 'Contáctanos',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Chatea con nosotros',
+    'whatsapp.defaultMessage': 'Hola, me gustaría consultar sobre sus propiedades.',
     'rent.heading': 'Las propiedades de alquiler más exquisitas de Dubái',
     'rent.subheading': 'Encuentra tu casa de alquiler perfecta en las ubicaciones más prestigiosas de Dubái con comodidades de clase mundial y estilo de vida sin igual.',
     'rent.learnMore': 'Saber más',
@@ -1431,6 +1445,9 @@ const translations: Record<string, Translations> = {
     'services.residents.stats.languages': 'Sprachen',
     
     'contact.cta': 'Kontaktieren Sie Uns',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Chatten Sie mit uns',
+    'whatsapp.defaultMessage': 'Hallo, ich möchte mich über Ihre Immobilien erkundigen.',
     'rent.heading': 'Dubais exquisite Mietobjekte',
     'rent.subheading': 'Finden Sie Ihre perfekte Mietwohnung an Dubais prestigeträchtigsten Standorten mit erstklassigen Annehmlichkeiten und einem unvergleichlichen Lebensstil.',
     'rent.learnMore': 'Mehr erfahren',
@@ -1576,6 +1593,11 @@ const translations: Record<string, Translations> = {
     'services.shortTermRentals': 'Affitti Brevi',
     'services.propertySnagging': 'Ispezione Immobiliare',
     'services.partnerProgram': 'Programma Partner',
+    
+    'contact.cta': 'Contattaci',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Chatta con noi',
+    'whatsapp.defaultMessage': 'Ciao, vorrei informazioni sulle vostre proprietà.',
     
     // Team page
     'team.loading': 'Caricamento membri del team...',
@@ -1943,6 +1965,9 @@ const translations: Record<string, Translations> = {
     'services.residents.stats.languages': 'Idiomas',
     
     'contact.cta': 'Entre em Contato',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Converse conosco',
+    'whatsapp.defaultMessage': 'Olá, gostaria de me informar sobre suas propriedades.',
     'rent.heading': 'As propriedades de aluguel mais requintadas de Dubai',
     'rent.subheading': 'Encontre sua casa de aluguel perfeita nos locais mais prestigiosos de Dubai com comodidades de classe mundial e um estilo de vida incomparável.',
     'rent.learnMore': 'Saiba mais',
@@ -2077,6 +2102,9 @@ const translations: Record<string, Translations> = {
     'services.investment.title': 'Инвестиционный консалтинг',
     'services.investment.subtitle': 'Стратегии на основе данных для оптимизации доходности, роста и ликвидности в ключевых и развивающихся районах Дубая.',
     'contact.cta': 'Связаться с нами',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': 'Напишите нам',
+    'whatsapp.defaultMessage': 'Здравствуйте, я хотел бы узнать о ваших объектах недвижимости.',
     // Services i18n
     'services.residents.stats.avgProcessing': 'Средний срок',
     'services.residents.stats.approvalRate': 'Одобрения',
@@ -2381,6 +2409,9 @@ const translations: Record<string, Translations> = {
     'services.investment.title': '投资咨询',
     'services.investment.subtitle': '以数据驱动的策略，优化迪拜核心与新兴片区的收益、增长与流动性。',
     'contact.cta': '联系我们',
+    // WhatsApp Widget
+    'whatsapp.chatWithUs': '与我们聊天',
+    'whatsapp.defaultMessage': '您好，我想咨询您的房产。',
     // Services i18n
     'services.residents.stats.avgProcessing': '平均办理时长',
     'services.residents.stats.approvalRate': '通过率',

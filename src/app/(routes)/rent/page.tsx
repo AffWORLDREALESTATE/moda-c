@@ -626,7 +626,7 @@ function Rent() {
             {/* Search Button */}
             <Button 
               onClick={handleSearch}
-              className="w-full bg-primary hover:bg-primary/90 text-white font-medium h-14 rounded-md"
+              className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium h-14 rounded-md"
             >
               <Search className="w-5 h-5 mr-2" />
               Search Properties
@@ -648,9 +648,9 @@ function Rent() {
           type="button"
           onClick={() => { setShowEnquiry(true); setEnquirySubmitted(false); }}
           className={cn(
-            "relative pb-1 transition-all duration-300 text-primary uppercase font-thin",
+            "relative pb-1 transition-all duration-300 text-red-600 uppercase font-thin",
             "after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0",
-            "after:-translate-x-1/2 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+            "after:-translate-x-1/2 after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full"
           )}
         >
           {t('rent.learnMore')}
@@ -660,7 +660,7 @@ function Rent() {
       {/* Learn More Enquiry Modal */}
       <Dialog open={showEnquiry} onOpenChange={setShowEnquiry}>
         <AnimatePresence>
-          <DialogContent className="max-w-md bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] border-2 border-[#0a4b6f]/20 shadow-2xl p-0 overflow-hidden">
+          <DialogContent className="max-w-md bg-white border-2 border-[#0a4b6f]/20 shadow-2xl p-0 overflow-hidden">
             <motion.div
               key={enquirySubmitted ? "success" : "form"}
               initial={{ opacity: 0, y: 20 }}

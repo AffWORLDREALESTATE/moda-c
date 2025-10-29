@@ -100,13 +100,21 @@ export default function Component() {
     fetchCommunities();
   }, []);
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50/50 via-white to-gray-50 text-gray-900 overflow-hidden relative">
+      {/* Decorative elements */}
+      <div className="absolute top-40 right-20 w-60 h-60 bg-[#0a4b6f]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 left-20 w-60 h-60 bg-red-500/5 rounded-full blur-3xl"></div>
+      
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 text-center px-4 sm:px-6 md:px-8 lg:px-12">
-        <p className="text-[#0a4b6f] text-sm sm:text-base uppercase tracking-widest mb-3 font-light">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 text-center px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+        {/* Red accent line */}
+        <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+        
+        <p className="text-red-600 text-base sm:text-lg uppercase tracking-widest mb-4 font-bold">
           {t('landing.communities.kicker')}
         </p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-gray-800 mb-6 sm:mb-8 tracking-wide font-serif px-2">
+        
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight px-2">
           {t('landing.communities.heading')}
         </h1>
         <p className="max-w-4xl mx-auto text-gray-600 text-sm sm:text-base tracking-tight font-light px-2 leading-relaxed">

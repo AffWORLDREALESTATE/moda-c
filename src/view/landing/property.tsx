@@ -77,22 +77,30 @@ export default function Property() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F2EEE8] text-[#1A202C]">
-      <main className="container mx-auto py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
-        <section className="text-center mb-8 sm:mb-12">
-          <h2 className="text-black text-xs sm:text-sm font-light tracking-widest mb-2 uppercase font-serif">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 text-[#1A202C]">
+      <main className="container mx-auto py-16 sm:py-20 md:py-24 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
+        <section className="text-center mb-12 sm:mb-16">
+          {/* Red accent line */}
+          <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+          
+          <h2 className="text-red-600 text-base sm:text-lg font-bold tracking-widest mb-6 uppercase">
             {t('landing.property.kicker')}
           </h2>
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-mono mb-3 sm:mb-4 text-[#1A202C] tracking-wide font-serif px-2">
-          {t('landing.property.heading')}
+          
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight px-2 leading-tight">
+            {t('landing.property.heading')}
           </h1>
-          <p className="max-w-4xl mx-auto text-xs sm:text-sm font-light text-gray-700 leading-relaxed mb-3 sm:mb-4 px-2">
+          
+          <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-600 leading-relaxed mb-6 px-2">
             {t('landing.property.subtitle')}
           </p>
+          
           {totalProperties > 0 && (
-            <p className="text-xs sm:text-sm text-gray-600">
-              {t('landing.property.showing')} {property.length} {t('landing.property.of')} {totalProperties} {t('landing.property.properties')}
-            </p>
+            <div className="inline-flex items-center px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
+              <p className="text-sm font-medium text-gray-700">
+                {t('landing.property.showing')} <span className="text-[#0a4b6f] font-bold">{property.length}</span> {t('landing.property.of')} <span className="text-[#0a4b6f] font-bold">{totalProperties}</span> {t('landing.property.properties')}
+              </p>
+            </div>
           )}
         </section>
 

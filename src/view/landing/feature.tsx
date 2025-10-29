@@ -28,15 +28,24 @@ export default function Feature() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 container mx-auto max-w-7xl">
-      <div className="text-center mb-6 sm:mb-8 md:mb-12">
-        <p className="text-xs sm:text-sm uppercase tracking-wider mb-2 text-primary">
+    <div className="flex flex-col items-center py-16 sm:py-20 md:py-24 lg:py-28 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 container mx-auto max-w-7xl bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
+      {/* Decorative circles */}
+      <div className="absolute top-20 left-10 w-40 h-40 bg-[#0a4b6f]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-red-500/5 rounded-full blur-3xl"></div>
+      
+      <div className="text-center mb-10 sm:mb-12 md:mb-16 relative z-10">
+        {/* Red accent line */}
+        <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+        
+        <p className="text-sm sm:text-base uppercase tracking-widest mb-4 text-[#0a4b6f] font-bold">
           {t('landing.feature.kicker')}
         </p>
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-mono font-thin text-[#1A202C] leading-tight mb-4 sm:mb-6 md:mb-8 font-serif px-2">
+        
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 px-2">
           {t('landing.feature.heading')}
         </h1>
-        <p className="text-sm sm:text-base md:text-lg text-gray-600 mx-auto max-w-3xl px-2 leading-relaxed">
+        
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 mx-auto max-w-3xl px-2 leading-relaxed">
           {t('landing.feature.subtitle')}
         </p>
       </div>

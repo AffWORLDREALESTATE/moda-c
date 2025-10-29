@@ -65,7 +65,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
         </div>
 
         {/* Content Section */}
-        <div className="h-2/5 bg-gradient-to-br from-white via-[#F8F6F0] to-white p-6 flex flex-col justify-between">
+        <div className="h-2/5 bg-white p-6 flex flex-col justify-between">
           {/* Header */}
           <div>
             <h3 className="text-xl font-light font-serif text-gray-800 mb-3 leading-tight">

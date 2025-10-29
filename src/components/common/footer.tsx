@@ -33,7 +33,7 @@ export default function Footer() {
               placeholder={t('footer.emailPlaceholder')}
               className="flex-grow bg-white/10 text-white border-[#0a4b6f]/50 placeholder:text-white/60 focus-visible:ring-offset-0 focus-visible:ring-[#0a4b6f] focus:border-[#0a4b6f] rounded-lg md:w-1/2 w-full h-12 backdrop-blur-sm"
             />
-            <Button className="bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white font-medium tracking-wider py-3 px-6 transition-all duration-300 uppercase h-12 rounded-lg md:w-1/3 w-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-sans">
+            <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium tracking-wider py-3 px-6 transition-all duration-300 uppercase h-12 rounded-lg md:w-1/3 w-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-sans">
               {t('footer.subscribe')}
             </Button>
           </div>

@@ -141,19 +141,19 @@ export default function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/98 backdrop-blur-xl border-b border-gray-200 shadow-lg' 
-        : 'bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm'
+        ? 'bg-white backdrop-blur-md border-b border-gray-200 shadow-lg' 
+        : 'bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-md'
     }`}>
-      <nav className="w-full flex items-center justify-between px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 h-12 sm:h-14 md:h-16 lg:h-18">
+      <nav className="w-full flex items-center justify-between px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 h-16 sm:h-18 md:h-20 lg:h-22">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <Link href={"/"}>
             <Image
               src="/images/logo.png"
               alt="MODAC Real Estate Logo"
-              width={80}
-              height={24}
-              className="object-contain sm:w-20 sm:h-6 md:w-32 md:h-10 lg:w-39 lg:h-32"
+              width={100}
+              height={32}
+              className="object-contain sm:w-24 sm:h-8 md:w-36 md:h-12 lg:w-44 lg:h-14"
             />
           </Link>
         </div>
@@ -168,10 +168,10 @@ export default function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "relative pb-1 transition-all duration-300 font-light text-sm text-gray-700 hover:text-[#314355]",
-                        "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
-                        "after:bg-[#314355] after:transition-all after:duration-300 hover:after:w-full",
-                        pathname === link.href && "after:w-full text-[#314355]"
+                        "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-[#0a4b6f]",
+                        "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
+                        "after:bg-[#0a4b6f] after:transition-all after:duration-300 hover:after:w-full",
+                        pathname === link.href && "after:w-full text-[#0a4b6f]"
                       )}
                       style={{
                         letterSpacing: "0.5px",
@@ -248,14 +248,14 @@ export default function Header() {
             }
             
             return (
-            <Link
-              key={i}
-              href={link.href}
-              className={cn(
-                  "relative pb-1 transition-all duration-300 font-light text-sm text-gray-700 hover:text-[#314355]",
-                  "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
-                "after:bg-[#314355] after:transition-all after:duration-300 hover:after:w-full",
-                pathname === link.href && "after:w-full text-[#314355]"
+                <Link
+                  key={i}
+                  href={link.href}
+                  className={cn(
+                  "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-[#0a4b6f]",
+                  "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
+                "after:bg-[#0a4b6f] after:transition-all after:duration-300 hover:after:w-full",
+                pathname === link.href && "after:w-full text-[#0a4b6f]"
               )}
               style={{
                 letterSpacing: "0.5px",
@@ -268,7 +268,15 @@ export default function Header() {
         </div>
 
         {/* Right Side - Currency and Actions */}
-        <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+        <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-shrink-0">
+          {/* Submit Property Button - Hidden on small screens */}
+          <Link 
+            href="/contactUs" 
+            className="hidden md:block bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg font-normal text-sm lg:text-base transition-all duration-300 shadow-md hover:shadow-lg uppercase tracking-wide"
+          >
+            {t('nav.submitProperty') || 'Submit A Property'}
+          </Link>
+
           {/* Language Switcher - Smaller on mobile */}
           <div className="scale-75 sm:scale-90 md:scale-100 origin-right">
             <LanguageSwitcher />

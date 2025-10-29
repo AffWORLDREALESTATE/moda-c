@@ -63,7 +63,7 @@ export default function TeamPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-[#0a4b6f] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 font-light">{t('team.loading')}</p>
@@ -75,7 +75,7 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen luxury-bg">
       <section className="relative pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8]"></div>
+        <div className="absolute inset-0 bg-white"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/3 via-transparent to-black/3"></div>
         
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#0a4b6f]/10 rounded-full blur-3xl"></div>
@@ -165,7 +165,7 @@ export default function TeamPage() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-10 items-stretch"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch"
             >
               <AnimatePresence mode="wait">
                 {agents.map((agent) => (
@@ -176,123 +176,85 @@ export default function TeamPage() {
                   className="group cursor-pointer h-full"
                   onClick={() => setSelectedAgent(agent)}
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-white/60 hover:border-[#0a4b6f]/30 group flex flex-col overflow-hidden">
-                    {/* Agent Photo - rectangular like provided example */}
-                    <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/0 group-hover:from-black/10 group-hover:to-black/20 transition-opacity duration-300 z-10" />
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 h-full flex flex-col">
+                    {/* Agent Photo - Square/Rectangular */}
+                    <div className="relative w-full aspect-[4/5] overflow-hidden">
                       {agent.avatar ? (
                         <Image
                           src={agent.avatar}
                           alt={agent.name}
                           fill
-                          className="object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-700"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           priority={false}
-                          quality={85}
+                          quality={90}
                         />
                       ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
-                          <span className="text-4xl font-bold text-white">
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                          <span className="text-4xl font-bold text-gray-500">
                             {agent.name?.charAt(0) || 'A'}
                           </span>
                         </div>
                       )}
                     </div>
 
-                    {/* Agent Info */}
-                    <div className="text-center py-4 px-5 md:px-6 flex-grow flex flex-col justify-center">
-                      <div className="space-y-1">
-                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 leading-tight">
+                    {/* Agent Info - Clean Layout */}
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                      <div className="text-center space-y-3">
+                        {/* Name */}
+                        <h3 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
                           {agent.name}
                         </h3>
                         
                         {/* Designation */}
                         {(agent as any).designation || agent.role_name ? (
-                          <p className="text-[#0a4b6f] font-medium text-xs sm:text-sm uppercase tracking-wider">
+                          <p className="text-gray-700 font-normal text-sm">
                             {(agent as any).designation || agent.role_name}
                           </p>
                         ) : null}
                         
-                        {/* Team Name */}
-                        {/* {agent.team_name && agent.team_name !== 'No team assigned' && (
-                          <p className="text-gray-500 font-medium text-xs sm:text-sm">
-                            {agent.team_name}
-                          </p>
-                        )} */}
-                        
-                        {/* Languages */}
-                        {agent.languages && agent.languages.length > 0 && (
-                          <div className="pt-2">
-                            <p className="text-gray-600 text-xs sm:text-sm mb-1">
-                              {t('team.languages')}:
+                        {/* Location & Languages */}
+                        <div className="pt-2 space-y-1">
+                          {agent.nationality && (
+                            <p className="text-gray-600 text-sm">
+                              {agent.nationality} | Dubai
                             </p>
-                            <div className="flex flex-wrap justify-center gap-1">
-                              {agent.languages.slice(0, 3).map((language, index) => {
+                          )}
+                          
+                          {agent.languages && agent.languages.length > 0 && (
+                            <p className="text-gray-900 text-sm">
+                              <span className="font-bold">Speaks:</span>{' '}
+                              {agent.languages.slice(0, 2).map((language, index) => {
                                 const raw = String(language);
-                                // Remove language codes like 'en', 'en:GB', 'en-US' anywhere in the string
                                 let cleaned = raw
-                                  // remove leading code forms like "en", "en:GB", "en-GB", "af:🇿🇦"
                                   .replace(/^[a-z]{2}(?::[A-Z]{2})?:?/i, '')
-                                  // remove any remaining code tokens like en-GB elsewhere
                                   .replace(/\b[a-z]{2}(?::[A-Z]{2})?\b/gi, '')
                                   .replace(/\b[a-z]{2}-[A-Z]{2}\b/gi, '')
-                                  // remove flag emojis (regional indicator pairs)
                                   .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '')
-                                  // punctuation/parentheses
                                   .replace(/[()]/g, ' ')
-                                  // collapse spaces
                                   .replace(/\s{2,}/g, ' ')
                                   .trim();
                                 if (!cleaned) {
                                   const parts = raw.split(/\s+/);
                                   cleaned = parts[parts.length - 1] || raw;
                                 }
-                                const label = cleaned;
-                                return (
-                                <span
-                                  key={index}
-                                  className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
-                                >
-                                  {label}
-                                </span>
-                                );
-                              })}
-                              {agent.languages.length > 3 && (
-                                <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
-                                  +{agent.languages.length - 3}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        )}
+                                return cleaned;
+                              }).filter(Boolean).join(', ')}
+                            </p>
+                          )}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Contact Buttons */}
-                    <div className="flex justify-center gap-3 md:gap-4 mt-auto">
+                      {/* WhatsApp Button Only */}
                       <a
                         href={`https://wa.me/${agent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${agent.name}, I'm interested in luxury properties in Dubai`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+                        className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <Icon icon="iconoir:whatsapp-solid" className="w-4 h-4 text-white" />
-                      </a>
-                      <a
-                        href={`tel:${agent.phone}`}
-                        className="w-10 h-10 bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Icon icon="line-md:phone-call-filled" className="w-4 h-4 text-white" />
-                      </a>
-                      <a
-                        href={`mailto:${agent.email}?subject=Luxury Property Inquiry`}
-                        className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Icon icon="material-symbols:mail-outline" className="w-4 h-4 text-white" />
+                        <Icon icon="iconoir:whatsapp-solid" className="w-5 h-5" />
+                        Connect On WhatsApp
                       </a>
                     </div>
                   </div>
@@ -319,7 +281,7 @@ export default function TeamPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-[#F8F6F0] to-[#F2EEE8]">
+      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

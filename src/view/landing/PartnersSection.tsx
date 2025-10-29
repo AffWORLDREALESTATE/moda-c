@@ -77,7 +77,7 @@ function PartnersSection() {
   }, [partners.length])
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-[#F8F6F0] via-white to-[#F2EEE8] border-t border-b border-gray-100">
+    <section className="py-8 sm:py-12 md:py-16 bg-white border-t border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header Section */}
         <motion.div

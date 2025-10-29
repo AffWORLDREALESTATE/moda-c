@@ -149,7 +149,7 @@ export default function DetailPage({ id }: any) {
             {property?.agent && (
               <>
                 <span className="text-gray-300">|</span>
-                <div className="flex items-center gap-4 bg-gradient-to-r from-[#F8F6F0] to-[#F2EEE8] px-4 py-3 rounded-xl border border-[#E5E1D8] shadow-lg">
+                <div className="flex items-center gap-4 bg-white px-4 py-3 rounded-xl border border-gray-200 shadow-lg">
                   <div className="relative">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-md">
                       {property.agent.avatar ? (
@@ -373,7 +373,7 @@ export default function DetailPage({ id }: any) {
         </div>
         {property?.permitQRCode && (
           <div className="flex justify-center">
-            <div className="bg-[#F2EEE8] border border-white rounded-lg p-4 flex items-center gap-4 shadow-sm max-w-sm">
+            <div className="bg-white border border-gray-200 rounded-lg p-4 flex items-center gap-4 shadow-sm max-w-sm">
               {/* QR Code with Palm Tree Emblem */}
               <div className="relative">
                 <div className="w-32 h-32 bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden">
@@ -407,7 +407,7 @@ export default function DetailPage({ id }: any) {
       
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <AnimatePresence>
-          <DialogContent className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[#F2EEE8] rounded-none px-8 py-4">
+          <DialogContent className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-white rounded-none px-8 py-4">
             <motion.div
               key="dialog"
               initial={{ opacity: 0, scale: 0.95, y: 20 }}

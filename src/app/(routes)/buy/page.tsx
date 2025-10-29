@@ -763,13 +763,13 @@ function BuyContent() {
             </div>
 
             {/* Search Button */}
-            <Button
-              onClick={handleSearch}
-              className="w-full bg-primary hover:bg-primary/90 text-white font-medium h-12 sm:h-14 rounded-md"
-            >
-              <Search className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              {t('buy.search')}
-            </Button>
+              <Button
+                onClick={handleSearch}
+                className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium h-12 sm:h-14 rounded-md"
+              >
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                {t('buy.search')}
+              </Button>
           </div>
         </DialogContent>
       </Dialog>

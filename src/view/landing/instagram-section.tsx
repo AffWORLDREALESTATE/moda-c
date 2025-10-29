@@ -4,7 +4,7 @@ import { useLanguage } from "@/src/contexts/LanguageContext";
 function InstagramSection() {
   const { t } = useLanguage();
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
       {/* Luxury Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-black/5"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#0a4b6f]/10 rounded-full blur-3xl"></div>

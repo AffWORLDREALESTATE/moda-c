@@ -147,7 +147,7 @@ export default function DetailPage({ id }: any) {
             {property?.agent && (
               <>
                 <span className="text-gray-300 hidden sm:inline">|</span>
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-gradient-to-r from-[#F8F6F0] to-[#F2EEE8] px-3 sm:px-4 py-3 rounded-xl border border-[#E5E1D8] shadow-lg">
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-white px-3 sm:px-4 py-3 rounded-xl border border-gray-200 shadow-lg">
                   <div className="relative">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-md">
                       {property.agent.avatar ? (
@@ -392,7 +392,7 @@ export default function DetailPage({ id }: any) {
         </div>
         {property?.newParam?.permitQRCode && (
           <div className="flex justify-center">
-            <div className="bg-[#F2EEE8] border border-white rounded-lg p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shadow-sm max-w-sm">
+            <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shadow-sm max-w-sm">
               {/* QR Code with Palm Tree Emblem */}
               <div className="relative">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden">
@@ -420,7 +420,7 @@ export default function DetailPage({ id }: any) {
         </div>
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <AnimatePresence>
-            <DialogContent className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-[#F2EEE8] rounded-none px-4 sm:px-6 md:px-8 py-3 sm:py-4">
+            <DialogContent className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white rounded-none px-4 sm:px-6 md:px-8 py-3 sm:py-4">
               <motion.div
                 key="dialog"
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}

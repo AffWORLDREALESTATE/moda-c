@@ -116,7 +116,7 @@ function Communities() {
 
   return (
     <div>
-      <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] relative overflow-hidden">
+      <section className="pt-32 pb-16 px-4 bg-white relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-black/5"></div>
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#0a4b6f]/10 rounded-full blur-3xl"></div>
@@ -184,7 +184,7 @@ function Communities() {
         )}
       </div>
       
-      <div className="bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] py-20">
+      <div className="bg-white py-20">
         <div className="container mx-auto max-w-7xl px-6">
           {/* Results Summary */}
           <div className="mb-12 text-center">
