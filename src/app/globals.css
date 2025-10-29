@@ -66,8 +66,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --font-poppins: "Helvetica", Sans-serif;
-  --font-playfair: "Helvetica", Sans-serif;
+  --font-poppins: Arial, Helvetica, sans-serif;
+  --font-playfair: Arial, Helvetica, sans-serif;
 }
 
 .dark {
@@ -149,17 +149,27 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Force Arial font on entire document */
+html {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 /* Custom utility classes for your fonts */
 .font-custom {
-  font-family: var(--font-poppins);
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 400;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 400;
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 400 !important;
     /* Optimize for mobile performance */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -167,12 +177,16 @@
   }
   h1, h2 {
     @apply font-serif;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
   h3, h4, h5, h6 {
     @apply font-sans;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
-  p, span, div, a, button, input, select, textarea {
+  p, span, div, a, button, input, select, textarea, label, li, th, td {
     @apply font-sans;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 400;
   }
   /* Global paragraph sizing to match homepage lead paragraph */
   p {

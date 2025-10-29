@@ -1,10 +1,10 @@
 import { api, handleApiError } from "@/src/lib/axios"
 import axios from "axios";
 
-export const getAllCommunities = async (page: number = 1, size: number = 100) => {
+export const getAllCommunities = async (page: number = 1, size: number = 50) => {
    try {
-     console.log('Making API call to:', `/locations/communities?sort_by=total_count&sort_order=desc&page=${page}&size=${size}`);
-     const res = await api.get(`/locations/communities?sort_by=total_count&sort_order=desc&page=${page}&size=${size}`)
+     console.log('Making API call to:', `/locations/communities/ordered?page=${page}&size=${size}&include_unordered=true`);
+     const res = await api.get(`/locations/communities/ordered?page=${page}&size=${size}&include_unordered=true`)
      console.log('API call successful, response:', res.data);
      return res.data
    } catch (error) {

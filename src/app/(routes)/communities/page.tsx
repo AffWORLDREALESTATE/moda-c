@@ -5,7 +5,7 @@ import { Loader } from "lucide-react";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 
-const PAGE_SIZE = 100;
+const PAGE_SIZE = 50;
 
 function Communities() {
   const { t } = useLanguage();
