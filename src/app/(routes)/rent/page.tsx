@@ -19,7 +19,8 @@ import { cn } from "@/src/lib/utils";
 import { RentCard } from "@/src/view/rent/rentCard";
 import Pagination from "@/src/components/common/Pagination";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Loader, Filter, X, Search } from "lucide-react";
+import { Loader, Filter, X, Search, User, Mail, Phone, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import PropertyCardSkeleton from "@/src/components/common/property-card-skeleton";
 import React, { useCallback, useMemo } from "react";
 import { api } from "@/src/lib/axios";
@@ -62,6 +63,11 @@ function Rent() {
   const [property, setProperty] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [showFilters, setShowFilters] = React.useState(false);
+  const [showEnquiry, setShowEnquiry] = React.useState(false);
+  const [enquirySubmitted, setEnquirySubmitted] = React.useState(false);
+  const [enquiryName, setEnquiryName] = React.useState("");
+  const [enquiryEmail, setEnquiryEmail] = React.useState("");
+  const [enquiryMobile, setEnquiryMobile] = React.useState("");
   const [developers, setDevelopers] = React.useState([]);
   const [developerSearch, setDeveloperSearch] = React.useState("");
   const [searchingDevelopers, setSearchingDevelopers] = React.useState(false);
@@ -638,8 +644,9 @@ function Rent() {
         </p>
       </div>
       <p className="text-center mb-11">
-      <Link href={"/whyDubai#rent-investment"}>
-      <span
+        <button
+          type="button"
+          onClick={() => { setShowEnquiry(true); setEnquirySubmitted(false); }}
           className={cn(
             "relative pb-1 transition-all duration-300 text-primary uppercase font-thin",
             "after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0",
@@ -647,9 +654,176 @@ function Rent() {
           )}
         >
           {t('rent.learnMore')}
-        </span>
-      </Link>
+        </button>
       </p>
+
+      {/* Learn More Enquiry Modal */}
+      <Dialog open={showEnquiry} onOpenChange={setShowEnquiry}>
+        <AnimatePresence>
+          <DialogContent className="max-w-md bg-gradient-to-br from-[#F8F6F0] via-white to-[#F2EEE8] border-2 border-[#0a4b6f]/20 shadow-2xl p-0 overflow-hidden">
+            <motion.div
+              key={enquirySubmitted ? "success" : "form"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="relative"
+            >
+              {/* Decorative gradient header */}
+              <div className="bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] px-6 py-5">
+                <div className="flex items-center justify-between">
+                  <DialogHeader className="flex-1">
+                    {!enquirySubmitted ? (
+                      <DialogTitle className="text-2xl font-serif text-white font-light tracking-wide">
+                        {t('details.enquireNow') || 'Enquire Now'}
+                      </DialogTitle>
+                    ) : (
+                      <DialogTitle className="text-2xl font-serif text-white font-light tracking-wide flex items-center gap-2">
+                        <CheckCircle2 className="w-6 h-6" />
+                        Thank You
+                      </DialogTitle>
+                    )}
+                  </DialogHeader>
+                  <button
+                    onClick={() => {
+                      setShowEnquiry(false);
+                      setEnquirySubmitted(false);
+                      setEnquiryName('');
+                      setEnquiryEmail('');
+                      setEnquiryMobile('');
+                    }}
+                    className="text-white/80 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="px-6 py-6">
+                {!enquirySubmitted ? (
+                  <motion.form
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="space-y-5"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (!enquiryName || !enquiryEmail || !enquiryMobile) return;
+                      setEnquirySubmitted(true);
+                    }}
+                  >
+                    {/* Name Field */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <User className="w-4 h-4 text-[#0a4b6f]" />
+                        {t('form.name') || 'Name'}
+                      </label>
+                      <div className="relative">
+                        <Input
+                          type="text"
+                          placeholder="Enter your name"
+                          value={enquiryName}
+                          onChange={(e) => setEnquiryName(e.target.value)}
+                          required
+                          className="bg-white h-12 px-4 pl-10 border-2 border-gray-200 focus:border-[#0a4b6f] focus:ring-2 focus:ring-[#0a4b6f]/20 rounded-md transition-all"
+                        />
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                      </div>
+                    </div>
+
+                    {/* Email Field */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-[#0a4b6f]" />
+                        {t('form.email') || 'Email'}
+                      </label>
+                      <div className="relative">
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          value={enquiryEmail}
+                          onChange={(e) => setEnquiryEmail(e.target.value)}
+                          required
+                          className="bg-white h-12 px-4 pl-10 border-2 border-gray-200 focus:border-[#0a4b6f] focus:ring-2 focus:ring-[#0a4b6f]/20 rounded-md transition-all"
+                        />
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                      </div>
+                    </div>
+
+                    {/* Mobile Field */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-[#0a4b6f]" />
+                        {t('form.telephone') || 'Mobile'}
+                      </label>
+                      <div className="relative">
+                        <Input
+                          type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          placeholder="Enter your mobile number"
+                          value={enquiryMobile}
+                          onChange={(e) => setEnquiryMobile(e.target.value.replace(/\D/g, ""))}
+                          required
+                          className="bg-white h-12 px-4 pl-10 border-2 border-gray-200 focus:border-[#0a4b6f] focus:ring-2 focus:ring-[#0a4b6f]/20 rounded-md transition-all"
+                        />
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                      </div>
+                    </div>
+
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#0a4b6f] text-white h-12 font-medium tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 rounded-md"
+                    >
+                      {t('form.submit') || 'Submit'}
+                    </Button>
+                  </motion.form>
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="space-y-6 text-center py-4"
+                  >
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                      className="flex justify-center"
+                    >
+                      <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                        <CheckCircle2 className="w-12 h-12 text-white" />
+                      </div>
+                    </motion.div>
+                    
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-serif text-gray-800 font-medium">
+                        Thank You for Your Interest!
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        We have received your enquiry. Our team will contact you shortly to assist you with your property needs.
+                      </p>
+                    </div>
+
+                    <Button
+                      onClick={() => {
+                        setShowEnquiry(false);
+                        setEnquirySubmitted(false);
+                        setEnquiryName('');
+                        setEnquiryEmail('');
+                        setEnquiryMobile('');
+                      }}
+                      className="w-full bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#0a4b6f] text-white h-12 font-medium tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 rounded-md"
+                    >
+                      Close
+                    </Button>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          </DialogContent>
+        </AnimatePresence>
+      </Dialog>
 
       {loading || property.length === 0 ? (
         <div className="text-center py-12">
