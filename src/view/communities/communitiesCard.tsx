@@ -27,9 +27,9 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
   const router = useRouter();
 
   const handleClick = () => {
-    // Navigate to buy page with area filter
+    // Navigate to offplans page with area filter
     const normalizedName = normalizeLocationName(data?.name);
-    router.push(`/buy?location=${encodeURIComponent(normalizedName)}`);
+    router.push(`/offPlans?location=${encodeURIComponent(normalizedName)}`);
   };
   
   const normalizedName = normalizeLocationName(data?.name);
@@ -75,7 +75,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
 
           {/* Explore Link */}
           <Link
-            href={`/buy?location=${encodeURIComponent(normalizedName)}`}
+            href={`/offPlans?location=${encodeURIComponent(normalizedName)}`}
             className={cn(
               "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-sm font-light tracking-wider group-hover:text-[#1a6b8f]",
               "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",

@@ -63,7 +63,6 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: t('nav.home') },
-    { href: "/rent", label: t('nav.rent') },
     { href: "/offPlans", label: t('nav.buy') },
     { href: "/team", label: t('nav.teams') },
     { href: "/communities", label: t('nav.areas') },
@@ -101,6 +100,7 @@ export default function Header() {
     //   icon: <Users className="h-4 w-4 text-gray-500" />,
     //   name: t('services.partnerProgram')
     // },
+    { icon: <Bed className="h-4 w-4 text-gray-500" />, name: t('nav.rent'), href: "/rent" },
     { icon: <Globe className="h-4 w-4 text-gray-500" />, name: t('services.buySell.title'), href: "/service/buy-sell-offplan" },
     { icon: <TrendingUp className="h-4 w-4 text-gray-500" />, name: t('services.investment.title'), href: "/service/investment" },
     { icon: <DollarSign className="h-4 w-4 text-gray-500" />, name: t('services.golden.title'), href: "/service/golden-visa" },
@@ -111,7 +111,6 @@ export default function Header() {
     
     { href: "/", label: t('nav.home') },
     // { href: "/buy", label: t('nav.buy') },
-    { href: "/rent", label: t('nav.rent') },
     { href: "/offPlans", label: t('nav.buy') },
     { href: "/communities", label: t('nav.areas') },
     { href: "/service", label: t('nav.services'), hasDropdown: true },
