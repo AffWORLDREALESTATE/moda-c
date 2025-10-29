@@ -6,6 +6,7 @@ import { Bath, Bed, Heart, SquareGanttChart } from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/src/contexts/LanguageContext"
+import { normalizeLocationName } from "@/src/lib/utils"
 
 interface PropertyData {
   id?: string | number
@@ -55,10 +56,10 @@ export function BuyCard({ data, onFavorite }: BuyCardProps) {
   }
 
   const imageUrl = data.photos?.[0] || "/placeholder.svg?height=320&width=400"
-  const locationName = [
+  const locationName = normalizeLocationName([
     data.location?.community,
     data.location?.sub_community
-  ].filter(Boolean).join(", ")
+  ].filter(Boolean).join(", "))
 
   const formattedPrice = data.price
     ? formatPrice(data.price)

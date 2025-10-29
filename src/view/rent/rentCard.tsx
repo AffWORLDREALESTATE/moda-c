@@ -6,6 +6,7 @@ import { Bath, Bed, Heart, SquareGanttChart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 interface PropertyData {
   id?: string | number;
@@ -56,9 +57,9 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
   }
 
   const imageUrl = data.photos?.[0] || "/placeholder.svg?height=320&width=400";
-  const locationName = [data.location?.community, data.location?.sub_community]
+  const locationName = normalizeLocationName([data.location?.community, data.location?.sub_community]
     .filter(Boolean)
-    .join(", ");
+    .join(", "));
 
   const formattedPrice = data.price
     ? formatPrice(data.price)

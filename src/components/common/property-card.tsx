@@ -7,6 +7,7 @@ import {
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 interface PropertyData {
   id?: string | number;
@@ -57,9 +58,9 @@ export default function PropertyCard({ data }: { data?: PropertyData }) {
           {data?.name ?? "Unnamed Property"}
         </CardTitle>
         <p className="text-sm uppercase tracking-wider text-primary font-light">
-          {`${data?.location?.community ?? ""}${
+          {normalizeLocationName(`${data?.location?.community ?? ""}${
             data?.location?.community && data?.location?.city ? ", " : ""
-          }${data?.location?.city ?? ""}`}
+          }${data?.location?.city ?? ""}`)}
         </p>
       </CardContent>
     </Card>

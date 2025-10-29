@@ -14,7 +14,7 @@ import {
 } from "@/src/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { getAllCommunities } from "@/src/api/communities";
-import { cn } from "@/src/lib/utils";
+import { cn, normalizeLocationName } from "@/src/lib/utils";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 
 const communities = [
@@ -128,7 +128,17 @@ export default function Component() {
           className="w-full mx-auto max-w-7xl"
         >
           <CarouselContent className="-ml-3 sm:-ml-4 md:-ml-6">
-            {communities?.map((community: any, idx: number) => (
+            {communities?.map((community: any, idx: number) => {
+              const normalizedName = normalizeLocationName(community.name);
+              // Use specific image for Dubai Island
+              const getImageSrc = () => {
+                if (normalizedName.toLowerCase() === "dubai island" || community.name?.toLowerCase() === "deira") {
+                  return "/images/main-dubai-islands-0217eaed95-3700-4cd4-ae39-f7e4130d8163.jpg";
+                }
+                return community.photos?.[0] || "/images/placeholder.jpg";
+              };
+              
+              return (
               <CarouselItem
                 key={`${community.id ?? idx}-${idx}`}
                 className="pl-3 sm:pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
@@ -136,15 +146,15 @@ export default function Component() {
                 <Card className="relative w-full h-[450px] sm:h-[550px] md:h-[700px] rounded-lg overflow-hidden shadow-xl group border-none hover:shadow-2xl transition-all duration-300">
                   <CardContent className="p-0 h-full">
                     <Image
-                      src={community.photos[0]}
-                      alt={community.name}
+                      src={getImageSrc()}
+                      alt={normalizedName}
                       fill
                       style={{ objectFit: "cover" }}
                       className="transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 sm:p-5 md:p-6 flex flex-col justify-end text-white">
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 sm:mb-3 tracking-wide drop-shadow-lg">
-                        {community.name}
+                        {normalizedName}
                       </h3>
                       <p className="text-sm sm:text-base mb-3 sm:mb-4 font-light leading-relaxed drop-shadow-md opacity-90">
                         {community.order_description}
@@ -164,7 +174,8 @@ export default function Component() {
                   </CardContent>
                 </Card>
               </CarouselItem>
-            ))}
+              );
+            })}
           </CarouselContent>
           {/* CarouselPrevious and CarouselNext can be added here if navigation arrows are desired */}
         </Carousel>

@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Dialog, DialogContent, DialogTitle } from "@/src/components/ui/dialog";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 export default function DetailPage({ id }: any) {
   const { t } = useLanguage();
@@ -126,7 +127,7 @@ export default function DetailPage({ id }: any) {
             {property?.title}
           </h1>
           <p className="text-base sm:text-lg font-light mb-8 sm:mb-12 tracking-wider uppercase text-primary">
-            {property?.location?.city} {property?.location?.community} {property?.location?.sub_community}
+            {normalizeLocationName(`${property?.location?.city || ""} ${property?.location?.community || ""} ${property?.location?.sub_community || ""}`.trim())}
           </p>
         </div>
       </section>
@@ -211,7 +212,7 @@ export default function DetailPage({ id }: any) {
                 <p>
                   {" "}
                   <strong className="font-bold">{t('details.city')}</strong>:{" "}
-                  {property?.location?.city}{" "}
+                  {normalizeLocationName(property?.location?.city || "")}{" "}
                 </p>
                 <p>
                   {" "}

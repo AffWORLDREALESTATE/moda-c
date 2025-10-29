@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/src/components/ui/card";
-import { cn } from "@/src/lib/utils";
+import { cn, normalizeLocationName } from "@/src/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -28,7 +28,18 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
 
   const handleClick = () => {
     // Navigate to buy page with area filter
-    router.push(`/buy?location=${encodeURIComponent(data?.name)}`);
+    const normalizedName = normalizeLocationName(data?.name);
+    router.push(`/buy?location=${encodeURIComponent(normalizedName)}`);
+  };
+  
+  const normalizedName = normalizeLocationName(data?.name);
+  
+  // Use specific image for Dubai Island
+  const getImageSrc = () => {
+    if (normalizedName.toLowerCase() === "dubai island" || data?.name?.toLowerCase() === "deira") {
+      return "/images/main-dubai-islands-0217eaed95-3700-4cd4-ae39-f7e4130d8163.jpg";
+    }
+    return data?.order_photo || data?.photos?.[0] || "/images/placeholder.jpg";
   };
 
   return (
@@ -40,10 +51,8 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
         {/* Main Image */}
         <div className="relative h-3/5 overflow-hidden">
           <Image
-            src={
-              data?.order_photo || data?.photos?.[0] || "/images/placeholder.jpg"
-            }
-            alt={`Image of ${data?.name}`}
+            src={getImageSrc()}
+            alt={`Image of ${normalizedName}`}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -60,13 +69,13 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
           {/* Header */}
           <div>
             <h3 className="text-xl font-light font-serif text-gray-800 mb-3 leading-tight">
-              {data?.name}
+              {normalizedName}
             </h3>
           </div>
 
           {/* Explore Link */}
           <Link
-            href={`/buy?location=${encodeURIComponent(data?.name)}`}
+            href={`/buy?location=${encodeURIComponent(normalizedName)}`}
             className={cn(
               "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-sm font-light tracking-wider group-hover:text-[#1a6b8f]",
               "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",

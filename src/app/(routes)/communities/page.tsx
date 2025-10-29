@@ -85,11 +85,27 @@ function Communities() {
     if (searchKeyword.trim() === "") {
       setFilteredCommunities(communities);
     } else {
-      const filtered = communities.filter((community) =>
-        community.name?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        community.location?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        community.description?.toLowerCase().includes(searchKeyword.toLowerCase())
-      );
+      const searchTerm = searchKeyword.toLowerCase();
+      
+      const filtered = communities.filter((community) => {
+        const communityName = community.name?.toLowerCase() || "";
+        const location = community.location?.toLowerCase() || "";
+        const description = community.description?.toLowerCase() || "";
+        
+        // Check if search term matches any field
+        // Also handle "Dubai Island" <-> "Deira" mapping for search
+        const matchesName = communityName.includes(searchTerm) || 
+                           (searchTerm === "dubai island" && communityName.includes("deira")) ||
+                           (searchTerm === "deira" && communityName.includes("dubai island"));
+        const matchesLocation = location.includes(searchTerm) ||
+                               (searchTerm === "dubai island" && location.includes("deira")) ||
+                               (searchTerm === "deira" && location.includes("dubai island"));
+        const matchesDescription = description.includes(searchTerm) ||
+                                   (searchTerm === "dubai island" && description.includes("deira")) ||
+                                   (searchTerm === "deira" && description.includes("dubai island"));
+        
+        return matchesName || matchesLocation || matchesDescription;
+      });
       setFilteredCommunities(filtered);
     }
   }, [communities, searchKeyword]);
