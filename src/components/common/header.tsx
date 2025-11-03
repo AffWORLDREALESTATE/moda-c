@@ -270,12 +270,12 @@ export default function Header() {
         {/* Right Side - Currency and Actions */}
         <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-shrink-0">
           {/* Submit Property Button - Hidden on small screens */}
-          <Link 
+          {/* <Link 
             href="/contactUs" 
             className="hidden md:block bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg font-normal text-sm lg:text-base transition-all duration-300 shadow-md hover:shadow-lg uppercase tracking-wide"
           >
             {t('nav.submitProperty') || 'Submit A Property'}
-          </Link>
+          </Link> */}
 
           {/* Language Switcher - Smaller on mobile */}
           <div className="scale-75 sm:scale-90 md:scale-100 origin-right">

@@ -16,7 +16,7 @@ export default function Home() {
      
       <Property />
       <Solutions/>
-      <Feature />
+      {/* <Feature /> */}
       <Communities />
       <PartnersSection />
       <InsightsInspiration />

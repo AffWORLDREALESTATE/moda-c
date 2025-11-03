@@ -18,7 +18,7 @@ export default function Property() {
   const [totalProperties, setTotalProperties] = React.useState(0);
   const [showAll, setShowAll] = React.useState(false);
 
-  const fetchproperty = async (page = 1, size = 24) => {
+  const fetchproperty = async (page = 1, size = 6) => {
     setLoading(true);
     setError(null);
     const query = `sort_by=total_count&sort_order=desc&page=${page}&size=${size}&type=off_plan`;
@@ -95,13 +95,6 @@ export default function Property() {
             {t('landing.property.subtitle')}
           </p>
           
-          {totalProperties > 0 && (
-            <div className="inline-flex items-center px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
-              <p className="text-sm font-medium text-gray-700">
-                {t('landing.property.showing')} <span className="text-[#0a4b6f] font-bold">{property.length}</span> {t('landing.property.of')} <span className="text-[#0a4b6f] font-bold">{totalProperties}</span> {t('landing.property.properties')}
-              </p>
-            </div>
-          )}
         </section>
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12">
@@ -156,36 +149,10 @@ export default function Property() {
           )}
         </section>
 
-        {/* Pagination Controls */}
-        {!showAll && totalPages > 1 && (
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="mb-3 sm:mb-4 text-xs sm:text-sm text-gray-600">
-              Debug: Current Page: {currentPage}, Total Pages: {totalPages}, Properties: {property.length}/{totalProperties}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-              {currentPage < totalPages && (
-                <Button 
-                  onClick={loadMore}
-                  disabled={loading}
-                  className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
-                >
-                  {loading ? "Loading..." : `${t('landing.property.loadMore')} (Page ${currentPage + 1})`}
-                </Button>
-              )}
-              <Button 
-                onClick={showAllProperties}
-                disabled={loading}
-                variant="outline"
-                className="border-[#0a4b6f] text-[#0a4b6f] hover:bg-[#0a4b6f] hover:text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-light tracking-wider rounded-none shadow-md uppercase"
-              >
-                {t('landing.property.showAll')} {totalProperties} {t('landing.property.properties')}
-              </Button>
-            </div>
-          </div>
-        )}
+        {/* Pagination Controls removed for landing: show only 6 items */}
 
         <div className="text-center">
-         <Link href={"/buy"}>
+         <Link href={"/offPlans"}>
            <Button className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg font-light tracking-wider rounded-none shadow-md uppercase">
             {t('landing.property.viewAll')}
           </Button>

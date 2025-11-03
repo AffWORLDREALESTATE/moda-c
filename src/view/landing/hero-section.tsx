@@ -83,7 +83,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative min-h-[70vh] sm:min-h-[75vh] md:h-[80vh] w-full flex items-center justify-center text-center bg-white overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
+      className="relative min-h-[85vh] sm:min-h-[90vh] md:h-[95vh] lg:h-screen w-full flex items-center justify-center text-center bg-white overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
     >
       {/* Luxury Loading Overlay */}
       {isLoading && (
@@ -177,6 +177,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-48 sm:mt-64 md:mt-80 lg:mt-[28rem]"
           >
             <SearchBar />
           </motion.div>
