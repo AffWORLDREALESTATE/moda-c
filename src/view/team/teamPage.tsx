@@ -217,7 +217,7 @@ export default function TeamPage() {
                         <div className="pt-2 space-y-1">
                           {agent.nationality && (
                             <p className="text-gray-600 text-sm">
-                              {agent.nationality} | Dubai
+                              {parseNationality(String(agent.nationality))} | Dubai
                             </p>
                           )}
                           

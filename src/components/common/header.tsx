@@ -151,9 +151,9 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="MODAC Real Estate Logo"
-              width={100}
-              height={32}
-              className="object-contain sm:w-24 sm:h-8 md:w-36 md:h-12 lg:w-44 lg:h-14"
+              width={260}
+              height={92}
+              className="object-contain sm:w-24 sm:h-8 md:w-52 md:h-16 lg:w-74 lg:h-29 xl:w-82 xl:h-34"
             />
           </Link>
         </div>
