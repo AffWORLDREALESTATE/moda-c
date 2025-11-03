@@ -117,7 +117,7 @@ function OffPlansPage() {
     { label: "2035", value: "2035" },
   ];
 
-  const [property, setProperty] = useState([]);
+  const [property, setProperty] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [developers, setDevelopers] = useState([]);
@@ -372,72 +372,84 @@ function OffPlansPage() {
         <div className="container mx-auto">
           {FilterButton}
 
-          {/* {t('offplans.desktopSearchForm')} */}
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-8 gap-4 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl">
-           
-            {/* {t('offplans.location')} */}
-            <div className="col-span-2">
-              <Input
-                placeholder={t('offplans.locationPlaceholder')}
-                value={filters.title}
-                onChange={(e) => handleFilterChange("title", e.target.value)}
-                className="w-full text-gray-800 bg-white/90 border border-[#0a4b6f]/30 placeholder:text-gray-600 hover:border-[#0a4b6f]/50 transition-colors font-sans"
-              />
-            </div>
+          {/* {t('offplans.desktopSearchForm')} with video background */}
+          <div className="hidden md:block relative rounded-2xl overflow-hidden shadow-xl border border-white/20 h-28 md:h-24 lg:h-20 xl:h-[14rem]">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/bgImage.webp"
+            >
+              <source src="/her.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="relative h-full flex items-center justify-center p-6">
+              <div className="grid grid-cols-1 md:grid-cols-8 gap-4 bg-white/5 backdrop-blur-md rounded-xl max-w-6xl mx-auto w-full">
+                {/* {t('offplans.location')} */}
+                <div className="col-span-2">
+                  <Input
+                    placeholder={t('offplans.locationPlaceholder')}
+                    value={filters.title}
+                    onChange={(e) => handleFilterChange("title", e.target.value)}
+                    className="w-full text-gray-800 bg-white/90 border border-[#0a4b6f]/30 placeholder:text-gray-600 hover:border-[#0a4b6f]/50 transition-colors font-sans"
+                  />
+                </div>
 
-            {/* {t('offplans.propertyType')} */}
-            <div>{PropertyTypeSelect}</div>
+                {/* {t('offplans.propertyType')} */}
+                <div>{PropertyTypeSelect}</div>
 
-            {/* {t('offplans.minPrice')} */}
-            <div>
-              <PriceSelect.MinPriceSelect />
-            </div>
+                {/* {t('offplans.minPrice')} */}
+                <div>
+                  <PriceSelect.MinPriceSelect />
+                </div>
 
-            {/* {t('offplans.maxPrice')} */}
-            <div>
-              <PriceSelect.MaxPriceSelect />
-            </div>
+                {/* {t('offplans.maxPrice')} */}
+                <div>
+                  <PriceSelect.MaxPriceSelect />
+                </div>
 
-            {/* {t('offplans.beds')} */}
-            <div>
-              <Select
-                value={filters.bedrooms}
-                onValueChange={(value) => handleFilterChange("bedrooms", value)}
-              >
-                <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 hover:border-[#0a4b6f]/50 transition-colors font-sans">
-                  <SelectValue placeholder={t('offplans.beds')} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="any">{t('offplans.beds')}</SelectItem>
-                  {BEDROOM_OPTIONS.slice(1).map((bedObj) => (
-                    <SelectItem key={bedObj.value} value={bedObj.value}>
-                      {bedObj.value === "5" ? t('offplans.fivePlusBeds') : `${bedObj.value} ${t('offplans.bed')}`}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+                {/* {t('offplans.beds')} */}
+                <div>
+                  <Select
+                    value={filters.bedrooms}
+                    onValueChange={(value) => handleFilterChange("bedrooms", value)}
+                  >
+                    <SelectTrigger className="w-full bg-white/90 border border-[#0a4b6f]/30 text-gray-800 hover:border-[#0a4b6f]/50 transition-colors font-sans">
+                      <SelectValue placeholder={t('offplans.beds')} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">{t('offplans.beds')}</SelectItem>
+                      {BEDROOM_OPTIONS.slice(1).map((bedObj) => (
+                        <SelectItem key={bedObj.value} value={bedObj.value}>
+                          {bedObj.value === "5" ? t('offplans.fivePlusBeds') : `${bedObj.value} ${t('offplans.bed')}`}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-            {/* {t('offplans.moreFiltersButton')} and {t('offplans.searchButton')} in same column */}
-            <div className="flex gap-2">
-              <Button
-                onClick={toggleFilters}
-                variant="outline"
-                className="w-32 h-14 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 flex items-center justify-center gap-2"
-              >
-                <Icon icon="lucide:sliders-horizontal" className="w-4 h-4" />
-                {t('offplans.moreFilters')}
-              </Button>
+                {/* {t('offplans.moreFiltersButton')} and {t('offplans.searchButton')} */}
+                <div className="flex gap-2">
+                  <Button
+                    onClick={toggleFilters}
+                    variant="outline"
+                    className="w-32 h-14 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 flex items-center justify-center gap-2"
+                  >
+                    <Icon icon="lucide:sliders-horizontal" className="w-4 h-4" />
+                    {t('offplans.moreFilters')}
+                  </Button>
 
-              <Button
-                onClick={handleSearch}
-                className="h-14 w-14 bg-primary hover:bg-primary/90 text-white flex items-center justify-center shadow-lg"
-              >
-                <Icon
-                  icon="iconamoon:search-fill"
-                  className="text-white text-xl"
-                />
-              </Button>
+                  <Button
+                    onClick={handleSearch}
+                    className="h-14 w-14 bg-primary hover:bg-primary/90 text-white flex items-center justify-center shadow-lg"
+                  >
+                    <Icon icon="iconamoon:search-fill" className="text-white text-xl" />
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

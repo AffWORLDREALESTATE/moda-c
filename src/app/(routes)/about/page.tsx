@@ -61,8 +61,8 @@ export default function AboutPage() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative z-10 text-center px-4"
         >
-          {/* Red accent line */}
-          <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+          {/* Brand accent line */}
+          <div className="w-20 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-6"></div>
           
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
             <T k="about.title" fallback="About Modac Real Estate" />
@@ -74,8 +74,8 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* Stats Section - Enhanced with Red */}
-      <section className="bg-gradient-to-r from-red-600 via-red-700 to-red-600 py-12 md:py-16">
+      {/* Stats Section - Brand colors */}
+      <section className="bg-gradient-to-r from-[#0a4b6f] via-[#1a6b8f] to-[#0a4b6f] py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 className="relative h-full"
               >
                 {/* Background decoration */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-red-500/20 to-[#0a4b6f]/20 rounded-3xl blur-2xl" />
+                <div className="absolute -inset-4 bg-gradient-to-br from-[#0a4b6f]/20 to-[#0a4b6f]/20 rounded-3xl blur-2xl" />
                 
                 <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-gray-100 h-full flex flex-col">
                   {/* Image section - Full width */}
@@ -215,13 +215,13 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
                       viewport={{ once: true }}
-                      className="absolute top-6 right-6 bg-red-600 backdrop-blur-sm rounded-full px-4 py-2 shadow-xl"
+                      className="absolute top-6 right-6 bg-[#0a4b6f] backdrop-blur-sm rounded-full px-4 py-2 shadow-xl"
                     >
                       <span className="text-white font-bold text-sm tracking-wider">CEO</span>
                     </motion.div>
                     
-                    {/* Corner accent - Red */}
-                    <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-red-600/30 to-transparent rounded-br-full" />
+                    {/* Corner accent - Brand */}
+                    <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#0a4b6f]/30 to-transparent rounded-br-full" />
                   </motion.div>
                   
                   {/* Content section - Enhanced */}
@@ -241,7 +241,7 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
                       viewport={{ once: true }}
-                      className="text-red-600 font-bold text-lg mb-4"
+                      className="text-[#0a4b6f] font-bold text-lg mb-4"
                     >
                       <T k="about.ceo" fallback="Founder & CEO" />
                     </motion.p>
@@ -251,7 +251,7 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.8 }}
                       viewport={{ once: true }}
-                      className="w-16 h-1 bg-gradient-to-r from-red-600 to-[#0a4b6f] mx-auto rounded-full mb-4"
+                      className="w-16 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto rounded-full mb-4"
                     />
                     
                     <motion.p
@@ -274,14 +274,14 @@ export default function AboutPage() {
       {/* Values Section - Enhanced */}
       <section className="bg-white py-16 md:py-24 relative overflow-hidden">
         {/* Decorative background */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#0a4b6f]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0a4b6f]/5 rounded-full blur-3xl"></div>
         
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <FadeUp>
             <div className="text-center mb-16">
-              {/* Red accent line */}
-              <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+              {/* Brand accent line */}
+              <div className="w-20 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-6"></div>
               
               <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
                 {t('about.values.heading')}
@@ -298,12 +298,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-2 border-gray-100 hover:border-red-500/50"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-2 border-gray-100 hover:border-[#0a4b6f]/50"
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
-                  className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center shadow-lg"
+                  className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] rounded-full flex items-center justify-center shadow-lg"
                 >
                   <value.icon className="w-10 h-10 text-white" />
                 </motion.div>

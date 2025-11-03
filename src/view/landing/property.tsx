@@ -83,9 +83,11 @@ export default function Property() {
           {/* Red accent line */}
           <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
           
-          <h2 className="text-red-600 text-base sm:text-lg font-bold tracking-widest mb-6 uppercase">
-            {t('landing.property.kicker')}
-          </h2>
+          <Link href={"/offPlans"}>
+            <h2 className="text-red-600 text-base sm:text-lg font-bold tracking-widest mb-6 uppercase cursor-pointer hover:text-red-700 transition-colors">
+              {t('landing.property.kicker')}
+            </h2>
+          </Link>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight px-2 leading-tight">
             {t('landing.property.heading')}

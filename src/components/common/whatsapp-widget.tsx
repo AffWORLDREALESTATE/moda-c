@@ -7,16 +7,14 @@ const WhatsAppWidget = () => {
   const { t } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
   
-  // WhatsApp number - Update this with your actual WhatsApp business number
-  // Format: country code + phone number (no + or spaces)
-  // Example for UAE: 971XXXXXXXXX
-  const whatsappNumber = '971XXXXXXXXX'; // TODO: Replace with actual WhatsApp number
+  // WhatsApp number (UAE): country code + phone number (no + or spaces)
+  const whatsappNumber = '97145758035';
   const whatsappMessage = encodeURIComponent(t('whatsapp.defaultMessage') || 'Hi, I would like to inquire about your properties.');
   
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-7 sm:bottom-10 md:bottom-16 lg:bottom-24 right-6 z-50">
       <a
         href={whatsappUrl}
         target="_blank"

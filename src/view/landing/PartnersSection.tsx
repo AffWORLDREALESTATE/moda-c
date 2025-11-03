@@ -64,8 +64,8 @@ function PartnersSection() {
                         className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                         priority={idx < 3}
                       />
-                    </div>
-                  </div>
+          </div>
+        </div>
                 </CarouselItem>
               )
             })}

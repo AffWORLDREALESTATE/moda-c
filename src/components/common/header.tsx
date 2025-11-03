@@ -153,7 +153,7 @@ export default function Header() {
               alt="MODAC Real Estate Logo"
               width={260}
               height={92}
-              className="object-contain sm:w-24 sm:h-8 md:w-52 md:h-16 lg:w-74 lg:h-29 xl:w-82 xl:h-34"
+              className="object-contain w-20 h-7 sm:w-24 sm:h-8 md:w-72 md:h-24 lg:w-80 lg:h-28 xl:w-96 xl:h-32"
             />
           </Link>
         </div>

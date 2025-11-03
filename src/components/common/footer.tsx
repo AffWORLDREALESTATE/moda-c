@@ -18,26 +18,6 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Newsletter Section */}
-        <div className="md:col-span-3 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 w-full bg-gradient-to-r from-[#0a4b6f]/10 to-[#1a6b8f]/10 p-4 md:p-6 rounded-2xl border border-[#0a4b6f]10/20">
-          <h3 className="text-xl font-light tracking-wide leading-relaxed w-full md:flex-none md:w-[40%] text-white font-sans">
-            {t('footer.newsletter')}
-          </h3>
-          <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full md:flex-1">
-            <label htmlFor="email-subscribe" className="sr-only">
-              {t('footer.emailLabel')}
-            </label>
-            <Input
-              id="email-subscribe"
-              type="email"
-              placeholder={t('footer.emailPlaceholder')}
-              className="flex-grow bg-white/10 text-white border-[#0a4b6f]/50 placeholder:text-white/60 focus-visible:ring-offset-0 focus-visible:ring-[#0a4b6f] focus:border-[#0a4b6f] rounded-lg md:w-1/2 w-full h-12 backdrop-blur-sm"
-            />
-            <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium tracking-wider py-3 px-6 transition-all duration-300 uppercase h-12 rounded-lg md:w-1/3 w-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-sans">
-              {t('footer.subscribe')}
-            </Button>
-          </div>
-        </div>
 
         {/* Sitemap */}
         <div>
