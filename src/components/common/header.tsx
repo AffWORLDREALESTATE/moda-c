@@ -275,7 +275,7 @@ export default function Header() {
             className="hidden md:block bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg font-normal text-sm lg:text-base transition-all duration-300 shadow-md hover:shadow-lg uppercase tracking-wide"
           >
             {t('nav.submitProperty') || 'Submit A Property'}
-          </Link> */}
+          </Link>  */}
 
           {/* Language Switcher - Smaller on mobile */}
           <div className="scale-75 sm:scale-90 md:scale-100 origin-right">
