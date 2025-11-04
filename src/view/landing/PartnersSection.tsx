@@ -70,8 +70,8 @@ function PartnersSection() {
               )
             })}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
+          <CarouselPrevious className="flex lg:hidden" />
+          <CarouselNext className="flex lg:hidden" />
         </Carousel>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import TeamPage from "@/src/view/team/teamPage";
+import HeroBanner from "@/src/components/common/hero-banner";
 
 export const metadata = {
   title: "Our Luxury Team - Modac Real Estate",
@@ -6,5 +7,10 @@ export const metadata = {
 };
 
 export default function Team() {
-  return <TeamPage />;
+  return (
+    <div>
+      <HeroBanner title="Our Team" imageSrc="/images/bgImage.webp" />
+      <TeamPage />
+    </div>
+  );
 }

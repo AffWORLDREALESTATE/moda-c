@@ -1,14 +1,9 @@
+import HeroBanner from "@/src/components/common/hero-banner";
+
 export default function WhyDubai() {
   return (
     <div className="luxury-bg min-h-screen">
-      <section className="pt-32 pb-16 px-4">
-        <div className="container mx-auto text-center">
-          <h1 className="text-6xl md:text-7xl font-light mb-8 text-gray-800 leading-tight font-serif">
-            <span className="text-[#0a4b6f] font-normal">Why</span> Dubai
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-8"></div>
-        </div>
-      </section>
+      <HeroBanner title="Why Dubai" imageSrc="/images/bgImage.webp" heightClassName="h-[65vh]" />
       
       <main className="container mx-auto px-8 py-4 md:py-12 lg:py-16 max-w-5xl">
         {/* Advantages to buy a Luxury property in Dubai */}

@@ -5,19 +5,13 @@ import { Textarea } from "@/src/components/ui/textarea"
 import { Button } from "@/src/components/ui/button"
 import EnquireForm from "@/src/components/common/enquireForm"
 import { useLanguage } from "@/src/contexts/LanguageContext"
+import HeroBanner from "@/src/components/common/hero-banner"
 
 function ContactUs() {
   const { t } = useLanguage();
   return (
     <div className="luxury-bg">
-      <section className="pt-32 pb-16 px-4">
-        <div className="container mx-auto text-center">
-          <h1 className="font-bold text-4xl font-serif">
-            <span className="text-[#0a4b6f]  font-normal">{t('contact.title')}</span>
-          </h1>
-          <div className="w-44 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-8"></div>
-        </div>
-      </section>
+      <HeroBanner title={t('contact.title')} imageSrc="/images/bgImage.webp" />
       {/* Top Section - Full Width */}
       <div className="py-20 container mx-auto max-w-7xl px-6">
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 text-center">

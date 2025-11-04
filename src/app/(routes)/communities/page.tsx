@@ -3,6 +3,7 @@ import { getAllCommunities } from "@/src/api/communities";
 import CommunitiesCard from "@/src/view/communities/communitiesCard";
 import { Loader } from "lucide-react";
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import HeroBanner from "@/src/components/common/hero-banner";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { translateCommunities } from "@/src/lib/translate";
 
@@ -116,19 +117,7 @@ function Communities() {
 
   return (
     <div>
-      <section className="pt-32 pb-16 px-4 bg-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-black/5"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#0a4b6f]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#1a6b8f]/10 rounded-full blur-3xl"></div>
-        
-        <div className="relative z-10 mx-auto text-center">
-          <h1 className="font-bold font-serif">
-            <span className="text-[#0a4b6f] font-normal">Luxury</span> Communities
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto mb-8"></div>
-        </div>
-      </section>
+      <HeroBanner title="Luxury Communities" imageSrc="/images/bgImage.webp" />
       <div className="mx-auto px-4 py-16 max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6 font-serif">

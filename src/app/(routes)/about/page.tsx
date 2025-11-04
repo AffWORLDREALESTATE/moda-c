@@ -38,7 +38,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
       {/* Hero Section - More Compact */}
-      <section className="relative h-[50vh] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -46,7 +46,7 @@ export default function AboutPage() {
           className="absolute inset-0 w-full h-full"
         >
           <Image
-            src="/images/building.jpg"
+            src="/images/bgImage.webp"
             alt="About Modac Real Estate"
             fill
             className="object-cover"

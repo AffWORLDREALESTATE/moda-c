@@ -274,7 +274,7 @@ function BuyContent() {
           <Button
             onClick={handleSearch}
             size="lg"
-            className="h-12 w-12 bg-primary hover:bg-primary/90 flex items-center justify-center shadow-lg"
+            className="h-12 w-12 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] hover:from-[#dc2626] hover:to-[#b91c1c] text-white flex items-center justify-center shadow-lg"
           >
             <Icon icon="iconamoon:search-fill" className="text-white text-xl" />
           </Button>
@@ -483,7 +483,7 @@ function BuyContent() {
 
               <Button
                 onClick={handleSearch}
-                className="h-12 w-12 sm:h-14 sm:w-14 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#2a8abf] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                className="h-12 w-12 sm:h-14 sm:w-14 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] hover:from-[#dc2626] hover:to-[#b91c1c] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 <Icon
                   icon="iconamoon:search-fill"

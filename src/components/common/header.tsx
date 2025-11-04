@@ -65,7 +65,7 @@ export default function Header() {
     { href: "/", label: t('nav.home') },
     { href: "/offPlans", label: t('nav.buy') },
     { href: "/team", label: t('nav.teams') },
-    { href: "/communities", label: t('nav.areas') },
+    { href: "/communities", label: t('nav.properties') || t('nav.areas') },
     { href: "/service", label: t('nav.services') },
     { href: "/blog", label: t('nav.blogs') },
     { href: "/about", label: t('nav.about') },
@@ -112,7 +112,7 @@ export default function Header() {
     { href: "/", label: t('nav.home') },
     // { href: "/buy", label: t('nav.buy') },
     { href: "/offPlans", label: t('nav.buy') },
-    { href: "/communities", label: t('nav.areas') },
+    { href: "/communities", label: t('nav.properties') || t('nav.areas') },
     { href: "/service", label: t('nav.services'), hasDropdown: true },
     { href: "/blog", label: t('nav.blogs') },
     { href: "/contactUs", label: t('nav.more') },
@@ -165,8 +165,9 @@ export default function Header() {
               return (
                 <HoverCard key={i} openDelay={200} closeDelay={100}>
                   <HoverCardTrigger asChild>
-                    <Link
-                      href={link.href}
+                    <button
+                      type="button"
+                      onClick={(e) => e.preventDefault()}
                       className={cn(
                         "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-[#0a4b6f]",
                         "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
@@ -176,9 +177,10 @@ export default function Header() {
                       style={{
                         letterSpacing: "0.5px",
                       }}
+                      aria-haspopup="menu"
                     >
                       {link.label}
-                    </Link>
+                    </button>
                   </HoverCardTrigger>
                   <HoverCardContent className="w-[500px] p-0" sideOffset={10}>
                     <div className="bg-white rounded-lg shadow-xl border border-gray-200">

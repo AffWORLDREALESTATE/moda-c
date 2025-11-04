@@ -115,7 +115,7 @@ export default function Component() {
         </p>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight px-2">
-          {t('landing.communities.heading')}
+          Explore locations in dubai
         </h1>
         <p className="max-w-4xl mx-auto text-gray-600 text-sm sm:text-base tracking-tight font-light px-2 leading-relaxed">
           {t('landing.communities.subtitle')}
@@ -146,41 +146,45 @@ export default function Component() {
                 return community.photos?.[0] || "/images/placeholder.jpg";
               };
               
+              // Create URL with location parameter for offPlans page
+              const offPlansUrl = `/offPlans?location=${encodeURIComponent(normalizedName)}`;
+              
               return (
               <CarouselItem
                 key={`${community.id ?? idx}-${idx}`}
                 className="pl-3 sm:pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Card className="relative w-full h-[450px] sm:h-[550px] md:h-[700px] rounded-lg overflow-hidden shadow-xl group border-none hover:shadow-2xl transition-all duration-300">
-                  <CardContent className="p-0 h-full">
-                    <Image
-                      src={getImageSrc()}
-                      alt={normalizedName}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      className="transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 sm:p-5 md:p-6 flex flex-col justify-end text-white">
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 sm:mb-3 tracking-wide drop-shadow-lg">
-                        {normalizedName}
-                      </h3>
-                      <p className="text-sm sm:text-base mb-3 sm:mb-4 font-light leading-relaxed drop-shadow-md opacity-90">
-                        {community.order_description}
-                      </p>
-                      <div className="w-full border-[1px] border-white/40 mb-3 sm:mb-4" />
-                      <Link
-                        href={"/communities"}
-                        className={cn(
-                          "relative pb-2 transition-all duration-300 text-white uppercase text-sm sm:text-base font-medium tracking-wider",
-                          "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                          "after:bg-white after:transition-all after:duration-300 hover:after:w-24 hover:text-blue-200"
-                        )}
-                      >
-                        {t('landing.communities.viewAll')}
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                <Link href={offPlansUrl}>
+                  <Card className="relative w-full h-[450px] sm:h-[550px] md:h-[700px] rounded-lg overflow-hidden shadow-xl group border-none hover:shadow-2xl transition-all duration-300 cursor-pointer">
+                    <CardContent className="p-0 h-full">
+                      <Image
+                        src={getImageSrc()}
+                        alt={normalizedName}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        className="transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 sm:p-5 md:p-6 flex flex-col justify-end text-white">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 sm:mb-3 tracking-wide drop-shadow-lg">
+                          {normalizedName}
+                        </h3>
+                        <p className="text-sm sm:text-base mb-3 sm:mb-4 font-light leading-relaxed drop-shadow-md opacity-90">
+                          {community.order_description}
+                        </p>
+                        <div className="w-full border-[1px] border-white/40 mb-3 sm:mb-4" />
+                        <div
+                          className={cn(
+                            "relative pb-2 transition-all duration-300 text-white uppercase text-sm sm:text-base font-medium tracking-wider",
+                            "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
+                            "after:bg-white after:transition-all after:duration-300 group-hover:after:w-24 group-hover:text-blue-200"
+                          )}
+                        >
+                          {t('landing.communities.viewAll')}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               </CarouselItem>
               );
             })}

@@ -18,7 +18,7 @@ import {
 import { cn } from "@/src/lib/utils";
 import OffPlanCard from "@/src/view/offPlans/offPlanCard";
 import Pagination from "@/src/components/common/Pagination";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import { Icon } from "@iconify/react";
 import { Loader, X, Search } from "lucide-react";
 import { useEffect, useState, useCallback, useMemo, Suspense } from "react";
 import { api } from "@/src/lib/axios";
@@ -154,7 +154,9 @@ function OffPlansPage() {
     // Add filter parameters
     Object.entries(filters).forEach(([key, value]) => {
       if (value && value !== "any" && value !== "all") {
-        queryParams.append(key, value);
+        // Map 'title' to 'community' for backend API
+        const backendKey = key === 'title' ? 'community' : key;
+        queryParams.append(backendKey, value);
       }
     });
 
@@ -238,6 +240,23 @@ function OffPlansPage() {
     setShowFilters((prev) => !prev);
   }, []);
 
+  // Update filters when location parameter changes in URL
+  useEffect(() => {
+    const locationParam = searchParams?.get('location');
+    if (locationParam) {
+      setFilters((prev) => {
+        // Only update if it's different to avoid unnecessary re-renders
+        if (prev.title !== locationParam) {
+          return {
+            ...prev,
+            title: locationParam,
+          };
+        }
+        return prev;
+      });
+    }
+  }, [searchParams]);
+
   useEffect(() => {
     fetchproperty(currentPage);
   }, [fetchproperty, currentPage]);
@@ -292,7 +311,9 @@ function OffPlansPage() {
           <Button
             onClick={handleSearch}
             size="lg"
-            className="h-12 w-12 bg-primary hover:bg-primary/90 flex items-center justify-center shadow-lg"
+            variant="ghost"
+            className="h-12 w-12 text-white flex items-center justify-center shadow-lg rounded-full"
+            style={{ backgroundImage: 'linear-gradient(90deg, #b91c1c, #dc2626)' }}
           >
             <Icon icon="iconamoon:search-fill" className="text-white text-xl" />
           </Button>
@@ -444,7 +465,9 @@ function OffPlansPage() {
 
                   <Button
                     onClick={handleSearch}
-                    className="h-14 w-14 bg-primary hover:bg-primary/90 text-white flex items-center justify-center shadow-lg"
+                    variant="ghost"
+                    className="h-14 w-14 text-white flex items-center justify-center shadow-lg rounded-full"
+                    style={{ backgroundImage: 'linear-gradient(90deg, #b91c1c, #dc2626)' }}
                   >
                     <Icon icon="iconamoon:search-fill" className="text-white text-xl" />
                   </Button>
@@ -721,7 +744,9 @@ function OffPlansPage() {
             {/* {t('offplans.searchButton')} */}
             <Button
               onClick={handleSearch}
-              className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium h-12 rounded-md"
+              variant="ghost"
+              className="w-full text-white font-medium h-12 rounded-md"
+              style={{ backgroundImage: 'linear-gradient(90deg, #b91c1c, #dc2626)' }}
             >
               <Search className="w-5 h-5 mr-2" />
               {t('offplans.searchProperties')}
