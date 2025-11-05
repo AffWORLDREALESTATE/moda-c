@@ -152,7 +152,7 @@ export default function Component() {
               return (
               <CarouselItem
                 key={`${community.id ?? idx}-${idx}`}
-                className="pl-3 sm:pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="pl-3 sm:pl-4 md:pl-6 md:basis-1/3 lg:basis-1/3 xl:basis-1/3"
               >
                 <Link href={offPlansUrl}>
                   <Card className="relative w-full h-[450px] sm:h-[550px] md:h-[700px] rounded-lg overflow-hidden shadow-xl group border-none hover:shadow-2xl transition-all duration-300 cursor-pointer">

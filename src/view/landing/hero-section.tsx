@@ -137,7 +137,7 @@ export default function HeroSection() {
               preload="auto"
               poster="/images/bgImage.webp"
             >
-              <source src="/Video-from-Modac-Real-Estate-Dubai.mp4" type="video/mp4" />
+              <source src="/Video-from-Modac-Real-Estate-Dubai - Trim.mp4" type="video/mp4" />
             </video>
 
             {/* Error State */}
