@@ -154,8 +154,8 @@ function OffPlansPage() {
     // Add filter parameters
     Object.entries(filters).forEach(([key, value]) => {
       if (value && value !== "any" && value !== "all") {
-        // Map 'title' to 'community' for backend API
-        const backendKey = key === 'title' ? 'community' : key;
+        // Map 'title' to 'name' for property name search
+        const backendKey = key === 'title' ? 'name' : key;
         queryParams.append(backendKey, value);
       }
     });
@@ -171,10 +171,48 @@ function OffPlansPage() {
       // Translate properties based on current language
       const rawProperties = res?.projects || [];
       const translatedProperties = await translateProperties(rawProperties, currentLanguage.code);
-      setProperty(translatedProperties);
       
-      setTotalPages(Math.ceil((res?.total || 0) / 24));
-      setTotalProperties(res?.total || 0);
+      // Client-side filtering: If there's a search term, filter properties that contain it
+      let filteredProperties = translatedProperties;
+      if (filters.title && filters.title.trim() !== "") {
+        const searchTerm = filters.title.toLowerCase().trim();
+        // Extract all keywords (words longer than 2 characters)
+        const keywords = searchTerm.split(/\s+/).filter(word => word.length > 2);
+        
+        filteredProperties = translatedProperties.filter((property: any) => {
+          const propertyName = (property.name || "").toLowerCase();
+          const propertyLocation = (property.location?.community || property.location?.city || "").toLowerCase();
+          const propertyDescription = (property.description || "").toLowerCase();
+          
+          // Check if the full search term appears in name or location (exact phrase match)
+          const hasFullMatch = propertyName.includes(searchTerm) || 
+                              propertyLocation.includes(searchTerm);
+          
+          // If no full match, check if all important keywords (first 2-3 keywords) are present
+          // This ensures "palm jumeirah village circle" matches properties with both "palm" and "jumeirah"
+          if (!hasFullMatch && keywords.length >= 2) {
+            // Take first 2-3 keywords as the main search terms
+            const mainKeywords = keywords.slice(0, Math.min(3, keywords.length));
+            const allMainKeywordsMatch = mainKeywords.every(keyword => 
+              propertyName.includes(keyword) || 
+              propertyLocation.includes(keyword) ||
+              propertyDescription.includes(keyword)
+            );
+            return allMainKeywordsMatch;
+          }
+          
+          return hasFullMatch;
+        });
+      }
+      
+      setProperty(filteredProperties);
+      
+      // Update pagination based on filtered results
+      const totalFiltered = filters.title && filters.title.trim() !== "" 
+        ? filteredProperties.length 
+        : (res?.total || 0);
+      setTotalPages(Math.ceil(totalFiltered / 24));
+      setTotalProperties(totalFiltered);
     } catch (error) {
       console.error("Error fetching properties:", error);
     } finally {
@@ -240,21 +278,45 @@ function OffPlansPage() {
     setShowFilters((prev) => !prev);
   }, []);
 
-  // Update filters when location parameter changes in URL
+  // Update filters when URL parameters change
   useEffect(() => {
     const locationParam = searchParams?.get('location');
-    if (locationParam) {
-      setFilters((prev) => {
-        // Only update if it's different to avoid unnecessary re-renders
-        if (prev.title !== locationParam) {
-          return {
-            ...prev,
-            title: locationParam,
-          };
-        }
-        return prev;
-      });
-    }
+    const propertyTypeParam = searchParams?.get('property_type');
+    const bedroomsParam = searchParams?.get('bedrooms');
+    const minPriceParam = searchParams?.get('min_price');
+    const maxPriceParam = searchParams?.get('max_price');
+    
+    setFilters((prev) => {
+      const updated = { ...prev };
+      let hasChanges = false;
+      
+      if (locationParam && prev.title !== locationParam) {
+        updated.title = locationParam;
+        hasChanges = true;
+      }
+      
+      if (propertyTypeParam && prev.property_type !== propertyTypeParam) {
+        updated.property_type = propertyTypeParam;
+        hasChanges = true;
+      }
+      
+      if (bedroomsParam && prev.bedrooms !== bedroomsParam) {
+        updated.bedrooms = bedroomsParam;
+        hasChanges = true;
+      }
+      
+      if (minPriceParam && prev.min_price !== minPriceParam) {
+        updated.min_price = minPriceParam;
+        hasChanges = true;
+      }
+      
+      if (maxPriceParam && prev.max_price !== maxPriceParam) {
+        updated.max_price = maxPriceParam;
+        hasChanges = true;
+      }
+      
+      return hasChanges ? updated : prev;
+    });
   }, [searchParams]);
 
   useEffect(() => {

@@ -25,28 +25,37 @@ export function SearchBar({ className = "" }: SearchBarProps) {
   const handleSearch = () => {
     const params = new URLSearchParams();
     
-    // Add non-empty parameters
-    Object.entries(searchParams).forEach(([key, value]) => {
-      if (value && value !== "any" && value !== "") {
-        // Map frontend keys to backend keys
-        const backendKey = key === "propertyType" ? "property_type" : key;
-        params.append(backendKey, value);
-      }
-    });
-
-  // Add listing type based on the "type" field
-  if (searchParams.type === "rent") {
-      params.append("listing_type", "RENT");
-      router.push(`/rent?${params.toString()}`);
-    } else if (searchParams.type === "buy") {
-      params.append("listing_type", "BUY");
-      router.push(`/buy?${params.toString()}`);
-  } else if (searchParams.type === "offplan") {
-    router.push(`/offPlans?${params.toString()}`);
-    } else {
-      // Default to buy page
-      router.push(`/buy?${params.toString()}`);
+    // Always navigate to offPlans page with search parameters
+    // Add location/search term as 'location' parameter (offPlans page maps this to 'title' filter)
+    if (searchParams.location && searchParams.location !== "any" && searchParams.location !== "") {
+      params.append("location", searchParams.location);
     }
+    
+    // Add property type if selected
+    if (searchParams.propertyType && searchParams.propertyType !== "any") {
+      params.append("property_type", searchParams.propertyType);
+    }
+    
+    // Add price range if selected
+    if (searchParams.price && searchParams.price !== "any") {
+      // Parse price range (e.g., "500000-1000000" or "10000000+")
+      if (searchParams.price.includes("-")) {
+        const [min, max] = searchParams.price.split("-");
+        params.append("min_price", min);
+        params.append("max_price", max);
+      } else if (searchParams.price.includes("+")) {
+        const min = searchParams.price.replace("+", "");
+        params.append("min_price", min);
+      }
+    }
+    
+    // Add bedrooms if selected
+    if (searchParams.bedrooms && searchParams.bedrooms !== "any") {
+      params.append("bedrooms", searchParams.bedrooms);
+    }
+    
+    // Always navigate to offPlans page
+    router.push(`/offPlans?${params.toString()}`);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
