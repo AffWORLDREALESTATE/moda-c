@@ -15,12 +15,18 @@ function PartnersSection() {
   const [api, setApi] = useState<CarouselApi | null>(null)
 
   const partnerImages = [
+    "/Partner/1235.jpg",
     "/Partner/15122009661273123205-1.jpg",
+    "/Partner/1736479431797598939_1736479431797598939.jpg",
     "/Partner/Binghatti-logo-dark.png",
+    "/Partner/ezgif-3-b69b539876.jpg",
+    "/Partner/fe6bb6b8836c1ba792024f9ea439ec21.jpg",
     "/Partner/gen_1199-2.jpg",
     "/Partner/images-1.png",
+    "/Partner/meraas9808.jpg",
     "/Partner/sobha-realty-logo.jpg",
     "/Partner/the-heart-of-europe-logo-01.png",
+    "/Partner/tiger-group-logo.webp",
   ]
 
   useEffect(() => {
@@ -70,8 +76,8 @@ function PartnersSection() {
               )
             })}
           </CarouselContent>
-          <CarouselPrevious className="flex lg:hidden" />
-          <CarouselNext className="flex lg:hidden" />
+          <CarouselPrevious className="flex" />
+          <CarouselNext className="flex" />
         </Carousel>
       </div>
     </section>

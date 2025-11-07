@@ -16,7 +16,7 @@ export default function Footer() {
     { href: "/contactUs", label: t('footer.contactUs') },
   ];
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <footer className="bg-[#0a4b6f] text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
         {/* Sitemap */}
