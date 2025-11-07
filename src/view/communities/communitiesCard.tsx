@@ -36,7 +36,11 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
   
   // Use specific image for Dubai Island
   const getImageSrc = () => {
-    if (normalizedName.toLowerCase() === "dubai island" || data?.name?.toLowerCase() === "deira") {
+    const communityNameLower = data?.name?.toLowerCase() || "";
+    if (normalizedName.toLowerCase() === "dubai island" || 
+        communityNameLower === "deira" || 
+        communityNameLower === "ain ajman" ||
+        communityNameLower === "ajman") {
       return "/images/main-dubai-islands-0217eaed95-3700-4cd4-ae39-f7e4130d8163.jpg";
     }
     return data?.order_photo || data?.photos?.[0] || "/images/placeholder.jpg";

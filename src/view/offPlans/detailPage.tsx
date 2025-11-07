@@ -11,6 +11,7 @@ import { useLanguage } from "@/src/contexts/LanguageContext";
 import { Icon } from "@iconify/react";
 import LocationSection from "./Location";
 import { translateProperty } from "@/src/lib/translate";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 export default function DetailPage({ id }: any) {
   const { formatPrice, t, currencyIconSrc, currentLanguage } = useLanguage();
@@ -84,7 +85,7 @@ export default function DetailPage({ id }: any) {
   return (
     <div className="luxury-bg">
       <section 
-        className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden"
+        className="relative h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[80vh] w-full flex items-end justify-center text-center overflow-hidden"
         onMouseMove={handleMouseMove}
       >
         <div className="absolute inset-0 w-full h-full">
@@ -110,12 +111,12 @@ export default function DetailPage({ id }: any) {
             ))}
           </div>
           <div className="absolute inset-0 bg-black/20 z-20" />
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+          <div className="hidden lg:flex absolute bottom-6 left-1/2 transform -translate-x-1/2 space-x-1.5 z-30">
             {property?.photos?.map((_: any, index: number) => (
               <button
                 key={index}
                 onClick={() => setHeroImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-0.5 h-0.5 rounded-full transition-all duration-300 ${
                   index === heroImageIndex
                     ? "bg-white scale-125"
                     : "bg-white/50 hover:bg-white/75"
@@ -124,20 +125,19 @@ export default function DetailPage({ id }: any) {
             ))}
           </div>
         </div>
-        <div className="relative z-30 text-white px-4 mt-[50vh] sm:mt-[60vh]">
+        <div className="relative z-30 text-white px-4 pb-8 sm:pb-12 md:pb-16">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-light mb-2 sm:mb-4 leading-tight tracking-wide font-serif">
             {property?.name}
           </h1>
-          <p className="text-base sm:text-lg font-light mb-8 sm:mb-12 tracking-wider uppercase text-primary">
-            {property?.location?.community}, {property?.location?.sub_community}
-            , {property?.location?.city}
+          <p className="text-sm sm:text-base md:text-lg font-light mb-4 sm:mb-6 tracking-wider uppercase text-primary">
+            {normalizeLocationName(`${property?.location?.community || ""}${property?.location?.sub_community ? `, ${property?.location?.sub_community}` : ""}${property?.location?.city ? `, ${property?.location?.city}` : ""}`)}
           </p>
         </div>
       </section>
 
       <section className="bg-white py-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-base sm:text-lg font-light uppercase text-primary mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 text-sm sm:text-base md:text-lg font-light uppercase text-primary mb-6 sm:mb-8 md:mb-12 px-2">
             <a
               className="hover:underline cursor-pointer text-center"
               onClick={() => setIsOpen(true)}
@@ -147,9 +147,9 @@ export default function DetailPage({ id }: any) {
             {property?.agent && (
               <>
                 <span className="text-gray-300 hidden sm:inline">|</span>
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-white px-3 sm:px-4 py-3 rounded-xl border border-gray-200 shadow-lg">
+                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 md:gap-4 bg-white px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-3.5 rounded-xl border border-gray-200 shadow-lg w-full sm:w-auto max-w-sm sm:max-w-none">
                   <div className="relative">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-3 border-[#0a4b6f] shadow-md">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full overflow-hidden border-2 md:border-3 border-[#0a4b6f] shadow-md">
                       {property.agent.avatar ? (
                         <Image
                           src={property.agent.avatar}
@@ -160,44 +160,44 @@ export default function DetailPage({ id }: any) {
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center">
-                          <span className="text-sm sm:text-lg font-bold text-white">
+                          <span className="text-sm sm:text-base md:text-lg font-bold text-white">
                             {property.agent.name?.charAt(0) || 'A'}
                           </span>
                         </div>
                       )}
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
                       <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white rounded-full"></div>
                     </div>
                   </div>
                   <div className="flex flex-col text-center sm:text-left">
-                    <span className="text-xs sm:text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                    <span className="text-xs sm:text-sm md:text-sm font-semibold text-gray-800 uppercase tracking-wide">
                       {property.agent.name}
                     </span>
-                    <span className="text-xs text-[#0a4b6f] font-medium uppercase tracking-wider">
+                    <span className="text-xs sm:text-xs md:text-xs text-[#0a4b6f] font-medium uppercase tracking-wider">
                       Property Specialist
                     </span>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-1.5 sm:gap-2">
                     <a
                       href={`https://wa.me/${property.agent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${property.agent.name}, I'm interested in ${property.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
-                      <Icon icon="iconoir:whatsapp-solid" className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <Icon icon="iconoir:whatsapp-solid" className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                     </a>
                     <a
                       href={`tel:${property.agent.phone}`}
-                      className="w-8 h-8 sm:w-10 sm:h-10 bg-[#0a4b6f] hover:bg-[#1a6b8f] rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-[#0a4b6f] hover:bg-[#1a6b8f] rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
-                      <Icon icon="line-md:phone-call-filled" className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <Icon icon="line-md:phone-call-filled" className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                     </a>
                     <a
                       href={`mailto:${property.agent.email}?subject=Inquiry about ${property.name}`}
-                      className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 hover:bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gray-700 hover:bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
-                      <Icon icon="material-symbols:mail-outline" className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <Icon icon="material-symbols:mail-outline" className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                     </a>
                   </div>
                 </div>

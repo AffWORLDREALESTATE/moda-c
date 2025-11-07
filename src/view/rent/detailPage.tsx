@@ -11,6 +11,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { Dialog, DialogContent, DialogTitle } from "@/src/components/ui/dialog";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { translateProperty } from "@/src/lib/translate";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 export default function DetailPage({ id }: any) {
   const { t, currentLanguage } = useLanguage();
@@ -133,7 +134,7 @@ export default function DetailPage({ id }: any) {
             {property?.title}
           </h1>
           <p className="text-lg font-light mb-12 tracking-wider uppercase text-primary">
-            {property?.location?.city} {property?.location?.community} {property?.location?.sub_community}
+            {normalizeLocationName(`${property?.location?.city || ""} ${property?.location?.community || ""} ${property?.location?.sub_community || ""}`.trim())}
           </p>
         </div>
       </section>

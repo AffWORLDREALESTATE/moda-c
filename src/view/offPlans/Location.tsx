@@ -37,9 +37,9 @@ export default function LocationSection({ property }: any) {
 
   return (
     <section className="w-full bg-[#F8F5EF]">
-      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
         {/* Map Side */}
-        <div className="w-full h-full overflow-hidden">
+        <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
           <iframe
             width="100%"
             height="100%"
@@ -52,8 +52,8 @@ export default function LocationSection({ property }: any) {
         </div>
 
         {/* Right Side - Content above Image */}
-        <section className="relative py-16 md:py-24 overflow-hidden bg-[#F8F5EF]">
-          <div className="absolute bottom-0 inset-x-0 w-full h-64 opacity-40">
+        <section className="relative py-8 sm:py-12 md:py-16 lg:py-24 overflow-hidden bg-[#F8F5EF]">
+          <div className="absolute bottom-0 inset-x-0 w-full h-48 sm:h-56 md:h-64 opacity-40">
             <Image
               src="/images/dubai-skyline-30.svg"
               alt="Dubai Skyline"
@@ -63,33 +63,33 @@ export default function LocationSection({ property }: any) {
             />
           </div>
           {/* Content */}
-          <div className="relative z-10 container mx-auto px-6 md:px-10 lg:px-20 ">
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-10 lg:px-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-mono mb-4 font-serif">Location</h2>
-              <p className="text-neutral-400 text-sm leading-relaxed line-clamp-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono mb-3 sm:mb-4 font-serif">Location</h2>
+              <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed line-clamp-4 sm:line-clamp-5 md:line-clamp-6 mb-4 sm:mb-6">
               {
                 property?.description
               }
               </p>
 
               <motion.div>
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center mt-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 md:gap-6 text-center mt-4 sm:mt-6">
                   {amenities?.map((obj, idx) => (
                     <div key={`${obj?.title}-${idx}`} className="flex flex-col items-center">
-                      <div className="flex  items-start justify-center gap-2">
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                         <Icon
                           icon={obj?.icon}
-                          className="text-3xl mb-2 text-primary"
+                          className="text-2xl sm:text-3xl md:text-3xl text-primary flex-shrink-0"
                         />
-                        <p className="">{obj?.title}</p>
+                        <p className="text-xs sm:text-sm md:text-base font-medium text-gray-800">{obj?.title}</p>
                       </div>
-                      <Separator className="my-1 bg-primary" />
-                      <p className="text-xs text-gray-600">{obj?.time}</p>
+                      <Separator className="my-1 sm:my-1.5 bg-primary w-full max-w-[60px] sm:max-w-[80px]" />
+                      <p className="text-xs sm:text-sm text-gray-600 font-light">{obj?.time}</p>
                     </div>
                   ))}
                 </div>

@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { useRouter } from "next/navigation";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 interface PropertyData {
   id?: string | number;
@@ -69,9 +70,9 @@ export default function OffPlanCard({ data }: { data?: PropertyData }) {
         </CardTitle>
         <div className="flex items-end justify-between">
           <p className="text-sm uppercase tracking-wider text-primary font-light">
-            {`${data?.location?.community ?? ""}${
+            {normalizeLocationName(`${data?.location?.community ?? ""}${
               data?.location?.community && data?.location?.city ? ", " : ""
-            }${data?.location?.city ?? ""}`}
+            }${data?.location?.city ?? ""}`)}
           </p>
           
           {/* Agent Avatar - Bottom Right Corner */}

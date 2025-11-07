@@ -23,21 +23,24 @@ function Solutions() {
       title: t('solutions.listProperty'),
       description: t('solutions.listDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-red-600" />,
-      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("I want to list my property")}`,
+      link: "/list-your-property",
+      isInternal: true,
     },
     {
       icon: <FileText className="h-12 w-12 text-red-600" />,
       title: t('solutions.downloadReport'),
       description: t('solutions.downloadDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-red-600" />,
-      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("I want to download the Dubai Property Market Report")}`,
+      link: "/download-report",
+      isInternal: true,
     },
     {
       icon: <Map className="h-12 w-12 text-red-600" />,
       title: t('solutions.exploreProjects'),
       description: t('solutions.exploreDescription'),
       arrow: <ArrowRight className="h-5 w-5 text-red-600" />,
-      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("I want to explore Dubai projects")}`,
+      link: "/explore-dubai-projects",
+      isInternal: true,
     },
   ];
 
@@ -67,8 +70,7 @@ function Solutions() {
               <a
                 key={index}
                 href={solution.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(solution.isInternal ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                 className="group relative bg-white/95 backdrop-blur-sm border-2 border-gray-200 hover:border-red-500 rounded-2xl p-4 sm:p-6 md:p-8 hover:bg-white hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 md:hover:-translate-y-3"
               >
                 {/* Luxury Icon Container */}

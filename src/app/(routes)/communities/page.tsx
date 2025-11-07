@@ -6,6 +6,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import HeroBanner from "@/src/components/common/hero-banner";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { translateCommunities } from "@/src/lib/translate";
+import { normalizeLocationName } from "@/src/lib/utils";
 
 const PAGE_SIZE = 50;
 
@@ -44,8 +45,14 @@ function Communities() {
           // Translate new communities
           const translatedCommunities = await translateCommunities(res.communities, currentLanguage.code);
           
+          // Normalize community names (replace Ain Ajman/Ajman with Dubai Island)
+          const normalizedCommunities = translatedCommunities.map((community: any) => ({
+            ...community,
+            name: normalizeLocationName(community.name || ""),
+          }));
+          
           setCommunities((prev) => {
-            const newCommunities = [...prev, ...translatedCommunities];
+            const newCommunities = [...prev, ...normalizedCommunities];
             setHasMore(newCommunities.length < res.total);
             return newCommunities;
           });
@@ -98,16 +105,22 @@ function Communities() {
         const description = community.description?.toLowerCase() || "";
         
         // Check if search term matches any field
-        // Also handle "Dubai Island" <-> "Deira" mapping for search
+        // Also handle "Dubai Island" <-> "Deira", "Ain Ajman", and "Ajman" mapping for search
         const matchesName = communityName.includes(searchTerm) || 
-                           (searchTerm === "dubai island" && communityName.includes("deira")) ||
-                           (searchTerm === "deira" && communityName.includes("dubai island"));
+                           (searchTerm === "dubai island" && (communityName.includes("deira") || communityName.includes("ain ajman") || communityName.includes("ajman"))) ||
+                           (searchTerm === "deira" && communityName.includes("dubai island")) ||
+                           (searchTerm === "ain ajman" && communityName.includes("dubai island")) ||
+                           (searchTerm === "ajman" && communityName.includes("dubai island"));
         const matchesLocation = location.includes(searchTerm) ||
-                               (searchTerm === "dubai island" && location.includes("deira")) ||
-                               (searchTerm === "deira" && location.includes("dubai island"));
+                               (searchTerm === "dubai island" && (location.includes("deira") || location.includes("ain ajman") || location.includes("ajman"))) ||
+                               (searchTerm === "deira" && location.includes("dubai island")) ||
+                               (searchTerm === "ain ajman" && location.includes("dubai island")) ||
+                               (searchTerm === "ajman" && location.includes("dubai island"));
         const matchesDescription = description.includes(searchTerm) ||
-                                   (searchTerm === "dubai island" && description.includes("deira")) ||
-                                   (searchTerm === "deira" && description.includes("dubai island"));
+                                   (searchTerm === "dubai island" && (description.includes("deira") || description.includes("ain ajman") || description.includes("ajman"))) ||
+                                   (searchTerm === "deira" && description.includes("dubai island")) ||
+                                   (searchTerm === "ain ajman" && description.includes("dubai island")) ||
+                                   (searchTerm === "ajman" && description.includes("dubai island"));
         
         return matchesName || matchesLocation || matchesDescription;
       });
