@@ -216,7 +216,7 @@ function OffPlansPage() {
     } catch (error) {
       console.error("Error fetching properties:", error);
     } finally {
-      setLoading(false);
+      setLoading(false); 
     }
   }, [filters, currentLanguage.code]);
 
