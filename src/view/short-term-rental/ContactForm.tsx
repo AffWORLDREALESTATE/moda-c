@@ -5,7 +5,8 @@ import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Textarea } from '../../components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
-import { MessageCircle, Phone, Mail } from 'lucide-react';
+import { MessageCircle, Phone, Mail, Loader2, CheckCircle2 } from 'lucide-react';
+import { sendContactEmail } from '../../utils/email';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,11 +16,44 @@ export default function ContactForm() {
     language: 'English',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await sendContactEmail(
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          language: formData.language,
+          message: formData.message,
+          subject: 'Short-Term Rental Consultation Request'
+        },
+        'info@modacrealestate.com'
+      );
+      
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        language: 'English',
+        message: ''
+      });
+      
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -172,10 +206,36 @@ export default function ContactForm() {
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary text-white py-4 text-lg font-semibold rounded-lg transition-colors duration-200"
+                disabled={isSubmitting}
+                className="w-full bg-primary hover:bg-primary text-white py-4 text-lg font-semibold rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Get Short-Term Rental Consultation
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : submitStatus === 'success' ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5 mr-2" />
+                    Message Sent!
+                  </>
+                ) : submitStatus === 'error' ? (
+                  'Error - Please Try Again'
+                ) : (
+                  'Get Short-Term Rental Consultation'
+                )}
               </Button>
+              
+              {submitStatus === 'success' && (
+                <p className="text-sm text-green-600 text-center">
+                  Thank you! We'll get back to you soon.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-sm text-red-600 text-center">
+                  Something went wrong. Please try again or contact us directly.
+                </p>
+              )}
 
               <p className="text-sm text-gray-500 text-center">
                 By clicking Submit, you agree to our{' '}

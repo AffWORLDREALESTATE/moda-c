@@ -19,7 +19,7 @@ import { cn } from "@/src/lib/utils";
 import { RentCard } from "@/src/view/rent/rentCard";
 import Pagination from "@/src/components/common/Pagination";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Loader, Filter, X, Search, User, Mail, Phone, CheckCircle2 } from "lucide-react";
+import { Loader, Filter, X, Search, User, Mail, Phone, CheckCircle2, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PropertyCardSkeleton from "@/src/components/common/property-card-skeleton";
 import React, { useCallback, useMemo } from "react";
@@ -28,6 +28,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { translateProperties } from "@/src/lib/translate";
+import { sendContactEmail } from "@/src/utils/email";
 
 // Constants
 const COMPLETION_STATUS_OPTIONS = [
@@ -68,6 +69,7 @@ function Rent() {
   const [enquiryName, setEnquiryName] = React.useState("");
   const [enquiryEmail, setEnquiryEmail] = React.useState("");
   const [enquiryMobile, setEnquiryMobile] = React.useState("");
+  const [isSubmittingEnquiry, setIsSubmittingEnquiry] = React.useState(false);
   const [developers, setDevelopers] = React.useState([]);
   const [developerSearch, setDeveloperSearch] = React.useState("");
   const [searchingDevelopers, setSearchingDevelopers] = React.useState(false);
@@ -706,10 +708,28 @@ function Rent() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
                     className="space-y-5"
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
                       if (!enquiryName || !enquiryEmail || !enquiryMobile) return;
-                      setEnquirySubmitted(true);
+                      
+                      setIsSubmittingEnquiry(true);
+                      try {
+                        await sendContactEmail(
+                          {
+                            name: enquiryName,
+                            email: enquiryEmail,
+                            phone: enquiryMobile,
+                            subject: 'Rent Property Enquiry'
+                          },
+                          'info@modacrealestate.com'
+                        );
+                        setEnquirySubmitted(true);
+                      } catch (error) {
+                        console.error('Error sending email:', error);
+                        alert('Failed to send enquiry. Please try again.');
+                      } finally {
+                        setIsSubmittingEnquiry(false);
+                      }
                     }}
                   >
                     {/* Name Field */}
@@ -772,10 +792,18 @@ function Rent() {
                     </div>
 
                     <Button 
-                      type="submit" 
-                      className="w-full bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#0a4b6f] text-white h-12 font-medium tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 rounded-md"
+                      type="submit"
+                      disabled={isSubmittingEnquiry}
+                      className="w-full bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] hover:from-[#1a6b8f] hover:to-[#0a4b6f] text-white h-12 font-medium tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {t('form.submit') || 'Submit'}
+                      {isSubmittingEnquiry ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin inline" />
+                          Sending...
+                        </>
+                      ) : (
+                        t('form.submit') || 'Submit'
+                      )}
                     </Button>
                   </motion.form>
                 ) : (

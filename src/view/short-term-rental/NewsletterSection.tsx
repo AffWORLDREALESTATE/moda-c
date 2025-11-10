@@ -3,16 +3,39 @@
 import React, { useState } from 'react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
-import { Mail } from 'lucide-react';
+import { Mail, Loader2, CheckCircle2 } from 'lucide-react';
+import { sendContactEmail } from '../../utils/email';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log('Newsletter subscription:', email);
-    setEmail('');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await sendContactEmail(
+        {
+          name: 'Newsletter Subscriber',
+          email: email,
+          subject: 'Newsletter Subscription - Short-Term Rental'
+        },
+        'info@modacrealestate.com'
+      );
+      
+      setSubmitStatus('success');
+      setEmail('');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,10 +63,17 @@ export default function NewsletterSection() {
             </div>
             <Button
               type="submit"
-              className="h-12 px-8 bg-white text-blue-900 hover:bg-blue-50 font-semibold transition-colors duration-200"
+              disabled={isSubmitting}
+              className="h-12 px-8 bg-white text-blue-900 hover:bg-blue-50 font-semibold transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Mail className="w-5 h-5 mr-2" />
-              Subscribe
+              {isSubmitting ? (
+                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+              ) : submitStatus === 'success' ? (
+                <CheckCircle2 className="w-5 h-5 mr-2" />
+              ) : (
+                <Mail className="w-5 h-5 mr-2" />
+              )}
+              {isSubmitting ? 'Subscribing...' : submitStatus === 'success' ? 'Subscribed!' : 'Subscribe'}
             </Button>
           </form>
 
