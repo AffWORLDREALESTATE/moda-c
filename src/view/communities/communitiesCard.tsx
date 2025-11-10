@@ -48,12 +48,12 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
 
   return (
     <Card
-      className="relative w-full h-[420px] rounded-3xl overflow-hidden shadow-2xl group border border-white/10 cursor-pointer bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 hover:shadow-3xl hover:-translate-y-2"
+      className="relative w-full h-[280px] rounded-2xl overflow-hidden shadow-lg group border border-white/10 cursor-pointer bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
       onClick={handleClick}
     >
       <CardContent className="p-0 h-full relative">
         {/* Main Image */}
-        <div className="relative h-3/5 overflow-hidden">
+        <div className="relative h-[180px] overflow-hidden">
           <Image
             src={getImageSrc()}
             alt={`Image of ${normalizedName}`}
@@ -69,10 +69,10 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
         </div>
 
         {/* Content Section */}
-        <div className="h-2/5 bg-white p-6 flex flex-col justify-between">
+        <div className="h-[100px] bg-white p-4 flex flex-col justify-between">
           {/* Header */}
           <div>
-            <h3 className="text-xl font-light font-serif text-gray-800 mb-3 leading-tight">
+            <h3 className="text-lg font-light font-serif text-gray-800 mb-2 leading-tight">
               {normalizedName}
             </h3>
           </div>
@@ -81,7 +81,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
           <Link
             href={`/offPlans?location=${encodeURIComponent(normalizedName)}`}
             className={cn(
-              "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-sm font-light tracking-wider group-hover:text-[#1a6b8f]",
+              "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-xs font-light tracking-wider group-hover:text-[#1a6b8f]",
               "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
               "after:bg-[#0a4b6f] after:transition-all after:duration-300 group-hover:after:w-full"
             )}
@@ -92,7 +92,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
         </div>
 
         {/* Luxury Border Effect */}
-        <div className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-[#0a4b6f]/20 via-transparent to-[#1a6b8f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 rounded-2xl border border-transparent bg-gradient-to-r from-[#0a4b6f]/20 via-transparent to-[#1a6b8f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </CardContent>
     </Card>
   );

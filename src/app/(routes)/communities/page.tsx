@@ -131,12 +131,12 @@ function Communities() {
   return (
     <div>
       <HeroBanner title="Luxury Communities" imageSrc="/images/bgImage.webp" />
-      <div className="mx-auto px-4 py-16 max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6 font-serif">
+      <div className="mx-auto px-4 py-8 max-w-6xl">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-4 font-serif">
             Unveiling Dubai&rsquo;s <span className="text-[#0a4b6f] font-normal">Vibrant</span> Communities
           </h2>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-sans">
+          <p className="text-base text-gray-600 max-w-4xl mx-auto leading-relaxed font-sans">
             Dubai is a city of diverse neighborhoods, each offering a unique
             character &amp; lifestyle. Beyond the stunning architecture, your
             bespoke community awaits. Explore the soul of Dubai&rsquo;s
@@ -146,7 +146,7 @@ function Communities() {
         </div>
         
         {/* Enhanced Search Input */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-8">
           <div className="relative w-full max-w-2xl">
             <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-[#0a4b6f]/20 shadow-xl p-2">
               <input
@@ -176,8 +176,8 @@ function Communities() {
         
         {/* Search Results Counter */}
         {searchKeyword && (
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#0a4b6f]/20 shadow-lg">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-xl border border-[#0a4b6f]/20 shadow-lg">
               <p className="text-[#0a4b6f] font-light text-sm tracking-wider">
                 Found {filteredCommunities.length} community{filteredCommunities.length !== 1 ? 'ies' : 'y'} matching "{searchKeyword}"
               </p>
@@ -186,12 +186,12 @@ function Communities() {
         )}
       </div>
       
-      <div className="bg-white py-20">
+      <div className="bg-white py-12">
         <div className="container mx-auto max-w-7xl px-6">
           {/* Results Summary */}
-          <div className="mb-12 text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-[#0a4b6f]/20 shadow-lg">
-              <span className="text-[#0a4b6f] font-light text-sm tracking-wider">
+          <div className="mb-8 text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-[#0a4b6f]/20 shadow-lg">
+              <span className="text-[#0a4b6f] font-light text-xs tracking-wider">
                 {searchKeyword ? 
                   `Found ${filteredCommunities.length} communities matching "${searchKeyword}"` : 
                   `Showing ${filteredCommunities.length} of ${total} luxury communities`
@@ -201,7 +201,7 @@ function Communities() {
           </div>
 
           {/* Communities Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
             {filteredCommunities.map((community, i) => {
               if (i === filteredCommunities.length - 1) {
                 return (

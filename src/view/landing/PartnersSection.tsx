@@ -38,9 +38,9 @@ function PartnersSection() {
   }, [api])
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 bg-white border-t border-b border-gray-100">
+    <section className="pt-2 sm:pt-3 md:pt-4 pb-8 sm:pb-12 md:pb-16 bg-white border-t border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
           <h2 className="text-gray-600 text-sm sm:text-base font-light tracking-widest uppercase font-sans mb-2">
             {t('landing.partners.heading')}
           </h2>

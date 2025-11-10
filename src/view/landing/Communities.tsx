@@ -112,24 +112,24 @@ export default function Component() {
       <div className="hidden sm:block absolute bottom-40 left-10 sm:left-20 w-40 h-40 sm:w-60 sm:h-60 bg-red-500/5 rounded-full blur-3xl"></div>
       
       {/* Hero Section */}
-      <section className="py-6 sm:py-8 md:py-10 lg:py-12 text-center px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <section className="py-3 sm:py-4 md:py-6 text-center px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         {/* Red accent dot */}
-        <div className="w-2 h-2 bg-red-500 rounded-full mx-auto mb-3 sm:mb-4"></div>
+        <div className="w-2 h-2 bg-red-500 rounded-full mx-auto mb-2"></div>
         
-        <p className="text-red-600 text-sm sm:text-base md:text-lg uppercase tracking-widest mb-3 sm:mb-4 font-bold px-2">
+        <p className="text-red-600 text-xs sm:text-sm uppercase tracking-widest mb-2 font-bold px-2">
           {t('landing.communities.kicker')}
         </p>
         
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 tracking-tight px-2 leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 sm:mb-3 tracking-tight px-2 leading-tight">
           Explore locations in dubai
         </h1>
-        <p className="max-w-4xl mx-auto text-gray-600 text-xs sm:text-sm md:text-base tracking-tight font-light px-2 leading-relaxed">
+        <p className="max-w-4xl mx-auto text-gray-600 text-xs sm:text-sm tracking-tight font-light px-2 leading-relaxed">
           {t('landing.communities.subtitle')}
         </p>
       </section>
 
       {/* Communities Section - Carousel */}
-      <section className="relative pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 2xl:px-24">
+      <section className="relative pb-2 sm:pb-3 md:pb-4 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <Carousel
           setApi={setApi}
           opts={{
@@ -165,7 +165,7 @@ export default function Component() {
                 className="pl-2 sm:pl-3 md:pl-4 lg:pl-6 basis-full sm:basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/3"
               >
                 <Link href={offPlansUrl} className="block h-full">
-                  <Card className="relative w-full h-[380px] xs:h-[420px] sm:h-[500px] md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-lg sm:shadow-xl group border-none hover:shadow-2xl transition-all duration-300 cursor-pointer touch-optimized">
+                  <Card className="relative w-full h-[240px] sm:h-[260px] md:h-[280px] rounded-lg overflow-hidden shadow-lg group border-none hover:shadow-xl transition-all duration-300 cursor-pointer touch-optimized">
                     <CardContent className="p-0 h-full">
                       <Image
                         src={getImageSrc()}
@@ -176,19 +176,19 @@ export default function Component() {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         priority={idx < 2}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-end text-white">
-                        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-1.5 sm:mb-2 md:mb-3 tracking-wide drop-shadow-lg leading-tight">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-3 sm:p-3 md:p-4 flex flex-col justify-end text-white">
+                        <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-0.5 sm:mb-1 tracking-wide drop-shadow-lg leading-tight">
                           {normalizedName}
                         </h3>
-                        <p className="text-xs sm:text-sm md:text-base mb-2 sm:mb-3 md:mb-4 font-light leading-relaxed drop-shadow-md opacity-90 line-clamp-2 sm:line-clamp-3">
+                        <p className="text-xs mb-1 sm:mb-1.5 font-light leading-relaxed drop-shadow-md opacity-90 line-clamp-2">
                           {community.order_description}
                         </p>
-                        <div className="w-full border-[1px] border-white/40 mb-2 sm:mb-3 md:mb-4" />
+                        <div className="w-full border-[1px] border-white/40 mb-1 sm:mb-1.5" />
                         <div
                           className={cn(
-                            "relative pb-1.5 sm:pb-2 transition-all duration-300 text-white uppercase text-xs sm:text-sm md:text-base font-medium tracking-wider",
+                            "relative pb-0.5 transition-all duration-300 text-white uppercase text-xs font-medium tracking-wider",
                             "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                            "after:bg-white after:transition-all after:duration-300 group-hover:after:w-16 sm:group-hover:after:w-20 md:group-hover:after:w-24 group-hover:text-blue-200"
+                            "after:bg-white after:transition-all after:duration-300 group-hover:after:w-12 sm:group-hover:after:w-16 group-hover:text-blue-200"
                           )}
                         >
                           {t('landing.communities.viewAll')}
@@ -205,11 +205,11 @@ export default function Component() {
         </Carousel>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center gap-1.5 sm:gap-2 md:gap-3 mt-6 sm:mt-8 md:mt-10">
+        <div className="flex justify-center gap-1.5 sm:gap-2 mt-3 sm:mt-4">
           {Array.from({ length: count }).map((_, index) => (
             <button
               key={index}
-              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 touch-optimized ${
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 touch-optimized ${
                 index === current - 1
                   ? "bg-[#0a4b6f] scale-110"
                   : "bg-gray-300 hover:bg-gray-400 active:bg-gray-500 hover:scale-105"
@@ -222,9 +222,9 @@ export default function Component() {
             />
           ))}
         </div>
-        <div className="w-full flex justify-center items-center mt-8 sm:mt-10 md:mt-12 mb-4 sm:mb-6 px-4">
+        <div className="w-full flex justify-center items-center mt-4 sm:mt-6 mb-0 px-4">
           <Link href="/offPlans" className="w-full sm:w-auto">
-            <Button className="w-full sm:w-48 md:w-56 h-11 sm:h-12 md:h-14 bg-[#0a4b6f] hover:bg-[#1a6b8f] active:bg-[#0a4b6f] text-white font-medium tracking-wider py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg transition-all duration-300 uppercase text-xs sm:text-sm md:text-base shadow-lg hover:shadow-xl active:scale-95 touch-optimized">
+            <Button className="w-full sm:w-44 h-9 sm:h-10 bg-[#0a4b6f] hover:bg-[#1a6b8f] active:bg-[#0a4b6f] text-white font-medium tracking-wider py-2 px-4 sm:px-6 rounded-lg transition-all duration-300 uppercase text-xs shadow-lg hover:shadow-xl active:scale-95 touch-optimized">
               {t('landing.communities.viewAll')}
             </Button>
           </Link>
