@@ -15,7 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/src/components/ui/dialog";
-import { cn } from "@/src/lib/utils";
+import { cn, normalizeLocationName } from "@/src/lib/utils";
 import OffPlanCard from "@/src/view/offPlans/offPlanCard";
 import Pagination from "@/src/components/common/Pagination";
 import { Icon } from "@iconify/react";
@@ -127,10 +127,10 @@ function OffPlansPage() {
   const [totalPages, setTotalPages] = useState(1);
   const [totalProperties, setTotalProperties] = useState(0);
 
-  // Filter states
+  // Filter states - properly decode URL parameters for all devices
   const [filters, setFilters] = useState({
     type: "off_plan",
-    title: searchParams?.get('location') || "",
+    title: searchParams?.get('location') ? decodeURIComponent(searchParams.get('location') || "") : "",
     property_type: (searchParams?.get('property_type') || "any").toLowerCase(),
     min_price: searchParams?.get('min_price') || "any",
     max_price: searchParams?.get('max_price') || "any",
@@ -154,8 +154,8 @@ function OffPlansPage() {
     // Add filter parameters
     Object.entries(filters).forEach(([key, value]) => {
       if (value && value !== "any" && value !== "all" && value !== "") {
-        // Map 'title' to 'name' for property name search
-        const backendKey = key === 'title' ? 'name' : key;
+        // Map 'title' to 'community' for location/community filtering (same as buy page)
+        const backendKey = key === 'title' ? 'community' : key;
         // Convert property_type to uppercase for backend API
         const backendValue = key === 'property_type' ? value.toUpperCase() : value;
         queryParams.append(backendKey, backendValue);
@@ -175,45 +175,62 @@ function OffPlansPage() {
       const rawProperties = res?.projects || [];
       const translatedProperties = await translateProperties(rawProperties, currentLanguage.code);
       
-      // Client-side filtering: If there's a search term, filter properties that contain it
+      // Client-side filtering: If there's a location/community filter, ensure exact matching
       let filteredProperties = translatedProperties;
       if (filters.title && filters.title.trim() !== "") {
         const searchTerm = filters.title.toLowerCase().trim();
-        // Extract all keywords (words longer than 2 characters)
-        const keywords = searchTerm.split(/\s+/).filter(word => word.length > 2);
+        const normalizedSearchTerm = normalizeLocationName(searchTerm).toLowerCase();
         
         filteredProperties = translatedProperties.filter((property: any) => {
-          const propertyName = (property.name || "").toLowerCase();
-          const propertyLocation = (property.location?.community || property.location?.city || "").toLowerCase();
-          const propertyDescription = (property.description || "").toLowerCase();
+          // Safely get property location fields with proper type checking
+          const getStringValue = (value: any): string => {
+            if (value === null || value === undefined) return "";
+            return String(value).trim();
+          };
           
-          // Check if the full search term appears in name or location (exact phrase match)
-          const hasFullMatch = propertyName.includes(searchTerm) || 
-                              propertyLocation.includes(searchTerm);
+          const propertyCommunity = getStringValue(property.location?.community || property.community).toLowerCase();
+          const propertyCity = getStringValue(property.location?.city || property.city).toLowerCase();
+          const propertyArea = getStringValue(property.location?.area || property.area).toLowerCase();
+          const propertyName = getStringValue(property.name).toLowerCase();
           
-          // If no full match, check if all important keywords (first 2-3 keywords) are present
-          // This ensures "palm jumeirah village circle" matches properties with both "palm" and "jumeirah"
-          if (!hasFullMatch && keywords.length >= 2) {
-            // Take first 2-3 keywords as the main search terms
-            const mainKeywords = keywords.slice(0, Math.min(3, keywords.length));
-            const allMainKeywordsMatch = mainKeywords.every(keyword => 
-              propertyName.includes(keyword) || 
-              propertyLocation.includes(keyword) ||
-              propertyDescription.includes(keyword)
-            );
-            return allMainKeywordsMatch;
+          // Skip if no location data available
+          if (!propertyCommunity && !propertyCity && !propertyArea) {
+            return false;
           }
           
-          return hasFullMatch;
+          // Normalize property location names for comparison
+          const normalizedPropertyCommunity = propertyCommunity ? normalizeLocationName(propertyCommunity).toLowerCase() : "";
+          const normalizedPropertyCity = propertyCity ? normalizeLocationName(propertyCity).toLowerCase() : "";
+          const normalizedPropertyArea = propertyArea ? normalizeLocationName(propertyArea).toLowerCase() : "";
+          
+          // Exact match on community (most important for location filtering)
+          const exactCommunityMatch = (normalizedPropertyCommunity && normalizedPropertyCommunity === normalizedSearchTerm) ||
+                                     (propertyCommunity && propertyCommunity === searchTerm);
+          
+          // Exact match on city
+          const exactCityMatch = (normalizedPropertyCity && normalizedPropertyCity === normalizedSearchTerm) ||
+                                  (propertyCity && propertyCity === searchTerm);
+          
+          // Exact match on area
+          const exactAreaMatch = (normalizedPropertyArea && normalizedPropertyArea === normalizedSearchTerm) ||
+                                (propertyArea && propertyArea === searchTerm);
+          
+          // Also check if the search term is contained in community (for partial matches like "Business Bay" in "Business Bay, Dubai")
+          const communityContains = (normalizedPropertyCommunity && normalizedPropertyCommunity.includes(normalizedSearchTerm)) ||
+                                   (propertyCommunity && propertyCommunity.includes(searchTerm));
+          
+          // Return true if any exact match is found, or if community contains the search term
+          return exactCommunityMatch || exactCityMatch || exactAreaMatch || communityContains;
         });
       }
       
       setProperty(filteredProperties);
       
       // Update pagination based on filtered results
+      // If client-side filtering was applied, use filtered count; otherwise use API total
       const totalFiltered = filters.title && filters.title.trim() !== "" 
         ? filteredProperties.length 
-        : (res?.total || 0);
+        : (res?.total || res?.totalProjects || 0);
       setTotalPages(Math.ceil(totalFiltered / 24));
       setTotalProperties(totalFiltered);
     } catch (error) {
@@ -281,24 +298,32 @@ function OffPlansPage() {
     setShowFilters((prev) => !prev);
   }, []);
 
-  // Update filters when URL parameters change
+  // Update filters when URL parameters change (works on all devices - mobile, tablet, desktop)
   useEffect(() => {
-    const locationParam = searchParams?.get('location');
-    const propertyTypeParam = searchParams?.get('property_type');
-    const bedroomsParam = searchParams?.get('bedrooms');
-    const minPriceParam = searchParams?.get('min_price');
-    const maxPriceParam = searchParams?.get('max_price');
+    // Ensure searchParams is available (handles SSR and client-side rendering on all devices)
+    if (!searchParams) return;
+    
+    const locationParam = searchParams.get('location');
+    const propertyTypeParam = searchParams.get('property_type');
+    const bedroomsParam = searchParams.get('bedrooms');
+    const minPriceParam = searchParams.get('min_price');
+    const maxPriceParam = searchParams.get('max_price');
     
     setFilters((prev) => {
       const updated = { ...prev };
       let hasChanges = false;
       
-      if (locationParam !== null && prev.title !== locationParam) {
-        updated.title = locationParam;
-        hasChanges = true;
+      // Handle location parameter (from communities page clicks)
+      if (locationParam !== null && locationParam !== undefined) {
+        const decodedLocation = decodeURIComponent(locationParam);
+        if (prev.title !== decodedLocation) {
+          updated.title = decodedLocation;
+          hasChanges = true;
+        }
       }
       
-      if (propertyTypeParam !== null) {
+      // Handle property type parameter (from footer clicks)
+      if (propertyTypeParam !== null && propertyTypeParam !== undefined) {
         const normalizedValue = propertyTypeParam.toLowerCase();
         if (prev.property_type !== normalizedValue) {
           updated.property_type = normalizedValue;
@@ -306,17 +331,20 @@ function OffPlansPage() {
         }
       }
       
-      if (bedroomsParam !== null && prev.bedrooms !== bedroomsParam) {
+      // Handle bedrooms parameter
+      if (bedroomsParam !== null && bedroomsParam !== undefined && prev.bedrooms !== bedroomsParam) {
         updated.bedrooms = bedroomsParam;
         hasChanges = true;
       }
       
-      if (minPriceParam !== null && prev.min_price !== minPriceParam) {
+      // Handle min price parameter
+      if (minPriceParam !== null && minPriceParam !== undefined && prev.min_price !== minPriceParam) {
         updated.min_price = minPriceParam;
         hasChanges = true;
       }
       
-      if (maxPriceParam !== null && prev.max_price !== maxPriceParam) {
+      // Handle max price parameter
+      if (maxPriceParam !== null && maxPriceParam !== undefined && prev.max_price !== maxPriceParam) {
         updated.max_price = maxPriceParam;
         hasChanges = true;
       }
