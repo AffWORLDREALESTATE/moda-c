@@ -131,12 +131,12 @@ function OffPlansPage() {
   const [filters, setFilters] = useState({
     type: "off_plan",
     title: searchParams?.get('location') || "",
-    property_type: "any",
-    min_price: "any",
-    max_price: "any",
+    property_type: (searchParams?.get('property_type') || "any").toLowerCase(),
+    min_price: searchParams?.get('min_price') || "any",
+    max_price: searchParams?.get('max_price') || "any",
     completion_status: "all",
     developer_id: "any",
-    bedrooms: "any",
+    bedrooms: searchParams?.get('bedrooms') || "any",
     bathrooms: "any",
     handover_year: "any",
   });
@@ -153,14 +153,17 @@ function OffPlansPage() {
 
     // Add filter parameters
     Object.entries(filters).forEach(([key, value]) => {
-      if (value && value !== "any" && value !== "all") {
+      if (value && value !== "any" && value !== "all" && value !== "") {
         // Map 'title' to 'name' for property name search
         const backendKey = key === 'title' ? 'name' : key;
-        queryParams.append(backendKey, value);
+        // Convert property_type to uppercase for backend API
+        const backendValue = key === 'property_type' ? value.toUpperCase() : value;
+        queryParams.append(backendKey, backendValue);
       }
     });
 
     try {
+      console.log("OffPlan Filters:", filters);
       console.log("OffPlan API URL:", `/properties/projects?${queryParams.toString()}`);
       const res = await getAllProperties(queryParams.toString());
       console.log("OffPlan API Response:", res);
@@ -290,27 +293,30 @@ function OffPlansPage() {
       const updated = { ...prev };
       let hasChanges = false;
       
-      if (locationParam && prev.title !== locationParam) {
+      if (locationParam !== null && prev.title !== locationParam) {
         updated.title = locationParam;
         hasChanges = true;
       }
       
-      if (propertyTypeParam && prev.property_type !== propertyTypeParam) {
-        updated.property_type = propertyTypeParam;
-        hasChanges = true;
+      if (propertyTypeParam !== null) {
+        const normalizedValue = propertyTypeParam.toLowerCase();
+        if (prev.property_type !== normalizedValue) {
+          updated.property_type = normalizedValue;
+          hasChanges = true;
+        }
       }
       
-      if (bedroomsParam && prev.bedrooms !== bedroomsParam) {
+      if (bedroomsParam !== null && prev.bedrooms !== bedroomsParam) {
         updated.bedrooms = bedroomsParam;
         hasChanges = true;
       }
       
-      if (minPriceParam && prev.min_price !== minPriceParam) {
+      if (minPriceParam !== null && prev.min_price !== minPriceParam) {
         updated.min_price = minPriceParam;
         hasChanges = true;
       }
       
-      if (maxPriceParam && prev.max_price !== maxPriceParam) {
+      if (maxPriceParam !== null && prev.max_price !== maxPriceParam) {
         updated.max_price = maxPriceParam;
         hasChanges = true;
       }
@@ -395,16 +401,15 @@ function OffPlansPage() {
           <SelectValue placeholder={t('offplans.propertyType')} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="any">{t('offplans.propertyType')}</SelectItem>
-          {PROPERTY_TYPES.map((type) => (
-            <SelectItem key={type} value={type}>
-              {type}
+          {PROPERTY_TYPE_OPTIONS.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
     ),
-    [filters.property_type, handleFilterChange]
+    [filters.property_type, handleFilterChange, t]
   );
 
   const PriceSelect = useMemo(() => {
@@ -630,10 +635,9 @@ function OffPlansPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-white max-h-60">
-                  <SelectItem value="any"> {t('offplans.propertyType')}</SelectItem>
-                  {PROPERTY_TYPES.map((type) => (
-                    <SelectItem key={type} value={type}>
-                      {type}
+                  {PROPERTY_TYPE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
