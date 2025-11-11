@@ -1,17 +1,46 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/src/components/ui/avatar";
-import { Badge } from "@/src/components/ui/badge";
-import { Button } from "@/src/components/ui/button";
-import { Card, CardContent } from "@/src/components/ui/card";
-import { Separator } from "@/src/components/ui/separator";
-import { Calendar, Clock, Share2, BookOpen, ArrowLeft } from "lucide-react";
+import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { useParams } from "next/navigation";
+
+// Import individual blog components
+import DubaiHiddenGems from "./dubai-hidden-gems";
+import DubaiRealEstateInvestment from "./dubai-real-estate-investment";
+import InteriorDesignTrends from "./interior-design-trends";
+import DubaiMarinaWaterfrontLiving from "./dubai-marina-waterfront-living";
+import PalmJumeirahIconicIsland from "./palm-jumeirah-iconic-island";
+import DubaiCreekHarbourUrbanLiving from "./dubai-creek-harbour-urban-living";
+import DubaiHillsEstateFamilyLiving from "./dubai-hills-estate-family-living";
+import DubaiIslandsNewEraLiving from "./dubai-islands-new-era-living";
+import DowntownDubaiHeartCity from "./downtown-dubai-heart-city";
+import BuyingPropertyDubaiInvestorsGuide from "./buying-property-dubai-investors-guide";
+import BusinessBayCommercialHub from "./business-bay-commercial-hub";
+import JbrBeachfrontLuxuryLiving from "./jbr-beachfront-luxury-living";
+import DubaiMarketTrends2025 from "./dubai-market-trends-2025";
+import OffPlanPropertiesDubai from "./off-plan-properties-dubai";
+import DubaiRentalYieldsInvestment from "./dubai-rental-yields-investment";
+import LuxuryVillasDubaiGuide from "./luxury-villas-dubai-guide";
+import DubaiPropertyTaxesFees from "./dubai-property-taxes-fees";
+import SustainableLivingDubai from "./sustainable-living-dubai";
+import DubaiInvestmentExpatsGuide from "./dubai-investment-expats-guide";
+import DubaiExpensivePropertiesShowcase from "./dubai-expensive-properties-showcase";
+import DubaiMarketForecast2026 from "./dubai-market-forecast-2026";
+import BestAreasFamiliesDubai from "./best-areas-families-dubai";
+import DubaiRealEstateROI from "./dubai-real-estate-roi";
+import DubaiMarketAnalysisQ42025 from "./dubai-market-analysis-q4-2025";
+import DubaiPenthousesLuxuryLiving from "./dubai-penthouses-luxury-living";
+import DubaiPropertyDevelopersGuide from "./dubai-property-developers-guide";
+import DubaiMarinaApartmentsGuide from "./dubai-marina-apartments-guide";
+import PalmJumeirahVillasExclusive from "./palm-jumeirah-villas-exclusive";
+import DubaiCreekHarbourMasterplan from "./dubai-creek-harbour-masterplan";
+import DubaiHillsGolfLiving from "./dubai-hills-golf-living";
+import DubaiPropertyViewingTips from "./dubai-property-viewing-tips";
+import ChoosingDubaiRealEstateAgent from "./choosing-dubai-real-estate-agent";
+import DubaiPropertyFinancingMortgage from "./dubai-property-financing-mortgage";
+import DubaiFreeholdLeaseholdOwnership from "./dubai-freehold-leasehold-ownership";
+import DubaiPropertyMaintenanceTips from "./dubai-property-maintenance-tips";
+import DubaiPropertyInsuranceGuide from "./dubai-property-insurance-guide";
+import DubaiPropertyResaleMaximize from "./dubai-property-resale-maximize";
 
 // Mock data - in a real app, this would come from your CMS or database
 const blogPosts = {
@@ -329,38 +358,159 @@ const localizedMeta: Record<string, Record<string, { title: string; subtitle: st
   },
 };
 
+// Component mapping - maps slug to component
+const blogComponentMap: Record<string, React.ComponentType> = {
+  "dubai-hidden-gems-exclusive-neighborhoods": DubaiHiddenGems,
+  "dubai-premier-real-estate-investment-guide": DubaiRealEstateInvestment,
+  "interior-design-trends-dubai-luxury-residences": InteriorDesignTrends,
+  "dubai-marina-waterfront-living": DubaiMarinaWaterfrontLiving,
+  "palm-jumeirah-iconic-island": PalmJumeirahIconicIsland,
+  "dubai-creek-harbour-urban-living": DubaiCreekHarbourUrbanLiving,
+  "dubai-hills-estate-family-living": DubaiHillsEstateFamilyLiving,
+  "dubai-islands-new-era-living": DubaiIslandsNewEraLiving,
+  "downtown-dubai-heart-city": DowntownDubaiHeartCity,
+  "buying-property-dubai-investors-guide": BuyingPropertyDubaiInvestorsGuide,
+  "business-bay-commercial-hub": BusinessBayCommercialHub,
+  "jbr-beachfront-luxury-living": JbrBeachfrontLuxuryLiving,
+  "dubai-market-trends-2025": DubaiMarketTrends2025,
+  "off-plan-properties-dubai": OffPlanPropertiesDubai,
+  "dubai-rental-yields-investment": DubaiRentalYieldsInvestment,
+  "luxury-villas-dubai-guide": LuxuryVillasDubaiGuide,
+  "dubai-property-taxes-fees": DubaiPropertyTaxesFees,
+  "sustainable-living-dubai": SustainableLivingDubai,
+  "dubai-investment-expats-guide": DubaiInvestmentExpatsGuide,
+  "dubai-expensive-properties-showcase": DubaiExpensivePropertiesShowcase,
+  "dubai-market-forecast-2026": DubaiMarketForecast2026,
+  "best-areas-families-dubai": BestAreasFamiliesDubai,
+  "dubai-real-estate-roi": DubaiRealEstateROI,
+  "dubai-market-analysis-q4-2025": DubaiMarketAnalysisQ42025,
+  "dubai-penthouses-luxury-living": DubaiPenthousesLuxuryLiving,
+  "dubai-property-developers-guide": DubaiPropertyDevelopersGuide,
+  "dubai-marina-apartments-guide": DubaiMarinaApartmentsGuide,
+  "palm-jumeirah-villas-exclusive": PalmJumeirahVillasExclusive,
+  "dubai-creek-harbour-masterplan": DubaiCreekHarbourMasterplan,
+  "dubai-hills-golf-living": DubaiHillsGolfLiving,
+  "dubai-property-viewing-tips": DubaiPropertyViewingTips,
+  "choosing-dubai-real-estate-agent": ChoosingDubaiRealEstateAgent,
+  "dubai-property-financing-mortgage": DubaiPropertyFinancingMortgage,
+  "dubai-freehold-leasehold-ownership": DubaiFreeholdLeaseholdOwnership,
+  "dubai-property-maintenance-tips": DubaiPropertyMaintenanceTips,
+  "dubai-property-insurance-guide": DubaiPropertyInsuranceGuide,
+  "dubai-property-resale-maximize": DubaiPropertyResaleMaximize,
+};
+
 export default function DetailsBlog() {
   const { t } = useLanguage();
   const params = useParams();
   const slug = params?.slug as string;
   
+  // Check if we have a dedicated component for this slug
+  const BlogComponent = blogComponentMap[slug];
+  
+  // If we have a dedicated component, use it
+  if (BlogComponent) {
+    return <BlogComponent />;
+  }
+  
+  // Otherwise, fall back to the existing blogPosts data or generate content
   const blogPost = blogPosts[slug as keyof typeof blogPosts];
   const lang = (typeof window !== 'undefined' && localStorage.getItem('selectedLanguage')) || 'en';
   const metaOverride = localizedMeta[lang]?.[slug];
-  const title = metaOverride?.title || blogPost?.title;
-  const subtitle = metaOverride?.subtitle || blogPost?.subtitle;
   
-  if (!blogPost) {
-    return (
-      <div className="min-h-screen bg-background">
-        <section className="pt-32 pb-12 px-4 bg-[#141442]">
-          <div className=" mx-auto text-center">
-            <h1 className="text-5xl font-medium mb-6 text-white font-serif font-bold">
-              {t('blog.notFound',)}
-            </h1>
-          </div>
-        </section>
-        <div className="max-w-5xl mx-auto px-6 mt-16 text-center">
-          <h1 className="text-4xl font-serif font-bold mb-4">
-            {t('blog.notFoundDescription')}
-          </h1>
-          <Link href="/blog">
-            <Button className="mt-4">{t('blog.backToBlog')}</Button>
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  // Fallback: generate a basic article if the slug doesn't exist in our dictionary
+  const generatedFromSlug = (() => {
+    if (blogPost) return null;
+    const niceTitleRaw = slug
+      ?.replace(/-/g, " ")
+      ?.replace(/\b\w/g, (c) => c.toUpperCase()) || "Blog";
+    const niceTitle = niceTitleRaw.trim();
+    const lower = slug.toLowerCase();
+    // Pick a relevant hero image based on keywords we already ship in /public/images
+    const featuredImage =
+      lower.includes("marina")
+        ? "/images/dubai-marina.webp"
+        : lower.includes("palm")
+        ? "/images/Palm-Jumeirah.webp"
+        : lower.includes("creek")
+        ? "/images/Dubai-Creek-Harbour.webp"
+        : lower.includes("hills")
+        ? "/images/Dubai-Hills-Estate.webp"
+        : lower.includes("islands")
+        ? "/images/main-dubai-islands-0217eaed95-3700-4cd4-ae39-f7e4130d8163.jpg"
+        : lower.includes("investment") || lower.includes("invest")
+        ? "/images/property3.jpeg"
+        : lower.includes("villa")
+        ? "/images/card4.jpeg"
+        : lower.includes("jbr") || lower.includes("beach")
+        ? "/images/blog1.webp"
+        : lower.includes("market") || lower.includes("trend") || lower.includes("analysis")
+        ? "/images/analysis.webp"
+        : "/images/bgImage.webp";
+    // Create a subtitle tailored to the topic
+    const subtitle =
+      lower.includes("marina")
+        ? "Waterfront living, skyline views, and a vibrant promenade lifestyle."
+        : lower.includes("palm")
+        ? "Experience iconic island living with beaches, resorts, and luxury homes."
+        : lower.includes("creek")
+        ? "A visionary master-plan blending sustainability with luxury amenities."
+        : lower.includes("hills")
+        ? "Family-friendly luxury with golf views and top-tier amenities."
+        : lower.includes("jbr") || lower.includes("beach")
+        ? "Beachfront luxury with dining, retail, and endless leisure options."
+        : lower.includes("business-bay")
+        ? "Dubai's commercial heart—high-rise living close to Downtown."
+        : lower.includes("investment") || lower.includes("invest")
+        ? "Strategies, areas, and insights to make smart moves in Dubai real estate."
+        : lower.includes("off-plan")
+        ? "Payment plans, developer selection, and ROI for pre‑construction projects."
+        : "Expert insights tailored to Dubai's luxury property market.";
+    // Dynamic, unique content generated from the title and keywords
+    const overview = `
+      <h2>Overview</h2>
+      <p><strong>${niceTitle}</strong> explores what makes this topic stand out in Dubai's real estate landscape. We cover location highlights, lifestyle benefits, and practical guidance so you can evaluate opportunities with confidence.</p>
+    `;
+    const highlights = `
+      <h2>Key Highlights</h2>
+      <ul>
+        <li>Prime location advantages and connectivity within Dubai.</li>
+        <li>Community facilities: schools, healthcare, leisure, and retail.</li>
+        <li>Property mix: apartments, villas, and premium developments.</li>
+        <li>Buyer and investor considerations for long‑term value.</li>
+      </ul>
+    `;
+    const lifestyle = `
+      <h2>Lifestyle & Amenities</h2>
+      <p>Residents enjoy thoughtfully planned amenities—from parks and waterfronts to retail boulevards and destination dining. The area around <em>${niceTitle}</em> is designed to balance everyday convenience with moments of luxury.</p>
+    `;
+    const investment = `
+      <h2>Investment Perspective</h2>
+      <p>Market demand, developer reputation, and supply pipeline shape outcomes here. Focus on projects with strong handover timelines, proven community management, and rental demand aligned with your strategy.</p>
+    `;
+    const conclusion = `
+      <h2>Conclusion</h2>
+      <p>If <strong>${niceTitle}</strong> matches your lifestyle or portfolio goals, our team can shortlist options and arrange viewings. Tell us your budget, preferred handover, and property type to get a curated selection.</p>
+    `;
+    const dynamicContent = `${overview}${highlights}${lifestyle}${investment}${conclusion}`;
+    return {
+      title: niceTitle,
+      subtitle,
+      content: dynamicContent,
+      author: {
+        name: "Modac Real Estate",
+        bio: "Premier real estate specialists assisting investors and property owners navigate Dubai's flourishing property marketplace.",
+        avatar: "/images/logo.png",
+      },
+      publishedAt: new Date().toLocaleDateString(),
+      readTime: "5 min read",
+      category: "Real Estate",
+      tags: ["Dubai", "Real Estate", "Guide"],
+      featuredImage,
+    };
+  })();
+  const effectivePost: any = blogPost || generatedFromSlug;
+  const title = metaOverride?.title || effectivePost?.title;
+  const subtitle = metaOverride?.subtitle || effectivePost?.subtitle;
 
   return (
     <div className="min-h-screen bg-background">
@@ -371,34 +521,36 @@ export default function DetailsBlog() {
           </h1>
         </div>
       </section>
-      <div className="max-w-5xl mx-auto px-6 mt-16">
-        <h1 className="text-center text-4xl font-serif font-bold">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 mt-8 sm:mt-12 md:mt-16">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
           {title}
         </h1>
-        <p className="text-center text-xl font-mono mt-11">{blogPost.publishedAt}</p>
+        <p className="text-center text-base sm:text-lg md:text-xl font-mono mt-4 sm:mt-6 md:mt-8 text-gray-600">{effectivePost.publishedAt}</p>
+        {effectivePost?.subtitle && (
+          <p className="text-center text-sm sm:text-base md:text-lg text-gray-600 mt-4 sm:mt-6 max-w-3xl mx-auto leading-relaxed">
+            {subtitle}
+          </p>
+        )}
       </div>
       {/* Featured Image */}
-      <div className="max-w-5xl mx-auto px-6 mt-8 mb-12">
-        <div className="relative rounded-none overflow-hidden ">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 mt-6 sm:mt-8 md:mt-12 mb-8 sm:mb-10 md:mb-12">
+        <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
           <Image
-            src={blogPost.featuredImage}
+            src={effectivePost.featuredImage}
             alt="Featured image"
             width={0}
             height={0}
-            className="w-full h-64 md:h-96 object-cover"
+            className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover"
+            priority
           />
         </div>
       </div>
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-6 py-4">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-12">
         <article className="prose prose-lg prose-slate max-w-none">
           <div
-            className="text-slate-700 leading-relaxed space-y-6"
-            dangerouslySetInnerHTML={{ __html: blogPost.content }}
-            style={{
-              fontSize: "15px",
-              lineHeight: "1.7",
-            }}
+            className="blog-content text-gray-700 leading-relaxed space-y-6"
+            dangerouslySetInnerHTML={{ __html: effectivePost.content }}
           />
         </article>
       </main>

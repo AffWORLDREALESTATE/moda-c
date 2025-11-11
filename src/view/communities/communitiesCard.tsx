@@ -48,12 +48,12 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
 
   return (
     <Card
-      className="relative w-full h-[280px] rounded-2xl overflow-hidden shadow-lg group border border-white/10 cursor-pointer bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+      className="relative w-full h-[340px] sm:h-[360px] md:h-[380px] rounded-2xl overflow-hidden shadow-lg group border border-white/10 cursor-pointer bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
       onClick={handleClick}
     >
       <CardContent className="p-0 h-full relative">
         {/* Main Image */}
-        <div className="relative h-[180px] overflow-hidden">
+        <div className="relative h-[220px] sm:h-[240px] md:h-[260px] overflow-hidden">
           <Image
             src={getImageSrc()}
             alt={`Image of ${normalizedName}`}
@@ -69,10 +69,10 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
         </div>
 
         {/* Content Section */}
-        <div className="h-[100px] bg-white p-4 flex flex-col justify-between">
+        <div className="h-[120px] sm:h-[120px] md:h-[120px] bg-white p-4 sm:p-5 md:p-6 flex flex-col justify-between">
           {/* Header */}
           <div>
-            <h3 className="text-lg font-light font-serif text-gray-800 mb-2 leading-tight">
+            <h3 className="text-base sm:text-lg md:text-xl font-light font-serif text-gray-800 mb-3 sm:mb-4 leading-tight">
               {normalizedName}
             </h3>
           </div>
@@ -81,8 +81,8 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
           <Link
             href={`/offPlans?location=${encodeURIComponent(normalizedName)}`}
             className={cn(
-              "relative pb-1 transition-all duration-300 text-[#0a4b6f] uppercase text-xs font-light tracking-wider group-hover:text-[#1a6b8f]",
-              "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0",
+              "relative pb-1.5 transition-all duration-300 text-[#0a4b6f] uppercase text-xs sm:text-sm font-medium tracking-wider group-hover:text-[#1a6b8f] mt-auto",
+              "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
               "after:bg-[#0a4b6f] after:transition-all after:duration-300 group-hover:after:w-full"
             )}
             onClick={(e) => e.stopPropagation()}

@@ -4,6 +4,7 @@ import { Button } from "@/src/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useLanguage } from "@/src/contexts/LanguageContext"
+import { usePathname } from "next/navigation"
 
 const blogPosts = [
   {
@@ -269,6 +270,8 @@ const blogPosts = [
 
 export function InsightsInspiration() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const displayedPosts = pathname === "/blog" ? blogPosts : blogPosts.slice(0, 6);
   return (
     <section className="py-12 sm:py-16 md:py-24 bg-white">
       <div className="mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-20 text-center">
@@ -288,7 +291,7 @@ export function InsightsInspiration() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
-          {blogPosts.map((post, index) => (
+          {displayedPosts.map((post, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -301,20 +304,22 @@ export function InsightsInspiration() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-       <Link href={"/blog"} passHref>
-        <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
-       {t('landing.blog.viewAll')}
-          </Button>
-       </Link>
-        </motion.div>
+        {pathname !== "/blog" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href={"/blog"} passHref>
+              <Button className="w-40 sm:w-48 h-9 sm:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-extralight tracking-wider py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-sm sm:text-base">
+                {t('landing.blog.viewAll')}
+              </Button>
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   )
