@@ -20,6 +20,7 @@ function Communities() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredCommunities, setFilteredCommunities] = useState<any[]>([]);
   const observer = useRef<IntersectionObserver | null>(null);
+  const fetchingRef = useRef(false); // Prevent concurrent fetches
   const lastCommunityRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (loading) return;
@@ -36,6 +37,13 @@ function Communities() {
 
   useEffect(() => {
     const fetchCommunities = async () => {
+      // Prevent concurrent fetches (React Strict Mode double render protection)
+      if (fetchingRef.current) {
+        console.log('Already fetching, skipping duplicate call');
+        return;
+      }
+      
+      fetchingRef.current = true;
       setLoading(true);
       try {
         const res = await getAllCommunities(page, PAGE_SIZE);
@@ -52,7 +60,25 @@ function Communities() {
           }));
           
           setCommunities((prev) => {
-            const newCommunities = [...prev, ...normalizedCommunities];
+            // If page is 1, replace all communities (reset)
+            if (page === 1) {
+              setHasMore(normalizedCommunities.length < res.total);
+              return normalizedCommunities;
+            }
+            
+            // For page > 1, append but check for duplicates
+            // Create a Set of existing community IDs/names to avoid duplicates
+            const existingIds = new Set(prev.map((c: any) => c.id || c.name || `${c.name}-${c.city}`));
+            
+            // Filter out duplicates from new communities
+            const uniqueNewCommunities = normalizedCommunities.filter(
+              (c: any) => {
+                const uniqueId = c.id || c.name || `${c.name}-${c.city}`;
+                return !existingIds.has(uniqueId);
+              }
+            );
+            
+            const newCommunities = [...prev, ...uniqueNewCommunities];
             setHasMore(newCommunities.length < res.total);
             return newCommunities;
           });
@@ -87,6 +113,7 @@ function Communities() {
         setHasMore(false);
       } finally {
         setLoading(false);
+        fetchingRef.current = false; // Reset flag after fetch completes
       }
     };
     fetchCommunities();
