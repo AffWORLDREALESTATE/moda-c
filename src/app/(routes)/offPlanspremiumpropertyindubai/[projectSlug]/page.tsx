@@ -4,10 +4,11 @@ import { useParams } from "next/navigation";
 import React from "react";
 
 function OffPlaneDetails() {
-  const { offplanId } = useParams();
+  const { projectSlug } = useParams();
   return <div>
-    <DetailPage id={offplanId} />
+    <DetailPage slug={projectSlug as string} />
   </div>;
 }
 
 export default OffPlaneDetails;
+

@@ -3,14 +3,15 @@ import DetailPage from "@/src/view/rent/detailPage";
 import { useParams } from "next/navigation";
 import React from "react";
 
-function BuyDetails() {
-  const { buyId } = useParams();
+function RentDetails() {
+  const { projectSlug } = useParams();
 
   return (
     <div>
-        <DetailPage id={buyId} />
+        <DetailPage slug={projectSlug as string} />
     </div>
   );
 }
 
-export default BuyDetails;
+export default RentDetails;
+

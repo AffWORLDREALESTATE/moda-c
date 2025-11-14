@@ -32,7 +32,7 @@ function ExploreDubaiProjects() {
       <div className="py-20 container mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Off-Plan Projects */}
-          <Link href="/offPlans" className="group">
+          <Link href="/offPlanspremiumpropertyindubai" className="group">
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="w-16 h-16 bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Building2 className="w-8 h-8 text-white" />
@@ -95,7 +95,7 @@ function ExploreDubaiProjects() {
                 Contact Us
               </Button>
             </Link>
-            <Link href="/offPlans">
+            <Link href="/offPlanspremiumpropertyindubai">
               <Button className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-full">
                 Browse All Projects
               </Button>

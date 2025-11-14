@@ -7,7 +7,7 @@ import {
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
-import { normalizeLocationName } from "@/src/lib/utils";
+import { normalizeLocationName, createProjectSlug } from "@/src/lib/utils";
 
 interface PropertyData {
   id?: string | number;
@@ -30,7 +30,7 @@ export default function PropertyCard({ data }: { data?: PropertyData }) {
     const router = useRouter();
     const { t, formatPrice, currencyIconSrc } = useLanguage();
   return (
-    <Card className="overflow-hidden border-none p-0 shadow-sm border-2 rounded-none hover:shadow-lg transition-shadow duration-300" onClick={() => router.push(`/offPlans/details/${data?.id}`)}>
+    <Card className="overflow-hidden border-none p-0 shadow-sm border-2 rounded-none hover:shadow-lg transition-shadow duration-300" onClick={() => router.push(`/offPlanspremiumpropertyindubai/${createProjectSlug(data?.name)}`)}>
       <div className="relative w-full h-80 md:h-96 overflow-hidden group">
         <NextImage
           src={data?.photos?.[0] ?? "/placeholder.jpg"}

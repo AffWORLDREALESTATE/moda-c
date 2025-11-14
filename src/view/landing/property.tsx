@@ -83,7 +83,7 @@ export default function Property() {
           {/* Red accent line */}
           <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
           
-          <Link href={"/offPlans"}>
+          <Link href={"/offPlanspremiumpropertyindubai"}>
             <h2 className="text-red-600 text-base sm:text-lg font-bold tracking-widest mb-6 uppercase cursor-pointer hover:text-red-700 transition-colors">
               {t('landing.property.kicker')}
             </h2>
@@ -154,7 +154,7 @@ export default function Property() {
         {/* Pagination Controls removed for landing: show only 6 items */}
 
         <div className="text-center">
-         <Link href={"/offPlans"}>
+         <Link href={"/offPlanspremiumpropertyindubai"}>
            <Button className="bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg font-light tracking-wider rounded-none shadow-md uppercase">
             {t('landing.property.viewAll')}
           </Button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { getPropertyById } from "@/src/api/offPlans";
+import { getPropertyBySlug } from "@/src/api/offPlans";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import moment from "moment";
@@ -13,7 +13,7 @@ import LocationSection from "./Location";
 import { translateProperty } from "@/src/lib/translate";
 import { normalizeLocationName } from "@/src/lib/utils";
 
-export default function DetailPage({ id }: any) {
+export default function DetailPage({ slug }: { slug: string }) {
   const { formatPrice, t, currencyIconSrc, currentLanguage } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [isTranslating, setIsTranslating] = useState(false);
@@ -26,7 +26,7 @@ export default function DetailPage({ id }: any) {
   useEffect(() => {
     async function fetchProperty() {
       try {
-        const data = await getPropertyById(id);
+        const data = await getPropertyBySlug(slug);
         const rawProperty = data?.projects?.[0];
         
         if (rawProperty) {
@@ -42,7 +42,7 @@ export default function DetailPage({ id }: any) {
       }
     }
     fetchProperty();
-  }, [id, currentLanguage.code]);
+  }, [slug, currentLanguage.code]);
 
   useEffect(() => {
     if (!property?.photos || property.photos.length <= 1) return;

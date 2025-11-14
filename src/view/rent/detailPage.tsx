@@ -1,4 +1,4 @@
-import { getAllBuyPropertiesById } from "@/src/api/buy";
+import { getAllBuyPropertiesBySlug } from "@/src/api/buy";
 import EnquireForm from "@/src/components/common/enquireForm";
 import { Badge } from "@/src/components/ui/badge";
 import { Card } from "@/src/components/ui/card";
@@ -13,7 +13,7 @@ import { useLanguage } from "@/src/contexts/LanguageContext";
 import { translateProperty } from "@/src/lib/translate";
 import { normalizeLocationName } from "@/src/lib/utils";
 
-export default function DetailPage({ id }: any) {
+export default function DetailPage({ slug }: { slug: string }) {
   const { t, currentLanguage } = useLanguage();
   const [property, setProperty] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export default function DetailPage({ id }: any) {
   const fetchPropertyDetails = async () => {
     setLoading(true);
     try {
-      const res = await getAllBuyPropertiesById(id);
+      const res = await getAllBuyPropertiesBySlug(slug);
       const rawProperty = res?.properties?.[0];
       
       if (rawProperty) {
@@ -42,7 +42,7 @@ export default function DetailPage({ id }: any) {
   };
   useEffect(() => {
     fetchPropertyDetails();
-  }, [id, currentLanguage.code]);
+  }, [slug, currentLanguage.code]);
 
   useEffect(() => {
     if (!property?.photos || property.photos.length <= 1) return;

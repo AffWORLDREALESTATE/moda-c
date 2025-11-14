@@ -63,7 +63,7 @@ export default function Feature() {
         )}
       </div>
       <div className="w-full flex justify-center items-center my-6 sm:my-8 md:my-11">
-        <Link href={"/offPlans"}>
+        <Link href={"/offPlanspremiumpropertyindubai"}>
          <Button className="w-36 sm:w-40 md:w-48 h-9 sm:h-10 md:h-11 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white font-semibold py-2 px-3 sm:px-4 rounded-none transition-colors uppercase text-xs sm:text-sm md:text-base">
           {t('landing.feature.viewAll')}
         </Button>

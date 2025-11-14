@@ -6,6 +6,7 @@ import { Heart, Bed, Bath, SquareGanttChart, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
+import { createProjectSlug } from "@/src/lib/utils";
 
 interface PropertyCardProps {
   photos: string;
@@ -33,7 +34,11 @@ export function PropertyCard({
   
   const handleCardClick = () => {
     if (propertyId) {
-      router.push(`/buy/details/${propertyId}`);
+      // Note: propertyId here might be a slug already, but if it's a title, convert it
+      // For now, assuming propertyId could be either ID or title, we'll use it as-is if it looks like a slug
+      // Otherwise convert title to slug
+      const slug = title ? createProjectSlug(title) : propertyId;
+      router.push(`/buy/details/${slug}`);
     }
   };
 

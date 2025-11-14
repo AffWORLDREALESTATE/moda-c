@@ -275,7 +275,7 @@ function OffPlansPage() {
       } else if (value === "rent") {
         router.push("/rent");
       } else if (value === "off_plan") {
-        router.push("/offPlans");
+        router.push("/offPlanspremiumpropertyindubai");
       }
     }
   }, [router]);
@@ -906,3 +906,4 @@ export default function OffPlansPageWrapper() {
     </Suspense>
   );
 }
+

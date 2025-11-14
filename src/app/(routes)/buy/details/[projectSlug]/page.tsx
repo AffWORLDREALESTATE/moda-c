@@ -4,13 +4,14 @@ import { useParams } from "next/navigation";
 import React from "react";
 
 function BuyDetails() {
-  const { buyId } = useParams();
+  const { projectSlug } = useParams();
 
   return (
     <div>
-        <DetailPage id={buyId} />
+        <DetailPage slug={projectSlug as string} />
     </div>
   );
 }
 
 export default BuyDetails;
+

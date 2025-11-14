@@ -157,7 +157,7 @@ export default function Component() {
               };
               
               // Create URL with location parameter for offPlans page
-              const offPlansUrl = `/offPlans?location=${encodeURIComponent(normalizedName)}`;
+              const offPlansUrl = `/offPlanspremiumpropertyindubai?location=${encodeURIComponent(normalizedName)}`;
               
               return (
               <CarouselItem
@@ -223,7 +223,7 @@ export default function Component() {
           ))}
         </div>
         <div className="w-full flex justify-center items-center mt-4 sm:mt-6 mb-0 px-4">
-          <Link href="/offPlans" className="w-full sm:w-auto">
+          <Link href="/offPlanspremiumpropertyindubai" className="w-full sm:w-auto">
             <Button className="w-full sm:w-44 h-9 sm:h-10 bg-[#0a4b6f] hover:bg-[#1a6b8f] active:bg-[#0a4b6f] text-white font-medium tracking-wider py-2 px-4 sm:px-6 rounded-lg transition-all duration-300 uppercase text-xs shadow-lg hover:shadow-xl active:scale-95 touch-optimized">
               {t('landing.communities.viewAll')}
             </Button>

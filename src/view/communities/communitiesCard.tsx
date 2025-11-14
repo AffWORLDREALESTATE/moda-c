@@ -29,7 +29,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
   const handleClick = () => {
     // Navigate to offPlans page with area filter
     const normalizedName = normalizeLocationName(data?.name);
-    router.push(`/offPlans?location=${encodeURIComponent(normalizedName)}`);
+    router.push(`/offPlanspremiumpropertyindubai?location=${encodeURIComponent(normalizedName)}`);
   };
   
   const normalizedName = normalizeLocationName(data?.name);
@@ -79,7 +79,7 @@ export default function CommunitiesCard({ data }: { data: CommunityData }) {
 
           {/* Explore Link */}
           <Link
-            href={`/offPlans?location=${encodeURIComponent(normalizedName)}`}
+            href={`/offPlanspremiumpropertyindubai?location=${encodeURIComponent(normalizedName)}`}
             className={cn(
               "relative pb-1.5 transition-all duration-300 text-[#0a4b6f] uppercase text-xs sm:text-sm font-medium tracking-wider group-hover:text-[#1a6b8f] mt-auto",
               "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",

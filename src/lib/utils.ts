@@ -26,3 +26,20 @@ export function normalizeLocationName(locationName: string | undefined | null): 
   
   return normalized;
 }
+
+/**
+ * Creates a URL-friendly slug from a project or property name
+ * @param name - The project/property name to convert to a slug
+ * @returns A URL-friendly slug (e.g., "Nadine Residences" -> "nadine-residences")
+ */
+export function createProjectSlug(name: string | undefined | null): string {
+  if (!name) return "";
+  
+  return String(name)
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+}

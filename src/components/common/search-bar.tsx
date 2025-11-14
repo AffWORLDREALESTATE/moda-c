@@ -55,7 +55,7 @@ export function SearchBar({ className = "" }: SearchBarProps) {
     }
     
     // Always navigate to offPlans page
-    router.push(`/offPlans?${params.toString()}`);
+    router.push(`/offPlanspremiumpropertyindubai?${params.toString()}`);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {

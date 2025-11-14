@@ -1,4 +1,5 @@
 import { api, handleApiError } from "@/src/lib/axios"
+import { createProjectSlug } from "@/src/lib/utils"
 
 export const getAllProperties = async (querry?:string) => {
    try {
@@ -8,10 +9,30 @@ export const getAllProperties = async (querry?:string) => {
     throw handleApiError(error)
    }
 }
-export const getPropertyById = async (id:string) => {
+
+/**
+ * Fetches a property by matching the slug with the project name
+ * @param slug - The URL slug (e.g., "nadine-residences")
+ * @returns Property data if found, otherwise null
+ */
+export const getPropertyBySlug = async (slug: string) => {
    try {
-     const res = await api.get(`/properties/projects?project_id=${id}` )
-     return res.data
+     // Fetch all projects
+     const res = await api.get(`/properties/projects`)
+     const projects = res.data?.projects || []
+     
+     // Find project where slug matches the name
+     const matchedProject = projects.find((project: any) => {
+       const projectSlug = createProjectSlug(project.name)
+       return projectSlug === slug
+     })
+     
+     if (matchedProject) {
+       return { projects: [matchedProject] }
+     }
+     
+     // If not found, return empty result
+     return { projects: [] }
    } catch (error) {
     throw handleApiError(error)
    }

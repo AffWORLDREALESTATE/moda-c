@@ -6,7 +6,7 @@ import { Bath, Bed, Heart, SquareGanttChart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/src/contexts/LanguageContext";
-import { normalizeLocationName } from "@/src/lib/utils";
+import { normalizeLocationName, createProjectSlug } from "@/src/lib/utils";
 
 interface PropertyData {
   id?: string | number;
@@ -68,7 +68,7 @@ export function RentCard({ data, onFavorite }: RentCardProps) {
   return (
     <Card
       className="relative overflow-hidden rounded-none shadow-sm bg-white p-0 border cursor-pointer"
-      onClick={() => router.push(`/buy/details/${data.id}`)}
+      onClick={() => router.push(`/rent/details/${createProjectSlug(data.title)}`)}
     >
       <div className="relative w-full h-80">
         <Image

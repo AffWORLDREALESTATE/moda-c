@@ -43,12 +43,12 @@ Arabic: "مانسوري ريزيدنسز، المعروف أيضًا باسم أ
 
 ### 3. Pages Updated
 ✅ **Detail Pages:**
-- `/offPlans/details/[id]` - Off-plan property details
+- `/offPlanspremiumpropertyindubai/details/[id]` - Off-plan property details
 - `/buy/details/[id]` - Buy property details
 - `/rent/details/[id]` - Rent property details
 
 ✅ **Listing Pages:**
-- `/offPlans` - Off-plan properties list
+- `/offPlanspremiumpropertyindubai` - Off-plan properties list
 - `/buy` - Buy properties list
 - `/rent` - Rent properties list
 - `/communities` - Communities list
@@ -167,12 +167,12 @@ All pages automatically translate when:
 - ✅ `src/lib/translate.ts` - Translation service (NEW)
 
 ### Detail Pages:
-- ✅ `src/view/offPlans/detailPage.tsx`
+- ✅ `src/view/offPlanspremiumpropertyindubai/detailPage.tsx`
 - ✅ `src/view/buy/detailPage.tsx`
 - ✅ `src/view/rent/detailPage.tsx`
 
 ### Listing Pages:
-- ✅ `src/app/(routes)/offPlans/page.tsx`
+- ✅ `src/app/(routes)/offPlanspremiumpropertyindubai/page.tsx`
 - ✅ `src/app/(routes)/buy/page.tsx`
 - ✅ `src/app/(routes)/rent/page.tsx`
 - ✅ `src/app/(routes)/communities/page.tsx`

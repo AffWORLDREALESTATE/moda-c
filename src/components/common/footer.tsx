@@ -8,8 +8,8 @@ export default function Footer() {
 
   // BUY / SELL column
   const buySellLinks = [
-    { href: "/offPlans?property_type=villa", label: "Villa" },
-    { href: "/offPlans?property_type=apartment", label: "Apartment" },
+    { href: "/offPlanspremiumpropertyindubai?property_type=villa", label: "Villa" },
+    { href: "/offPlanspremiumpropertyindubai?property_type=apartment", label: "Apartment" },
     // { href: "/buy?property_type=Penthouse", label: "Penthouse" },
     // { href: "/buy?property_type=Plot", label: "Plot" },
     // { href: "/buy?property_type=Commercial", label: "Commercial" },
