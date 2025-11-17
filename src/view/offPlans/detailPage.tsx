@@ -22,6 +22,128 @@ export default function DetailPage({ slug }: { slug: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [selectedFloorPlan, setSelectedFloorPlan] =
+    useState<NormalizedFloorPlan | null>(null);
+
+  // Normalized helpers for key specs
+  const bedroomMin =
+    property?.newParam?.bedroomMin ??
+    property?.bedRoomsMin ??
+    property?.bedRooms;
+  const bedroomMax =
+    property?.newParam?.bedroomMax ?? property?.bedRoomsMax ?? null;
+
+  const bathroomMin =
+    property?.newParam?.bathroomMin ??
+    property?.bathroomsMin ??
+    property?.bathrooms;
+  const bathroomMax =
+    property?.newParam?.bathroomMax ?? property?.bathroomsMax ?? null;
+
+  const sizeMin =
+    property?.newParam?.size_min ??
+    property?.size_min ??
+    property?.size ??
+    null;
+  const sizeMax =
+    property?.newParam?.size_max ?? property?.size_max ?? null;
+
+  // Normalize property type; backend may send `property_type`, `type`, or `propertyTypes` (array)
+  const propertyType = (() => {
+    const fromNewParam =
+      property?.newParam?.property_type ?? property?.newParam?.type;
+
+    const fromRoot =
+      property?.property_type ?? property?.type;
+
+    // Backend field: propertyTypes (often an array)
+    const fromArray = property?.newParam?.propertyTypes ?? property?.propertyTypes;
+    let fromArrayStr: string | null = null;
+    if (Array.isArray(fromArray) && fromArray.length > 0) {
+      fromArrayStr = fromArray
+        .map((v: any) => (typeof v === "string" ? v.trim() : ""))
+        .filter(Boolean)
+        .join(", ");
+    } else if (typeof fromArray === "string") {
+      fromArrayStr = fromArray.trim();
+    }
+
+    const value = fromNewParam || fromRoot || fromArrayStr;
+    return typeof value === "string" && value.trim() ? value.trim() : null;
+  })();
+
+  const city =
+    property?.location?.city ||
+    property?.city ||
+    null;
+
+  const floorPlansRaw =
+    property?.newParam?.floorPlans ||
+    property?.newParam?.floor_plans ||
+    property?.floorPlans ||
+    property?.floor_plans ||
+    property?.newParam?.floorPlanImages ||
+    property?.floorPlanImages;
+
+  type NormalizedFloorPlan = {
+    id?: number;
+    title?: string;
+    bedrooms?: string | number;
+    price?: number;
+    size?: number;
+    layout?: string | null;
+    propertyType?: string;
+    soldOut?: boolean;
+  };
+
+  // Normalize backend floor plan objects/strings into a consistent structure
+  const floorPlanItems: NormalizedFloorPlan[] = (() => {
+    if (!floorPlansRaw) return [];
+
+    const rawArray = Array.isArray(floorPlansRaw)
+      ? floorPlansRaw
+      : [floorPlansRaw];
+
+    return rawArray
+      .map((item: any): NormalizedFloorPlan | null => {
+        if (!item) return null;
+
+        // String value – treat as a bare layout URL
+        if (typeof item === "string") {
+          const trimmed = item.trim();
+          if (!trimmed) return null;
+          return { layout: trimmed };
+        }
+
+        if (typeof item === "object") {
+          const layoutCandidate =
+            (item as any).layout ||
+            (item as any).url ||
+            (item as any).src ||
+            (item as any).image ||
+            (item as any).path;
+
+          const layout =
+            typeof layoutCandidate === "string" && layoutCandidate.trim()
+              ? layoutCandidate.trim()
+              : null;
+
+          return {
+            id: item.id,
+            title: item.title,
+            bedrooms: item.Bedroom ?? item.bedrooms,
+            price: item.price,
+            size: item.size,
+            layout,
+            propertyType: item.property_type ?? item.propertyType,
+            soldOut: item.sold_out ?? item.soldOut ?? false,
+          };
+        }
+
+        return null;
+      })
+      .filter((plan): plan is NormalizedFloorPlan => !!plan);
+  })();
 
   useEffect(() => {
     async function fetchProperty() {
@@ -79,52 +201,60 @@ export default function DetailPage({ slug }: { slug: string }) {
     setMousePosition({ x, y });
   };
 
-  if (!property?.photos || property.photos.length === 0) {
-    return <div>Loading...</div>;
+  if (!property) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center bg-white">
+        <p className="text-gray-600 text-sm md:text-base">Loading...</p>
+      </div>
+    );
   }
+
+  const hasPhotos = Array.isArray(property.photos) && property.photos.length > 0;
   return (
     <div className="luxury-bg">
       <section 
         className="relative h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[80vh] w-full flex items-end justify-center text-center overflow-hidden"
-        onMouseMove={handleMouseMove}
+        onMouseMove={hasPhotos ? handleMouseMove : undefined}
       >
-        <div className="absolute inset-0 w-full h-full">
-          <div className="relative w-full h-full">
-            {property?.photos?.map((photo: string, index: number) => (
-              <Image
-                key={index}
-                src={photo}
-                alt="Luxury Living in Dubai"
-                fill
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                  index === heroImageIndex
-                    ? "opacity-100 z-10"
-                    : "opacity-0 z-0"
-                }`}
-                style={{
-                  transform: index === heroImageIndex 
-                    ? `scale(1.1) translate(${(mousePosition.x - 50) * 0.02}%, ${(mousePosition.y - 50) * 0.02}%)`
-                    : 'scale(1)',
-                  transformOrigin: 'center center'
-                }}
-              />
-            ))}
+        {hasPhotos && (
+          <div className="absolute inset-0 w-full h-full">
+            <div className="relative w-full h-full">
+              {property.photos.map((photo: string, index: number) => (
+                <Image
+                  key={index}
+                  src={photo}
+                  alt="Luxury Living in Dubai"
+                  fill
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === heroImageIndex
+                      ? "opacity-100 z-10"
+                      : "opacity-0 z-0"
+                  }`}
+                  style={{
+                    transform: index === heroImageIndex 
+                      ? `scale(1.1) translate(${(mousePosition.x - 50) * 0.02}%, ${(mousePosition.y - 50) * 0.02}%)`
+                      : 'scale(1)',
+                    transformOrigin: 'center center'
+                  }}
+                />
+              ))}
+            </div>
+            <div className="absolute inset-0 bg-black/20 z-20" />
+            <div className="hidden lg:flex absolute bottom-6 left-1/2 transform -translate-x-1/2 space-x-1.5 z-30">
+              {property.photos.map((_: any, index: number) => (
+                <button
+                  key={index}
+                  onClick={() => setHeroImageIndex(index)}
+                  className={`w-0.5 h-0.5 rounded-full transition-all duration-300 ${
+                    index === heroImageIndex
+                      ? "bg-white scale-125"
+                      : "bg-white/50 hover:bg-white/75"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
-          <div className="absolute inset-0 bg-black/20 z-20" />
-          <div className="hidden lg:flex absolute bottom-6 left-1/2 transform -translate-x-1/2 space-x-1.5 z-30">
-            {property?.photos?.map((_: any, index: number) => (
-              <button
-                key={index}
-                onClick={() => setHeroImageIndex(index)}
-                className={`w-0.5 h-0.5 rounded-full transition-all duration-300 ${
-                  index === heroImageIndex
-                    ? "bg-white scale-125"
-                    : "bg-white/50 hover:bg-white/75"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        )}
         <div className="relative z-30 text-white px-4 pb-8 sm:pb-12 md:pb-16">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-light mb-2 sm:mb-4 leading-tight tracking-wide font-serif">
             {property?.name}
@@ -275,6 +405,74 @@ export default function DetailPage({ slug }: { slug: string }) {
             </div>
           </div>
 
+          {/* Key Project Facts */}
+          {(bedroomMin || bathroomMin || sizeMin || propertyType || city) && (
+            <div className="mb-16 sm:mb-20">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                {propertyType && (
+                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
+                      Property Type
+                    </p>
+                    <p className="text-sm sm:text-base font-semibold text-gray-900 break-words capitalize">
+                      {propertyType}
+                    </p>
+                  </div>
+                )}
+
+                {city && (
+                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
+                      {t("details.city")}
+                    </p>
+                    <p className="text-sm sm:text-base font-semibold text-gray-900 break-words">
+                      {normalizeLocationName(city)}
+                    </p>
+                  </div>
+                )}
+
+                {bedroomMin && (
+                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
+                      {t("details.bedrooms")}
+                    </p>
+                    <p className="text-xl sm:text-2xl font-semibold text-gray-900">
+                      {bedroomMax && bedroomMax !== bedroomMin
+                        ? `${bedroomMin} - ${bedroomMax}`
+                        : bedroomMin}
+                    </p>
+                  </div>
+                )}
+
+                {bathroomMin && (
+                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
+                      {t("details.bathrooms")}
+                    </p>
+                    <p className="text-xl sm:text-2xl font-semibold text-gray-900">
+                      {bathroomMax && bathroomMax !== bathroomMin
+                        ? `${bathroomMin} - ${bathroomMax}`
+                        : bathroomMin}
+                    </p>
+                  </div>
+                )}
+
+                {sizeMin && (
+                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
+                      {t("details.homeSizeSqft")}
+                    </p>
+                    <p className="text-xl sm:text-2xl font-semibold text-gray-900">
+                      {sizeMax && sizeMax !== sizeMin
+                        ? `${sizeMin} – ${sizeMax} sq ft`
+                        : `${sizeMin} sq ft`}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           <hr className="border-t border-gray-200 mb-12" />
 
           <div className="text-center">
@@ -298,7 +496,7 @@ export default function DetailPage({ slug }: { slug: string }) {
       {/* Image Carousel Section */}
       <section className="bg-white py-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {property?.photos && property.photos.length > 0 && (
+          {hasPhotos && (
             <div className="mb-16">
               {/* Main Carousel Container */}
               <div className="relative group">
@@ -390,6 +588,69 @@ export default function DetailPage({ slug }: { slug: string }) {
             </div>
           )}
         </div>
+
+        {/* Floor Plans */}
+        {floorPlanItems.length > 0 && (
+          <div className="max-w-6xl mx-auto mt-4 sm:mt-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-4 sm:mb-6">
+              Floor plans
+            </h2>
+            <p className="text-sm text-gray-600 mb-4">
+              Explore typical layouts and unit configurations available in this
+              development.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {floorPlanItems.map((plan, index) => (
+                <div
+                  key={index}
+                  className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex flex-col"
+                >
+                  <button
+                    type="button"
+                    className="relative flex-1 bg-white group"
+                    onClick={() => setSelectedFloorPlan(plan)}
+                  >
+                    {plan.layout ? (
+                      <Image
+                        src={plan.layout}
+                        alt={`${property.name} floor plan ${index + 1}`}
+                        fill
+                        className="object-contain bg-white transition-transform duration-300 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-xs text-gray-400">
+                        No layout image
+                      </div>
+                    )}
+                  </button>
+                  <div className="px-4 py-3 border-t border-gray-200 bg-white/90">
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-sm font-semibold text-gray-900">
+                        {plan.title || `Type ${index + 1}`}
+                      </p>
+                      {plan.bedrooms && (
+                        <p className="text-xs text-gray-600">
+                          {plan.bedrooms} BR
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-gray-600">
+                      {plan.size && (
+                        <span>{plan.size} sq ft</span>
+                      )}
+                      {plan.price && (
+                        <span className="font-semibold text-gray-900">
+                          {formatPrice(plan.price)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {property?.newParam?.permitQRCode && (
           <div className="flex justify-center">
             <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shadow-sm max-w-sm">
@@ -449,6 +710,68 @@ export default function DetailPage({ slug }: { slug: string }) {
             </DialogContent>
           </AnimatePresence>
         </Dialog>
+
+        {/* Floor plan lightbox */}
+        <AnimatePresence>
+          {selectedFloorPlan && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+              onClick={() => setSelectedFloorPlan(null)}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
+                className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  onClick={() => setSelectedFloorPlan(null)}
+                  className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black"
+                >
+                  <Icon icon="material-symbols:close" className="w-5 h-5" />
+                </button>
+                <div className="relative w-full aspect-[4/3] bg-gray-50">
+                  {selectedFloorPlan.layout ? (
+                    <Image
+                      src={selectedFloorPlan.layout}
+                      alt={`${property.name} floor plan ${selectedFloorPlan.title || ""}`}
+                      fill
+                      className="object-contain"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-sm text-gray-500">
+                      No layout image available
+                    </div>
+                  )}
+                </div>
+                <div className="px-4 py-3 border-t border-gray-200 bg-white flex flex-wrap justify-between gap-2 text-sm">
+                  <div className="font-semibold text-gray-900">
+                    {selectedFloorPlan.title || t("details.floorPlan")}
+                  </div>
+                  <div className="flex flex-wrap gap-4 text-gray-700">
+                    {selectedFloorPlan.bedrooms && (
+                      <span>{selectedFloorPlan.bedrooms} BR</span>
+                    )}
+                    {selectedFloorPlan.size && (
+                      <span>{selectedFloorPlan.size} sq ft</span>
+                    )}
+                    {selectedFloorPlan.price && (
+                      <span className="font-medium">
+                        {formatPrice(selectedFloorPlan.price)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </div>
   );

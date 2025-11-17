@@ -17,8 +17,16 @@ export const getAllProperties = async (querry?:string) => {
  */
 export const getPropertyBySlug = async (slug: string) => {
    try {
-     // Fetch all projects
-     const res = await api.get(`/properties/projects`)
+    // Fetch a large page of projects so slugs work even beyond the first page
+    // Increase `size` if backend contains more projects than this limit
+    const res = await api.get(`/properties/projects`, {
+      params: {
+        page: 1,
+        size: 500,
+        sort_by: "total_count",
+        sort_order: "desc",
+      },
+    })
      const projects = res.data?.projects || []
      
      // Find project where slug matches the name

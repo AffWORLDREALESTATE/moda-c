@@ -117,6 +117,14 @@ function OffPlansPage() {
     { label: "2035", value: "2035" },
   ];
 
+// Clean location names coming from URL/inputs (e.g. remove things in brackets)
+const sanitizeLocationSearch = (value: string): string => {
+  if (!value) return "";
+  // Remove anything in parentheses and extra whitespace
+  const withoutBrackets = value.split("(")[0];
+  return withoutBrackets.replace(/\s+/g, " ").trim();
+};
+
   const [property, setProperty] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
@@ -130,7 +138,9 @@ function OffPlansPage() {
   // Filter states - properly decode URL parameters for all devices
   const [filters, setFilters] = useState({
     type: "off_plan",
-    title: searchParams?.get('location') ? decodeURIComponent(searchParams.get('location') || "") : "",
+    title: searchParams?.get('location')
+      ? sanitizeLocationSearch(decodeURIComponent(searchParams.get('location') || ""))
+      : "",
     property_type: (searchParams?.get('property_type') || "any").toLowerCase(),
     min_price: searchParams?.get('min_price') || "any",
     max_price: searchParams?.get('max_price') || "any",
@@ -178,8 +188,10 @@ function OffPlansPage() {
       // Client-side filtering: If there's a location/community filter, ensure exact matching
       let filteredProperties = translatedProperties;
       if (filters.title && filters.title.trim() !== "") {
-        const searchTerm = filters.title.toLowerCase().trim();
-        const normalizedSearchTerm = normalizeLocationName(searchTerm).toLowerCase();
+        const rawSearch = filters.title.toLowerCase().trim();
+        const cleanedSearch = sanitizeLocationSearch(rawSearch);
+        const searchTerm = cleanedSearch;
+        const normalizedSearchTerm = normalizeLocationName(cleanedSearch).toLowerCase();
         
         filteredProperties = translatedProperties.filter((property: any) => {
           // Safely get property location fields with proper type checking
@@ -316,8 +328,9 @@ function OffPlansPage() {
       // Handle location parameter (from communities page clicks)
       if (locationParam !== null && locationParam !== undefined) {
         const decodedLocation = decodeURIComponent(locationParam);
-        if (prev.title !== decodedLocation) {
-          updated.title = decodedLocation;
+        const cleanedLocation = sanitizeLocationSearch(decodedLocation);
+        if (prev.title !== cleanedLocation) {
+          updated.title = cleanedLocation;
           hasChanges = true;
         }
       }

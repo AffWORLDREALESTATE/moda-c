@@ -1,6 +1,6 @@
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
-import { MapPin, Phone, Smartphone, Mail, Instagram, Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
+import { MapPin, Phone, Smartphone, Mail } from "lucide-react";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function Footer() {
@@ -10,9 +10,9 @@ export default function Footer() {
   const buySellLinks = [
     { href: "/offPlanspremiumpropertyindubai?property_type=villa", label: "Villa" },
     { href: "/offPlanspremiumpropertyindubai?property_type=apartment", label: "Apartment" },
-    // { href: "/buy?property_type=Penthouse", label: "Penthouse" },
-    // { href: "/buy?property_type=Plot", label: "Plot" },
-    // { href: "/buy?property_type=Commercial", label: "Commercial" },
+    { href: "/offPlanspremiumpropertyindubai?property_type=penthouse", label: "Penthouse" },
+    { href: "/offPlanspremiumpropertyindubai?property_type=commercial", label: "Commercial" },
+    { href: "/offPlanspremiumpropertyindubai?property_type=plot", label: "Plot" },
   ];
 
   // NAVIGATION column
@@ -136,7 +136,11 @@ export default function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0a4b6f] border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-all duration-200"
                 aria-label="Facebook"
               >
-                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Facebook"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
               </a>
               <a
                 href="https://www.instagram.com/modacrealestate"
@@ -145,7 +149,11 @@ export default function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0a4b6f] border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-all duration-200"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                  alt="Instagram"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
               </a>
               <a
                 href="#"
@@ -154,17 +162,25 @@ export default function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0a4b6f] border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-all duration-200"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                  alt="LinkedIn"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
               </a>
-              <a
+              {/* <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0a4b6f] border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-all duration-200"
                 aria-label="Twitter"
               >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              </a>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/fr/c/c8/Twitter_Bird.svg"
+                  alt="Twitter"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
+              </a> */}
               <a
                 href="https://www.youtube.com/@ModacRealEstate"
                 target="_blank"
@@ -172,7 +188,11 @@ export default function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0a4b6f] border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-all duration-200"
                 aria-label="YouTube"
               >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+                  alt="YouTube"
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                />
               </a>
             </div>
           </div>
