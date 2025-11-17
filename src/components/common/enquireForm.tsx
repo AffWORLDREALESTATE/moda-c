@@ -116,7 +116,7 @@ function EnquireForm({ type }: { type: string }) {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-none md:w-auto px-8 py-3 bg-brand-gold text-white font-semibold uppercase tracking-wider hover:bg-brand-gold/90 transition-colors bg-primary font-mono disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full rounded-none md:w-auto px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold uppercase tracking-wider transition-colors font-mono disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isSubmitting ? (
           <>
