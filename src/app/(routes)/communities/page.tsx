@@ -157,7 +157,7 @@ function Communities() {
 
   return (
     <div>
-      <HeroBanner title="Luxury Communities" imageSrc="/images/bgImage.webp" />
+      <HeroBanner title="Luxury Communities" imageSrc="/images/bgImage.webp" videoSrc="/bgvideo.mp4" />
       <div className="mx-auto px-4 py-8 max-w-6xl">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-4 font-serif">

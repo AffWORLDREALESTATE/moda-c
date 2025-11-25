@@ -16,7 +16,7 @@ export default function HeroBanner({
   subtitle,
   imageSrc = "/images/bgImage.webp",
   videoSrc,
-  heightClassName = "h-[80vh]",
+  heightClassName = "h-[70vh]",
 }: HeroBannerProps) {
   return (
     <section className={`relative ${heightClassName} w-full flex items-center justify-center overflow-hidden`}> 
