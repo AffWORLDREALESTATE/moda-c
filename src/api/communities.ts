@@ -9,7 +9,7 @@ export const getAllCommunities = async (page: number = 1, size: number = 50) => 
      return res.data
    } catch (error) {
     console.error('API call failed:', error);
-    throw handleApiError(error)
+    throw handleApiError(error) 
    }
 }
 
