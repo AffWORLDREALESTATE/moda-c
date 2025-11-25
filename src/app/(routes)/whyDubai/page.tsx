@@ -3,7 +3,7 @@ import HeroBanner from "@/src/components/common/hero-banner";
 export default function WhyDubai() {
   return (
     <div className="luxury-bg min-h-screen">
-      <HeroBanner title="Why Dubai" imageSrc="/images/bgImage.webp" heightClassName="h-[65vh]" />
+      <HeroBanner title="Why Dubai" imageSrc="/images/bgImage.webp" heightClassName="h-[50vh]" />
       
       <main className="container mx-auto px-8 py-4 md:py-12 lg:py-16 max-w-5xl">
         {/* Advantages to buy a Luxury property in Dubai */}

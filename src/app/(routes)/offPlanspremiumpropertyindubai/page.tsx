@@ -509,10 +509,12 @@ const sanitizeLocationSearch = (value: string): string => {
               muted
               loop
               playsInline
+              webkit-playsinline
               preload="auto"
               poster="/images/bgImage.webp"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             >
-              <source src="/her.mp4" type="video/mp4" />
+              <source src="/offplan_bg.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-black/30" />
             <div className="relative h-full flex items-center justify-center p-6">

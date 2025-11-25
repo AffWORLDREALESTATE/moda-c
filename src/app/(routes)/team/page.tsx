@@ -9,7 +9,7 @@ export const metadata = {
 export default function Team() {
   return (
     <div>
-      <HeroBanner title="Our Team" imageSrc="/images/bgImage.webp" videoSrc="/bgvideo.mp4" heightClassName="h-[70vh]" />
+      <HeroBanner title="Our Team" imageSrc="/images/bgImage.webp" videoSrc="/bgvideo.mp4" heightClassName="h-[50vh]" />
       <TeamPage />
     </div>
   );

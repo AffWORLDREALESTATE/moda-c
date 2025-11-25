@@ -85,7 +85,7 @@ export default function DetailPage({ slug }: { slug: string }) {
   return (
     <div className="luxury-bg">
       <section 
-        className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden"
+        className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] w-full flex items-center justify-center text-center overflow-hidden"
         onMouseMove={handleMouseMove}
       >
         <div className="absolute inset-0 w-full h-full">
@@ -128,7 +128,7 @@ export default function DetailPage({ slug }: { slug: string }) {
             ))}
           </div>
         </div>
-        <div className="relative z-30 text-white px-4 mt-[50vh] sm:mt-[60vh]">
+        <div className="relative z-30 text-white px-4">
           {/* <span className="text-sm sm:text-base">#{id}</span> */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-light mb-2 sm:mb-4 leading-tight tracking-wide font-serif">
             {property?.title}

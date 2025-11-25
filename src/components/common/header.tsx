@@ -69,7 +69,7 @@ export default function Header() {
     { href: "/service", label: t('nav.services') },
     { href: "/blog", label: t('nav.blogs') },
     { href: "/about", label: t('nav.about') },
-    { href: "/contactUs", label: t('nav.more') },
+    { href: "/contactUs", label: 'Contact' },
   ];
   const services = [
     // {
@@ -115,9 +115,9 @@ export default function Header() {
     { href: "/communities", label: t('nav.properties') || t('nav.areas') },
     { href: "/service", label: t('nav.services'), hasDropdown: true },
     { href: "/blog", label: t('nav.blogs') },
-    { href: "/contactUs", label: t('nav.more') },
     { href: "/about", label: t('nav.about') },
     { href: "/team", label: t('nav.teams') },
+    { href: "/contactUs", label: 'Contact' },
 
   ];
   useEffect(() => {

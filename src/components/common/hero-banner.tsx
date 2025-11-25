@@ -9,6 +9,8 @@ type HeroBannerProps = {
   imageSrc?: string;
   videoSrc?: string;
   heightClassName?: string; // allow custom height per page
+  muted?: boolean; // control video muting, defaults to true
+  showOverlay?: boolean; // control dark overlay, defaults to true
 };
 
 export default function HeroBanner({
@@ -16,7 +18,9 @@ export default function HeroBanner({
   subtitle,
   imageSrc = "/images/bgImage.webp",
   videoSrc,
-  heightClassName = "h-[70vh]",
+  heightClassName = "h-[50vh]",
+  muted = true,
+  showOverlay = true,
 }: HeroBannerProps) {
   return (
     <section className={`relative ${heightClassName} w-full flex items-center justify-center overflow-hidden`}> 
@@ -30,11 +34,13 @@ export default function HeroBanner({
           <video
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
-            muted
+            muted={muted}
             loop
             playsInline
+            webkit-playsinline
             preload="auto"
             poster={imageSrc}
+            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
@@ -48,7 +54,7 @@ export default function HeroBanner({
           />
         )}
       </motion.div>
-      {!videoSrc && <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80" />}
+      {!videoSrc && showOverlay && <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80" />}
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}

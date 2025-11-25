@@ -213,7 +213,7 @@ export default function DetailPage({ slug }: { slug: string }) {
   return (
     <div className="luxury-bg">
       <section 
-        className="relative h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[80vh] w-full flex items-end justify-center text-center overflow-hidden"
+        className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] w-full flex items-end justify-center text-center overflow-hidden"
         onMouseMove={hasPhotos ? handleMouseMove : undefined}
       >
         {hasPhotos && (
