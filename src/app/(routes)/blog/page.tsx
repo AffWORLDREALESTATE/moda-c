@@ -5,7 +5,7 @@ import React from "react";
 function Blog() {
   return (
     <div>
-      <HeroBanner title="Blogs" imageSrc="/images/bgImage.webp" />
+      <HeroBanner title="Blogs" imageSrc="/images/bgImage.webp" videoSrc="/bgvideo.mp4" />
       <div className="pt-10">
         <InsightsInspiration />
       </div>

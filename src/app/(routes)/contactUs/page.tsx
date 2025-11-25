@@ -11,7 +11,7 @@ function ContactUs() {
   const { t } = useLanguage();
   return (
     <div className="luxury-bg">
-      <HeroBanner title={t('contact.title')} imageSrc="/images/bgImage.webp" />
+      <HeroBanner title={t('contact.title')} imageSrc="/images/bgImage.webp" videoSrc="/bgvideo.mp4" />
       {/* Top Section - Full Width */}
       <div className="py-20 container mx-auto max-w-7xl px-6">
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 text-center">

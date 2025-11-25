@@ -7,6 +7,7 @@ type HeroBannerProps = {
   title: string;
   subtitle?: string;
   imageSrc?: string;
+  videoSrc?: string;
   heightClassName?: string; // allow custom height per page
 };
 
@@ -14,7 +15,8 @@ export default function HeroBanner({
   title,
   subtitle,
   imageSrc = "/images/bgImage.webp",
-  heightClassName = "h-[65vh]",
+  videoSrc,
+  heightClassName = "h-[80vh]",
 }: HeroBannerProps) {
   return (
     <section className={`relative ${heightClassName} w-full flex items-center justify-center overflow-hidden`}> 
@@ -24,15 +26,29 @@ export default function HeroBanner({
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="absolute inset-0 w-full h-full"
       >
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          className="object-cover"
-          priority
-        />
+        {videoSrc ? (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={imageSrc}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80" />
+      {!videoSrc && <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80" />}
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}

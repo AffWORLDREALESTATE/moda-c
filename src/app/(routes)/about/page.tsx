@@ -38,22 +38,25 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
       {/* Hero Section - More Compact */}
-      <section className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0 w-full h-full"
         >
-          <Image
-            src="/images/bgImage.webp"
-            alt="About Modac Real Estate"
-            fill
-            className="object-cover"
-            priority
-          />
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/bgImage.webp"
+          >
+            <source src="/bgvideo.mp4" type="video/mp4" />
+          </video>
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
