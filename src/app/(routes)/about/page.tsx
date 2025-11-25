@@ -56,7 +56,7 @@ export default function AboutPage() {
             poster="/images/bgImage.webp"
             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           >
-            <source src="/about_bg.mp4" type="video/mp4" />
+            <source src="/Video-from-Modac-Real-Estate-Dubai - Trim.mp4" type="video/mp4" />
           </video>
         </motion.div>
         
@@ -80,7 +80,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section - Brand colors */}
-      <section className="bg-gradient-to-r from-[#0a4b6f] via-[#1a6b8f] to-[#0a4b6f] py-6 md:py-8">
+      {/* <section className="bg-gradient-to-r from-[#0a4b6f] via-[#1a6b8f] to-[#0a4b6f] py-6 md:py-8">
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
@@ -109,7 +109,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Content */}
       <section className="bg-gradient-to-br from-gray-50 to-white py-16 md:py-24">
