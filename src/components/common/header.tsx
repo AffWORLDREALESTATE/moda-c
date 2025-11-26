@@ -417,7 +417,7 @@ export default function Header() {
 
         <div className="p-4 sm:p-6 border-t border-gray-200 bg-white space-y-4 sm:space-y-6">
           {/* Mobile Buttons */}
-          <div className="space-y-3">
+          <div className="space-y-3 hidden md:block">
             <Link href="/list-your-property" onClick={() => setIsOverlayOpen(false)}>
               <Button className="w-full bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200">
                 {t('nav.listYourProperty')}
