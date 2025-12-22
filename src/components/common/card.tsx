@@ -44,17 +44,19 @@ export function PropertyCard({
 
   return (
     <Card 
-      className="relative overflow-hidden rounded-xl shadow-sm bg-white p-0 border border-gray-100 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300" 
+      className="group relative overflow-hidden rounded-xl shadow-sm bg-[#ececec] p-0 border border-gray-100 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col" 
       onClick={handleCardClick}
     >
-      <div className="relative w-full h-72 md:h-80">
+      <div className="relative w-full h-72 md:h-80 flex-shrink-0">
         <Image
           src={photos}
           alt={title}
           fill
-          className="object-cover"
+          className="object-cover rounded-t-xl"
         />
-        <div className="absolute top-3 left-3 flex gap-2">
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-[#ececec]/0 group-hover:bg-[#ececec]/30 transition-all duration-300 rounded-t-xl pointer-events-none z-10" />
+        <div className="absolute top-3 left-3 flex gap-2 z-20">
           <span className="bg-[#0a4b6f] text-white px-3 py-1 rounded-full text-xs font-light tracking-wider uppercase">
             {t('common.forSale')}
           </span>
@@ -65,39 +67,39 @@ export function PropertyCard({
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-3 right-3 text-white bg-black/30 hover:bg-black/50 rounded-full"
+          className="absolute top-3 right-3 text-white bg-black/30 hover:bg-black/50 rounded-full z-20"
         >
           <Heart className="w-7 h-7 " />
           <span className="sr-only">Add to favorites</span>
         </Button>
       </div>
-      <CardContent className="grid gap-2 px-4 py-4">
+      <CardContent className="grid gap-2 px-4 py-4 flex-1 flex flex-col">
         <div className="flex items-center justify-between">
           <h3
-            className="text-lg md:text-xl font-light text-[#1A202C] tracking-wide line-clamp-1"
+            className="text-lg md:text-xl font-light text-[#1A202C] group-hover:text-blue-900 transition-colors duration-300 tracking-wide line-clamp-1"
             title={title}
           >
             {title}
           </h3>
         </div>
 
-        <p className="text-xs md:text-sm text-primary uppercase font-light tracking-wider">
+        <p className="text-xs md:text-sm text-primary uppercase font-light tracking-wider group-hover:text-blue-900 transition-colors duration-300">
           {location}
         </p>
         <p className="text-xl md:text-2xl font-light text-[#1A202C] tracking-wide">
           {price}
         </p>
-        <div className="flex items-end gap-6 md:gap-11 text-gray-600 text-sm mt-2 font-light">
+        <div className="flex items-end gap-6 md:gap-11 text-gray-600 group-hover:text-blue-900 transition-colors duration-300 text-sm mt-2 font-light">
           <div className="flex items-center gap-1">
-            <Bed className="w-4 h-4" />
+            <Bed className="w-4 h-4 group-hover:text-blue-900 transition-colors duration-300" />
             <span>{bedrooms}</span>
           </div>
           <div className="flex items-center gap-1">
-            <Bath className="w-4 h-4" />
+            <Bath className="w-4 h-4 group-hover:text-blue-900 transition-colors duration-300" />
             <span>{bathrooms}</span>
           </div>
           <div className="flex items-center gap-1">
-            <SquareGanttChart className="w-4 h-4" />
+            <SquareGanttChart className="w-4 h-4 group-hover:text-blue-900 transition-colors duration-300" />
             <span>{area}</span>
           </div>
         </div>

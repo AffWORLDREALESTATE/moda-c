@@ -141,7 +141,7 @@ const sanitizeLocationSearch = (value: string): string => {
     title: searchParams?.get('location')
       ? sanitizeLocationSearch(decodeURIComponent(searchParams.get('location') || ""))
       : "",
-    property_type: (searchParams?.get('property_type') || "any").toLowerCase(),
+    property_type: (searchParams?.get('property_type') || "all").toLowerCase(),
     min_price: searchParams?.get('min_price') || "any",
     max_price: searchParams?.get('max_price') || "any",
     completion_status: "all",
@@ -185,8 +185,46 @@ const sanitizeLocationSearch = (value: string): string => {
       const rawProperties = res?.projects || [];
       const translatedProperties = await translateProperties(rawProperties, currentLanguage.code);
       
-      // Client-side filtering: If there's a location/community filter, ensure exact matching
+      // Client-side filtering: Filter by property type if specified
       let filteredProperties = translatedProperties;
+      if (filters.property_type && filters.property_type !== "any" && filters.property_type !== "all") {
+        filteredProperties = filteredProperties.filter((property: any) => {
+          // Normalize property type from various possible fields (same logic as detailPage)
+          const fromNewParam = property?.newParam?.property_type ?? property?.newParam?.type;
+          const fromRoot = property?.property_type ?? property?.type;
+          
+          // Backend field: propertyTypes (often an array)
+          const fromArray = property?.newParam?.propertyTypes ?? property?.propertyTypes;
+          
+          // Match the filter property type (normalized to lowercase)
+          const filterType = filters.property_type.toLowerCase().trim();
+          
+          // Check exact match first (most common case)
+          if (fromNewParam || fromRoot) {
+            const propertyType = (fromNewParam || fromRoot || "")
+              .toString()
+              .toLowerCase()
+              .trim();
+            if (propertyType === filterType) return true;
+          }
+          
+          // Check if propertyTypes array contains the filter type
+          if (Array.isArray(fromArray) && fromArray.length > 0) {
+            const matches = fromArray.some((v: any) => {
+              const typeValue = typeof v === "string" ? v.trim().toLowerCase() : "";
+              return typeValue === filterType;
+            });
+            if (matches) return true;
+          } else if (typeof fromArray === "string") {
+            const arrayStr = fromArray.trim().toLowerCase();
+            if (arrayStr === filterType) return true;
+          }
+          
+          return false;
+        });
+      }
+      
+      // Client-side filtering: If there's a location/community filter, ensure exact matching
       if (filters.title && filters.title.trim() !== "") {
         const rawSearch = filters.title.toLowerCase().trim();
         const cleanedSearch = sanitizeLocationSearch(rawSearch);
@@ -240,7 +278,9 @@ const sanitizeLocationSearch = (value: string): string => {
       
       // Update pagination based on filtered results
       // If client-side filtering was applied, use filtered count; otherwise use API total
-      const totalFiltered = filters.title && filters.title.trim() !== "" 
+      const hasClientSideFilter = (filters.property_type && filters.property_type !== "any" && filters.property_type !== "all") || 
+                                  (filters.title && filters.title.trim() !== "");
+      const totalFiltered = hasClientSideFilter
         ? filteredProperties.length 
         : (res?.total || res?.totalProjects || 0);
       setTotalPages(Math.ceil(totalFiltered / 24));
@@ -884,7 +924,7 @@ const sanitizeLocationSearch = (value: string): string => {
         </p>
       </div>
 
-      <div>
+      <div className="min-h-screen py-6">
         {loading && (
           <div className="flex justify-center items-center h-64">
             <Loader className="animate-spin h-10 w-10 text-primary" />
@@ -898,7 +938,7 @@ const sanitizeLocationSearch = (value: string): string => {
 
         {/* Pagination */}
         {!loading && property.length > 0 && (
-          <div className="mt-12 mb-8">
+          <div className="mt-12 mb-8 px-4">
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

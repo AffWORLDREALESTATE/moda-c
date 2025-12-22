@@ -273,7 +273,7 @@ export function InsightsInspiration() {
   const pathname = usePathname();
   const displayedPosts = pathname === "/blog" ? blogPosts : blogPosts.slice(0, 6);
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-white">
+    <section className="pt-8 sm:pt-10 md:pt-12 pb-12 sm:pb-16 md:pb-24 bg-white">
       <div className="mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

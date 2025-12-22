@@ -796,6 +796,7 @@ function BuyContent() {
         </Link>
       </p>
 
+      <div className="min-h-screen py-6">
       {loading || property.length === 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 container my-4 mx-auto">
           {Array.from({ length: 6 }).map((_, i) => (
@@ -813,10 +814,11 @@ function BuyContent() {
           ))}
         </div>
       )}
+      </div>
 
       {/* Pagination */}
       {!loading && property.length > 0 && totalPages > 1 && (
-        <div className="flex flex-col sm:flex-row justify-center items-center mt-8 sm:mt-12 mb-6 sm:mb-8 gap-4 sm:gap-0">
+        <div className="flex flex-col sm:flex-row justify-center items-center mt-8 sm:mt-12 mb-6 sm:mb-8 gap-4 sm:gap-0 px-4">
           <div className="flex items-center space-x-1 sm:space-x-2">
             {/* Previous Button */}
             <button

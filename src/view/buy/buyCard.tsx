@@ -2,7 +2,7 @@
 
 import { Button } from "@/src/components/ui/button"
 import { Card, CardContent } from "@/src/components/ui/card"
-import { Bath, Bed, Heart, SquareGanttChart } from "lucide-react"
+import { Bath, Bed, Heart, SquareGanttChart, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/src/contexts/LanguageContext"
@@ -66,87 +66,98 @@ export function BuyCard({ data, onFavorite }: BuyCardProps) {
     : t('common.priceOnRequest')
 
   return (
-    <Card className="relative overflow-hidden rounded-none shadow-sm bg-white p-0 border cursor-pointer" onClick={() => router.push(`/buy/details/${createProjectSlug(data.title)}`)}>
-      <div className="relative w-full h-80">
+    <Card className="group relative overflow-hidden bg-[#ececec] p-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg cursor-pointer border border-gray-200 h-full flex flex-col" onClick={() => router.push(`/buy/details/${createProjectSlug(data.title)}`)}>
+      {/* Image Section - Rounded top corners */}
+      <div className="relative w-full h-72 md:h-80 overflow-hidden flex-shrink-0">
         <Image
           src={imageUrl}
           alt={data?.title || "Property image"}
           fill
-          className="rounded-none object-cover"
+          className="object-cover rounded-t-lg transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
-        <div className="absolute top-4 left-4 flex gap-2">
-          <span className="bg-[#0a4b6f] text-white px-3 py-1 text-xs tracking-wider uppercase">
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-[#ececec]/0 group-hover:bg-[#ececec]/30 transition-all duration-300 rounded-t-lg pointer-events-none z-10" />
+        
+        {/* Badges Top Left */}
+        <div className="absolute top-4 left-4 flex gap-2 z-20">
+          <span className="bg-[#0a4b6f] text-white px-3 py-1.5 text-xs font-medium tracking-wider uppercase rounded-md shadow-lg">
             {t('common.forSale')}
           </span>
-          <span className="bg-white text-gray-800 px-3 py-1 text-xs tracking-wider uppercase">
+          <span className="bg-white/95 backdrop-blur-sm text-gray-800 px-3 py-1.5 text-xs font-medium tracking-wider uppercase rounded-md shadow-lg">
             {t('common.available')}
           </span>
         </div>
+        
+        {/* Price Badge - Bottom Left (Prominent) */}
+        {data.price && (
+          <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm text-[#1A202C] text-xl font-bold px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 z-20">
+            {currencyIconSrc && (
+              <Image src={currencyIconSrc} alt="AED" width={20} height={20} />
+            )}
+            {formattedPrice}
+          </div>
+        )}
+        
+        {/* Heart Icon Top Right */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-4 right-4 text-white rounded-full"
-          onClick={handleFavorite}
+          className="absolute top-4 right-4 text-white bg-black/30 hover:bg-red-600/90 rounded-full transition-colors duration-300 z-20"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleFavorite();
+          }}
         >
-          <Heart className="w-7 h-7" />
+          <Heart className="w-5 h-5" />
           <span className="sr-only">Add to favorites</span>
         </Button>
       </div>
 
-      <CardContent className="grid gap-2 px-4 py-3">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-mono text-[#1A202C] tracking-wide">
+      {/* Content Section - White Background */}
+      <CardContent className="p-5 bg-white space-y-3 flex-1 flex flex-col">
+        {/* Property Type/Category - if available */}
+        {data.property_type && (
+          <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+            {data.property_type}
+          </p>
+        )}
+        
+        {/* Property Title */}
+        <h3 className="text-xl md:text-2xl font-bold text-[#1A202C] group-hover:text-blue-900 transition-colors duration-300 leading-tight line-clamp-2">
             {data?.title}
           </h3>
+
+        {/* Location with Icon */}
+        {locationName && (
+          <div className="flex items-center gap-2 text-gray-600 group-hover:text-blue-900 transition-colors duration-300">
+            <MapPin className="w-4 h-4 text-gray-400 group-hover:text-blue-900 transition-colors duration-300" />
+            <p className="text-base font-normal">{locationName}</p>
         </div>
+        )}
 
-        <p className="text-sm text-primary uppercase font-light tracking-wider">
-          {locationName || t('common.locationNotSpecified')}
-        </p>
-        <p className="text-sm font-bold text-[#1A202C] tracking-wide flex items-center gap-1">
-          {currencyIconSrc && (
-            <Image src={currencyIconSrc} alt="AED" width={14} height={14} />
-          )}
-          {formattedPrice}
-        </p>
-
-        <div className="flex items-end justify-between text-gray-600 text-sm mt-2 font-light">
-          <div className="flex items-end gap-8">
-            <div className="flex items-center gap-1">
-              <Bed className="w-4 h-4" />
-              <span>{data?.bedRooms ?? "N/A"}</span>
+        {/* Property Details - Bedrooms, Bathrooms, Area */}
+        {(data?.bedRooms || data?.bathrooms || data?.size) && (
+          <div className="flex items-center gap-6 pt-2 border-t border-gray-200">
+            {data?.bedRooms && (
+              <div className="flex items-center gap-2 text-gray-700 group-hover:text-blue-900 transition-colors duration-300">
+                <Bed className="w-5 h-5 text-gray-500 group-hover:text-blue-900 transition-colors duration-300" />
+                <span className="text-base font-medium">Beds: {data.bedRooms}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <Bath className="w-4 h-4" />
-              <span>{data?.bathrooms ?? "N/A"}</span>
+            )}
+            {data?.bathrooms && (
+              <div className="flex items-center gap-2 text-gray-700 group-hover:text-blue-900 transition-colors duration-300">
+                <Bath className="w-5 h-5 text-gray-500 group-hover:text-blue-900 transition-colors duration-300" />
+                <span className="text-base font-medium">Baths: {data.bathrooms}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <SquareGanttChart className="w-4 h-4" />
-              <span>{data?.size ? `${data?.size} sqft` : "N/A"}</span>
-            </div>
-          </div>
-          
-          {/* Agent Avatar - Bottom Right Corner */}
-          <div className="flex items-center justify-center">
-            {data?.agent?.avatar ? (
-              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-[#0a4b6f] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
-                <Image
-                  src={data.agent.avatar}
-                  alt={data.agent.name || "Agent"}
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ) : (
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0a4b6f] to-[#1a6b8f] flex items-center justify-center shadow-lg">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+            )}
+            {data?.size && (
+              <div className="flex items-center gap-2 text-gray-700 group-hover:text-blue-900 transition-colors duration-300">
+                <SquareGanttChart className="w-5 h-5 text-gray-500 group-hover:text-blue-900 transition-colors duration-300" />
+                <span className="text-base font-medium">Sqft: {typeof data.size === 'string' ? data.size : data.size.toLocaleString()}</span>
               </div>
             )}
           </div>
-        </div>
+        )}
       </CardContent>
     </Card>
   )

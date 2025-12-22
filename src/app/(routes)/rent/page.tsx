@@ -853,6 +853,7 @@ function Rent() {
         </AnimatePresence>
       </Dialog>
 
+      <div className="min-h-screen py-6">
       {loading || property.length === 0 ? (
         <div className="text-center py-12">
           {Array.from({ length: 6 }).map((_, i) => (
@@ -870,10 +871,11 @@ function Rent() {
           ))}
         </div>
       )}
+      </div>
 
       {/* Pagination */}
       {!loading && property.length > 0 && (
-        <div className="mt-12 mb-8">
+          <div className="mt-12 mb-8 px-4">
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

@@ -77,29 +77,23 @@ export default function Property() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 text-[#1A202C]">
-      <main className="container mx-auto py-16 sm:py-20 md:py-24 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
+    <div className="text-[#1A202C]">
+      <main className="container mx-auto pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 md:pb-12 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
         <section className="text-center mb-12 sm:mb-16">
-          {/* Red accent line */}
-          <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
-          
-          <Link href={"/offPlanspremiumpropertyindubai"}>
-            <h2 className="text-red-600 text-base sm:text-lg font-bold tracking-widest mb-6 uppercase cursor-pointer hover:text-red-700 transition-colors">
-              {t('landing.property.kicker')}
-            </h2>
-          </Link>
-          
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight px-2 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-red-600 tracking-tight px-2 leading-tight">
             {t('landing.property.heading')}
           </h1>
           
-          <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-600 leading-relaxed mb-6 px-2">
+          {/* Red accent line */}
+          <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+          
+          <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-400 leading-relaxed mb-6 px-2">
             {t('landing.property.subtitle')}
           </p>
           
         </section>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12 p-6 rounded-lg">
           {loading ? (
             // Loading skeleton
             Array.from({ length: 6 }).map((_, i) => (

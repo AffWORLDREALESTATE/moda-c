@@ -36,10 +36,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Arial", "Helvetica", "sans-serif"],
-        serif: ["Arial", "Helvetica", "sans-serif"],
-        poppins: ["Arial", "Helvetica", "sans-serif"],
-        playfair: ["Arial", "Helvetica", "sans-serif"],
+        sans: ["var(--font-poppins)", "sans-serif"],
+        serif: ["var(--font-poppins)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        playfair: ["var(--font-poppins)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

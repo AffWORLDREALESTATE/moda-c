@@ -106,13 +106,13 @@ export default function Component() {
     fetchCommunities();
   }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/50 via-white to-gray-50 text-gray-900 overflow-hidden relative">
+    <div className="bg-gradient-to-br from-blue-50/50 via-white to-gray-50 text-gray-900 overflow-hidden relative">
       {/* Decorative elements - Hidden on mobile, smaller on tablet */}
       <div className="hidden sm:block absolute top-40 right-10 sm:right-20 w-40 h-40 sm:w-60 sm:h-60 bg-[#0a4b6f]/5 rounded-full blur-3xl"></div>
       <div className="hidden sm:block absolute bottom-40 left-10 sm:left-20 w-40 h-40 sm:w-60 sm:h-60 bg-red-500/5 rounded-full blur-3xl"></div>
       
       {/* Hero Section */}
-      <section className="py-3 sm:py-4 md:py-6 text-center px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <section className="pt-8 sm:pt-10 md:pt-12 pb-3 sm:pb-4 md:pb-6 text-center px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         {/* Red accent dot */}
         <div className="w-2 h-2 bg-red-500 rounded-full mx-auto mb-2"></div>
         

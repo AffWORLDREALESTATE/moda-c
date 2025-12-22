@@ -234,8 +234,8 @@ const translations: Record<string, Translations> = {
     'landing.feature.viewAll': 'View All Project',
     
     'landing.property.kicker': 'FEATURED PROPERTIES',
-    'landing.property.heading': 'Checkout Some of the Most Promising Properties by Modac Real Estate',
-    'landing.property.subtitle': 'Step into a realm of unparalleled sophistication with our featured properties. Explore these exclusive gems and envision your next luxurious retreat with Modac Real Estate.',
+    'landing.property.heading': 'FEATURED PROPERTIES',
+    'landing.property.subtitle': 'Checkout Some of the Most Promising Properties by Modac Real Estate. Step into a realm of unparalleled sophistication with our featured properties. Explore these exclusive gems and envision your next luxurious retreat with Modac Real Estate.',
     'landing.property.showing': 'Showing',
     'landing.property.of': 'of',
     'landing.property.properties': 'properties',

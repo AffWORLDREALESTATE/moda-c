@@ -13,6 +13,119 @@ import LocationSection from "./Location";
 import { translateProperty } from "@/src/lib/translate";
 import { normalizeLocationName } from "@/src/lib/utils";
 
+// Component to format description with bullet points
+function FormattedDescription({ description }: { description: string }) {
+  if (!description) return null;
+
+  // Split by double line breaks first, then process each section
+  const sections = description.split(/\n\s*\n/).filter(s => s.trim());
+  
+  return (
+    <div className="space-y-6">
+      {sections.map((section, sectionIdx) => {
+        const trimmed = section.trim();
+        const lines = trimmed.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        
+        if (lines.length === 0) return null;
+
+        // Check if first line ends with colon (likely a heading)
+        const firstLine = lines[0];
+        const isHeadingPattern = firstLine.endsWith(':') && lines.length > 1;
+        
+        if (isHeadingPattern) {
+          const heading = firstLine.slice(0, -1).trim();
+          const listItems = lines.slice(1)
+            .map(l => l.replace(/^[-•*]\s*/, '').replace(/^\d+[.)]\s*/, '').trim())
+            .filter(l => l.length > 0);
+
+          if (listItems.length > 0) {
+            return (
+              <div key={sectionIdx} className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                  {heading}
+                </h3>
+                <ul className="list-disc list-outside space-y-2.5 ml-5 sm:ml-6">
+                  {listItems.map((item, itemIdx) => (
+                    <li key={itemIdx} className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed pl-1">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          }
+        }
+
+        // Check if all lines look like list items (multiple short lines)
+        const allShortLines = lines.length > 1 && 
+          lines.every(l => l.length < 200 && !l.match(/[.!?]\s*$/));
+        
+        // Common list item patterns (amenities, features, etc.)
+        const commonPatterns = /^(Gymnasium|Indoor|Swimming|Pool|Landscaped|Tennis|Children|Kids|Barbecue|BBQ|Parking|Security|Clubhouse|Spa|Restaurant|Beach|Marina|Garden|Playground|Fitness|Sports|Recreation)/i;
+        const hasListPatterns = lines.length > 1 && lines.some(l => commonPatterns.test(l.trim()));
+        
+        // Check for text like "including:" or "features:" anywhere in the section
+        const hasListKeywords = trimmed.toLowerCase().match(/(including|features|amenities|advantages|benefits|facilities):/i);
+
+        if ((allShortLines || hasListPatterns) && lines.length > 2) {
+          const listItems = lines
+            .map(l => l.replace(/^[-•*]\s*/, '').replace(/^\d+[.)]\s*/, '').trim())
+            .filter(l => l.length > 0);
+
+          // Extract any intro text before the list
+          let introText = '';
+          let listStartIdx = 0;
+          
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].toLowerCase().includes('including') || 
+                lines[i].toLowerCase().includes('can enjoy') ||
+                lines[i].length < 100) {
+              if (lines[i].length > 50 && !commonPatterns.test(lines[i])) {
+                introText = lines[i];
+                listStartIdx = i + 1;
+                break;
+              } else {
+                listStartIdx = i;
+                break;
+              }
+            }
+          }
+
+          const finalListItems = listStartIdx > 0 
+            ? lines.slice(listStartIdx).map(l => l.replace(/^[-•*]\s*/, '').replace(/^\d+[.)]\s*/, '').trim()).filter(l => l.length > 0)
+            : listItems;
+
+          return (
+            <div key={sectionIdx} className="space-y-4">
+              {introText && (
+                <p className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed mb-2">
+                  {introText}
+                </p>
+              )}
+              {finalListItems.length > 0 && (
+                <ul className="list-disc list-outside space-y-2.5 ml-5 sm:ml-6">
+                  {finalListItems.map((item, itemIdx) => (
+                    <li key={itemIdx} className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed pl-1">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          );
+        }
+
+        // Regular paragraph
+        return (
+          <p key={sectionIdx} className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed">
+            {trimmed}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function DetailPage({ slug }: { slug: string }) {
   const { formatPrice, t, currencyIconSrc, currentLanguage } = useLanguage();
   const [property, setProperty] = useState<any>(null);
@@ -335,10 +448,10 @@ export default function DetailPage({ slug }: { slug: string }) {
             )}
           </div>
 
-          <hr className="border-t border-gray-200 mb-12" />
+          <hr className="border-t border-gray-200 mb-10 sm:mb-12" />
 
           {/* Luxury Property Details Section */}
-          <div className="relative mb-16 sm:mb-20">
+          <div className="relative mb-6 sm:mb-8">
             {/* Luxury Background Elements */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#0a4b6f]/5 via-transparent to-[#1a6b8f]/5 rounded-3xl"></div>
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#0a4b6f] to-transparent rounded-full"></div>
@@ -405,96 +518,12 @@ export default function DetailPage({ slug }: { slug: string }) {
             </div>
           </div>
 
-          {/* Key Project Facts */}
-          {(bedroomMin || bathroomMin || sizeMin || propertyType || city) && (
-            <div className="mb-16 sm:mb-20">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-                {propertyType && (
-                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
-                      Property Type
-                    </p>
-                    <p className="text-sm sm:text-base font-semibold text-gray-900 break-words capitalize">
-                      {propertyType}
-                    </p>
-                  </div>
-                )}
-
-                {city && (
-                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
-                      {t("details.city")}
-                    </p>
-                    <p className="text-sm sm:text-base font-semibold text-gray-900 break-words">
-                      {normalizeLocationName(city)}
-                    </p>
-                  </div>
-                )}
-
-                {bedroomMin && (
-                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
-                      {t("details.bedrooms")}
-                    </p>
-                    <p className="text-xl sm:text-2xl font-semibold text-gray-900">
-                      {bedroomMax && bedroomMax !== bedroomMin
-                        ? `${bedroomMin} - ${bedroomMax}`
-                        : bedroomMin}
-                    </p>
-                  </div>
-                )}
-
-                {bathroomMin && (
-                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
-                      {t("details.bathrooms")}
-                    </p>
-                    <p className="text-xl sm:text-2xl font-semibold text-gray-900">
-                      {bathroomMax && bathroomMax !== bathroomMin
-                        ? `${bathroomMin} - ${bathroomMax}`
-                        : bathroomMin}
-                    </p>
-                  </div>
-                )}
-
-                {sizeMin && (
-                  <div className="bg-white/80 border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4b6f] mb-2">
-                      {t("details.homeSizeSqft")}
-                    </p>
-                    <p className="text-xl sm:text-2xl font-semibold text-gray-900">
-                      {sizeMax && sizeMax !== sizeMin
-                        ? `${sizeMin} – ${sizeMax} sq ft`
-                        : `${sizeMin} sq ft`}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          <hr className="border-t border-gray-200 mb-12" />
-
-          <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-4 sm:mb-8 font-serif">{t('details.description')}</h2>
-            <p className={`text-sm font-light text-gray-600 leading-relaxed mb-6 sm:mb-8 ${!showFullDescription ? 'line-clamp-4' : ''}`}>
-              {property?.description}
-            </p>
-            {property?.description && property.description.length > 200 && (
-              <button 
-                onClick={() => setShowFullDescription(!showFullDescription)}
-                className="inline-flex items-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <span>{showFullDescription ? t('details.readLess') : t('details.readMore')}</span>
-                <Icon icon={showFullDescription ? "lucide:arrow-up" : "lucide:arrow-right"} className="w-4 h-4" />
-              </button>
-            )}
-          </div>
+          {/* end primary stats section (price / completion / stage) */}
         </div>
       </section>
 
       {/* Image Carousel Section */}
-      <section className="bg-white py-16 px-4 md:px-6 lg:px-8">
+      <section className="bg-white pt-6 sm:pt-8 pb-12 sm:pb-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {hasPhotos && (
             <div className="mb-16">
@@ -587,23 +616,89 @@ export default function DetailPage({ slug }: { slug: string }) {
               </div>
             </div>
           )}
+
+          {/* Key Project Facts + Description (after images) */}
+          {(bedroomMin || bathroomMin || sizeMin || propertyType || city || property?.description) && (
+            <div className="mt-12 sm:mt-16 mb-16 sm:mb-20">
+              
+
+              {property?.description && (
+                <div className="mt-12 sm:mt-16">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-6 sm:mb-8 text-left font-bold">
+                    {t("details.description")}
+                  </h2>
+                  {(bedroomMin || bathroomMin || sizeMin || propertyType || city) && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
+                  {propertyType && (
+                    <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                        Property Type
+                      </p>
+                      <p className="text-base font-semibold text-gray-900 break-words capitalize leading-tight">
+                        {propertyType}
+                      </p>
+                    </div>
+                  )}
+
+                  {city && (
+                    <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                        {t("details.city")}
+                      </p>
+                      <p className="text-base font-semibold text-gray-900 break-words leading-tight">
+                        {normalizeLocationName(city)}
+                      </p>
+                    </div>
+                  )}
+
+                  {bedroomMin && (
+                    <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                        {t("details.bedrooms")}
+                      </p>
+                      <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                        {bedroomMax && bedroomMax !== bedroomMin
+                          ? `${bedroomMin} - ${bedroomMax}`
+                          : bedroomMin}
+                      </p>
+                    </div>
+                  )}
+
+                  {sizeMin && (
+                    <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                        {t("details.homeSizeSqft")}
+                      </p>
+                      <p className="text-xl sm:text-2xl font-bold text-gray-900">
+                        {sizeMax && sizeMax !== sizeMin
+                          ? `${sizeMin} – ${sizeMax} sq ft`
+                          : `${sizeMin} sq ft`}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+                  <FormattedDescription description={property.description} />
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Floor Plans */}
         {floorPlanItems.length > 0 && (
-          <div className="max-w-6xl mx-auto mt-4 sm:mt-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-4 sm:mb-6">
+          <div className="max-w-6xl mx-auto mt-12 sm:mt-16 mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-3 sm:mb-4 font-bold">
               Floor plans
             </h2>
-            <p className="text-sm text-gray-600 mb-4">
-              Explore typical layouts and unit configurations available in this
-              development.
+            <p className="text-base text-gray-600 mb-8">
+              Explore typical layouts and unit configurations available in this development.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {floorPlanItems.map((plan, index) => (
                 <div
                   key={index}
-                  className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex flex-col"
+                  className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <button
                     type="button"
@@ -618,25 +713,25 @@ export default function DetailPage({ slug }: { slug: string }) {
                         className="object-contain bg-white transition-transform duration-300 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-xs text-gray-400">
+                      <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-400">
                         No layout image
                       </div>
                     )}
                   </button>
-                  <div className="px-4 py-3 border-t border-gray-200 bg-white/90">
-                    <div className="flex items-center justify-between mb-1">
-                      <p className="text-sm font-semibold text-gray-900">
+                  <div className="px-5 py-4 border-t border-gray-200 bg-white">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-base font-semibold text-gray-900">
                         {plan.title || `Type ${index + 1}`}
                       </p>
                       {plan.bedrooms && (
-                        <p className="text-xs text-gray-600">
+                        <p className="text-sm text-gray-600 font-medium">
                           {plan.bedrooms} BR
                         </p>
                       )}
                     </div>
-                    <div className="flex items-center justify-between text-xs text-gray-600">
+                    <div className="flex items-center justify-between text-sm text-gray-600">
                       {plan.size && (
-                        <span>{plan.size} sq ft</span>
+                        <span className="font-medium">{plan.size} sq ft</span>
                       )}
                       {plan.price && (
                         <span className="font-semibold text-gray-900">

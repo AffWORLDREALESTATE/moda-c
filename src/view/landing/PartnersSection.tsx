@@ -42,7 +42,7 @@ function PartnersSection() {
   }, [api])
 
   return (
-    <section className="pt-2 sm:pt-3 md:pt-4 pb-8 sm:pb-12 md:pb-16 bg-white border-t border-b border-gray-100">
+    <section className="pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-12 md:pb-16 bg-white border-t border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="text-center mb-6 sm:mb-8 md:mb-10">
           <h2 className="text-gray-600 text-sm sm:text-base font-light tracking-widest uppercase font-sans mb-2">
@@ -62,17 +62,17 @@ function PartnersSection() {
               return (
                 <CarouselItem
                   key={src}
-                  className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
+                  className="basis-1/4"
                 >
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-4">
+                  <div className="flex items-center justify-center h-28 sm:h-32 md:h-36 lg:h-40 px-4">
                     <div className="relative w-full h-full">
                       <Image
                         src={src}
                         alt={alt}
                         fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw"
+                        sizes="(max-width: 1024px) 25vw, 25vw"
                         className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                        priority={idx < 3}
+                        priority={idx < 4}
                       />
           </div>
         </div>

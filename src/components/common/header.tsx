@@ -29,17 +29,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/src/components/ui/dropdown-menu";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/src/components/ui/hover-card";
 import LanguageSwitcher from "./language-switcher";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 
 export default function Header() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t, currencySymbol, currencyIconSrc, availableCurrencies, setCurrency, currencyCode } = useLanguage();
   const pathname = usePathname();
@@ -72,34 +68,6 @@ export default function Header() {
     { href: "/contactUs", label: 'Contact' },
   ];
   const services = [
-    // {
-    //   icon: <Settings className="h-4 w-4 text-gray-500" />,
-    //   name: t('services.propertyManagement')
-    // },
-    // {
-    //   icon: <Home className="h-4 w-4 text-gray-500" />,
-    //   name: t('nav.listYourProperty')
-    // },
-    // {
-    //   icon: <DollarSign className="h-4 w-4 text-gray-500" />,
-    //   name: t('services.mortgages')
-    // },
-    // {
-    //   icon: <Scale className="h-4 w-4 text-gray-500" />,
-    //   name: t('services.conveyancing')
-    // },
-    // {
-    //   icon: <Bed className="h-4 w-4 text-gray-500" />,
-    //   name: t('services.shortTermRentals')
-    // },
-    // {
-    //   icon: <Wrench className="h-4 w-4 text-gray-500" />,
-    //   name: t('services.propertySnagging')
-    // },
-    // {
-    //   icon: <Users className="h-4 w-4 text-gray-500" />,
-    //   name: t('services.partnerProgram')
-    // },
     { icon: <Bed className="h-4 w-4 text-gray-500" />, name: t('nav.rent'), href: "/rent" },
     { icon: <Globe className="h-4 w-4 text-gray-500" />, name: t('services.buySell.title'), href: "/service/buy-sell-offplan" },
     { icon: <TrendingUp className="h-4 w-4 text-gray-500" />, name: t('services.investment.title'), href: "/service/investment" },
@@ -108,9 +76,7 @@ export default function Header() {
   ];
 
   const headerLink = [
-    
     { href: "/", label: t('nav.home') },
-    // { href: "/buy", label: t('nav.buy') },
     { href: "/offPlanspremiumpropertyindubai", label: t('nav.buy') },
     { href: "/communities", label: t('nav.properties') || t('nav.areas') },
     { href: "/service", label: t('nav.services'), hasDropdown: true },
@@ -118,14 +84,13 @@ export default function Header() {
     { href: "/about", label: t('nav.about') },
     { href: "/team", label: t('nav.teams') },
     { href: "/contactUs", label: 'Contact' },
-
   ];
+  
   useEffect(() => {
     if (!isOverlayOpen) return;
 
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      // Don't close if clicking inside the mobile overlay
       if (target.closest('[data-mobile-overlay]')) {
         return;
       }
@@ -138,6 +103,7 @@ export default function Header() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [isOverlayOpen]);
+  
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -163,16 +129,16 @@ export default function Header() {
           {headerLink.map((link, i) => {
             if (link.hasDropdown) {
               return (
-                <HoverCard key={i} openDelay={200} closeDelay={100}>
-                  <HoverCardTrigger asChild>
+                <DropdownMenu key={i} open={isServicesDropdownOpen} onOpenChange={setIsServicesDropdownOpen}>
+                  <DropdownMenuTrigger asChild>
                     <button
                       type="button"
                       onClick={(e) => e.preventDefault()}
                       className={cn(
-                        "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-[#0a4b6f]",
+                        "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-red-600",
                         "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                        "after:bg-[#0a4b6f] after:transition-all after:duration-300 hover:after:w-full",
-                        pathname === link.href && "after:w-full text-[#0a4b6f]"
+                        "after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full",
+                        (pathname === link.href || isServicesDropdownOpen) && "after:w-full text-red-600"
                       )}
                       style={{
                         letterSpacing: "0.5px",
@@ -181,8 +147,8 @@ export default function Header() {
                     >
                       {link.label}
                     </button>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-[500px] p-0" sideOffset={10}>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-[500px] p-0" align="start" sideOffset={10}>
                     <div className="bg-white rounded-lg shadow-xl border border-gray-200">
                       {/* Header */}
                       <div className="p-4 border-b border-gray-100">
@@ -205,6 +171,7 @@ export default function Header() {
                                   service.name === "Offplan Management" ? "/offplan-management" :
                                   "/service"
                                 )}
+                                onClick={() => setIsServicesDropdownOpen(false)}
                                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
                               >
                                 <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
@@ -230,6 +197,7 @@ export default function Header() {
                                   service.name === "Offplan Management" ? "/offplan-management" :
                                   "/service"
                                 )}
+                                onClick={() => setIsServicesDropdownOpen(false)}
                                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#314355]/5 transition-colors duration-200 cursor-pointer group"
                               >
                                 <div className="flex-shrink-0 transition-colors duration-200 group-hover:text-[#314355]">
@@ -244,41 +212,33 @@ export default function Header() {
                         </div>
                       </div>
                     </div>
-                  </HoverCardContent>
-                </HoverCard>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               );
             }
             
             return (
-                <Link
-                  key={i}
-                  href={link.href}
-                  className={cn(
-                  "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-[#0a4b6f]",
+              <Link
+                key={i}
+                href={link.href}
+                className={cn(
+                  "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-red-600",
                   "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                "after:bg-[#0a4b6f] after:transition-all after:duration-300 hover:after:w-full",
-                pathname === link.href && "after:w-full text-[#0a4b6f]"
-              )}
-              style={{
-                letterSpacing: "0.5px",
-              }}
-            >
-              {link.label}
-            </Link>
+                  "after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full",
+                  pathname === link.href && "after:w-full text-red-600"
+                )}
+                style={{
+                  letterSpacing: "0.5px",
+                }}
+              >
+                {link.label}
+              </Link>
             );
           })}
         </div>
 
         {/* Right Side - Currency and Actions */}
         <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-shrink-0">
-          {/* Submit Property Button - Hidden on small screens */}
-          {/* <Link 
-            href="/contactUs" 
-            className="hidden md:block bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg font-normal text-sm lg:text-base transition-all duration-300 shadow-md hover:shadow-lg uppercase tracking-wide"
-          >
-            {t('nav.submitProperty') || 'Submit A Property'}
-          </Link>  */}
-
           {/* Language Switcher - Smaller on mobile */}
           <div className="scale-75 sm:scale-90 md:scale-100 origin-right">
             <LanguageSwitcher />
@@ -308,10 +268,9 @@ export default function Header() {
             </div>
           </div>
 
-
           {/* Mobile Menu Button */}
           <div
-            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-[#314355] ml-1"
+            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-red-600 ml-1"
             onClick={() => setIsOverlayOpen(true)}
           >
             <Menu className="h-5 w-5" />
@@ -339,7 +298,7 @@ export default function Header() {
           backgroundImage: 'none'
         }}
       >
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-[#314355] to-[#24313f] text-white">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-[#1a6b8f] text-white">
           <h2 className="text-xl font-bold font-serif">{t('common.menu')}</h2>
           <button
             onClick={() => setIsOverlayOpen(false)}
@@ -357,8 +316,8 @@ export default function Header() {
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
                     className={cn(
-                      "flex items-center justify-between w-full text-left text-gray-700 hover:text-[#314355] transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200",
-                      pathname === link.href && "text-[#314355] font-medium bg-gray-50 border-gray-200"
+                      "flex items-center justify-between w-full text-left text-gray-700 hover:text-red-600 transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200",
+                      pathname === link.href && "text-red-600 font-medium bg-gray-50 border-gray-200"
                     )}
                   >
                     <span className="font-medium">{link.label}</span>
@@ -400,17 +359,17 @@ export default function Header() {
             }
             
             return (
-            <Link
-              key={i}
-              href={link.href}
-              className={cn(
-                  "text-gray-700 hover:text-[#314355] transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200 font-medium",
-                  pathname === link.href && "text-[#314355] font-medium bg-gray-50 border-gray-200"
-              )}
+              <Link
+                key={i}
+                href={link.href}
+                className={cn(
+                  "text-gray-700 hover:text-red-600 transition-all duration-200 py-3 px-4 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200 font-medium",
+                  pathname === link.href && "text-red-600 font-medium bg-gray-50 border-gray-200"
+                )}
                 onClick={() => setIsOverlayOpen(false)}
-            >
-              {link.label}
-            </Link>
+              >
+                {link.label}
+              </Link>
             );
           })}
         </nav>
@@ -419,12 +378,11 @@ export default function Header() {
           {/* Mobile Buttons */}
           <div className="space-y-3 hidden md:block">
             <Link href="/list-your-property" onClick={() => setIsOverlayOpen(false)}>
-              <Button className="w-full bg-gradient-to-r from-[#314355] to-[#24313f] hover:from-[#24313f] hover:to-[#1e2834] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200">
+              <Button className="w-full bg-[#1a6b8f] hover:bg-[#2a8abf] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200">
                 {t('nav.listYourProperty')}
               </Button>
             </Link>
           </div>
-
         </div>
       </div>
     </header>

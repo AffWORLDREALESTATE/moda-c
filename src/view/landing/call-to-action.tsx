@@ -8,7 +8,7 @@ import { useLanguage } from "@/src/contexts/LanguageContext";
 export function CallToAction() {
   const { t } = useLanguage();
   return (
-    <section className="relative py-20 sm:py-24 md:py-28 lg:py-36 overflow-hidden bg-gradient-to-br from-[#0a4b6f] via-[#1a6b8f] to-[#0a4b6f]">
+    <section className="relative pt-8 sm:pt-10 md:pt-12 pb-20 sm:pb-24 md:pb-28 lg:pb-36 overflow-hidden bg-gradient-to-br from-[#0a4b6f] via-[#1a6b8f] to-[#0a4b6f]">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-20 right-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>

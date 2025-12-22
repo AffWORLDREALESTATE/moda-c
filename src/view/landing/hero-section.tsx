@@ -134,7 +134,7 @@ export default function HeroSection() {
               muted
               loop
               playsInline
-              webkit-playsinline
+              webkit-playsinline="true"
               preload="auto"
               poster="/images/bgImage.webp"
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}

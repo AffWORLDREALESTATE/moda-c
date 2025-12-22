@@ -66,8 +66,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --font-poppins: Arial, Helvetica, sans-serif;
-  --font-playfair: Arial, Helvetica, sans-serif;
 }
 
 .dark {
@@ -107,7 +105,7 @@
 
 @theme inline {
   --font-sans: var(--font-poppins);
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-poppins);
   --font-mono: var(--font-poppins);
   --font-custom: var(--font-poppins);
 
@@ -149,26 +147,26 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Force Arial font on entire document */
+/* Force Poppins font on entire document */
 html {
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: var(--font-poppins), sans-serif !important;
 }
 
 /* Custom utility classes for your fonts */
 .font-custom {
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: var(--font-poppins), sans-serif !important;
   font-weight: 400;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: var(--font-poppins), sans-serif !important;
     font-weight: 400;
   }
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: var(--font-poppins), sans-serif !important;
     font-weight: 400 !important;
     /* Optimize for mobile performance */
     -webkit-font-smoothing: antialiased;
@@ -176,16 +174,16 @@ html {
     text-rendering: optimizeLegibility;
   }
   h1, h2 {
-    @apply font-serif;
-    font-family: Arial, Helvetica, sans-serif !important;
+    @apply font-sans;
+    font-family: var(--font-poppins), sans-serif !important;
   }
   h3, h4, h5, h6 {
     @apply font-sans;
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: var(--font-poppins), sans-serif !important;
   }
   p, span, div, a, button, input, select, textarea, label, li, th, td {
     @apply font-sans;
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: var(--font-poppins), sans-serif !important;
     font-weight: 400;
   }
   /* Global paragraph sizing to match homepage lead paragraph */
@@ -913,6 +911,25 @@ button, [role="button"], .btn {
   .blog-content p {
     font-size: 15px;
     margin-bottom: 1rem;
+  }
+}
+
+/* Custom animations for Solutions section */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
