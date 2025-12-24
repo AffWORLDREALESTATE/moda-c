@@ -41,7 +41,7 @@ function FormattedDescription({ description }: { description: string }) {
           if (listItems.length > 0) {
             return (
               <div key={sectionIdx} className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                   {heading}
                 </h3>
                 <ul className="list-disc list-outside space-y-2.5 ml-5 sm:ml-6">
@@ -369,10 +369,10 @@ export default function DetailPage({ slug }: { slug: string }) {
           </div>
         )}
         <div className="relative z-30 text-white px-4 pb-8 sm:pb-12 md:pb-16">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-light mb-2 sm:mb-4 leading-tight tracking-wide font-serif">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-light mb-2 sm:mb-4 leading-tight tracking-wide font-serif">
             {property?.name}
           </h1>
-          <p className="text-sm sm:text-base md:text-lg font-light mb-4 sm:mb-6 tracking-wider uppercase text-primary">
+          <p className="text-xs sm:text-sm md:text-base font-light mb-4 sm:mb-6 tracking-wider uppercase text-primary">
             {normalizeLocationName(`${property?.location?.community || ""}${property?.location?.sub_community ? `, ${property?.location?.sub_community}` : ""}${property?.location?.city ? `, ${property?.location?.city}` : ""}`)}
           </p>
         </div>
@@ -380,7 +380,7 @@ export default function DetailPage({ slug }: { slug: string }) {
 
       <section className="bg-white py-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 text-sm sm:text-base md:text-lg font-light uppercase text-primary mb-6 sm:mb-8 md:mb-12 px-2">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm md:text-base font-light uppercase text-primary mb-6 sm:mb-8 md:mb-12 px-2">
             <a
               className="hover:underline cursor-pointer text-center"
               onClick={() => setIsOpen(true)}
@@ -414,10 +414,10 @@ export default function DetailPage({ slug }: { slug: string }) {
                     </div>
                   </div>
                   <div className="flex flex-col text-center sm:text-left">
-                    <span className="text-xs sm:text-sm md:text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                    <span className="text-[10px] sm:text-xs md:text-xs font-semibold text-gray-800 uppercase tracking-wide">
                       {property.agent.name}
                     </span>
-                    <span className="text-xs sm:text-xs md:text-xs text-[#0a4b6f] font-medium uppercase tracking-wider">
+                    <span className="text-[10px] sm:text-[10px] md:text-[10px] text-[#0a4b6f] font-medium uppercase tracking-wider">
                       Property Specialist
                     </span>
                   </div>
@@ -465,8 +465,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="text-center group"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('common.from')}</h3>
-                  <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif flex items-center justify-center gap-2">
+                  <h3 className="text-[10px] font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('common.from')}</h3>
+                  <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 font-serif flex items-center justify-center gap-2">
                     {currencyIconSrc && (
                       <Image src={currencyIconSrc} alt="AED" width={20} height={20} />
                     )}
@@ -488,8 +488,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-center group"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">Completion Date</h3>
-                  <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
+                  <h3 className="text-[10px] font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">Completion Date</h3>
+                  <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.newParam?.handoverTime
                       ? moment(property?.newParam?.handoverTime).format("MMMM YYYY")
                       : property?.completionDate
@@ -508,8 +508,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-center group sm:col-span-2 lg:col-span-1"
                 >
-                  <h3 className="text-xs font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('details.constructionStage')}</h3>
-                  <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 font-serif">
+                  <h3 className="text-[10px] font-semibold uppercase text-[#0a4b6f] mb-3 tracking-[0.2em] font-serif">{t('details.constructionStage')}</h3>
+                  <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 font-serif">
                     {property?.constructionStage || property?.completionStatus || "Off-plan"}
                   </p>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-[#0a4b6f] to-[#1a6b8f] mx-auto rounded-full"></div>
@@ -624,17 +624,17 @@ export default function DetailPage({ slug }: { slug: string }) {
 
               {property?.description && (
                 <div className="mt-12 sm:mt-16">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-6 sm:mb-8 text-left font-bold">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-gray-800 mb-6 sm:mb-8 text-left font-bold">
                     {t("details.description")}
                   </h2>
                   {(bedroomMin || bathroomMin || sizeMin || propertyType || city) && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
                   {propertyType && (
                     <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
                         Property Type
                       </p>
-                      <p className="text-base font-semibold text-gray-900 break-words capitalize leading-tight">
+                      <p className="text-sm font-semibold text-gray-900 break-words capitalize leading-tight">
                         {propertyType}
                       </p>
                     </div>
@@ -642,10 +642,10 @@ export default function DetailPage({ slug }: { slug: string }) {
 
                   {city && (
                     <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
                         {t("details.city")}
                       </p>
-                      <p className="text-base font-semibold text-gray-900 break-words leading-tight">
+                      <p className="text-sm font-semibold text-gray-900 break-words leading-tight">
                         {normalizeLocationName(city)}
                       </p>
                     </div>
@@ -653,10 +653,10 @@ export default function DetailPage({ slug }: { slug: string }) {
 
                   {bedroomMin && (
                     <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
                         {t("details.bedrooms")}
                       </p>
-                      <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                      <p className="text-xl sm:text-2xl font-bold text-gray-900">
                         {bedroomMax && bedroomMax !== bedroomMin
                           ? `${bedroomMin} - ${bedroomMax}`
                           : bedroomMin}
@@ -666,10 +666,10 @@ export default function DetailPage({ slug }: { slug: string }) {
 
                   {sizeMin && (
                     <div className="bg-white border border-gray-200 rounded-xl px-6 py-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0a4b6f] mb-3">
                         {t("details.homeSizeSqft")}
                       </p>
-                      <p className="text-xl sm:text-2xl font-bold text-gray-900">
+                      <p className="text-lg sm:text-xl font-bold text-gray-900">
                         {sizeMax && sizeMax !== sizeMin
                           ? `${sizeMin} – ${sizeMax} sq ft`
                           : `${sizeMin} sq ft`}
@@ -688,10 +688,10 @@ export default function DetailPage({ slug }: { slug: string }) {
         {/* Floor Plans */}
         {floorPlanItems.length > 0 && (
           <div className="max-w-6xl mx-auto mt-12 sm:mt-16 mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-3 sm:mb-4 font-bold">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-gray-800 mb-3 sm:mb-4 font-bold">
               Floor plans
             </h2>
-            <p className="text-base text-gray-600 mb-8">
+            <p className="text-sm text-gray-600 mb-8">
               Explore typical layouts and unit configurations available in this development.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -720,16 +720,16 @@ export default function DetailPage({ slug }: { slug: string }) {
                   </button>
                   <div className="px-5 py-4 border-t border-gray-200 bg-white">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-base font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-gray-900">
                         {plan.title || `Type ${index + 1}`}
                       </p>
                       {plan.bedrooms && (
-                        <p className="text-sm text-gray-600 font-medium">
+                        <p className="text-xs text-gray-600 font-medium">
                           {plan.bedrooms} BR
                         </p>
                       )}
                     </div>
-                    <div className="flex items-center justify-between text-sm text-gray-600">
+                    <div className="flex items-center justify-between text-xs text-gray-600">
                       {plan.size && (
                         <span className="font-medium">{plan.size} sq ft</span>
                       )}
@@ -764,7 +764,7 @@ export default function DetailPage({ slug }: { slug: string }) {
 
               {/* Verification Text */}
               <div className="text-gray-700 text-center sm:text-left">
-                <p className="text-xs sm:text-sm">{t('details.verifiedBy')} <span className="font-bold">{t('details.dld')}</span></p>
+                <p className="text-[10px] sm:text-xs">{t('details.verifiedBy')} <span className="font-bold">{t('details.dld')}</span></p>
               </div>
             </div>
           </div>
@@ -786,8 +786,8 @@ export default function DetailPage({ slug }: { slug: string }) {
               >
                 <DialogTitle className="mb-4 sm:mb-6 flex justify-between">
                   <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-mono font-thin text-black text-center font-serif">{t('details.takeFirstStep')}</h2>
-                    <p className="font-mono font-thin text-center text-xs sm:text-sm md:text-[15px] text-neutral-400">
+                    <h2 className="text-base sm:text-lg md:text-xl font-mono font-thin text-black text-center font-serif">{t('details.takeFirstStep')}</h2>
+                    <p className="font-mono font-thin text-center text-[10px] sm:text-xs md:text-sm text-neutral-400">
                       Get a free consultation, personalized investment strategy,
                       and exclusive access to Dubai best properties.
                     </p>
@@ -845,7 +845,7 @@ export default function DetailPage({ slug }: { slug: string }) {
                     </div>
                   )}
                 </div>
-                <div className="px-4 py-3 border-t border-gray-200 bg-white flex flex-wrap justify-between gap-2 text-sm">
+                <div className="px-4 py-3 border-t border-gray-200 bg-white flex flex-wrap justify-between gap-2 text-xs">
                   <div className="font-semibold text-gray-900">
                     {selectedFloorPlan.title || t("details.floorPlan")}
                   </div>

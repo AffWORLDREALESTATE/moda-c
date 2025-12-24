@@ -71,7 +71,7 @@ export default function LocationSection({ property }: any) {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono mb-3 sm:mb-4 font-serif">Location</h2>
-              <p className="text-neutral-400 text-[13px] sm:text-[14px] leading-relaxed line-clamp-4 sm:line-clamp-5 md:line-clamp-6 mb-4 sm:mb-6">
+              <p className="text-neutral-400 text-base sm:text-lg leading-relaxed line-clamp-4 sm:line-clamp-5 md:line-clamp-6 mb-4 sm:mb-6">
               {
                 property?.description
               }
