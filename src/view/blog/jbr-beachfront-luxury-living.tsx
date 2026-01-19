@@ -5,23 +5,20 @@ const blogPost = {
   subtitle:
     "Live the beachfront lifestyle at JBR. Discover luxury apartments with stunning sea views, world-class restaurants, and direct access to one of Dubai's most beautiful beaches.",
   content: `
-    <h2>Dubai’s Premier Beachfront Neighborhood</h2>
-    <p>JBR offers true beachfront living with a vibrant promenade, pristine beaches, and endless dining options. Its family-friendly environment and resort-style amenities attract residents seeking a coastal lifestyle in the city.</p>
+    <h2>The Walk & The Beach</h2>
+    <p>JBR is famous for "The Walk," a bustling waterfront promenade lined with boutiques and al fresco dining. Direct beach access offers water sports, while "The Beach" mall provides open-air cinema and entertainment.</p>
+    
+    <h2>New Developments</h2>
+    <p>While established, JBR continues to evolve with ultra-luxury additions like <strong>1 JBR</strong>, <strong>Address Beach Resort</strong>, and the upcoming <strong>FIVE Luxe</strong>, redefining the skyline with modern architecture.</p>
 
-    <h2>Seafront Apartments</h2>
-    <p>Residences feature balconies with sea or Marina views, modern interiors, and access to gyms and pools. The community’s layout encourages walking, with retail, cafes, and leisure within minutes.</p>
-
-    <h2>Dining and Leisure</h2>
-    <p>The Walk at JBR and The Beach provide dozens of restaurants, boutiques, cinemas, and seasonal events. Watersports, cycling, and beach clubs add to the lifestyle appeal.</p>
+    <h2>Investment Appeal</h2>
+    <p>JBR's limited supply of beachfront land ensures strong capital retention. Short-term rentals (holiday homes) perform exceptionally well here due to high tourist footfall year-round.</p>
 
     <h2>Connectivity</h2>
-    <p>Close to Dubai Marina and Bluewaters Island, with quick access to Sheikh Zayed Road and multiple public transport options, including tram and metro connectivity.</p>
-
-    <h2>Investment Perspective</h2>
-    <p>High tourist footfall and consistent tenant demand support steady rental yields. Beachfront rarity drives long-term value resilience and liquidity.</p>
+    <p>Linked by the Dubai Tram to the Metro and Dubai Marina, JBR offers a pedestrian-friendly lifestyle rare in other parts of the city.</p>
 
     <h2>Conclusion</h2>
-    <p>JBR combines coastal serenity with urban convenience—a top choice for beachfront living in Dubai.</p>
+    <p>For those seeking a resort lifestyle in the heart of the city, JBR remains the gold standard.</p>
   `,
   author: {
     name: "Modac Real Estate",

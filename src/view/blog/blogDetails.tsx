@@ -44,6 +44,126 @@ import DubaiPropertyResaleMaximize from "./dubai-property-resale-maximize";
 
 // Mock data - in a real app, this would come from your CMS or database
 const blogPosts = {
+  "dubai-real-estate-outlook-2026": {
+    title: "Dubai Real Estate Outlook 2026: Sustainable Growth & New Opportunities",
+    subtitle: "As we step into 2026, Dubai's real estate market continues to evolve, focused on sustainable developments and smart city initiatives.",
+    content: `
+      <h2>Sustainable Growth in 2026</h2>
+      <p>The Dubai real estate market enters 2026 with a renewed focus on sustainability and smart living. New regulations and developer initiatives are prioritizing eco-friendly construction and energy-efficient designs.</p>
+      <h2>Key Opportunities</h2>
+      <p>Investors should look towards emerging districts that integrate smart city technologies. These areas promise higher long-term appreciation and rental yields.</p>
+    `,
+    author: {
+      name: "Modac Real Estate",
+      bio: "Premier real estate specialists.",
+      avatar: "/images/logo.png",
+    },
+    publishedAt: "Jan 15, 2026",
+    readTime: "6 min read",
+    category: "Market Outlook",
+    tags: ["Dubai", "Real Estate", "2026"],
+    featuredImage: "/images/property3.jpeg",
+  },
+  "branded-residences-dubai-rise": {
+    title: "The Rise of Branded Residences in Dubai: Ultimate Luxury",
+    subtitle: "Explore why branded residences are becoming the preferred choice for ultra-high-net-worth individuals.",
+    content: `
+      <h2>The Appeal of Branded Residences</h2>
+      <p>Dubai is witnessing a surge in branded residences, partnering with luxury hospitality and fashion brands. These properties offer unmatched service levels and amenities.</p>
+      <h2>Investment Potential</h2>
+      <p>Branded residences typically command a significant premium over non-branded counterparts, holding their value exceptionally well in the resale market.</p>
+    `,
+    author: {
+      name: "Modac Real Estate",
+      bio: "Premier real estate specialists.",
+      avatar: "/images/logo.png",
+    },
+    publishedAt: "Jan 10, 2026",
+    readTime: "5 min read",
+    category: "Luxury Living",
+    tags: ["Dubai", "Branded Residences", "Luxury"],
+    featuredImage: "/images/card4.jpeg",
+  },
+  "investing-dubai-south-airport-expansion": {
+    title: "Investing in Dubai South: Impact of Airport Expansion",
+    subtitle: "With the expansion of Al Maktoum International Airport, Dubai South is emerging as a prime investment hub.",
+    content: `
+      <h2>The Airport Expansion Effect</h2>
+      <p>The massive expansion of Al Maktoum International Airport is a catalyst for growth in Dubai South. This area is poised to become a major logistics and residential hub.</p>
+      <h2>Residential and Commercial Growth</h2>
+      <p>Demand for residential units is expected to skyrocket as more businesses and employees move to the area to support the airport's operations.</p>
+    `,
+    author: {
+      name: "Modac Real Estate",
+      bio: "Premier real estate specialists.",
+      avatar: "/images/logo.png",
+    },
+    publishedAt: "Jan 5, 2026",
+    readTime: "7 min read",
+    category: "Investment",
+    tags: ["Dubai South", "Airport", "Investment"],
+    featuredImage: "/images/building.jpg",
+  },
+  "year-end-market-wrap-2025": {
+    title: "Year-End Market Wrap: Dubai's Record-Breaking Transactions",
+    subtitle: "A look back at 2025's phenomenal performance in the real estate sector.",
+    content: `
+      <h2>2025 in Review</h2>
+      <p>2025 was a landmark year for Dubai real estate, shattering previous transaction records. High demand from international buyers drove prices across both luxury and mid-market segments.</p>
+      <h2>Market Drivers</h2>
+      <p>Factors such as visa reforms, economic stability, and infrastructure projects continued to fuel the market's robust performance.</p>
+    `,
+    author: {
+      name: "Modac Real Estate",
+      bio: "Premier real estate specialists.",
+      avatar: "/images/logo.png",
+    },
+    publishedAt: "Dec 28, 2025",
+    readTime: "8 min read",
+    category: "Market Analysis",
+    tags: ["Dubai", "2025", "Market Wrap"],
+    featuredImage: "/images/dubai-marina.webp",
+  },
+  "holiday-homes-dubai-investment": {
+    title: "Holiday Homes in Dubai: A Booming Investment Sector",
+    subtitle: "The short-term rental market is thriving. Learn how converting your property can yield higher returns.",
+    content: `
+      <h2>Short-Term Rental Growth</h2>
+      <p>With tourism numbers hitting new highs, the demand for holiday homes in Dubai is stronger than ever. Short-term rentals offer flexibility and often higher rental yields than annual leases.</p>
+      <h2>Best Areas for Holiday Homes</h2>
+      <p>Areas like Downtown Dubai, Dubai Marina, and Palm Jumeirah remain top choices for tourists seeking short-term stays.</p>
+    `,
+    author: {
+      name: "Modac Real Estate",
+      bio: "Premier real estate specialists.",
+      avatar: "/images/logo.png",
+    },
+    publishedAt: "Dec 20, 2025",
+    readTime: "5 min read",
+    category: "Investment",
+    tags: ["Holiday Homes", "Dubai", "Investment"],
+    featuredImage: "/images/c3.webp",
+  },
+  "top-communities-high-roi-2026": {
+    title: "Top Communities for High ROI in 2026",
+    subtitle: "Planning your portfolio for the new year? We analyze top communities projected to offer the highest returns.",
+    content: `
+      <h2>Forecasting High ROI Areas</h2>
+      <p>For 2026, we are looking at emerging communities like Dubai Creek Harbour and Dubai Hills Estate as key drivers for ROI, balancing capital appreciation with strong rental demand.</p>
+      <h2>Strategic Investment</h2>
+      <p>Early entry into these developing master communities can secure the best capital gains as infrastructure matures.</p>
+    `,
+    author: {
+      name: "Modac Real Estate",
+      bio: "Premier real estate specialists.",
+      avatar: "/images/logo.png",
+    },
+    publishedAt: "Dec 15, 2025",
+    readTime: "6 min read",
+    category: "Investment",
+    tags: ["ROI", "Dubai", "Communities"],
+    featuredImage: "/images/c1.webp",
+  },
   "interior-design-trends-dubai-luxury-residences": {
     title: "Guide to Interior Design Trends in Dubai Luxury Residences",
     subtitle: "Discover the latest interior design trends shaping Dubai's luxury residences and learn how to create stunning spaces that reflect the city's opulent lifestyle.",

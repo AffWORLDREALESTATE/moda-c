@@ -5,20 +5,20 @@ const blogPost = {
   subtitle:
     "Discover Dubai's commitment to sustainability. Explore green buildings, eco-friendly developments, and sustainable living options that combine luxury with environmental responsibility.",
   content: `
-    <h2>Green Standards</h2>
-    <p>Dubai’s sustainability push includes Estidama and green building codes that promote energy efficiency, water conservation, and healthier indoor environments.</p>
+    <h2>The Sustainable City</h2>
+    <p>A pioneering net-zero energy development in Dubailand. It features 500 villas with solar panels, biodomes for urban farming, and car-free residential clusters. Residents save up to 50% on utility bills.</p>
 
-    <h2>Eco-Friendly Communities</h2>
-    <p>Masterplans now feature solar-ready rooftops, recycled water irrigation, shaded walkways, and biodiversity-friendly landscaping.</p>
+    <h2>Al Barari</h2>
+    <p>More than just luxury, Al Barari creates a microclimate with over 500 plant species, reducing ambient temperature. It focuses on wellness and biodiversity.</p>
 
-    <h2>Smart Homes</h2>
-    <p>Smart meters, automated climate control, and efficient glazing reduce consumption without compromising comfort.</p>
+    <h2>Expo City Dubai</h2>
+    <p>The legacy of Expo 2020, this "15-minute city" is built to the highest LEED certification standards, prioritizing pedestrian mobility and clean energy.</p>
 
-    <h2>Benefits</h2>
-    <p>Residents gain lower utility costs, improved well-being, and long-term value preservation as sustainability becomes a core buyer criterion.</p>
+    <h2>Green Benefits</h2>
+    <p>Beyond environmental impact, green buildings offer better air quality, lower operating costs, and are increasingly favored by eco-conscious tenants and buyers.</p>
 
     <h2>Conclusion</h2>
-    <p>Sustainability and luxury increasingly go hand-in-hand in Dubai’s new generation of properties.</p>
+    <p>Sustainability is no longer niche in Dubai; it is central to the future ensuring long-term resilience and quality of life.</p>
   `,
   author: {
     name: "Modac Real Estate",

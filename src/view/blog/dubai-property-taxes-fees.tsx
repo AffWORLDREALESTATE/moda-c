@@ -5,22 +5,25 @@ const blogPost = {
   subtitle:
     "Understand all property-related taxes and fees in Dubai. From registration fees to service charges, get a complete breakdown of costs when buying property in Dubai.",
   content: `
-    <h2>Upfront Costs</h2>
+    <h2>Upfront Purchase Costs</h2>
     <ul>
-      <li>Dubai Land Department (DLD) fee – typically 4% of purchase price</li>
-      <li>Title deed issuance and administrative fees</li>
-      <li>Agency commission – commonly 2% (may vary)</li>
-      <li>Mortgage registration – if financing (percentage-based)</li>
+      <li><strong>DLD Fee:</strong> 4% of purchase price + AED 580 admin fee.</li>
+      <li><strong>Registration Fee:</strong> AED 4,000 for properties > AED 500k; AED 2,000 for < AED 500k.</li>
+      <li><strong>Agency Commission:</strong> 2% + VAT.</li>
     </ul>
 
-    <h2>Ongoing Costs</h2>
-    <p>Service charges vary by community and building specification. Budget for utilities, maintenance, and optional property management. No recurring property tax on most assets.</p>
+    <h2>Recurring Costs (Service Charges)</h2>
+    <p>Service charges cover community maintenance. They vary significantly by location:
+    <br><strong>Villas:</strong> AED 2 - 6 per sq.ft (e.g., Arabian Ranches, Dubai Hills).
+    <br><strong>Apartments:</strong> AED 12 - 30+ per sq.ft (e.g., Downtown, Marina). Luxury towers can exceed AED 50/sq.ft.</p>
 
     <h2>Tax Environment</h2>
-    <p>No income or capital gains tax on most property transactions in Dubai. VAT may apply to certain services, not typically on residential resale.</p>
+    <p><strong>Property Tax:</strong> 0% annual property tax.
+    <br><strong>Capital Gains Tax:</strong> 0% on resale profits.
+    <br><strong>Rental Income Tax:</strong> 0% personal income tax (5% VAT applies only to commercial leases).</p>
 
     <h2>Conclusion</h2>
-    <p>With transparent fee structures and limited taxation, Dubai remains cost-competitive versus global peers.</p>
+    <p>Dubai's low-tax environment maximizes net returns, though investors must factor in high service charges in luxury apartment towers.</p>
   `,
   author: {
     name: "Modac Real Estate",

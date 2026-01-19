@@ -327,7 +327,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205, Prime Tower',
     'contact.address.line2': 'Business Bay, Dubai, UAE',
-    'contact.phone.number': '+971-4-575-8035',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
     
     // Common components
@@ -637,7 +637,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205، برايم تاور',
     'contact.address.line2': 'الخليج التجاري، دبي، الإمارات العربية المتحدة',
-    'contact.phone.number': '971-4-575-8035+',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
     
     // Common components
@@ -997,7 +997,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205, Prime Tower',
     'contact.address.line2': 'Business Bay, Dubaï, Émirats arabes unis',
-    'contact.phone.number': '+971-4-575-8035',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
     
     // Common components
@@ -1286,7 +1286,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205, Prime Tower',
     'contact.address.line2': 'Business Bay, Dubái, EAU',
-    'contact.phone.number': '+971-4-575-8035',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
   },
   de: {
@@ -1492,7 +1492,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205, Prime Tower',
     'contact.address.line2': 'Business Bay, Dubai, VAE',
-    'contact.phone.number': '+971-4-575-8035',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
     
     // Details pages (property detail labels)
@@ -2364,7 +2364,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205, Prime Tower',
     'contact.address.line2': 'Бизнес-Бей, Дубай, ОАЭ',
-    'contact.phone.number': '+971-4-575-8035',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
     
     // Common components
@@ -2671,7 +2671,7 @@ const translations: Record<string, Translations> = {
     // Contact details
     'contact.address.line1': '1205，Prime Tower',
     'contact.address.line2': '商务湾，迪拜，阿联酋',
-    'contact.phone.number': '+971-4-575-8035',
+    'contact.phone.number': '+971 5583860',
     'contact.email.address': 'info@modacrealestate.com',
     
     // Common components

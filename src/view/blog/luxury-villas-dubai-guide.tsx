@@ -5,20 +5,25 @@ const blogPost = {
   subtitle:
     "Explore Dubai's most exclusive villa communities. From Emirates Hills to Al Barari, discover luxury villas that offer privacy, space, and world-class amenities in stunning settings.",
   content: `
-    <h2>Signature Communities</h2>
-    <p>Emirates Hills, Palm Jumeirah, Al Barari, and Dubai Hills Estate headline Dubai’s luxury villa landscape—each offering distinctive settings, from golf vistas to forested sanctuaries.</p>
+    <h2>Top Villa Communities</h2>
+    <ul>
+      <li><strong>Emirates Hills:</strong> Large plots, golf course views, and ultimate privacy.</li>
+      <li><strong>Palm Jumeirah:</strong> Beachfront living with private sea access.</li>
+      <li><strong>Al Barari:</strong> A green sanctuary with 60% of the area dedicated to botanical gardens and lakes.</li>
+      <li><strong>Jumeirah Golf Estates:</strong> World-class golf facilities and Mediterranean-inspired homes.</li>
+    </ul>
 
-    <h2>Design and Customization</h2>
-    <p>Villas emphasize privacy, indoor-outdoor flow, and bespoke interiors. Many homes feature pools, landscaped gardens, and entertainment suites tailored to owner lifestyles.</p>
+    <h2>Design Trends</h2>
+    <p>Modern villas feature open-plan layouts, floor-to-ceiling glass, and smart home automation. "Biophilic design"—integrating nature into the home—is a key trend, especially in communities like Al Barari and Tilal Al Ghaf.</p>
 
-    <h2>Amenities and Services</h2>
-    <p>Gated communities provide security, clubhouses, sports facilities, and curated community management, ensuring long-term upkeep and resale liquidity.</p>
+    <h2>Investment Potential</h2>
+    <p>Villas have seen the highest capital appreciation post-2020. Limited supply of prime villa plots ensures long-term value retention.</p>
 
     <h2>Who It Suits</h2>
-    <p>Ideal for families, entertainers, and those seeking tranquility without compromising access to schools, healthcare, and city hubs.</p>
+    <p>Families seeking space and security, and investors looking for assets with strong resale liquidity.</p>
 
     <h2>Conclusion</h2>
-    <p>Luxury villas encapsulate Dubai’s promise of spacious, private, resort-style living—an enduring favorite among discerning buyers.</p>
+    <p>Dubai's villa market offers unmatched variety, from beachfront mansions to green woodland estates.</p>
   `,
   author: {
     name: "Modac Real Estate",

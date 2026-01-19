@@ -89,7 +89,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 sm:gap-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
                 <a
-                  href="tel:+97145758035"
+                  href="tel:+9715583860"
                   className="relative inline-block hover:text-gray-300 transition-colors duration-200
                              after:content-[''] after:absolute after:left-0 after:bottom-0
                              after:h-[1.5px] after:w-0 after:bg-white
@@ -107,7 +107,7 @@ export default function Footer() {
                              after:h-[1.5px] after:w-0 after:bg-white
                              after:transition-all after:duration-300 hover:after:w-full font-sans break-all"
                 >
-                  +971-54-474-5530
+                  +971 544745530
                 </a>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">

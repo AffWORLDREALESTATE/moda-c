@@ -6,19 +6,23 @@ const blogPost = {
     "Learn how to maximize rental yields on Dubai properties. From location selection to property management, discover strategies to boost your rental income in Dubai's competitive market.",
   content: `
     <h2>Yield Drivers</h2>
-    <p>Rental yields hinge on purchase price, community services, tenant demand, and vacancy management. Transit access and nearby employment hubs improve absorption and rent growth.</p>
+    <p>Dubai remains one of the world's highest-yielding markets. Yields are driven by purchase price, service charges, and occupancy. Prime locations offer capital appreciation, while affordable areas offer higher immediate rental returns.</p>
 
-    <h2>Unit Mix and Finish</h2>
-    <p>Studios and 1-bed units often show higher headline yields; 2–3 beds can balance stability and lower turnover. Quality finishes and turnkey condition reduce leasing downtime.</p>
-
-    <h2>Management and Pricing</h2>
-    <p>Professional property management optimizes listing exposure, screening, and maintenance. Dynamic pricing across seasons and events increases annual return.</p>
+    <h2>Average Yields by Area</h2>
+    <ul>
+      <li><strong>Jumeirah Village Circle (JVC):</strong> 8% to 9% – Top choice for mid-market investors.</li>
+      <li><strong>Dubai Marina & Downtown:</strong> 5.5% to 7% – Lower yields but higher capital preservation and liquidity.</li>
+      <li><strong>International City & Discovery Gardens:</strong> Can exceed 9-10%, though with lower capital appreciation potential.</li>
+    </ul>
 
     <h2>Short-Term vs Long-Term</h2>
-    <p>Short-term rentals can out-earn annual leases in select locations but require active management and licensing. Long-term contracts offer stability and lower operating complexity.</p>
+    <p>Short-term (holiday) rentals in tourist hubs like JBR and Downtown can generate 20-30% higher revenue than long-term leases, but require active management and obtaining DTCM permits. Long-term leases offer stability and consistency.</p>
+
+    <h2>Off-Plan Rental ROI</h2>
+    <p>Investors purchasing off-plan can often secure 7-10% yields post-handover due to appreciation during the construction phase lowering their effective entry basis.</p>
 
     <h2>Conclusion</h2>
-    <p>With the right location and operations, Dubai rentals can deliver resilient, inflation-protected income.</p>
+    <p>Investors should balance their portfolio between high-yield cash flow properties and high-appreciation prime assets.</p>
   `,
   author: {
     name: "Modac Real Estate",

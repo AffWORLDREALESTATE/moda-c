@@ -38,7 +38,7 @@ export default function TermsConditionsPage() {
                 <p className="text-gray-700 mb-2">MODACPROPERTIES</p>
                 <p className="text-gray-700 mb-2">1205, Prime Tower</p>
                 <p className="text-gray-700 mb-2">Business Bay, Dubai, UAE</p>
-                <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>
+                <p className="text-gray-700 mb-2">Phone: <a href="tel:+9715583860" className="text-blue-600 hover:underline">+971 5583860</a></p>
                 <p className="text-gray-700">Email: <a href="mailto:info@modacrealestate.com" className="text-blue-600 hover:underline">info@modacrealestate.com</a></p>
               </div>
             </section>
@@ -212,7 +212,7 @@ export default function TermsConditionsPage() {
                 <p className="text-gray-700 mb-2"><strong>MODACPROPERTIES</strong></p>
                 <p className="text-gray-700 mb-2">1205, Prime Tower</p>
                 <p className="text-gray-700 mb-2">Business Bay, Dubai, UAE</p>
-                <p className="text-gray-700 mb-2">Phone: <a href="tel:+97145758035" className="text-blue-600 hover:underline">+971-4-575-8035</a></p>
+                <p className="text-gray-700 mb-2">Phone: <a href="tel:+9715583860" className="text-blue-600 hover:underline">+971 5583860</a></p>
                 <p className="text-gray-700 mb-2">Email: <a href="mailto:legal@modacrealestate.com" className="text-blue-600 hover:underline">legal@modacrealestate.com</a></p>
                 <p className="text-gray-700">General Email: <a href="mailto:info@modacrealestate.com" className="text-blue-600 hover:underline">info@modacrealestate.com</a></p>
               </div>

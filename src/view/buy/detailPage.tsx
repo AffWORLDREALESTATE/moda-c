@@ -183,7 +183,7 @@ export default function DetailPage({ slug }: { slug: string }) {
                   </div>
                   <div className="flex gap-2">
                     <a
-                      href={`https://wa.me/${property.agent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${property.agent.name}, I'm interested in ${property.name}`}
+                      href={`https://wa.me/971544745530?text=Hi ${property.agent.name}, I'm interested in ${property.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"

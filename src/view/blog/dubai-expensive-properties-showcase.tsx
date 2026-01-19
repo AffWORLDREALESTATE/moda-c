@@ -5,17 +5,19 @@ const blogPost = {
   subtitle:
     "Take a tour of Dubai's most luxurious and expensive properties. From penthouses to private islands, discover the pinnacle of luxury real estate in Dubai.",
   content: `
-    <h2>Ultra-Luxury Highlights</h2>
-    <p>From Palm Jumeirah mega-villas to Downtown penthouses with skyline panoramas, Dubai’s ultra-prime market blends bespoke design, rare plots, and museum-grade finishes.</p>
+    <h2>Record-Breaking Sales</h2>
+    <p>Dubai's ultra-luxury market continues to shatter records. Notable transactions include the <strong>AED 400M+ Penthouse at Bulgari Lighthouse</strong> and the <strong>AED 600M+ Villa</strong> on Palm Jumeirah. The Atlantis The Royal penthouses have also set new benchmarks for branded residences.</p>
 
-    <h2>What Defines Ultra-Prime</h2>
-    <p>Rarity of location, architectural pedigree, privacy, curated amenities, and concierge-level services. Provenance and craftsmanship command premiums.</p>
+    <h2>Ultra-Prime Locations</h2>
+    <p><strong>Jumeirah Bay Island:</strong> Known as the "Billionaires' Island," home to bespoke mansions and the Bulgari Resort.
+    <br><strong>Palm Jumeirah Fronds:</strong> Custom-built "Signature Villas" remain the most liquid asset class for UHNWIs.
+    <br><strong>Emirates Hills:</strong> The established "Beverly Hills of Dubai" continues to command premium prices for renovated golf-course estates.</p>
 
     <h2>Buyer Profile</h2>
-    <p>Global UHNWIs prioritizing security, discretion, and lifestyle—often acquiring multiple residences across marquee communities.</p>
+    <p>Global UHNWIs from Europe, Asia, and the CIS region are prioritizing privacy, security, and branded amenities. There is a marked shift towards "turnkey" super-prime properties furnished by top design houses.</p>
 
     <h2>Conclusion</h2>
-    <p>Dubai’s ultra-prime segment stands shoulder-to-shoulder with the world’s leading luxury markets.</p>
+    <p>Dubai is firmly established as a top-tier global luxury market, offering value comparable to London and New York but with superior lifestyle benefits.</p>
   `,
   author: {
     name: "Modac Real Estate",

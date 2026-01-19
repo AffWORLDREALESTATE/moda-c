@@ -22,7 +22,7 @@ export async function sendContactEmail(
   recipientEmail: string = 'info@modacrealestate.com'
 ): Promise<Response> {
   const subject = formData.subject || `New Contact Form Submission from ${formData.name}`;
-  
+
   // Email to info@modacrealestate.com (notification)
   const notificationHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -58,10 +58,10 @@ ${formData.message ? `Message:\n${formData.message}` : ''}
   `.trim();
 
   // Confirmation email to the form submitter
-  const confirmationSubject = formData.subject?.includes('Newsletter') 
+  const confirmationSubject = formData.subject?.includes('Newsletter')
     ? 'Thank You for Subscribing to Modac Real Estate Newsletter'
     : 'Thank You for Contacting Modac Real Estate';
-  
+
   const confirmationHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
       <div style="text-align: center; margin-bottom: 30px;">
@@ -76,9 +76,9 @@ ${formData.message ? `Message:\n${formData.message}` : ''}
         </p>
         
         <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-          ${formData.subject?.includes('Newsletter') 
-            ? 'Thank you for subscribing to our newsletter! You will now receive the latest property updates, market insights, and exclusive offers from Modac Real Estate.'
-            : 'Thank you for contacting Modac Real Estate. We have received your inquiry and our team will get back to you within 24 hours.'}
+          ${formData.subject?.includes('Newsletter')
+      ? 'Thank you for subscribing to our newsletter! You will now receive the latest property updates, market insights, and exclusive offers from Modac Real Estate.'
+      : 'Thank you for contacting Modac Real Estate. We have received your inquiry and our team will get back to you within 24 hours.'}
         </p>
         
         ${formData.message ? `
@@ -91,7 +91,7 @@ ${formData.message ? `Message:\n${formData.message}` : ''}
         <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <p style="color: #0a4b6f; font-size: 14px; margin: 0 0 10px 0;"><strong>What's Next?</strong></p>
           <p style="color: #374151; font-size: 14px; margin: 0; line-height: 1.6;">
-            Our team will review your inquiry and contact you shortly. In the meantime, feel free to explore our properties or contact us directly at <a href="mailto:info@modacrealestate.com" style="color: #0a4b6f;">info@modacrealestate.com</a> or call us at <a href="tel:+97145758035" style="color: #0a4b6f;">+971 4 575 8035</a>.
+            Our team will review your inquiry and contact you shortly. In the meantime, feel free to explore our properties or contact us directly at <a href="mailto:info@modacrealestate.com" style="color: #0a4b6f;">info@modacrealestate.com</a> or call us at <a href="tel:+9715583860" style="color: #0a4b6f;">+971 5583860</a>.
           </p>
         </div>
       </div>
@@ -101,7 +101,7 @@ ${formData.message ? `Message:\n${formData.message}` : ''}
           <strong>Modac Real Estate</strong><br/>
           Dubai, United Arab Emirates<br/>
           <a href="mailto:info@modacrealestate.com" style="color: #0a4b6f;">info@modacrealestate.com</a> | 
-          <a href="tel:+97145758035" style="color: #0a4b6f;">+971 4 575 8035</a>
+          <a href="tel:+9715583860" style="color: #0a4b6f;">+971 5583860</a>
         </p>
         <p style="color: #9ca3af; font-size: 11px; margin: 10px 0 0 0;">
           This is an automated confirmation email. Please do not reply to this message.
@@ -115,9 +115,9 @@ ${formData.subject?.includes('Newsletter') ? 'Thank You for Subscribing!' : 'Tha
 
 Dear ${formData.name},
 
-${formData.subject?.includes('Newsletter') 
-  ? 'Thank you for subscribing to our newsletter! You will now receive the latest property updates, market insights, and exclusive offers from Modac Real Estate.'
-  : 'Thank you for contacting Modac Real Estate. We have received your inquiry and our team will get back to you within 24 hours.'}
+${formData.subject?.includes('Newsletter')
+      ? 'Thank you for subscribing to our newsletter! You will now receive the latest property updates, market insights, and exclusive offers from Modac Real Estate.'
+      : 'Thank you for contacting Modac Real Estate. We have received your inquiry and our team will get back to you within 24 hours.'}
 
 ${formData.message ? `Your Message:\n${formData.message}\n` : ''}
 
@@ -126,7 +126,7 @@ Our team will review your inquiry and contact you shortly. In the meantime, feel
 
 Modac Real Estate
 Dubai, United Arab Emirates
-info@modacrealestate.com | +971 4 575 8035
+info@modacrealestate.com | +971 5583860
 
 This is an automated confirmation email. Please do not reply to this message.
   `.trim();

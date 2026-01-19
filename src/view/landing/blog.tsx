@@ -8,6 +8,48 @@ import { usePathname } from "next/navigation"
 
 const blogPosts = [
   {
+    imageSrc: "/images/property3.jpeg",
+    date: "Jan 15, 2026",
+    title: "Dubai Real Estate Outlook 2026: Sustainable Growth & New Opportunities",
+    description: "As we step into 2026, Dubai's real estate market continues to evolve. focused on sustainable developments and smart city initiatives offering new avenues for investors.",
+    href: "/blog/details/dubai-real-estate-outlook-2026",
+  },
+  {
+    imageSrc: "/images/card4.jpeg",
+    date: "Jan 10, 2026",
+    title: "The Rise of Branded Residences in Dubai: Ultimate Luxury",
+    description: "Explore why branded residences are becoming the preferred choice for ultra-high-net-worth individuals, offering unmatched amenities and lifestyle services.",
+    href: "/blog/details/branded-residences-dubai-rise",
+  },
+  {
+    imageSrc: "/images/building.jpg",
+    date: "Jan 5, 2026",
+    title: "Investing in Dubai South: Impact of Airport Expansion",
+    description: "With the expansion of Al Maktoum International Airport, Dubai South is emerging as a prime investment hub. Discover the potential of this rapidly developing district.",
+    href: "/blog/details/investing-dubai-south-airport-expansion",
+  },
+  {
+    imageSrc: "/images/dubai-marina.webp",
+    date: "Dec 28, 2025",
+    title: "Year-End Market Wrap: Dubai's Record-Breaking Transactions",
+    description: "A look back at 2025's phenomenal performance in the real estate sector, highlighting record transaction volumes and key market drivers.",
+    href: "/blog/details/year-end-market-wrap-2025",
+  },
+  {
+    imageSrc: "/images/c3.webp",
+    date: "Dec 20, 2025",
+    title: "Holiday Homes in Dubai: A Booming Investment Sector",
+    description: "The short-term rental market is thriving. Learn how converting your property into a holiday home can yield higher returns during peak tourist seasons.",
+    href: "/blog/details/holiday-homes-dubai-investment",
+  },
+  {
+    imageSrc: "/images/c1.webp",
+    date: "Dec 15, 2025",
+    title: "Top Communities for High ROI in 2026",
+    description: "Planning your portfolio for the new year? We analyze top communities projected to offer the highest returns on investment in 2026.",
+    href: "/blog/details/top-communities-high-roi-2026",
+  },
+  {
     imageSrc: "/images/dubai-marina.webp",
     date: "Nov 28, 2025",
     title: "Dubai Marina: The Ultimate Waterfront Living Experience",

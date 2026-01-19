@@ -5,25 +5,21 @@ const blogPost = {
   subtitle:
     "Explore Business Bay, Dubai's premier business district. From luxury apartments to commercial spaces, discover why this area is attracting investors and residents from around the world.",
   content: `
-    <h2>Dubai’s Commercial Powerhouse</h2>
-    <p>Business Bay is one of Dubai’s most dynamic districts, strategically located beside Downtown Dubai. With a skyline of cutting-edge skyscrapers and waterfront promenades along the Dubai Canal, it blends commercial vitality with sophisticated urban living.</p>
+    <h2>The "Manhattan of Dubai"</h2>
+    <p>Business Bay is a high-density, mixed-use district flanking the Dubai Canal. It is the city's central business district, home to regional HQs and architectural marvels like <strong>The Opus by Zaha Hadid</strong>.</p>
 
-    <h2>Prime Residential Living</h2>
-    <p>Residential towers in Business Bay offer high-rise living with premium amenities. Many buildings feature gyms, pools, dedicated concierge services, and retail at the podium level. Apartments are popular with professionals seeking quick access to Downtown and Sheikh Zayed Road.</p>
+    <h2>Commercial vs Residential</h2>
+    <p><strong>Commercial:</strong> Offers high-yield office spaces (8-10%) driven by corporate demand.
+    <br><strong>Residential:</strong> Luxury canal-front apartments in towers like <strong>Volante</strong> and <strong>Dorchester Collection</strong> cater to executives and investors.</p>
 
-    <h2>Business and Connectivity</h2>
-    <p>As a major commercial hub, the district hosts headquarters, co-working spaces, and boutique offices. Two metro stations, easy access to major highways, and proximity to Downtown and DIFC make commuting seamless.</p>
+    <h2>Lifestyle Evolution</h2>
+    <p>Once purely business, it has transformed into a lifestyle destination with 5-star hotels, canal promenades, and proximity to Downtown Dubai's entertainment.</p>
 
-    <h2>Lifestyle and Dining</h2>
-    <p>Business Bay offers a vibrant lifestyle with canal-side cafes, upscale restaurants, and boutique gyms. The district’s boardwalk and landscaped public spaces encourage a walkable, urban lifestyle.</p>
-
-    <h2>Investment Outlook</h2>
-    <p>Strong rental demand from professionals and the district’s constant development pipeline underpin investment appeal. Competitive yields and steady appreciation make Business Bay a compelling option for buy-to-let investors.</p>
+    <h2>Future Outlook</h2>
+    <p>With the completion of the canal boardwalk and new ultra-luxury launches, Business Bay is bridging the gap with Downtown Dubai in terms of prestige and price per square foot.</p>
 
     <h2>Conclusion</h2>
-    <p>With its strategic location, thriving business ecosystem, and modern residential options, Business Bay remains one of Dubai’s most attractive addresses for both living and investment.</p>
-
-    <p><strong>Interested in Business Bay?</strong> Contact Modac Real Estate for curated listings in the area.</p>
+    <p>Business Bay offers a dynamic urban environment perfect for professionals and investors seeking high rental demand.</p>
   `,
   author: {
     name: "Modac Real Estate",

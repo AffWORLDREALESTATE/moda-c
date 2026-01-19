@@ -67,7 +67,7 @@ function ContactUs() {
                     <div>
                       <p className="text-gray-800 font-medium font-sans">{t('contact.phone')}</p>
                   <a
-                    href="tel:+97145758035"
+                    href="tel:+9715583860"
                     className="text-[#0a4b6f] hover:text-[#1a6b8f] transition-colors font-sans"
                   >
                     {t('contact.phone.number')}

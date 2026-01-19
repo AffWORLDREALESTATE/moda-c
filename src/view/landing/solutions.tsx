@@ -7,7 +7,7 @@ function Solutions() {
   const { t } = useLanguage();
   
   // WhatsApp number for all cards
-  const whatsappNumber = "971545758035"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "971544745530"; // Replace with your actual WhatsApp number
   const whatsappMessage = encodeURIComponent("Hello! I'm interested in your services.");
   
   const solutions = [

@@ -6,16 +6,20 @@ const blogPost = {
     "Get expert predictions on Dubai's property market for 2026. From price forecasts to emerging trends, stay informed about future investment opportunities.",
   content: `
     <h2>Growth Drivers</h2>
-    <p>Population inflows, tourism expansion, and continued infrastructure investment are expected to support absorption and measured price growth into 2026.</p>
+    <p>Dubai's property market is projected to see steady mid-single-digit price growth in 2026, transitioning into a mature cycle. Key drivers include a population approaching 4 million, sustained high-net-worth individual (HNWI) inflows, and government initiatives like the Golden Visa.</p>
 
     <h2>Segments to Watch</h2>
-    <p>Well-managed communities with schools and healthcare continue to outperform. Waterfront and golf communities retain premium pricing power.</p>
+    <p><strong>Prime and Luxury:</strong> Areas like Palm Jumeirah, Downtown, and Emirates Hills are expected to outperform due to limited inventory.
+    <br><strong>Mid-Market:</strong> Communities like JVC and Dubai South will see growth driven by affordability and improved connectivity.</p>
+
+    <h2>Supply and Demand</h2>
+    <p>With approximately 100,000 units projected for completion, market absorption is expected to remain healthy. Developers are managing supply carefully, preventing oversaturation while meeting the demands of new residents.</p>
 
     <h2>Risks and Mitigants</h2>
-    <p>Global rate cycles and currency moves are key variables. Favor strong developers and liquid locations to mitigate cyclicality.</p>
+    <p>Global interest rate cycles and currency fluctuations remain key variables. Investors are advised to favor developers with proven track records and focus on liquid locations to mitigate cyclical risks.</p>
 
     <h2>Conclusion</h2>
-    <p>Disciplined, fundamentals-driven selection remains the best approach for 2026 positioning.</p>
+    <p>2026 offers a stable investment landscape, rewarding disciplined selection based on fundamentals rather than speculation.</p>
   `,
   author: {
     name: "Modac Real Estate",

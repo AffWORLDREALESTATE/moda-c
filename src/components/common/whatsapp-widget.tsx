@@ -8,7 +8,7 @@ const WhatsAppWidget = () => {
   const [isHovered, setIsHovered] = useState(false);
   
   // WhatsApp number (UAE): country code + phone number (no + or spaces)
-  const whatsappNumber = '97145758035';
+  const whatsappNumber = '971544745530';
   const whatsappMessage = encodeURIComponent(t('whatsapp.defaultMessage') || 'Hi, I would like to inquire about your properties.');
   
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;

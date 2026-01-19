@@ -247,7 +247,7 @@ export default function TeamPage() {
 
                       {/* WhatsApp Button Only */}
                       <a
-                        href={`https://wa.me/${agent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${agent.name}, I'm interested in luxury properties in Dubai`}
+                        href={`https://wa.me/971544745530?text=Hi ${agent.name}, I'm interested in luxury properties in Dubai`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
@@ -432,7 +432,7 @@ export default function TeamPage() {
 
               <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
                 <a
-                  href={`https://wa.me/${selectedAgent.phone?.replace(/[^0-9]/g, '')}?text=Hi ${selectedAgent.name}, I'm interested in luxury properties in Dubai`}
+                  href={`https://wa.me/971544745530?text=Hi ${selectedAgent.name}, I'm interested in luxury properties in Dubai`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 md:px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base"

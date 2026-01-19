@@ -6,19 +6,20 @@ const blogPost = {
     "Everything expats need to know about investing in Dubai real estate. From visa benefits to legal requirements, navigate the Dubai property market with confidence.",
   content: `
     <h2>Ownership for Expats</h2>
-    <p>Foreigners can buy freehold property in designated areas with full ownership rights. Purchases are registered with the DLD for transparency and security.</p>
+    <p>Foreigners can own property in designated "Freehold Areas" such as Dubai Marina, Downtown Dubai, Palm Jumeirah, and Business Bay. This grants full ownership rights (100%) to the investor.</p>
 
-    <h2>Visas and Residency</h2>
-    <p>Property-linked residency options exist above certain thresholds, subject to current regulations. Requirements and durations vary—verify the latest policies before purchase.</p>
+    <h2>Golden Visa</h2>
+    <p>Investors purchasing property worth <strong>AED 2 Million</strong> or more are eligible for a 10-year renewable Golden Visa.
+    <br><strong>Key Updates:</strong> The 2M threshold can now be met by equity amount (if mortgaged) or by combining multiple properties. Off-plan properties also qualify.</p>
 
-    <h2>Financing and Currency</h2>
-    <p>Expat mortgages are widely available. Consider currency exposure and hedging for long-term holdings.</p>
+    <h2>Financing</h2>
+    <p>Expats can obtain mortgages of up to 80% for ready properties. Interest rates are competitive, but banks may require a valid UAE residence visa for the best terms.</p>
 
-    <h2>Leasing and Management</h2>
-    <p>Professional property management eases leasing, compliance, and maintenance for overseas owners.</p>
+    <h2>Calculated Costs</h2>
+    <p>Budget approximately 6-7% over the purchase price for fees (4% DLD, 2% Agency Fee, + administration).</p>
 
     <h2>Conclusion</h2>
-    <p>With clear rules and robust infrastructure, Dubai welcomes expat investors seeking stable, tax-efficient opportunities.</p>
+    <p>With investor-friendly policies and tax-free rental income, Dubai remains a top global destination for expat capital.</p>
   `,
   author: {
     name: "Modac Real Estate",
