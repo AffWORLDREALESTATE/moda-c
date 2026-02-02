@@ -28,7 +28,7 @@ export default function DetailPage({ slug }: { slug: string }) {
     try {
       const res = await getAllBuyPropertiesBySlug(slug);
       const rawProperty = res?.properties?.[0];
-      
+
       if (rawProperty) {
         // Translate the property data
         const translatedProperty = await translateProperty(rawProperty, currentLanguage.code);
@@ -81,10 +81,10 @@ export default function DetailPage({ slug }: { slug: string }) {
   if (!property?.photos || property.photos.length === 0) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <div className="luxury-bg">
-      <section 
+      <section
         className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] w-full flex items-center justify-center text-center overflow-hidden"
         onMouseMove={handleMouseMove}
       >
@@ -99,13 +99,12 @@ export default function DetailPage({ slug }: { slug: string }) {
                 objectFit="cover"
                 quality={85}
                 priority={index === 0}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                  index === heroImageIndex
+                className={`absolute inset-0 object-cover transition-all duration-1000 ease-in-out ${index === heroImageIndex
                     ? "opacity-100 z-10"
                     : "opacity-0 z-0"
-                }`}
+                  }`}
                 style={{
-                  transform: index === heroImageIndex 
+                  transform: index === heroImageIndex
                     ? `scale(1.1) translate(${(mousePosition.x - 50) * 0.02}%, ${(mousePosition.y - 50) * 0.02}%)`
                     : 'scale(1)',
                   transformOrigin: 'center center'
@@ -119,11 +118,10 @@ export default function DetailPage({ slug }: { slug: string }) {
               <button
                 key={index}
                 onClick={() => setHeroImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === heroImageIndex
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === heroImageIndex
                     ? "bg-white scale-125"
                     : "bg-white/50 hover:bg-white/75"
-                }`}
+                  }`}
               />
             ))}
           </div>
@@ -269,7 +267,7 @@ export default function DetailPage({ slug }: { slug: string }) {
               {property?.description}
             </p>
             {property?.description && property.description.length > 200 && (
-              <button 
+              <button
                 onClick={() => setShowFullDescription(!showFullDescription)}
                 className="inline-flex items-center gap-2 bg-[#0a4b6f] hover:bg-[#1a6b8f] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
               >
@@ -334,11 +332,10 @@ export default function DetailPage({ slug }: { slug: string }) {
                         <button
                           key={index}
                           onClick={() => goToImage(index)}
-                          className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 overflow-hidden rounded transition-all duration-200 ${
-                            selectedImageIndex === index
+                          className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 overflow-hidden rounded transition-all duration-200 ${selectedImageIndex === index
                               ? "ring-2 ring-primary opacity-100 scale-105"
                               : "opacity-70 hover:opacity-90 hover:scale-102"
-                          }`}
+                            }`}
                         >
                           <Image
                             src={photo || "/placeholder.svg"}
@@ -359,11 +356,10 @@ export default function DetailPage({ slug }: { slug: string }) {
                     }).map((_, pageIndex) => (
                       <div
                         key={pageIndex}
-                        className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                          Math.floor(selectedImageIndex / 5) === pageIndex
+                        className={`w-2 h-2 rounded-full transition-colors duration-200 ${Math.floor(selectedImageIndex / 5) === pageIndex
                             ? "bg-primary"
                             : "bg-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -405,7 +401,7 @@ export default function DetailPage({ slug }: { slug: string }) {
           <EnquireForm type="contact" />
         </div>
       </section>
-      
+
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <AnimatePresence>
           <DialogContent className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-white rounded-none px-8 py-4">

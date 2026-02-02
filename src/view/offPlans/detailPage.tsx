@@ -338,7 +338,7 @@ export default function DetailPage({ slug }: { slug: string }) {
                   src={photo}
                   alt="Luxury Living in Dubai"
                   fill
-                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                  className={`absolute inset-0 object-cover transition-all duration-1000 ease-in-out ${
                     index === heroImageIndex
                       ? "opacity-100 z-10"
                       : "opacity-0 z-0"
