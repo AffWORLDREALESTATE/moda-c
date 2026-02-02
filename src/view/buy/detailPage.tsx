@@ -1,3 +1,5 @@
+"use client";
+
 import { getAllBuyPropertiesBySlug } from "@/src/api/buy";
 import EnquireForm from "@/src/components/common/enquireForm";
 import { Badge } from "@/src/components/ui/badge";
@@ -100,8 +102,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                 quality={85}
                 priority={index === 0}
                 className={`absolute inset-0 object-cover transition-all duration-1000 ease-in-out ${index === heroImageIndex
-                    ? "opacity-100 z-10"
-                    : "opacity-0 z-0"
+                  ? "opacity-100 z-10"
+                  : "opacity-0 z-0"
                   }`}
                 style={{
                   transform: index === heroImageIndex
@@ -119,8 +121,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                 key={index}
                 onClick={() => setHeroImageIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${index === heroImageIndex
-                    ? "bg-white scale-125"
-                    : "bg-white/50 hover:bg-white/75"
+                  ? "bg-white scale-125"
+                  : "bg-white/50 hover:bg-white/75"
                   }`}
               />
             ))}
@@ -333,8 +335,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                           key={index}
                           onClick={() => goToImage(index)}
                           className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 overflow-hidden rounded transition-all duration-200 ${selectedImageIndex === index
-                              ? "ring-2 ring-primary opacity-100 scale-105"
-                              : "opacity-70 hover:opacity-90 hover:scale-102"
+                            ? "ring-2 ring-primary opacity-100 scale-105"
+                            : "opacity-70 hover:opacity-90 hover:scale-102"
                             }`}
                         >
                           <Image
@@ -357,8 +359,8 @@ export default function DetailPage({ slug }: { slug: string }) {
                       <div
                         key={pageIndex}
                         className={`w-2 h-2 rounded-full transition-colors duration-200 ${Math.floor(selectedImageIndex / 5) === pageIndex
-                            ? "bg-primary"
-                            : "bg-gray-300"
+                          ? "bg-primary"
+                          : "bg-gray-300"
                           }`}
                       />
                     ))}
