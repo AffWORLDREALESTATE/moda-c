@@ -64,22 +64,46 @@ export function SearchBar({ className = "" }: SearchBarProps) {
     }
   };
 
+  const fieldBase =
+    "w-full h-11 md:h-12 lg:h-13 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:ring-1 focus:ring-[#C9A96E]/60 focus:border-[#C9A96E]/60 rounded-lg text-sm backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/35";
+
   return (
     <div className={`w-full ${className}`}>
-      <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-gray-200/50 p-2 sm:p-3 md:p-4 lg:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-stretch">
-          {/* First Field: Buy / Rent / Offplan */}
+      {/* Luxury glass-morphism search container */}
+      <div
+        className="rounded-2xl p-3 md:p-4"
+        style={{
+          background: "rgba(5, 15, 24, 0.6)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: "1px solid rgba(201,169,110,0.22)",
+          boxShadow: "0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)",
+        }}
+      >
+        {/* Label row */}
+        <div className="flex items-center gap-2 mb-3 px-1">
+          <div className="h-px flex-1" style={{ background: "rgba(201,169,110,0.25)" }} />
+          <span
+            className="text-[10px] font-medium uppercase tracking-[0.3em]"
+            style={{ color: "#C9A96E" }}
+          >
+            Find Your Property
+          </span>
+          <div className="h-px flex-1" style={{ background: "rgba(201,169,110,0.25)" }} />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2 md:gap-3 items-stretch">
+          {/* Buy / Rent / Off-plan */}
           <div className="col-span-1 min-w-0">
             <Select
               value={searchParams.type}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, type: value }))}
             >
-              <SelectTrigger className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left text-sm sm:text-base">
+              <SelectTrigger className={fieldBase}>
                 <SelectValue placeholder={t('buy.type')} />
               </SelectTrigger>
-              <SelectContent className="bg-white text-gray-800 border-gray-200">
-               
-                <SelectItem value="buy" defaultValue="buy">{t('buy.buy')}</SelectItem>
+              <SelectContent className="bg-[#0a1929] text-white border-white/15">
+                <SelectItem value="buy">{t('buy.buy')}</SelectItem>
                 <SelectItem value="rent">{t('buy.rent')}</SelectItem>
                 <SelectItem value="offplan">{t('offplans.offPlan')}</SelectItem>
               </SelectContent>
@@ -94,7 +118,7 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               value={searchParams.location === "any" ? "" : searchParams.location}
               onChange={(e) => setSearchParams(prev => ({ ...prev, location: e.target.value || "any" }))}
               onKeyDown={handleKeyPress}
-              className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left text-sm sm:text-base"
+              className={fieldBase}
             />
           </div>
 
@@ -104,10 +128,10 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               value={searchParams.propertyType}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, propertyType: value }))}
             >
-              <SelectTrigger className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left text-sm sm:text-base">
+              <SelectTrigger className={fieldBase}>
                 <SelectValue placeholder={t('buy.propertyType')} />
               </SelectTrigger>
-              <SelectContent className="bg-white text-gray-800 border-gray-200">
+              <SelectContent className="bg-[#0a1929] text-white border-white/15">
                 <SelectItem value="any">{t('buy.propertyType')}</SelectItem>
                 <SelectItem value="apartment">{t('offplans.apartment')}</SelectItem>
                 <SelectItem value="villa">{t('offplans.villa')}</SelectItem>
@@ -125,16 +149,16 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               value={searchParams.price}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, price: value }))}
             >
-              <SelectTrigger className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left text-sm sm:text-base">
+              <SelectTrigger className={fieldBase}>
                 <SelectValue placeholder={t('search.priceRange')} />
               </SelectTrigger>
-              <SelectContent className="bg-white text-gray-800 border-gray-200">
+              <SelectContent className="bg-[#0a1929] text-white border-white/15">
                 <SelectItem value="any">{t('search.priceRange')}</SelectItem>
                 <SelectItem value="0-500000">Under 500K AED</SelectItem>
-                <SelectItem value="500000-1000000">500K - 1M AED</SelectItem>
-                <SelectItem value="1000000-2000000">1M - 2M AED</SelectItem>
-                <SelectItem value="2000000-5000000">2M - 5M AED</SelectItem>
-                <SelectItem value="5000000-10000000">5M - 10M AED</SelectItem>
+                <SelectItem value="500000-1000000">500K – 1M AED</SelectItem>
+                <SelectItem value="1000000-2000000">1M – 2M AED</SelectItem>
+                <SelectItem value="2000000-5000000">2M – 5M AED</SelectItem>
+                <SelectItem value="5000000-10000000">5M – 10M AED</SelectItem>
                 <SelectItem value="10000000+">10M+ AED</SelectItem>
               </SelectContent>
             </Select>
@@ -146,10 +170,10 @@ export function SearchBar({ className = "" }: SearchBarProps) {
               value={searchParams.bedrooms}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, bedrooms: value }))}
             >
-              <SelectTrigger className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-left text-sm sm:text-base">
+              <SelectTrigger className={fieldBase}>
                 <SelectValue placeholder={t('offplans.bedrooms')} />
               </SelectTrigger>
-              <SelectContent className="bg-white text-gray-800 border-gray-200">
+              <SelectContent className="bg-[#0a1929] text-white border-white/15">
                 <SelectItem value="any">{t('offplans.bedrooms')}</SelectItem>
                 <SelectItem value="studio">{t('offplans.studio')}</SelectItem>
                 <SelectItem value="1">{t('offplans.oneBedroom')}</SelectItem>
@@ -165,10 +189,16 @@ export function SearchBar({ className = "" }: SearchBarProps) {
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <Button
               onClick={handleSearch}
-              className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] hover:from-[#dc2626] hover:to-[#b91c1c] text-white font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg cursor-pointer"
+              className="w-full h-11 md:h-12 lg:h-13 font-semibold text-sm transition-all duration-300 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.02] active:scale-100"
+              style={{
+                background: "linear-gradient(135deg, #C9A96E 0%, #b08d4e 100%)",
+                color: "#050f18",
+                boxShadow: "0 4px 20px rgba(201,169,110,0.35)",
+                border: "none",
+              }}
             >
-              <Search className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
-              <span className="text-xs sm:text-base">Search</span>
+              <Search className="w-4 h-4 shrink-0" />
+              <span>Search</span>
             </Button>
           </div>
         </div>

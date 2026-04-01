@@ -39,6 +39,9 @@
   --primary-foreground: #ffffff;
   --primary-light: #1a6b8f;
   --primary-lighter: #2a8abf;
+  --gold: #C9A96E;
+  --gold-light: #e8d5b7;
+  --gold-dark: #b08d4e;
   --horizontal-gradient: linear-gradient(to right, #0a4b6f, #1a6b8f);
   --vertical-gradient: linear-gradient(to bottom, #0a4b6f, #2a8abf);
   --secondary: oklch(0.97 0 0);
