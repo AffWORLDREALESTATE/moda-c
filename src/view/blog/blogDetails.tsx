@@ -6,9 +6,7 @@ import { useLanguage } from "@/src/contexts/LanguageContext";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Share2, Bookmark, Calendar, Clock, User, Tag } from "lucide-react";
-import Header2 from "../landing/Header2";
-import ContactSection from "../landing/ContactSection";
-import Footer from "../landing/Footer";
+import { CallToAction } from "../landing/call-to-action";
 
 // Individual blog components (if any exist)
 import DubaiHiddenGems from "./dubai-hidden-gems";
@@ -293,7 +291,7 @@ export default function DetailsBlog() {
 
   return (
     <div className="bg-white min-h-screen">
-      <Header2 />
+      {/* Header handled by layout */}
       <div className="pt-24 pb-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <Link
@@ -377,8 +375,8 @@ export default function DetailsBlog() {
           </div>
         </div>
       </div>
-      <ContactSection />
-      <Footer />
+      <CallToAction />
+      {/* Footer handled by layout */}
     </div>
   );
 }
