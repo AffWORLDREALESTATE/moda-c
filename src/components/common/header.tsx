@@ -105,7 +105,8 @@ export default function Header() {
   }, [isOverlayOpen]);
   
   const isHome = pathname === "/";
-  const headerTransparency = !isScrolled && isHome;
+  const isBlogDetail = pathname?.includes("/blog/details/");
+  const headerTransparency = !isScrolled && (isHome || isBlogDetail);
 
   return (
     <header className={cn(
@@ -113,7 +114,7 @@ export default function Header() {
       isScrolled 
         ? "bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg" 
         : isHome 
-          ? "bg-transparent border-none shadow-none" 
+          ? "bg-white/20 backdrop-blur-md border-none shadow-none" 
           : "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-md"
     )}>
       <nav className="w-full flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 xl:px-24 h-16 sm:h-18 md:h-20 lg:h-22 transition-all duration-500">
@@ -141,13 +142,10 @@ export default function Header() {
                         type="button"
                         onClick={(e) => e.preventDefault()}
                         className={cn(
-                          "relative pb-1 transition-all duration-300 font-medium text-base",
-                          headerTransparency ? "text-white hover:text-white/80" : "text-gray-900 hover:text-red-600",
+                          "relative pb-1 transition-all duration-300 font-medium text-base text-gray-900 hover:text-red-600",
                           "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                          "after:transition-all after:duration-300 hover:after:w-full",
-                          headerTransparency ? "after:bg-white" : "after:bg-red-600",
-                          (pathname === link.href || isServicesDropdownOpen) && "after:w-full",
-                          !headerTransparency && (pathname === link.href || isServicesDropdownOpen) && "text-red-600"
+                          "after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full",
+                          (pathname === link.href || isServicesDropdownOpen) && "after:w-full text-red-600"
                         )}
                         style={{
                           letterSpacing: "0.5px",
@@ -231,13 +229,10 @@ export default function Header() {
                 key={i}
                 href={link.href}
                 className={cn(
-                  "relative pb-1 transition-all duration-300 font-medium text-base",
-                  headerTransparency ? "text-white hover:text-white/80" : "text-gray-900 hover:text-red-600",
+                  "relative pb-1 transition-all duration-300 font-medium text-base text-gray-900 hover:text-red-600",
                   "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                  "after:transition-all after:duration-300 hover:after:w-full",
-                  headerTransparency ? "after:bg-white" : "after:bg-red-600",
-                  pathname === link.href && "after:w-full",
-                  !headerTransparency && pathname === link.href && "text-red-600"
+                  "after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full",
+                  pathname === link.href && "after:w-full text-red-600"
                 )}
                 style={{
                   letterSpacing: "0.5px",
@@ -252,22 +247,16 @@ export default function Header() {
         {/* Right Side - Currency and Actions */}
         <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-shrink-0">
           {/* Language Switcher - Smaller on mobile */}
-          <div className={cn(
-            "scale-75 sm:scale-90 md:scale-100 origin-right transition-all duration-500",
-            headerTransparency && "brightness-0 invert"
-          )}>
+          <div className="scale-75 sm:scale-90 md:scale-100 origin-right transition-all duration-500">
             <LanguageSwitcher />
           </div>
 
           {/* Currency Selector - Smaller on mobile */}
           <div className="flex items-center space-x-0.5">
             <div className={cn("hidden md:block w-px h-4 transition-colors duration-500", headerTransparency ? "bg-white/30" : "bg-gray-300")}></div>
-            <div className={cn(
-              "flex items-center space-x-0.5 scale-75 sm:scale-90 md:scale-100 origin-right transition-colors duration-500",
-              headerTransparency ? "text-white" : "text-gray-600"
-            )}>
+            <div className="flex items-center space-x-0.5 scale-75 sm:scale-90 md:scale-100 origin-right transition-colors duration-500 text-gray-600">
               {currencyIconSrc ? (
-                <Image src={currencyIconSrc} alt="AED" width={10} height={10} className={headerTransparency ? "brightness-0 invert" : ""} />
+                <Image src={currencyIconSrc} alt="AED" width={10} height={10} />
               ) : (
                 <Globe className="h-2.5 w-2.5" />
               )}
@@ -288,10 +277,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div
-            className={cn(
-              "lg:hidden cursor-pointer transition-colors duration-200 ml-1",
-              headerTransparency ? "text-white hover:text-white/80" : "text-gray-700 hover:text-red-600"
-            )}
+            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-red-600 ml-1"
             onClick={() => setIsOverlayOpen(true)}
           >
             <Menu className="h-6 w-6" />

@@ -20,6 +20,12 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Data-led strategies to optimize yield and growth in Dubai's prime real estate market.",
       images: [{ url: hero }],
       type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Dubai Real Estate Investment Advisory | Modac Real Estate",
+      description: "Optimize your property yields with data-led investment strategies.",
+      images: [hero],
     }
   };
 }

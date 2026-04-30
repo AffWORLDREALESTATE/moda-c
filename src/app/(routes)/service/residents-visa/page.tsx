@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/src/components/ui/button";
@@ -6,6 +7,28 @@ import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
 import { T } from "@/src/components/common/T";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
+  const hero = images[0]?.url || "/images/dubai-marina.webp";
+  
+  return {
+    title: "UAE Residents Visa Services | Modac Real Estate",
+    description: "End-to-end guidance to obtain or renew your UAE residence visa. Expert support for property owners and families relocating to Dubai.",
+    openGraph: {
+      title: "UAE Residents Visa Services | Modac Real Estate",
+      description: "Secure your UAE residency through property investment or employment. Full support by Modac Real Estate.",
+      images: [{ url: hero }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "UAE Residents Visa Services | Modac Real Estate",
+      description: "Secure your UAE residency with expert guidance.",
+      images: [hero],
+    }
+  };
+}
 
 export default async function ResidentsVisaPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");

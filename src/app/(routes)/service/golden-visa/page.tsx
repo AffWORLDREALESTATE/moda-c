@@ -20,6 +20,12 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Secure your 10-year UAE Golden Visa through property investment. Complete concierge service in Dubai.",
       images: [{ url: hero }],
       type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "UAE Golden Visa - 10-Year Residency | Modac Real Estate",
+      description: "Secure your 10-year UAE Golden Visa through property investment.",
+      images: [hero],
     }
   };
 }

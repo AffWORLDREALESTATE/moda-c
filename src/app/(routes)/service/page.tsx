@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     title: "Real Estate Services Dubai | Modac Real Estate",
     description: "Expert management and advisory for all your property needs in Dubai.",
     images: ["/images/Dubai-Hills-Estate.webp"],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Premium Real Estate Services in Dubai | Modac Real Estate",
+    description: "Comprehensive property management and advisory in Dubai.",
+    images: ["/images/Dubai-Hills-Estate.webp"],
   }
 };
 

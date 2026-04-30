@@ -25,9 +25,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://www.modacrealestate.com'),
-  alternates: {
-    canonical: '/',
-  },
   icons: {
     icon: [
       { url: '/images/logo.png', sizes: '32x32', type: 'image/png' },

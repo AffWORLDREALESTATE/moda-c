@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
 import { MapPin, Phone, Smartphone, Mail } from "lucide-react";

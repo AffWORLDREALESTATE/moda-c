@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/src/components/ui/button";
@@ -6,6 +7,28 @@ import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
 import { T } from "@/src/components/common/T";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
+  const hero = images[2]?.url || images[1]?.url || "/images/Dubai-Creek-Harbour.webp";
+  
+  return {
+    title: "Buy, Sell & Off-Plan Properties in Dubai | Modac Real Estate",
+    description: "End-to-end brokerage for primary and secondary markets. Sourcing, pricing, and negotiations for premium Dubai properties.",
+    openGraph: {
+      title: "Buy, Sell & Off-Plan Properties | Modac Real Estate",
+      description: "Expert brokerage for Dubai's primary and secondary property markets.",
+      images: [{ url: hero }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Buy, Sell & Off-Plan Properties | Modac Real Estate",
+      description: "Expert property brokerage in Dubai.",
+      images: [hero],
+    }
+  };
+}
 
 export default async function BuySellOffplanPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
