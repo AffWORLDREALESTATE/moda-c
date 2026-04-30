@@ -1,4 +1,15 @@
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Premium Real Estate Services in Dubai | Modac Real Estate",
+  description: "Comprehensive real estate solutions in Dubai including Off-Plan management, Mortgages, Conveyancing, and Short-Term Rentals.",
+  openGraph: {
+    title: "Real Estate Services Dubai | Modac Real Estate",
+    description: "Expert management and advisory for all your property needs in Dubai.",
+    images: ["/images/Dubai-Hills-Estate.webp"],
+  }
+};
 
 const servicesData = [
   {

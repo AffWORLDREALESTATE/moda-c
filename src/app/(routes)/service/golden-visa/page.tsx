@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/src/components/ui/button";
@@ -6,6 +7,22 @@ import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
 import { T } from "@/src/components/common/T";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
+  const hero = images[1]?.url || images[0]?.url || "/images/Dubai-Creek-Harbour.webp";
+  
+  return {
+    title: "UAE Golden Visa - 10-Year Residency | Modac Real Estate",
+    description: "Secure your 10-year UAE Golden Visa through property investment or entrepreneurship. Expert guidance and full processing services by Modac Real Estate.",
+    openGraph: {
+      title: "UAE Golden Visa - 10-Year Residency | Modac Real Estate",
+      description: "Secure your 10-year UAE Golden Visa through property investment. Complete concierge service in Dubai.",
+      images: [{ url: hero }],
+      type: 'article',
+    }
+  };
+}
 
 export default async function GoldenVisaPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");

@@ -189,6 +189,7 @@ const translations: Record<string, Translations> = {
     // Hero
     'hero.companyName': 'MODAC REAL ESTATE',
     'landing.hero.heading': 'Find Your Dream Home With Modac Real Estate',
+    'landing.hero.subheading': 'Luxury Properties, Exceptional Service, Unmatched Expertise in Dubai\'s Premium Market.',
     
     // Buy page
     'buy.completionStatus': 'Completion Status',

@@ -104,13 +104,19 @@ export default function Header() {
     };
   }, [isOverlayOpen]);
   
+  const isHome = pathname === "/";
+  const headerTransparency = !isScrolled && isHome;
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
       isScrolled 
-        ? 'bg-white backdrop-blur-md border-b border-gray-200 shadow-lg' 
-        : 'bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-md'
-    }`}>
-      <nav className="w-full flex items-center justify-between px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 h-16 sm:h-18 md:h-20 lg:h-22">
+        ? "bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg" 
+        : isHome 
+          ? "bg-transparent border-none shadow-none" 
+          : "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-md"
+    )}>
+      <nav className="w-full flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 xl:px-24 h-16 sm:h-18 md:h-20 lg:h-22 transition-all duration-500">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <Link href={"/"}>
@@ -119,34 +125,37 @@ export default function Header() {
               alt="MODAC Real Estate Logo"
               width={260}
               height={92}
-              className="object-contain w-20 h-7 sm:w-24 sm:h-8 md:w-72 md:h-24 lg:w-80 lg:h-28 xl:w-96 xl:h-32"
+              className="object-contain transition-all duration-500 w-20 h-7 sm:w-24 sm:h-8 md:w-64 md:h-20 lg:w-72 lg:h-24 xl:w-80 xl:h-28"
             />
           </Link>
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center space-x-6 flex-shrink-0">
+        <div className="hidden lg:flex items-center space-x-8 flex-shrink-0">
           {headerLink.map((link, i) => {
             if (link.hasDropdown) {
               return (
                 <DropdownMenu key={i} open={isServicesDropdownOpen} onOpenChange={setIsServicesDropdownOpen}>
                   <DropdownMenuTrigger asChild>
-                    <button
-                      type="button"
-                      onClick={(e) => e.preventDefault()}
-                      className={cn(
-                        "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-red-600",
-                        "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                        "after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full",
-                        (pathname === link.href || isServicesDropdownOpen) && "after:w-full text-red-600"
-                      )}
-                      style={{
-                        letterSpacing: "0.5px",
-                      }}
-                      aria-haspopup="menu"
-                    >
-                      {link.label}
-                    </button>
+                      <button
+                        type="button"
+                        onClick={(e) => e.preventDefault()}
+                        className={cn(
+                          "relative pb-1 transition-all duration-300 font-medium text-base",
+                          headerTransparency ? "text-white hover:text-white/80" : "text-gray-900 hover:text-red-600",
+                          "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
+                          "after:transition-all after:duration-300 hover:after:w-full",
+                          headerTransparency ? "after:bg-white" : "after:bg-red-600",
+                          (pathname === link.href || isServicesDropdownOpen) && "after:w-full",
+                          !headerTransparency && (pathname === link.href || isServicesDropdownOpen) && "text-red-600"
+                        )}
+                        style={{
+                          letterSpacing: "0.5px",
+                        }}
+                        aria-haspopup="menu"
+                      >
+                        {link.label}
+                      </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-[500px] p-0" align="start" sideOffset={10}>
                     <div className="bg-white rounded-lg shadow-xl border border-gray-200">
@@ -222,10 +231,13 @@ export default function Header() {
                 key={i}
                 href={link.href}
                 className={cn(
-                  "relative pb-1 transition-all duration-300 font-normal text-base text-gray-900 hover:text-red-600",
+                  "relative pb-1 transition-all duration-300 font-medium text-base",
+                  headerTransparency ? "text-white hover:text-white/80" : "text-gray-900 hover:text-red-600",
                   "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0",
-                  "after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full",
-                  pathname === link.href && "after:w-full text-red-600"
+                  "after:transition-all after:duration-300 hover:after:w-full",
+                  headerTransparency ? "after:bg-white" : "after:bg-red-600",
+                  pathname === link.href && "after:w-full",
+                  !headerTransparency && pathname === link.href && "text-red-600"
                 )}
                 style={{
                   letterSpacing: "0.5px",
@@ -240,16 +252,22 @@ export default function Header() {
         {/* Right Side - Currency and Actions */}
         <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-shrink-0">
           {/* Language Switcher - Smaller on mobile */}
-          <div className="scale-75 sm:scale-90 md:scale-100 origin-right">
+          <div className={cn(
+            "scale-75 sm:scale-90 md:scale-100 origin-right transition-all duration-500",
+            headerTransparency && "brightness-0 invert"
+          )}>
             <LanguageSwitcher />
           </div>
 
           {/* Currency Selector - Smaller on mobile */}
           <div className="flex items-center space-x-0.5">
-            <div className="hidden md:block w-px h-4 bg-gray-300"></div>
-            <div className="flex items-center space-x-0.5 text-gray-600 scale-75 sm:scale-90 md:scale-100 origin-right">
+            <div className={cn("hidden md:block w-px h-4 transition-colors duration-500", headerTransparency ? "bg-white/30" : "bg-gray-300")}></div>
+            <div className={cn(
+              "flex items-center space-x-0.5 scale-75 sm:scale-90 md:scale-100 origin-right transition-colors duration-500",
+              headerTransparency ? "text-white" : "text-gray-600"
+            )}>
               {currencyIconSrc ? (
-                <Image src={currencyIconSrc} alt="AED" width={10} height={10} />
+                <Image src={currencyIconSrc} alt="AED" width={10} height={10} className={headerTransparency ? "brightness-0 invert" : ""} />
               ) : (
                 <Globe className="h-2.5 w-2.5" />
               )}
@@ -270,10 +288,13 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div
-            className="lg:hidden cursor-pointer transition-colors duration-200 text-gray-700 hover:text-red-600 ml-1"
+            className={cn(
+              "lg:hidden cursor-pointer transition-colors duration-200 ml-1",
+              headerTransparency ? "text-white hover:text-white/80" : "text-gray-700 hover:text-red-600"
+            )}
             onClick={() => setIsOverlayOpen(true)}
           >
-            <Menu className="h-5 w-5" />
+            <Menu className="h-6 w-6" />
           </div>
         </div>
       </nav>

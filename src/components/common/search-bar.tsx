@@ -14,6 +14,7 @@ interface SearchBarProps {
 export function SearchBar({ className = "" }: SearchBarProps) {
   const router = useRouter();
   const { t } = useLanguage();
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const [searchParams, setSearchParams] = useState({
     propertyType: "any",
     location: "any", 
@@ -67,7 +68,7 @@ export function SearchBar({ className = "" }: SearchBarProps) {
   return (
     <div className={`w-full ${className}`}>
       <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-gray-200/50 p-2 sm:p-3 md:p-4 lg:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-stretch">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-stretch">
           {/* First Field: Buy / Rent / Offplan */}
           <div className="col-span-1 min-w-0">
             <Select
@@ -98,8 +99,20 @@ export function SearchBar({ className = "" }: SearchBarProps) {
             />
           </div>
 
-          {/* Property Type */}
-          <div className="col-span-1 min-w-0">
+          {/* Advanced Toggle for Mobile */}
+          <div className="col-span-2 lg:hidden">
+            <Button
+              variant="outline"
+              onClick={() => setShowAdvanced(!showAdvanced)}
+              className="w-full h-10 border-gray-300 text-gray-600 flex items-center justify-center gap-2 text-sm"
+            >
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAdvanced ? "rotate-180" : ""}`} />
+              {showAdvanced ? "Fewer Filters" : "More Filters"}
+            </Button>
+          </div>
+
+          {/* Property Type - Hidden on mobile unless showAdvanced is true */}
+          <div className={`${showAdvanced ? "col-span-2" : "hidden"} lg:block lg:col-span-1 min-w-0`}>
             <Select
               value={searchParams.propertyType}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, propertyType: value }))}
@@ -119,8 +132,8 @@ export function SearchBar({ className = "" }: SearchBarProps) {
             </Select>
           </div>
 
-          {/* Price */}
-          <div className="col-span-1 min-w-0">
+          {/* Price - Hidden on mobile unless showAdvanced is true */}
+          <div className={`${showAdvanced ? "col-span-1" : "hidden"} lg:block lg:col-span-1 min-w-0`}>
             <Select
               value={searchParams.price}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, price: value }))}
@@ -140,8 +153,8 @@ export function SearchBar({ className = "" }: SearchBarProps) {
             </Select>
           </div>
 
-          {/* Bedrooms */}
-          <div className="col-span-1 min-w-0">
+          {/* Bedrooms - Hidden on mobile unless showAdvanced is true */}
+          <div className={`${showAdvanced ? "col-span-1" : "hidden"} lg:block lg:col-span-1 min-w-0`}>
             <Select
               value={searchParams.bedrooms}
               onValueChange={(value) => setSearchParams(prev => ({ ...prev, bedrooms: value }))}
@@ -162,7 +175,7 @@ export function SearchBar({ className = "" }: SearchBarProps) {
           </div>
 
           {/* Search Button */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Button
               onClick={handleSearch}
               className="w-full h-10 sm:h-11 md:h-12 lg:h-14 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] hover:from-[#dc2626] hover:to-[#b91c1c] text-white font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg cursor-pointer"

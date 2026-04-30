@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/src/contexts/LanguageContext";
 import { getBinghattiHillviewsImages, HeroImage } from "@/src/api/hero";
-import { SearchBar } from "@/src/components/common/search-bar";
 
 export default function HeroSection() {
   const [isLoading, setIsLoading] = useState(true);
@@ -83,7 +82,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative h-[80vh] sm:h-[65vh] md:h-[70vh] lg:h-[75vh] w-full flex items-center justify-center text-center bg-white overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
+      className="relative h-screen w-full flex items-center justify-center text-center bg-white overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
     >
       {/* Luxury Loading Overlay */}
       {isLoading && (
@@ -139,7 +138,7 @@ export default function HeroSection() {
               poster="/images/bgImage.webp"
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             >
-              <source src="/Video-from-Modac-Real-Estate-Dubai - Trim.mp4" type="video/mp4" />
+              <source src="/hero.mp4" type="video/mp4" />
             </video>
 
             {/* Error State */}
@@ -161,28 +160,39 @@ export default function HeroSection() {
       </div>
 
       {/* Enhanced Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40 z-10" />
       
       {/* Cinematic Overlay Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-15" />
 
       {/* Hero Content */}
-      <div className="relative z-20 text-center px-3 sm:px-4 w-full">
+      <div className="relative z-20 text-center px-4 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="max-w-6xl mx-auto"
         >
-          {/* Search bar - visible on all screen sizes */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-32 sm:mt-40 md:mt-48 lg:mt-56"
-          >
-            <SearchBar />
-          </motion.div>
+          {/* Engaging Headlines */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight drop-shadow-2xl"
+            >
+              {t('landing.hero.heading')}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto drop-shadow-lg"
+            >
+              {t('landing.hero.subheading')}
+            </motion.p>
+          </div>
+
         </motion.div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://modacproperties.com'),
+  metadataBase: new URL('https://www.modacrealestate.com'),
   alternates: {
     canonical: '/',
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Modac Real Estate - Premium Real Estate Solutions in Dubai",
     description: "Discover luxury properties, off-plan projects, and premium real estate services in Dubai.",
-    url: 'https://modacproperties.com',
+    url: 'https://www.modacrealestate.com',
     siteName: 'Modac Real Estate',
     images: [
       {

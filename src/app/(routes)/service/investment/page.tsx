@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/src/components/ui/button";
@@ -6,6 +7,22 @@ import AnimatedCard from "@/src/components/common/animated-card";
 import { getProjectImagesByName } from "@/src/api/hero";
 import { FadeUp, FadeIn } from "@/src/components/common/reveal";
 import { T } from "@/src/components/common/T";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
+  const hero = images[2]?.url || images[0]?.url || "/images/bgImage.webp";
+  
+  return {
+    title: "Investment Advisory & Portfolio Strategy in Dubai | Modac Real Estate",
+    description: "Expert real estate investment advisory in Dubai. Data-led strategies to optimize yield, growth, and liquidity across prime districts.",
+    openGraph: {
+      title: "Real Estate Investment Advisory Dubai | Modac Real Estate",
+      description: "Data-led strategies to optimize yield and growth in Dubai's prime real estate market.",
+      images: [{ url: hero }],
+      type: 'article',
+    }
+  };
+}
 
 export default async function InvestmentAdvisoryPage() {
   const { images } = await getProjectImagesByName("Binghatti Skyrise Phase 2");
